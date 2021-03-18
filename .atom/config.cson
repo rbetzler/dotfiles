@@ -1,0 +1,12 @@
+"*":
+  core:
+    telemetryConsent: "no"
+  "highlight-line":
+    enableSelectionBorder: true
+  "linter-flake8":
+    executablePath: "~/venv/bin/flake8"
+    maxLineLength: 120
+  "linter-ui-default":
+    panelHeight: 181
+  welcome:
+    showOnStartup: false
