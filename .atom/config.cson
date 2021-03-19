@@ -2,6 +2,7 @@
   core:
     disabledPackages: [
       "exception-reporting"
+      "linter-flake8"
     ]
     telemetryConsent: "no"
   "highlight-line":
@@ -9,7 +10,6 @@
   "linter-flake8":
     executablePath: "~/venv/bin/flake8"
     maxLineLength: 120
-  "linter-ui-default":
-    panelHeight: 181
+  "linter-ui-default": {}
   welcome:
     showOnStartup: false
