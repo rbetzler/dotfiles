@@ -1,12 +1,8 @@
 My `$HOME`
 
+Pi install: `sudo sh ./install_pi.sh`
+
 Apps:
-* vim
-  * Install vim + vundle
-  * `.vimrc` handles plugins
-  * Install `ctags`
-    * `sudo apt-get install ctags`
-    * `brew install ctags`
 * atom
   * Install app
   * Then get packages:
