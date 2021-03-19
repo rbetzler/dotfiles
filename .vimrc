@@ -8,7 +8,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
-" Plugin 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
@@ -17,6 +17,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'shmup/vim-sql-syntax'
 Plugin 'gilgigilgil/anderson.vim'
 Plugin 'glepnir/oceanic-material'
+Plugin 'jmcantrell/vim-virtualenv'
 
 " Bundles
 " Bundle 'Valloric/YouCompleteMe'
@@ -39,12 +40,3 @@ set clipboard=unnamed
 set background=dark
 colorscheme oceanic_material
 
-" Support venv
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
