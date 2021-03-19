@@ -1,2 +1,2 @@
 'atom-text-editor:not([mini])':
-  'cmd-backspace': 'editor:delete-line'
+  'ctrl-backspace': 'editor:delete-line'
