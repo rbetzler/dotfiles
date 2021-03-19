@@ -43,6 +43,12 @@ colorscheme oceanic_material
 " Set ctags
 set tags+=$HOME/ctags/
 
+" Customize keybindings
+vmap <C-c> y
+vmap <C-x> x
+imap <C-v> <esc>P
+nmap <C-l> :call <SNR>45_NERDTreeFocusToggle()<CR>
+
 " Autoopen nerdtree
 autocmd FileType python NERDTree
 autocmd FileType python NERDTreeFocusToggle
