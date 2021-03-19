@@ -1,5 +1,8 @@
 "*":
   core:
+    disabledPackages: [
+      "exception-reporting"
+    ]
     telemetryConsent: "no"
   "highlight-line":
     enableSelectionBorder: true
