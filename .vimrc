@@ -44,8 +44,8 @@ colorscheme oceanic_material
 set tags+=$HOME/ctags/
 
 " Autoopen nerdtree
-autocmd BufNewFile,BufRead *.py NERDTree
-autocmd BufNewFile,BufRead *.py NERDTreeFocusToggle
-autocmd BufNewFile,BufRead *.py TagbarOpen
+autocmd FileType python NERDTree
+autocmd FileType python NERDTreeFocusToggle
+autocmd FileType python TagbarOpen
 autocmd FileType python setlocal completeopt-=preview
 
