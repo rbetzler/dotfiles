@@ -47,4 +47,5 @@ set tags+=$HOME/ctags/
 autocmd BufNewFile,BufRead *.py NERDTree
 autocmd BufNewFile,BufRead *.py NERDTreeFocusToggle
 autocmd BufNewFile,BufRead *.py TagbarOpen
+autocmd FileType python setlocal completeopt-=preview
 
