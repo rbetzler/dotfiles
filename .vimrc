@@ -48,11 +48,10 @@ set tags+=$HOME/ctags/
 vmap <C-c> y
 vmap <C-x> x
 imap <C-v> <esc>P
-nmap <C-l> :call <SNR>45_NERDTreeFocusToggle()<CR>
+nmap <C-l> :call <SNR>46_NERDTreeFocusToggle()<CR>
 
 " Autoopen nerdtree
-autocmd FileType python NERDTree
-autocmd FileType python NERDTreeFocusToggle
+autocmd VimEnter * NERDTree | wincmd p
 autocmd FileType python TagbarOpen
 autocmd FileType python setlocal completeopt-=preview
 
