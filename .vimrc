@@ -44,6 +44,9 @@ colorscheme oceanic_material
 " Set ctags
 set tags+=$HOME/ctags/
 
+" Set no wrap
+set nowrap
+
 " Customize keybindings
 vmap <C-c> y
 vmap <C-x> x
