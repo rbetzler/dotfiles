@@ -18,6 +18,7 @@ Plugin 'shmup/vim-sql-syntax'
 Plugin 'gilgigilgil/anderson.vim'
 Plugin 'glepnir/oceanic-material'
 Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'mg979/vim-visual-multi', {'branch': 'master'}
 
 " Bundles
 " Bundle 'Valloric/YouCompleteMe'
