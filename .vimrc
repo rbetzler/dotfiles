@@ -34,8 +34,13 @@ syntax on
 " Line numbering
 set nu
 
-" Access system clipboard
-set clipboard=unnamedplus
+" Access system clipboard for mac
+if has('macunix')
+    set clipboard=unnamed
+" Or for linux
+else
+    set clipboard=unnamedplus
+endif
 
 " Set color scheme
 set background=dark
