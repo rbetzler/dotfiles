@@ -35,7 +35,7 @@ syntax on
 set nu
 
 " Access system clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Set color scheme
 set background=dark
