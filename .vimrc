@@ -56,7 +56,7 @@ set nowrap
 vmap <C-c> y
 vmap <C-x> x
 imap <C-v> <esc>P
-nmap <C-l> :call <SNR>46_NERDTreeFocusToggle()<CR>
+nmap <C-l> :NERDTreeFocusToggle<CR>
 
 " Autoopen nerdtree
 autocmd VimEnter * NERDTree | wincmd p
