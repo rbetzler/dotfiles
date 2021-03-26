@@ -1,1 +1,1 @@
-source example
+source ${HOME}/.db_creds/example
