@@ -1,0 +1,6 @@
+export PGHOST=localhost
+export PGPORT=5432
+export PGDATABASE=my_db
+export PGUSER=my_user
+export PGPASSWORD=my_password
+

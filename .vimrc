@@ -85,5 +85,5 @@ function Query()
     :echo arg
     :call system(arg)
 endfunction
-command! query call Query()
+command! Query call Query()
 
