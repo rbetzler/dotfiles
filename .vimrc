@@ -87,12 +87,13 @@ function ToggleMouse()
 endfunction
 
 function DBQuery()
-    :let file=expand('%:p')
-    :let arg='psql -A -F"," -f ' . file . ' > ~/Desktop/output.csv --pset footer'
-    :echo arg
-    :call system(arg)
-    :split
-    :e Desktop/output.csv
+    let file=expand('%:p')
+    if file =~ '.sql'
+        let arg='psql -A -F"," -f ' . file . ' > ~/Desktop/output.csv --pset footer'
+        call system(arg)
+        split
+        e Desktop/output.csv
+    endif
 endfunction
 command! DBQuery call DBQuery()
 
