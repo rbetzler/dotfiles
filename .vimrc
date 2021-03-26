@@ -53,6 +53,9 @@ set tags+=$HOME/ctags/
 " Set no wrap
 set nowrap
 
+" Set split lower
+set splitbelow
+
 " Customize keybindings
 vmap <C-c> y
 vmap <C-x> x
@@ -85,6 +88,7 @@ function DBQuery()
     :let arg='psql -A -F"," -f ' . file . ' > ~/Desktop/output.csv --pset footer'
     :echo arg
     :call system(arg)
+    :terminal vim Desktop/output.csv
 endfunction
 command! DBQuery call DBQuery()
 
