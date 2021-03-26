@@ -79,3 +79,11 @@ function ToggleMouse()
     endif
 endfunction
 
+function Query()
+    :let file=expand('%:p')
+    :let arg="psql -f " . file . " -o ~/Desktop/test.txt"
+    :echo arg
+    :call system(arg)
+endfunction
+command! query call Query()
+
