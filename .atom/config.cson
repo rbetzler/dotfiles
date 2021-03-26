@@ -5,6 +5,7 @@
       "linter-flake8"
     ]
     telemetryConsent: "no"
+  editor: {}
   "highlight-line":
     enableSelectionBorder: true
   "linter-flake8":
