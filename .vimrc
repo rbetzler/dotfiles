@@ -56,6 +56,9 @@ set nowrap
 " Set split lower
 set splitbelow
 
+" Set file to autoread on open
+set autoread
+
 " Customize keybindings
 vmap <C-c> y
 vmap <C-x> x
@@ -88,7 +91,8 @@ function DBQuery()
     :let arg='psql -A -F"," -f ' . file . ' > ~/Desktop/output.csv --pset footer'
     :echo arg
     :call system(arg)
-    :terminal vim Desktop/output.csv
+    :split
+    :e Desktop/output.csv
 endfunction
 command! DBQuery call DBQuery()
 
