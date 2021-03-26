@@ -19,6 +19,7 @@ Plugin 'gilgigilgil/anderson.vim'
 Plugin 'glepnir/oceanic-material'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'mg979/vim-visual-multi', {'branch': 'master'}
+Plugin 'chrisbra/csv.vim'
 
 " Bundles
 " Bundle 'Valloric/YouCompleteMe'
@@ -79,11 +80,11 @@ function ToggleMouse()
     endif
 endfunction
 
-function Query()
+function DBQuery()
     :let file=expand('%:p')
-    :let arg="psql -f " . file . " -o ~/Desktop/test.txt"
+    :let arg='psql -A -F"," -f ' . file . ' > ~/Desktop/output.csv --pset footer'
     :echo arg
     :call system(arg)
 endfunction
-command! Query call Query()
+command! DBQuery call DBQuery()
 
