@@ -92,7 +92,7 @@ function DBQuery()
         let arg='psql -A -F"," -f ' . file . ' > ~/Desktop/output.csv --pset footer'
         call system(arg)
         split
-        e Desktop/output.csv
+        e ~/Desktop/output.csv
     endif
 endfunction
 command! DBQuery call DBQuery()
