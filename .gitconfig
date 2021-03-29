@@ -1,0 +1,21 @@
+[user]
+	name = rbetzler
+	email = rick.betzler@petalcard.com
+
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
+
+[alias]
+	a = add
+	ap = "add -p"
+	ch = checkout
+	chb = "checkout -b"
+	cm = "commit -m"
+	df = diff
+	dfc = "diff --cached"
+	rbi = "rebase -i"
+	bl = "branch -l"
+	st = status
