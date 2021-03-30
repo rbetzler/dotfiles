@@ -19,9 +19,9 @@
 	cm = "commit -m"
 	d = diff
 	dc = "diff --cached"
-	pu = pull
 	p = push
 	pf = "push -f"
+	pl = pull
 	r = rebase
 	ri = "rebase -i"
 	sh = show
