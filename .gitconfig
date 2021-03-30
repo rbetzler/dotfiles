@@ -11,16 +11,18 @@
 [alias]
 	a = add
 	ap = "add -p"
+	b = branch
 	bl = "branch -l"
 	bd = "branch -D"
 	co = checkout
 	cob = "checkout -b"
 	cm = "commit -m"
-	df = diff
-	dfc = "diff --cached"
-	pl = pull
-	ph = push
-	rb = rebase
-	rbi = "rebase -i"
+	d = diff
+	dc = "diff --cached"
+	pu = pull
+	p = push
+	pf = "push -f"
+	r = rebase
+	ri = "rebase -i"
 	sh = show
 	st = status
