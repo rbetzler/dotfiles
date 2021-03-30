@@ -14,6 +14,21 @@
 	b = branch
 	bl = "branch -l"
 	bd = "branch -D"
+	b-current = "!git branch --no-color 2> /dev/null | sed -e '/^[^*]/d; s/^* //;'"
+	b-exists =  "!f() { \
+          git show-ref --verify --quiet refs/heads/$1; \
+        }; f"
+        b-primary = "!f() { \
+          set -euo pipefail; \
+          for candidate in master main devel; do \
+            if git b-exists \"$candidate\"; then \
+              echo \"$candidate\"; \
+              exit 0; \
+            fi; \
+          done; \
+          echo \"No primary branch found\" 1>&2; \
+          exit 1; \
+        }; f"
 	co = checkout
 	cob = "checkout -b"
 	cm = "commit -m"
@@ -24,5 +39,24 @@
 	pl = pull
 	r = rebase
 	ri = "rebase -i"
+        r-full = "!f() { \
+          set -euxo pipefail; \
+          branch=$(git b-current); \
+          parent=${1:-$(git b-primary)}; \
+          git co \"$parent\"; \
+          git pl; \
+          git co \"$branch\"; \
+          git r \"$parent\"; \
+        }; f"
+	rset-hard = "!f() { \
+	  set -euxo pipefail; \
+	  git reset --hard origin/\"$1\"; \
+	}; f"
+	rset-current = "!f() { \
+	  git reset-hard $(git b-current); \
+	}; f"
+	rset-primary = "!f() { \
+	  git reset-hard $(git b-primary); \
+	}; f"
 	sh = show
 	st = status
