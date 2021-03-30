@@ -13,8 +13,8 @@
 	ap = "add -p"
 	bl = "branch -l"
 	bd = "branch -D"
-	ch = checkout
-	chb = "checkout -b"
+	co = checkout
+	cob = "checkout -b"
 	cm = "commit -m"
 	df = diff
 	dfc = "diff --cached"
