@@ -13,5 +13,6 @@ fpath=(~/dbt-autocomplete/_dbt $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
-# load db creds
+# load db, dbt creds
 source ${HOME}/.db_creds/.load_primary.sh
+source ${HOME}/.dbt_creds/.load_primary.sh
