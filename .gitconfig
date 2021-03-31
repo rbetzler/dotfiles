@@ -42,7 +42,7 @@
 	ri = "!f() { \
 	  git r -i HEAD~\"$1\"; \
 	}; f"
-        r-full = "!f() { \
+        r-primary = "!f() { \
           set -euxo pipefail; \
           branch=$(git b-current); \
           parent=${1:-$(git b-primary)}; \
