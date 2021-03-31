@@ -31,14 +31,17 @@
         }; f"
 	co = checkout
 	cob = "checkout -b"
-	cm = "commit -m"
+	cma = "commit --amend --no-edit"
+	cmm = "commit -m"
 	d = diff
 	dc = "diff --cached"
 	p = push
 	pf = "push -f"
 	pl = pull
 	r = rebase
-	ri = "rebase -i"
+	ri = "!f() { \
+	  git r -i HEAD~\"$1\"; \
+	}; f"
         r-full = "!f() { \
           set -euxo pipefail; \
           branch=$(git b-current); \
