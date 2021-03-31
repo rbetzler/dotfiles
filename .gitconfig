@@ -56,10 +56,10 @@
 	  git reset --hard origin/\"$1\"; \
 	}; f"
 	rset-current = "!f() { \
-	  git reset-hard $(git b-current); \
+	  git rset-hard $(git b-current); \
 	}; f"
 	rset-primary = "!f() { \
-	  git reset-hard $(git b-primary); \
+	  git rset-hard $(git b-primary); \
 	}; f"
 	sh = show
 	st = status
