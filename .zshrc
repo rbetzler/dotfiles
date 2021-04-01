@@ -21,5 +21,8 @@ for d in $DIRS; do
   done
 done
 
+# custom dbt functions
+source ${HOME}/.dbt/dbt_utils
+
 # activate home python venv
 source ${HOME}/.python/venv/bin/activate
