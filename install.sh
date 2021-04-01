@@ -22,3 +22,5 @@ mkdir ${HOME}/dbt-autocomplete
 curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/_dbt > ${HOME}/dbt-autocomplete/_dbt
 curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/dbt-completion.bash > ${HOME}/dbt-autocomplete/.dbt-completion.bash
 
+# Install home python venv
+sh ${HOME}/.python/install_venv

@@ -1,0 +1,24 @@
+#!bin/bash
+
+set -euo pipefail
+
+echo 'Creating home py venv'
+
+PY_DIR=${HOME}/.python/
+cd $PY_DIR
+echo $(pwd)
+
+if [ -d venv ]; then
+  echo 'Removing existing venv dir'
+  rm -r venv
+fi
+
+echo 'Creating venv'
+python3 -m venv venv
+
+echo 'Activating venv'
+source venv/bin/activate
+
+echo 'Installing packages'
+pip install -r requirements.txt
+

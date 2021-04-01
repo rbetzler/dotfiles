@@ -19,3 +19,6 @@ source ${HOME}/.dbt_creds/load.sh
 
 # load work creds, utils, etc
 source ${HOME}/.work/load.sh
+
+# activate home python venv
+source ${HOME}/.python/venv/bin/activate
