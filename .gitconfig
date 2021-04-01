@@ -50,7 +50,7 @@
           git co \"$parent\"; \
           git pl; \
           git co \"$branch\"; \
-          git r \"$parent\"; \
+          git rb \"$parent\"; \
         }; f"
 	rset-hard = "!f() { \
 	  set -euxo pipefail; \
