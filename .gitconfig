@@ -41,7 +41,7 @@
 	pl = pull
 	rb = rebase
 	rbi = "!f() { \
-	  git r -i HEAD~\"$1\"; \
+	  git rb -i HEAD~\"$1\"; \
 	}; f"
         rb-primary = "!f() { \
           set -euxo pipefail; \
