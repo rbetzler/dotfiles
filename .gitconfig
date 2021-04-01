@@ -33,16 +33,17 @@
 	cob = "checkout -b"
 	cma = "commit --amend --no-edit"
 	cmm = "commit -m"
-	d = diff
-	dc = "diff --cached"
+	df = diff
+	dfc = "diff --cached"
 	p = push
 	pf = "push -f"
+	pfl = "push --force-with-lease"
 	pl = pull
-	r = rebase
-	ri = "!f() { \
+	rb = rebase
+	rbi = "!f() { \
 	  git r -i HEAD~\"$1\"; \
 	}; f"
-        r-primary = "!f() { \
+        rb-primary = "!f() { \
           set -euxo pipefail; \
           branch=$(git b-current); \
           parent=${1:-$(git b-primary)}; \
