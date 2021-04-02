@@ -20,5 +20,6 @@ echo 'Activating venv'
 source ${HOME}/.python/venv/bin/activate
 
 echo 'Installing packages'
-pip install -r ${HOME}/.python/requirements.txt
+pip3 install --upgrade pip
+pip3 install -r ${HOME}/.python/requirements.txt
 
