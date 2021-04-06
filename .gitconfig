@@ -31,6 +31,13 @@
         }; f"
 	co = checkout
 	cob = "checkout -b"
+	cob-primary = "!f() { \
+          set -euxo pipefail; \
+          parent=$(git b-primary); \
+          git co \"$parent\"; \
+          git pl; \
+          git cob \"$1\"; \
+        }; f"
 	cma = "commit --amend --no-edit"
 	cmm = "commit -m"
 	df = diff
