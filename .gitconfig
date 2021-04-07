@@ -42,6 +42,13 @@
 	cmm = "commit -m"
 	df = diff
 	dfc = "diff --cached"
+	ft-upstream = "!f() { \
+          set -euxo pipefail; \
+          parent=$(git b-primary); \
+          git fetch upstream; \
+          git co \"$parent\"; \
+          git rb upstream/\"$parent\"; \
+        }; f"
 	p = push
 	pf = "push -f"
 	pfl = "push --force-with-lease"
