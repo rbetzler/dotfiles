@@ -65,10 +65,10 @@ vmap <C-x> x
 imap <C-v> <esc>P
 nmap <C-l> :NERDTreeFocusToggle<CR>
 
-nmap <silent> <C-S-Up> :wincmd k<CR>
-nmap <silent> <C-S-Down> :wincmd j<CR>
-nmap <silent> <C-S-Left> :wincmd h<CR>
-nmap <silent> <C-S-Right> :wincmd l<CR>
+nmap <C-S-k> :wincmd k<CR>
+nmap <C-S-j> :wincmd j<CR>
+nmap <C-S-h> :wincmd h<CR>
+nmap <C-S-l> :wincmd l<CR>
 
 " Autoopen nerdtree
 autocmd VimEnter * NERDTree | wincmd p
