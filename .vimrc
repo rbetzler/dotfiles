@@ -93,11 +93,13 @@ endfunction
 
 function DBQuery()
     let file=expand('%:p')
-    if file =~ '.sql'
-        let arg='psql -A -F"," -f ' . file . ' > ~/Desktop/output.csv --pset footer'
+    if file=~'.sql'
+        let filename='~/Desktop/output.csv'
+        let arg='psql -A -F"," -f ' . file . ' > ' . filename . ' --pset footer'
         call system(arg)
         split
-        e ~/Desktop/output.csv
+        exec 'e ' . filename
+        exec ':%ArrangeColumn'
     endif
 endfunction
 command! DBQuery call DBQuery()
