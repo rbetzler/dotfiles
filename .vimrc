@@ -75,6 +75,14 @@ autocmd VimEnter * NERDTree | wincmd p
 autocmd FileType python TagbarOpen
 autocmd FileType python setlocal completeopt-=preview
 
+" Autoformat csv on open
+" Borrowed from: https://github.com/chrisbra/csv.vim/blob/master/csv.vmb
+aug CSV_Editing
+    au!
+    au BufRead,BufWritePost *.csv :%ArrangeColumn
+    au BufWritePre *.csv :%UnArrangeColumn
+aug end
+
 " Allow mouse
 set mouse=a
 let g:is_mouse_enabled = 1
@@ -91,6 +99,7 @@ function ToggleMouse()
     endif
 endfunction
 
+" Query db using psql
 function DBQuery()
     let file=expand('%:p')
     if file=~'.sql'
@@ -99,7 +108,7 @@ function DBQuery()
         call system(arg)
         split
         exec 'e ' . filename
-        exec ':%ArrangeColumn'
+        " exec ':%ArrangeColumn'
     endif
 endfunction
 command! DBQuery call DBQuery()
