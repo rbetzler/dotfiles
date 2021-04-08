@@ -52,6 +52,11 @@
 	p = push
 	pf = "push -f"
 	pfl = "push --force-with-lease"
+	psu = "!f() { \
+          set -euxo pipefail; \
+          current=$(git b-current); \
+          git p --set-upstream origin \"$current\"; \
+        }; f"
 	pl = pull
 	rb = rebase
 	rbi = "!f() { \
