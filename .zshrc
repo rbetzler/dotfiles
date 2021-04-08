@@ -26,3 +26,6 @@ source ${HOME}/.dbt/dbt_utils
 
 # activate home python venv
 source ${HOME}/.python/venv/bin/activate
+
+# aliases
+alias g="git"
