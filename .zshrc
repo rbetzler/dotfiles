@@ -27,5 +27,8 @@ source ${HOME}/.dbt/dbt_utils
 # activate home python venv
 source ${HOME}/.python/venv/bin/activate
 
+# ipython env
+export IPYTHONDIR="$HOME"/.ipython
+
 # aliases
 alias g="git"
