@@ -48,7 +48,7 @@ set background=dark
 colorscheme oceanic_material
 
 " Set ctags
-set tags+=$HOME/ctags/
+set tags+=$HOME/ctags/tags
 
 " Set no wrap
 set nowrap
