@@ -1,4 +1,5 @@
 dbt
+ipython
 pandas
 pipdeptree
 pudb
