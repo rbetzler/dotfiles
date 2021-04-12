@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+for candidate in master main devel; do
+  if git b-exists "$candidate"; then
+    echo "$candidate"
+    exit 0
+  fi
+done
+
+echo "No primary branch found" 1>&2
+
+exit 1
+

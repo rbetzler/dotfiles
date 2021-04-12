@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -euxo pipefail
+current=$(git b-current)
+git p --set-upstream origin "$current"
+

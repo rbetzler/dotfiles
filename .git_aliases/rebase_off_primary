@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -euo pipefail
+branch=$(git b-current)
+parent=${1:-$(git b-primary)}
+
+git co "$parent"
+git pl
+git co "$branch"
+git rb "$parent"
+

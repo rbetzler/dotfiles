@@ -1,0 +1,12 @@
+!/bin/bash
+
+set -euxo pipefail
+
+parent=$(git b-primary)
+
+git co "$parent"
+
+git pl
+
+git cob "$1"
+

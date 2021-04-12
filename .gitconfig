@@ -18,61 +18,26 @@
 	b-exists =  "!f() { \
           git show-ref --verify --quiet refs/heads/$1; \
         }; f"
-        b-primary = "!f() { \
-          set -euo pipefail; \
-          for candidate in master main devel; do \
-            if git b-exists \"$candidate\"; then \
-              echo \"$candidate\"; \
-              exit 0; \
-            fi; \
-          done; \
-          echo \"No primary branch found\" 1>&2; \
-          exit 1; \
-        }; f"
+	b-primary = !bash ~/.git_aliases/get_primary_branch
 	co = checkout
 	cob = "checkout -b"
-	cob-primary = "!f() { \
-          set -euxo pipefail; \
-          parent=$(git b-primary); \
-          git co \"$parent\"; \
-          git pl; \
-          git cob \"$1\"; \
-        }; f"
+	cob-primary = !bash ~/.git_aliases/checkout_off_primary
 	cma = "commit --amend --no-edit"
 	cmm = "commit -m"
 	df = diff
 	dfc = "diff --cached"
-	ft-upstream = "!f() { \
-          set -euxo pipefail; \
-          parent=$(git b-primary); \
-          git fetch upstream; \
-          git co \"$parent\"; \
-          git rb upstream/\"$parent\"; \
-        }; f"
+	ft-upstream = !bash ~/.git_aliases/fetch_upstream
 	p = push
 	pf = "push -f"
 	pfl = "push --force-with-lease"
-	psu = "!f() { \
-          set -euxo pipefail; \
-          current=$(git b-current); \
-          git p --set-upstream origin \"$current\"; \
-        }; f"
+	psu = !bash ~/.git_aliases/push_set_upstream
 	pl = pull
 	rb = rebase
 	rbi = "!f() { \
 	  git rb -i HEAD~\"$1\"; \
 	}; f"
-        rb-primary = "!f() { \
-          set -euxo pipefail; \
-          branch=$(git b-current); \
-          parent=${1:-$(git b-primary)}; \
-          git co \"$parent\"; \
-          git pl; \
-          git co \"$branch\"; \
-          git rb \"$parent\"; \
-        }; f"
+	rb-primary = !bash ~/.git_aliases/rebase_off_primary
 	rset-hard = "!f() { \
-	  set -euxo pipefail; \
 	  git reset --hard origin/\"$1\"; \
 	}; f"
 	rset-current = "!f() { \
