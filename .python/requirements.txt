@@ -1,5 +1,6 @@
 dbt
-ipython
+ipython==7.15.0
+jedi==0.17.2
 pandas
 pipdeptree
 pudb
