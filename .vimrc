@@ -21,6 +21,8 @@ Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'mg979/vim-visual-multi', {'branch': 'master'}
 Plugin 'chrisbra/csv.vim'
 Plugin 'https://github.com/airblade/vim-gitgutter'
+Plugin 'https://github.com/tpope/vim-surround'
+Plugin 'https://github.com/tpope/vim-repeat'
 
 " Bundles
 " Bundle 'Valloric/YouCompleteMe'
