@@ -20,6 +20,7 @@ Plugin 'glepnir/oceanic-material'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'mg979/vim-visual-multi', {'branch': 'master'}
 Plugin 'chrisbra/csv.vim'
+Plugin 'https://github.com/airblade/vim-gitgutter'
 
 " Bundles
 " Bundle 'Valloric/YouCompleteMe'
@@ -74,6 +75,9 @@ nmap <C-S-l> :wincmd l<CR>
 autocmd VimEnter * NERDTree | wincmd p
 autocmd FileType python TagbarOpen
 autocmd FileType python setlocal completeopt-=preview
+
+" Autostart git gutter
+autocmd VimEnter * GitGutter
 
 " Autoformat csv on open
 " Borrowed from: https://github.com/chrisbra/csv.vim/blob/master/csv.vmb
