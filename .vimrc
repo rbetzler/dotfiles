@@ -145,3 +145,6 @@ let g:flake8_show_in_file=1
 
 " Run flake8 when writing a file
 autocmd BufWritePost *.py call flake8#Flake8()
+
+" Yaml lint
+let g:syntastic_yaml_checkers = ['yamllint']
