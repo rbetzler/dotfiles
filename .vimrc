@@ -28,9 +28,6 @@ Plugin 'https://github.com/kristijanhusak/vim-dadbod-ui'
 " Plugin 'https://github.com/kristijanhusak/vim-dadbod-completion'
 " Plugin 'https://github.com/neoclide/coc.nvim'
 
-" Bundles
-" Bundle 'Valloric/YouCompleteMe'
-
 " Vundle exec
 call vundle#end()
 filetype plugin indent on
@@ -66,6 +63,9 @@ set splitbelow
 " Set file to autoread on open
 set autoread
 
+" Set tabs as 2 spaces
+set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+
 " Customize keybindings
 vmap <C-c> y
 vmap <C-x> x
@@ -76,6 +76,7 @@ nmap <C-S-k> :wincmd k<CR>
 nmap <C-S-j> :wincmd j<CR>
 nmap <C-S-h> :wincmd h<CR>
 nmap <C-S-l> :wincmd l<CR>
+nmap <F8> :call flake8#Flake8()<CR>
 
 " Autoopen nerdtree
 autocmd VimEnter * NERDTree | wincmd p
@@ -131,3 +132,16 @@ let $DBUI_URL = 'postgresql:'
 let g:db_ui_env_variable_name = 'PGUSER'
 let g:db_ui_win_position = 'right'
 
+" Jedi do not popup autocomplete after typing dot
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = "0"
+
+" Run flake8 when writing a file
+autocmd BufWritePost *.py call flake8#Flake8()
+
+" Show flake8 gutter
+let g:flake8_show_in_gutter=1
+let g:flake8_show_in_file=1
+
+" Run flake8 when writing a file
+autocmd BufWritePost *.py call flake8#Flake8()
