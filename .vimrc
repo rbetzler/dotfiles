@@ -25,7 +25,8 @@ Plugin 'https://github.com/tpope/vim-surround'
 Plugin 'https://github.com/tpope/vim-repeat'
 Plugin 'https://github.com/tpope/vim-dadbod'
 Plugin 'https://github.com/kristijanhusak/vim-dadbod-ui'
-Plugin 'https://github.com/kristijanhusak/vim-dadbod-completion'
+" Plugin 'https://github.com/kristijanhusak/vim-dadbod-completion'
+" Plugin 'https://github.com/neoclide/coc.nvim'
 
 " Bundles
 " Bundle 'Valloric/YouCompleteMe'
