@@ -23,6 +23,9 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'https://github.com/airblade/vim-gitgutter'
 Plugin 'https://github.com/tpope/vim-surround'
 Plugin 'https://github.com/tpope/vim-repeat'
+Plugin 'https://github.com/tpope/vim-dadbod'
+Plugin 'https://github.com/kristijanhusak/vim-dadbod-ui'
+Plugin 'https://github.com/kristijanhusak/vim-dadbod-completion'
 
 " Bundles
 " Bundle 'Valloric/YouCompleteMe'
@@ -81,6 +84,9 @@ autocmd FileType python setlocal completeopt-=preview
 " Autostart git gutter
 autocmd VimEnter * GitGutter
 
+" Autostart db ui
+autocmd FileType sql DBUI
+
 " Autoformat csv on open
 " Borrowed from: https://github.com/chrisbra/csv.vim/blob/master/csv.vmb
 aug CSV_Editing
@@ -118,4 +124,9 @@ function DBQuery()
     endif
 endfunction
 command! DBQuery call DBQuery()
+
+" DB dad bod
+let $DBUI_URL = 'postgresql:'
+let g:db_ui_env_variable_name = 'PGUSER'
+let g:db_ui_win_position = 'right'
 
