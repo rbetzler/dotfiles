@@ -42,6 +42,11 @@ set nu
 " Access system clipboard for mac
 if has('macunix')
     set clipboard=unnamed
+
+    " Configure db dad bod on mac
+    let $DBUI_URL = 'postgresql:'
+    let g:db_ui_env_variable_name = 'PGUSER'
+    let g:db_ui_win_position = 'right'
 " Or for linux
 else
     set clipboard=unnamedplus
@@ -126,11 +131,6 @@ function DBQuery()
     endif
 endfunction
 command! DBQuery call DBQuery()
-
-" DB dad bod
-let $DBUI_URL = 'postgresql:'
-let g:db_ui_env_variable_name = 'PGUSER'
-let g:db_ui_win_position = 'right'
 
 " Jedi do not popup autocomplete after typing dot
 let g:jedi#popup_on_dot = 0
