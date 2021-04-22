@@ -22,7 +22,8 @@
 	co = checkout
 	cob = "checkout -b"
 	cob-primary = !bash ~/.git_aliases/checkout_off_primary
-	cma = "commit --amend --no-edit"
+    cma = "commit --amend --no-edit"
+    cma-message = "commit --amend"
 	cmm = "commit -m"
 	df = diff
 	dfc = "diff --cached"
