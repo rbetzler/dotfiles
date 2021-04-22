@@ -9,43 +9,43 @@
 	ui = auto
 
 [alias]
-	a = add
-	ap = "add -p"
-	b = branch
-	bl = "branch -l"
-	bd = "branch -D"
-	b-current = "!git branch --no-color 2> /dev/null | sed -e '/^[^*]/d; s/^* //;'"
-	b-exists =  "!f() { \
-          git show-ref --verify --quiet refs/heads/$1; \
-        }; f"
-	b-primary = !bash ~/.git_aliases/get_primary_branch
-	co = checkout
-	cob = "checkout -b"
-	cob-primary = !bash ~/.git_aliases/checkout_off_primary
+    a = add
+    ap = "add -p"
+    b = branch
+    bl = "branch -l"
+    bd = "branch -D"
+    b-current = "!git branch --no-color 2> /dev/null | sed -e '/^[^*]/d; s/^* //;'"
+    b-exists =  "!f() { \
+      git show-ref --verify --quiet refs/heads/$1; \
+    }; f"
+    b-primary = !bash ~/.git_aliases/get_primary_branch
+    co = checkout
+    cob = "checkout -b"
+    cob-primary = !bash ~/.git_aliases/checkout_off_primary
     cma = "commit --amend --no-edit"
     cma-message = "commit --amend"
-	cmm = "commit -m"
-	df = diff
-	dfc = "diff --cached"
-	ft-upstream = !bash ~/.git_aliases/fetch_upstream
-	p = push
-	pf = "push -f"
-	pfl = "push --force-with-lease"
-	psu = !bash ~/.git_aliases/push_set_upstream
-	pl = pull
-	rb = rebase
-	rbi = "!f() { \
-	  git rb -i HEAD~\"$1\"; \
-	}; f"
-	rb-primary = !bash ~/.git_aliases/rebase_off_primary
-	rset-hard = "!f() { \
-	  git reset --hard origin/\"$1\"; \
-	}; f"
-	rset-current = "!f() { \
-	  git rset-hard $(git b-current); \
-	}; f"
-	rset-primary = "!f() { \
-	  git rset-hard $(git b-primary); \
-	}; f"
-	sh = show
-	st = status
+    cmm = "commit -m"
+    df = diff
+    dfc = "diff --cached"
+    ft-upstream = !bash ~/.git_aliases/fetch_upstream
+    p = push
+    pf = "push -f"
+    pfl = "push --force-with-lease"
+    psu = !bash ~/.git_aliases/push_set_upstream
+    pl = pull
+    rb = rebase
+    rbi = "!f() { \
+      git rb -i HEAD~\"$1\"; \
+    }; f"
+    rb-primary = !bash ~/.git_aliases/rebase_off_primary
+    rset-hard = "!f() { \
+      git reset --hard origin/\"$1\"; \
+    }; f"
+    rset-current = "!f() { \
+      git rset-hard $(git b-current); \
+    }; f"
+    rset-primary = "!f() { \
+      git rset-hard $(git b-primary); \
+    }; f"
+    sh = show
+    st = status
