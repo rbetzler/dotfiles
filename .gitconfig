@@ -19,6 +19,7 @@
       git show-ref --verify --quiet refs/heads/$1; \
     }; f"
     b-primary = !bash ~/.git_aliases/get_primary_branch
+    c = commit
     co = checkout
     cob = "checkout -b"
     cob-primary = !bash ~/.git_aliases/checkout_off_primary
