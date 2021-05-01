@@ -145,3 +145,6 @@ let g:flake8_show_in_file=1
 
 " Yaml lint
 let g:syntastic_yaml_checkers = ['yamllint']
+
+" Patch xterm printing weird chars on line 1
+set t_TI= t_TE=
