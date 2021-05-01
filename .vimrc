@@ -137,7 +137,7 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = "0"
 
 " Run flake8 when writing a file
-autocmd BufWritePost *.py call flake8#Flake8()
+" autocmd BufWritePost *.py call flake8#Flake8()
 
 " Show flake8 gutter
 let g:flake8_show_in_gutter=1
