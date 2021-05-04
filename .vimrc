@@ -127,6 +127,13 @@ function DBQuery()
 endfunction
 command! DBQuery call DBQuery()
 
+" Highlight trailing whitespace
+function HighlightTrailingWhitespace()
+  highlight ExtraWhitespace ctermbg=red guibg=red
+  match ExtraWhitespace /\s\+\%#\@<!$/
+endfunction
+autocmd VimEnter,BufWritePost * call HighlightTrailingWhitespace()
+
 " DB dad bod
 let $DBUI_URL = 'postgresql:'
 let g:db_ui_env_variable_name = 'PGUSER'
