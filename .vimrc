@@ -77,6 +77,8 @@ nmap <C-S-j> :wincmd j<CR>
 nmap <C-S-h> :wincmd h<CR>
 nmap <C-S-l> :wincmd l<CR>
 nmap <F8> :call flake8#Flake8()<CR>
+" Remove trailing whitespaces
+nmap <C-t><C-w> :%s/\s\+$//e<CR>
 
 " Autoopen nerdtree
 autocmd VimEnter * NERDTree | wincmd p
