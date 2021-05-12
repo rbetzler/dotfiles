@@ -26,6 +26,7 @@
     cma = "commit --amend --no-edit"
     cma-message = "commit --amend"
     cmm = "commit -m"
+    chp = "cherry-pick"
     df = diff
     dfc = "diff --cached"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
