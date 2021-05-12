@@ -42,6 +42,9 @@
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
     rset = reset
+    rset-head = "!f() { \
+      git reset HEAD~\"$1\"; \
+    }; f"
     rset-hard = "!f() { \
       git reset --hard origin/\"$1\"; \
     }; f"
