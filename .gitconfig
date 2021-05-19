@@ -37,8 +37,9 @@
     psu = !bash ~/.git_aliases/push_set_upstream
     pl = pull
     rb = rebase
-    rbi = "!f() { \
-      git rb -i HEAD~\"$1\"; \
+    rbi = "rb -i"
+    rbih = "!f() { \
+      git rbi HEAD~\"$1\"; \
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
     rset = reset
