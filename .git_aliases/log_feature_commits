@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+parent=$(git b-primary)
+
+if [[ $# -eq 0 ]]; then
+  arg=""
+else
+  arg="--pretty=format:%h"
+fi
+
+git l --no-merges "$parent".. $arg
