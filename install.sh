@@ -14,6 +14,10 @@ apt-get install vim-gtk
 # Install ctags
 apt-get install ctags
 
+# Install vgrep
+# Check if this is preinstalled on ubuntu
+# apt-get install vgrep
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
