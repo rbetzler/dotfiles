@@ -37,6 +37,8 @@
     psu = !bash ~/.git_aliases/push_set_upstream
     pl = pull
     rb = rebase
+    rba = "rb --abort"
+    rbc = "rb --continue"
     rbi = "rb -i"
     rbih = "!f() { \
       git rbi HEAD~\"$1\"; \
