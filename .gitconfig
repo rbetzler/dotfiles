@@ -23,10 +23,13 @@
     co = checkout
     cob = "checkout -b"
     cob-primary = !bash ~/.git_aliases/checkout_off_primary
+    co-theirs = "co --theirs"
     cma = "commit --amend --no-edit"
     cma-message = "commit --amend"
     cmm = "commit -m"
     chpk = "cherry-pick"
+    chpka = "chpk --abort"
+    chpkc = "chpk --continue"
     df = diff
     dfc = "diff --cached"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
