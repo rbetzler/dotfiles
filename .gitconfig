@@ -22,6 +22,11 @@
     c = commit
     co = checkout
     cob = "checkout -b"
+    # Use ${GIT_PREFIX:-./} to resolve to the current directory
+    # e.g., when needing to reference relative filepaths
+    coh = "!f() { \
+      git co HEAD~\"$1\" -- ${GIT_PREFIX:-./}\"$2\"; \
+    }; f"
     cob-primary = !bash ~/.git_aliases/checkout_off_primary
     co-theirs = "co --theirs"
     cma = "commit --amend --no-edit"
@@ -53,6 +58,9 @@
     rbi = "rb -i"
     rbih = "!f() { \
       git rbi HEAD~\"$1\"; \
+    }; f"
+    rbih-merges = "!f() { \
+      git rbi HEAD~\"$1\" --rebase-merges; \
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
     rset = reset
