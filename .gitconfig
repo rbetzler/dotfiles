@@ -64,6 +64,9 @@
     }; f"
     rstr-stg = "restore --stage"
     sh = show
+    sha = "!f() { \
+      git show HEAD~\"$1\"; \
+    }; f"
     st = status
     sth = stash
     sth-a = "stash apply"
