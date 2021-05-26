@@ -39,7 +39,12 @@
     p = push
     pf = "push -f"
     pfl = "push --force-with-lease"
-    pr-draft = "pull-request --push --no-edit --draft"
+    pr-draft = "!f() { \
+      hub pull-request --push --no-edit --draft; \
+    }; f"
+    pr-open = "!f() { \
+      hub pull-request --push --no-edit; \
+    }; f"
     psu = !bash ~/.git_aliases/push_set_upstream
     pl = pull
     rb = rebase
