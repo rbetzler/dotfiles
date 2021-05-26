@@ -62,6 +62,7 @@
     rset-primary = "!f() { \
       git rset-hard $(git b-primary); \
     }; f"
+    rstr-stg = "restore --stage"
     sh = show
     st = status
     sth = stash
