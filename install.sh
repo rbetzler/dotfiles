@@ -14,6 +14,9 @@ apt-get install vim-gtk
 # Install ctags
 apt-get install ctags
 
+# Install hub
+apt-get install hub
+
 # Install vgrep
 # Check if this is preinstalled on ubuntu
 # apt-get install vgrep
