@@ -33,4 +33,5 @@ export IPYTHONDIR="$HOME"/.ipython
 # aliases
 alias g="git"
 alias git="hub"
-alias vgrepi="vgrep --interactive"
+alias v="vim"
+alias ivgrep="vgrep --interactive"
