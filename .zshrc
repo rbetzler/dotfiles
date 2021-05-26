@@ -34,4 +34,3 @@ export IPYTHONDIR="$HOME"/.ipython
 alias g="git"
 alias h="hub"
 alias v="vim"
-alias ivgrep="vgrep --interactive"
