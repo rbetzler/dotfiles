@@ -77,6 +77,11 @@
       git rset-hard $(git b-primary); \
     }; f"
     rstr-stg = "restore --stage"
+    rvrt = revert
+    rvrt-a = "revert --abort"
+    rvrt-c = "revert --continue"
+    rvrt-no-commit = "revert --no-commit"
+    rvrt-no-commit-head = "rvrt-no-commit HEAD"
     sh = show
     sha = "!f() { \
       git show HEAD~\"$1\"; \
