@@ -10,13 +10,17 @@ ivgrep()
 
 # Find replace using grep + sed
 # Note: sed is not consistent across OSs
-grep_find_replace(){
+find_replace(){
   if [[ "$OSTYPE" == "darwin20.0" ]]; then
-    files=$(grep -rl "$1" .)
-    if [ -z "$files" ]; then
-      echo "Pattern not found: $1"
+    if [ -z "$3" ]; then
+      files=$(grep -rl "$1" .)
+      if [ -z "$files" ]; then
+        echo "Pattern not found: $1"
+      else
+        echo "$files" | xargs sed -i "" "s/$1/$2/g"
+      fi
     else
-      echo "$files" | xargs sed -i "" "s/$1/$2/g"
+      sed -i "" "s/$1/$2/g" $3
     fi
   else
     echo "OS not supported!"
@@ -26,7 +30,7 @@ grep_find_replace(){
 # Remove entire line from file
 # by writing to a new file
 # then moving it back
-grep_remove_line(){
+remove_line(){
     files=$(grep -rl "$1" .)
     if [ -z "$files" ]; then
       echo "Pattern not found: $1"
