@@ -22,9 +22,12 @@
     c = commit
     co = checkout
     cob = "checkout -b"
+    coh = "!f() { \
+      git co HEAD~\"$1\"; \
+    }; f"
     # Use ${GIT_PREFIX:-./} to resolve to the current directory
     # e.g., when needing to reference relative filepaths
-    coh = "!f() { \
+    coh-file = "!f() { \
       git co HEAD~\"$1\" -- ${GIT_PREFIX:-./}\"$2\"; \
     }; f"
     cob-primary = !bash ~/.git_aliases/checkout_off_primary
