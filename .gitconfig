@@ -66,6 +66,9 @@
       git rbi HEAD~\"$1\" --rebase-merges; \
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
+    rflg = "!f() { \
+      git reflog --grep-reflog=\"$1\"; \
+    }; f"
     rset = reset
     rset-head = "!f() { \
       git reset HEAD~\"$1\"; \
