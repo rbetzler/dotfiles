@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eo pipefail
+
+prs="$(hub pr list -s open -f '%pC%pS %i %au %n    %t %n    %U %n%n')"
+
+if [[ $# -eq 0 ]]; then
+  echo "$(grep "$WORK_PR_GREP_STRING" -A 3 <<< "$prs")"
+else
+  echo "$prs"
+fi
+

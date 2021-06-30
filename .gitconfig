@@ -50,6 +50,8 @@
     pr-draft = "!f() { \
       hub pull-request --push --no-edit --draft; \
     }; f"
+    pr-list = !bash ~/.git_aliases/list_prs 0
+    pr-list-work-team = !bash ~/.git_aliases/list_prs
     pr-open = "!f() { \
       hub pull-request --push --no-edit; \
     }; f"
