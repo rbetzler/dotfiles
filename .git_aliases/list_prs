@@ -4,9 +4,11 @@ set -eo pipefail
 
 prs="$(hub pr list -s open -f '%pC%pS %i %au %n    %t %n    %U %n%n')"
 
-if [[ $# -eq 0 ]]; then
-  echo "$(grep "$WORK_PR_GREP_STRING" -A 3 <<< "$prs")"
-else
+if [[ "$1" == 0 ]]; then
   echo "$prs"
+elif [[ "$1" == 1 ]]; then
+  echo "$(grep "rbetzler" -A 3 <<< "$prs")"
+elif [[ "$1" == 2 ]]; then
+  echo "$(grep "$WORK_PR_GREP_STRING" -A 3 <<< "$prs")"
 fi
 
