@@ -1,12 +1,12 @@
 [user]
-	name = rbetzler
-	email = rbetzler94@gmail.com
+    name = rbetzler
+    email = rbetzler94@gmail.com
 
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = auto
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
 
 [alias]
     a = add
