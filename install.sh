@@ -17,6 +17,16 @@ apt-get install ctags
 # Install hub
 apt-get install hub
 
+# Install cmatrix, for fun
+apt-get install cmatrix
+
+# Install bat
+apt-get install bat
+
+# Install figlet
+# Check if preinstall on ubuntu
+# apt-get install figlet
+
 # Install vgrep
 # Check if this is preinstalled on ubuntu
 # apt-get install vgrep
