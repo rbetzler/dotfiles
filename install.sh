@@ -31,3 +31,9 @@ curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/ma
 
 # Install home python venv
 sh ${HOME}/.python/install_venv
+
+# CLone zsh syntax highlighting repo
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Clone zsh autocomplete repo
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
