@@ -73,14 +73,17 @@ vmap <C-x> x
 imap <C-v> <esc>P
 nmap <C-l> :NERDTreeFocusToggle<CR>
 
-nmap <C-S-k> :wincmd k<CR>
-nmap <C-S-j> :wincmd j<CR>
-nmap <C-S-l> :wincmd l<CR>
-nmap <C-S-h> :wincmd h<CR>
-nmap <C-S-h><C-S-h> :NERDTreeFocusToggle<CR>
+nmap <C-k> :wincmd k<CR>
+nmap <C-j> :wincmd j<CR>
+nmap <C-l> :wincmd l<CR>
+nmap <C-h> :wincmd h<CR>
+nmap <C-a> :NERDTreeFocusToggle<CR>
 nmap <F8> :call flake8#Flake8()<CR>
 " Remove trailing whitespaces
 nmap <C-t><C-w> :%s/\s\+$//e<CR>
+
+" Keep the most recently pasted item in clipboard
+xnoremap p pgvy
 
 " Autoopen nerdtree
 autocmd VimEnter * NERDTree | wincmd p
