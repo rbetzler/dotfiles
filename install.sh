@@ -23,6 +23,15 @@ apt-get install cmatrix
 # Install bat
 apt-get install bat
 
+# Install procs
+apt-get install procs
+
+# Install fd
+apt-get install fd
+
+# Install exa
+apt-get install exa
+
 # Install figlet
 # Check if preinstall on ubuntu
 # apt-get install figlet
