@@ -89,8 +89,8 @@ autocmd FileType python setlocal completeopt-=preview
 " Autostart git gutter
 autocmd VimEnter * GitGutter
 
-" Autostart db ui
-autocmd FileType sql DBUI
+"" Autostart db ui
+"autocmd FileType sql DBUI
 
 " Autoformat csv on open
 " Borrowed from: https://github.com/chrisbra/csv.vim/blob/master/csv.vmb
