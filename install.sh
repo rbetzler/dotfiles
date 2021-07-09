@@ -21,20 +21,21 @@ apt-get install hub
 apt-get install cmatrix
 
 # Install bat
-apt-get install bat
+apt-get install bat  # This requires a manual install
 
-# Install procs
-apt-get install procs
+# This did not work but I do not care
+## Install procs
+#apt-get install procs
 
-# Install fd
-apt-get install fd
+# This did not work but I do not care
+## Install fd
+#apt-get install fd
 
 # Install exa
-apt-get install exa
+apt-get install exa  # Need to fix this
 
 # Install figlet
-# Check if preinstall on ubuntu
-# apt-get install figlet
+apt-get install figlet
 
 # Install vgrep
 # Check if this is preinstalled on ubuntu
