@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+# Bat diff does not work for cached files on linux
+# so just use the regular git command
+if [[ $(uname) == "Linux" ]]; then
+  git diff --cached
+  # git diff --cached --name-only --diff-filter=d | xargs bat
+else
+  git diff --cached --name-only --diff-filter=d | xargs bat --diff
+fi
