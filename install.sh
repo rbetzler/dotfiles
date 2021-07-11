@@ -15,9 +15,6 @@ apt-get install vim-gtk
 # Install ctags
 apt-get install ctags
 
-# Install hub
-apt-get install hub  # Still need to sort this out
-
 # Install cmatrix, for fun
 apt-get install cmatrix
 
@@ -45,6 +42,12 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 wget https://github.com/sharkdp/bat/releases/download/v0.18.1/bat-musl_0.18.1_amd64.deb -O $HOME/Downloads/bat.deb
 dpkg -i $HOME/Downloads/bat.deb
 rm $HOME/Downloads/bat.deb
+
+# Install hub
+wget https://github.com/github/hub/releases/download/v2.14.2/hub-linux-amd64-2.14.2.tgz -O $HOME/Downloads/hub.tgz
+tar -xvzf $HOME/Downloads/hub.tgz -C $HOME/Downloads/
+cp -r $HOME/Downloads/hub-linux-amd64-2.14.2/bin/. /usr/local/bin/
+cp -r $HOME/Downloads/hub-linux-amd64-2.14.2/etc/hub.zsh_completion /usr/local/share/zsh/site-functions/hub.zsh
 
 # Install exa
 wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -O $HOME/Downloads/exa.zip
