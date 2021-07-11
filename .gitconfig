@@ -10,6 +10,7 @@
 
 [alias]
     a = add
+    af = "add -f"
     ap = "add -p"
     b = branch
     bl = "branch -l"
