@@ -35,4 +35,6 @@ alias c="bat"
 alias g="git"
 alias h="hub"
 alias l="exa"
+alias m="mutt"
+alias mr="mutt -R"  # Mutt in read only mode
 alias v="vim"
