@@ -1,0 +1,22 @@
+# General
+set from = $MUTT_EMAIL_ADDR
+set realname = $MUTT_NAME
+
+# Imap settings
+set imap_user = $MUTT_EMAIL_ADDR
+set imap_pass = $MUTT_PWD
+
+# Smtp settings
+set smtp_url = $MUTT_SMTP
+set smtp_pass = $MUTT_PWD
+
+# Remote gmail folders
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+
+# Keybindings when navigating emails
+bind pager <up> previous-line
+bind pager <down> next-line
