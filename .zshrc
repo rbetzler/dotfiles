@@ -31,7 +31,8 @@ source ${HOME}/.python/venv/bin/activate
 export IPYTHONDIR="$HOME"/.ipython
 
 # aliases
-alias e="exa"
+alias c="bat"
 alias g="git"
 alias h="hub"
+alias l="exa"
 alias v="vim"
