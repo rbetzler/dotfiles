@@ -32,6 +32,7 @@ export IPYTHONDIR="$HOME"/.ipython
 
 # aliases
 alias c="bat"
+alias dk="docker"
 alias g="git"
 alias h="hub"
 alias l="exa"
