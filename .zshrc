@@ -14,7 +14,7 @@ fpath=(~/dbt-autocomplete/_dbt $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # source dirs
-DIRS=(creds_db creds_dbt scripts work)
+DIRS=(creds_db creds_dbt general scripts work)
 for d in $DIRS; do
   for f in ~/."$d"/*; do
     source $f;
