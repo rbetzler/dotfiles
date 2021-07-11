@@ -13,16 +13,13 @@ fpath=(~/dbt-autocomplete/_dbt $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
-# source dirs
-DIRS=(creds_db creds_dbt general scripts work)
+# source dirs with creds, configs, scripts
+DIRS=(creds_db creds_dbt general work)
 for d in $DIRS; do
   for f in ~/."$d"/*; do
     source $f;
   done
 done
-
-# custom dbt functions
-source ${HOME}/.dbt/dbt_utils
 
 # activate home python venv
 source ${HOME}/.python/venv/bin/activate
