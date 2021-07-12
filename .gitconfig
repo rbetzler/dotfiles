@@ -8,6 +8,21 @@
     branch = auto
     ui = auto
 
+[pager]
+    diff = delta
+    log = delta
+    reflog = delta
+    show = delta
+
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    navigate = true
+
+[interactive]
+    diffFilter = delta --color-only
+
 [alias]
     a = add
     af = "add -f"
@@ -39,11 +54,9 @@
     chpk = "cherry-pick"
     chpka = "chpk --abort"
     chpkc = "chpk --continue"
-    df = "!f() { \
-      git diff --name-only --diff-filter=d | xargs bat --diff; \
-    }; f"
+    df = diff
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
-    dfc = !bash ~/.git_aliases/diff_cached
+    dfc = "diff --cached"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
     l = log
     l-feat-commits = !bash ~/.git_aliases/log_feature_commits

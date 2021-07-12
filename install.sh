@@ -72,3 +72,8 @@ git clone git@github.com:vrothberg/vgrep.git
 cd vgrep
 make build GO=/usr/local/go/bin/go
 make install GO=/usr/local/go/bin/go
+
+# Install delta
+wget https://github.com/dandavison/delta/releases/download/0.8.2/git-delta_0.8.2_amd64.deb -O $HOME/Downloads/delta.deb
+dpkg -i $HOME/Downloads/delta.deb
+rm $HOME/Downloads/delta.deb
