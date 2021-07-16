@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+feature=$(git b-current)
+parent=$(git b-primary)
+
+my_first_commit=$(git cherry "$parent" "$feature" | head -1 | cut -d' ' -f2)
+
+head_commit=$(git rev-parse "$my_first_commit"^1)
+
+git rebase -i "$head_commit"
+

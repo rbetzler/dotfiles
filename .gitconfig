@@ -80,6 +80,7 @@
     rba = "rebase --abort"
     rbc = "rebase --continue"
     rbi = "rebase -i"
+    rbi-mine = !bash ~/.git_aliases/rebase_my_commits
     rbih = "!f() { \
       git rbi HEAD~\"$1\"; \
     }; f"
