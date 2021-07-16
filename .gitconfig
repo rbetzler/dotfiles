@@ -115,7 +115,7 @@
     }; f"
     st = status
     sth = stash
-    sth-a = "stash apply"
-    sth-c = "stash clear"
-    sth-l = "stash list"
-    sth-p = "stash pop"
+    stha = "stash apply"
+    sthc = "stash clear"
+    sthl = "stash list"
+    sthp = "stash pop"
