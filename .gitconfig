@@ -51,6 +51,7 @@
     cma = "commit --amend --no-edit"
     cma-message = "commit --amend"
     cmm = "commit -m"
+    cmm-no-verify = "commit -n -m"
     chpk = "cherry-pick"
     chpka = "chpk --abort"
     chpkc = "chpk --continue"
