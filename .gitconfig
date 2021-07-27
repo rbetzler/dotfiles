@@ -118,6 +118,9 @@
       git show HEAD~\"$1\"; \
     }; f"
     st = status
+    st-edit-file = "!f() { \
+      vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
+    }; f"
     sth = stash
     stha = "stash apply"
     sthc = "stash clear"
