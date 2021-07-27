@@ -118,6 +118,9 @@
     sha = "!f() { \
       git show HEAD~\"$1\"; \
     }; f"
+    sha-file-names = "!f() { \
+      git show HEAD~\"$1\" --pretty="" --name-only; \
+    }; f"
     st = status
     st-edit-file = "!f() { \
       vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
