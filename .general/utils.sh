@@ -13,7 +13,7 @@ ivgrep()
 find_replace(){
   if [[ "$OSTYPE" == "darwin20.0" ]]; then
     if [ -z "$3" ]; then
-      files=$(grep -rl "$1" .)
+      files=$(grep --exclude \*.pyc -rl "$1" .)
       if [ -z "$files" ]; then
         echo "Pattern not found: $1"
       else
