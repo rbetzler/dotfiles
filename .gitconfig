@@ -38,6 +38,7 @@
     c = commit
     co = checkout
     cob = "checkout -b"
+    cob-primary = !bash ~/.git_aliases/checkout_off_primary
     coh = "!f() { \
       git co HEAD~\"$1\"; \
     }; f"
@@ -46,7 +47,7 @@
     coh-file = "!f() { \
       git co HEAD~\"$1\" -- ${GIT_PREFIX:-./}\"$2\"; \
     }; f"
-    cob-primary = !bash ~/.git_aliases/checkout_off_primary
+    coh-stage = "checkout -p HEAD"
     co-theirs = "co --theirs"
     cma = "commit --amend --no-edit"
     cma-message = "commit --amend"
