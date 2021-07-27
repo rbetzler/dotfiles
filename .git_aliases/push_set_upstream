@@ -2,5 +2,11 @@
 
 set -euxo pipefail
 current=$(git b-current)
-git p --set-upstream origin "$current"
 
+if [[ $# -eq 0 ]]; then
+  arg=""
+else
+  arg="--force"
+fi
+
+git push "$arg" --set-upstream origin "$current"
