@@ -115,10 +115,10 @@
     rvrt-no-commit = "revert --no-commit"
     rvrt-no-commit-head = "rvrt-no-commit HEAD"
     sh = show
-    sha = "!f() { \
+    shh = "!f() { \
       git show HEAD~\"$1\"; \
     }; f"
-    sha-file-names = "!f() { \
+    shh-file-names = "!f() { \
       git show HEAD~\"$1\" --pretty="" --name-only; \
     }; f"
     st = status
