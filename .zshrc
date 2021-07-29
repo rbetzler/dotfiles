@@ -36,3 +36,7 @@ alias l="exa"
 alias m="mutt"
 alias mr="mutt -R"  # Mutt in read only mode
 alias v="vim"
+
+# Export language types for sed
+export LC_CTYPE=C
+export LANG=C
