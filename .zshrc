@@ -28,6 +28,7 @@ source ${HOME}/.python/venv/bin/activate
 export IPYTHONDIR="$HOME"/.ipython
 
 # aliases
+alias b="bat"
 alias c="bat"
 alias dk="docker"
 alias g="git"
