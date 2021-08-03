@@ -69,6 +69,12 @@
     p = push
     pf = "push -f"
     pfl = "push --force-with-lease"
+    pr-comments ="!f() { \
+      gh pr view --comments \"$1\"; \
+    }; f"
+    pr-diff = "!f() { \
+      gh pr diff \"$1\"; \
+    }; f"
     pr-draft = "!f() { \
       gh pr create --draft --fill; \
     }; f"
@@ -77,6 +83,9 @@
     pr-list-work-team = !bash ~/.git_aliases/list_prs 2
     pr-open = "!f() { \
       gh pr create --fill; \
+    }; f"
+    prs ="!f() { \
+      gh pr status; \
     }; f"
     psu = !bash ~/.git_aliases/push_set_upstream
     psu-force = !bash ~/.git_aliases/push_set_upstream 0
