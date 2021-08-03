@@ -9,6 +9,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Switch default shell to zsh
 chsh -s $(which zsh)
 
+# Install terminator
+apt-get install terminator
+
+
+## Install cli tools
+
 # Install vim-gtk
 apt-get install vim-gtk
 
@@ -20,6 +26,15 @@ apt-get install cmatrix
 
 # Install figlet
 apt-get install figlet
+
+# Install fd
+apt-get install fd-find
+
+# Install batcat
+apt-get install bat
+
+# Install fzf
+apt-get install fzf
 
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
@@ -40,11 +55,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 
 # Clone zsh vi mode
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
-
-# Install bat
-wget https://github.com/sharkdp/bat/releases/download/v0.18.1/bat-musl_0.18.1_amd64.deb -O $HOME/Downloads/bat.deb
-dpkg -i $HOME/Downloads/bat.deb
-rm $HOME/Downloads/bat.deb
 
 # Install hub
 wget https://github.com/github/hub/releases/download/v2.14.2/hub-linux-amd64-2.14.2.tgz -O $HOME/Downloads/hub.tgz
