@@ -2,13 +2,14 @@
 
 set -eo pipefail
 
-prs="$(hub pr list -s open -f '%pC%pS %i %au %n    %t %n    %U %n%n')"
-
+gh_arg=""
 if [[ "$1" == 0 ]]; then
-  echo "$prs"
+  arg='all'
 elif [[ "$1" == 1 ]]; then
-  echo "$(grep "rbetzler" -A 3 <<< "$prs")"
+  arg='me'
+  gh_arg="--author @me"
 elif [[ "$1" == 2 ]]; then
-  echo "$(grep "$WORK_PR_GREP_STRING" -A 3 <<< "$prs")"
+  arg='team'
 fi
 
+python $HOME/.git_aliases/parse_gh.py $arg "$(gh pr list $gh_arg --json 'author,number,state,isDraft,title,url' --limit 1000)"

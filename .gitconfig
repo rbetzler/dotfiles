@@ -70,13 +70,13 @@
     pf = "push -f"
     pfl = "push --force-with-lease"
     pr-draft = "!f() { \
-      hub pull-request --push --no-edit --draft; \
+      gh pr create --draft --fill; \
     }; f"
     pr-list = !bash ~/.git_aliases/list_prs 0
     pr-list-mine = !bash ~/.git_aliases/list_prs 1
     pr-list-work-team = !bash ~/.git_aliases/list_prs 2
     pr-open = "!f() { \
-      hub pull-request --push --no-edit; \
+      gh pr create --fill; \
     }; f"
     psu = !bash ~/.git_aliases/push_set_upstream
     psu-force = !bash ~/.git_aliases/push_set_upstream 0
