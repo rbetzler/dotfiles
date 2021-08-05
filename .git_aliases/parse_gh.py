@@ -8,7 +8,10 @@ class Parse:
     def __init__(self, prs: str):
         """prs is the raw github cli pr list as a str, which we convert to a dict"""
         self.me = 'rbetzler'
-        self.team = os.environ.get('WORK_TEAM_PR').split(',')
+
+        team = os.environ.get('WORK_TEAM_PR')
+        self.team = team.split(',') if team else []
+
         # Wrap bools in quotes
         for x, y in [
             (':true,', ':"true",'),
