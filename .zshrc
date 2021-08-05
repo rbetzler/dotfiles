@@ -3,7 +3,11 @@ export ZSH="${HOME}/.oh-my-zsh"
 
 ZSH_THEME="fino"
 
-plugins=(zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
+plugins=(
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  # zsh-vi-mode
+)
 
 # dbt autocomplete
 autoload -U +X compinit && compinit
