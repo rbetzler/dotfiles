@@ -1,0 +1,44 @@
+Create Both
+Expunge Both
+SyncState *
+
+IMAPAccount email
+Host imap.gmail.com
+User MY_USER
+Pass MY_PWD
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore email-remote
+Account email
+
+MaildirStore email-local
+Path ~/.mutt/MY_USER/
+Inbox ~/.mutt/MY_USER/inbox
+
+Channel email-inbox
+Master :email-remote:
+Slave :email-local:
+Patterns "INBOX"
+
+Channel email-sent
+Master :email-remote:"[Gmail]/Sent Mail"
+Slave :email-local:sent
+
+Channel email-trash
+Master :email-remote:"[Gmail]/Trash"
+Slave :email-local:trash
+
+Group email
+Channel email-inbox
+Channel email-sent
+Channel email-trash
+
+# Gmail mailboxes:
+# "All Mail"
+# "Drafts"
+# "Important"
+# "Sent Mail"
+# "Spam"
+# "Starred"
+# "Trash"

@@ -18,7 +18,7 @@ fpath=(~/dbt-autocomplete/_dbt $fpath)
 source $ZSH/oh-my-zsh.sh
 
 # source dirs with creds, configs, scripts
-DIRS=(creds_db creds_dbt general work)
+DIRS=(creds_db creds_dbt creds_mutt general work)
 for d in $DIRS; do
   for f in ~/."$d"/*; do
     source $f;
@@ -49,6 +49,7 @@ alias l="exa"
 alias la="exa -a"
 alias ll="exa -l"
 alias lla="exa -al"
-alias m="mutt"
-alias mr="mutt -R"  # Mutt in read only mode
+alias m="neomutt"
+alias mr="neomutt -R"  # Mutt in read only mode
+alias ms="neomutt -f ~/.mutt/$MUTT_USER/sent"
 alias v="vim"
