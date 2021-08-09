@@ -56,11 +56,11 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # Clone zsh vi mode
 git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
 
-# Install hub
-wget https://github.com/github/hub/releases/download/v2.14.2/hub-linux-amd64-2.14.2.tgz -O $HOME/Downloads/hub.tgz
-tar -xvzf $HOME/Downloads/hub.tgz -C $HOME/Downloads/
-cp -r $HOME/Downloads/hub-linux-amd64-2.14.2/bin/. /usr/local/bin/
-cp -r $HOME/Downloads/hub-linux-amd64-2.14.2/etc/hub.zsh_completion /usr/local/share/zsh/site-functions/hub.zsh
+# Install gh
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+sudo apt update
+sudo apt install gh
 
 # Install exa
 wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -O $HOME/Downloads/exa.zip
