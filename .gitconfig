@@ -136,7 +136,9 @@
       vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
     }; f"
     sth = stash
-    stha = "stash apply"
-    sthc = "stash clear"
-    sthl = "stash list"
-    sthp = "stash pop"
+    sth-apply = "stash apply"
+    sth-clear = "stash clear"
+    sth-diff = "stash show -p"
+    sth-drop = "stash drop"
+    sth-list = "stash list"
+    sth-pop = "stash pop"
