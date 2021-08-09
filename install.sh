@@ -90,3 +90,9 @@ make install GO=/usr/local/go/bin/go
 wget https://github.com/dandavison/delta/releases/download/0.8.2/git-delta_0.8.2_amd64.deb -O $HOME/Downloads/delta.deb
 dpkg -i $HOME/Downloads/delta.deb
 rm $HOME/Downloads/delta.deb
+
+# Install rustup for cargo for sd
+curl https://sh.rustup.rs -sSf | sh
+
+# Install sd
+cargo install sd
