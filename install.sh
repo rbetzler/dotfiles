@@ -96,3 +96,9 @@ curl https://sh.rustup.rs -sSf | sh
 
 # Install sd
 cargo install sd
+
+# Clone dracula color scheme for mutt
+git clone https://github.com/dracula/mutt.git dracula/mutt
+
+# Install neomutt
+apt-get install neomutt

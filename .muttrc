@@ -11,12 +11,26 @@ set smtp_url = $MUTT_SMTP
 set smtp_pass = $MUTT_PWD
 
 # Remote gmail folders
-set folder = "imaps://imap.gmail.com/"
-set spoolfile = "+INBOX"
-set postponed = "+[Gmail]/Drafts"
-set record = "+[Gmail]/Sent Mail"
-set trash = "+[Gmail]/Trash"
+set folder = "imaps://imap.gmail.com"
+
+# Local folders
+set spoolfile = "~/.mutt/"$MUTT_USER"/inbox"
+set postponed = "~/.mutt/"$MUTT_USER"/drafts"
+set trash = "~/.mutt/"$MUTT_USER"/trash"
+
+# Disable record because gmail does this automatically
+unset record
 
 # Keybindings when navigating emails
 bind pager <up> previous-line
 bind pager <down> next-line
+
+# Source dracula color scheme
+source ~/dracula/mutt/dracula.muttrc
+
+# Macro to sync the current mailbox
+macro index G "!mbsync -a -c ~/.mutt/"$MUTT_USER"/.mbsyncrc<enter>"
+
+# Unset wait key to avoid getting prompt after running macros
+# https://mutt-users.mutt.narkive.com/GUGOK2Xl/pipe-message-without-the-press-any-key-to-continue
+unset wait_key
