@@ -9,4 +9,4 @@ else
   arg="--force"
 fi
 
-git push "$arg" --set-upstream origin "$current"
+git push $arg --set-upstream origin "$current"
