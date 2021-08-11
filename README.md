@@ -12,3 +12,10 @@
 * Random cli tools `bat`, `exa`, `vgrep`, etc.
 * Lots of git aliases
 * Some general data-related bash scripts to make life easier
+
+### Cron
+* Currently, my crontab looks like:
+  ```
+  */20 * * * * bash -c "source /home/nautilus/.general/sync_mailboxes && sync_mailboxes"
+  ```
+  which I will need to find a way to streamline...
