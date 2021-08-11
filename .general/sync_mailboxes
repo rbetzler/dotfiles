@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Sync all mutt mailboxes
+sync_mailboxes(){
+  for d in ~/.mutt/*; do
+    echo $d
+    mbsync -a -c "$d/.mbsyncrc"
+  done
+}
