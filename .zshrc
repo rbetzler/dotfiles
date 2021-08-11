@@ -50,5 +50,5 @@ alias ll="exa -l"
 alias lla="exa -al"
 alias m="neomutt -f ~/.mutt/$MUTT_USER/\[Gmail\]/All\ Mail/"
 alias mr="neomutt -R -f ~/.mutt/$MUTT_USER/\[Gmail\]/All\ Mail/"  # Mutt in read only mode
-alias ms="neomutt -f ~/.mutt/$MUTT_USER/Sent\ Mail/"
+alias ms="neomutt -f ~/.mutt/$MUTT_USER/\[Gmail\]/Sent\ Mail/"
 alias v="vim"
