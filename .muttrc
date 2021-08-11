@@ -37,3 +37,8 @@ macro index G "!mbsync -a -c ~/.mutt/"$MUTT_USER"/.mbsyncrc<enter>"
 # Unset wait key to avoid getting prompt after running macros
 # https://mutt-users.mutt.narkive.com/GUGOK2Xl/pipe-message-without-the-press-any-key-to-continue
 unset wait_key
+
+# Sort by threads then by latest message datetime
+# https://www.edwinwenink.xyz/posts/16-mutt-threads/
+set sort = threads
+set sort_aux = last-date-received
