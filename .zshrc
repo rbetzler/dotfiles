@@ -31,9 +31,8 @@ source ${HOME}/.python/venv/bin/activate
 # ipython env
 export IPYTHONDIR="$HOME"/.ipython
 
-# Set zsh vi mode to lazy start
-# to speed startup
-ZVM_LAZY_KEYBINDINGS=false
+# Set zsh vi mode to lazy start to speed startup
+# ZVM_LAZY_KEYBINDINGS=false
 
 # aliases
 alias b="bat"
