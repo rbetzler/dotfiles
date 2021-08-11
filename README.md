@@ -9,5 +9,6 @@
 * `mutt` for emails, with `isync` to handle them
 * `ipython` for py dev work
 * `gh` to help with github
+* Random cli tools `bat`, `exa`, `vgrep`, etc.
 * Lots of git aliases
 * Some general data-related bash scripts to make life easier
