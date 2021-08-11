@@ -15,30 +15,12 @@ Account email
 MaildirStore email-local
 Path ~/.mutt/MY_USER/
 Inbox ~/.mutt/MY_USER/inbox
+SubFolders Verbatim
 
-Channel email-inbox
+Channel email-all
 Master :email-remote:
 Slave :email-local:
-Patterns "INBOX"
-
-Channel email-sent
-Master :email-remote:"[Gmail]/Sent Mail"
-Slave :email-local:sent
-
-Channel email-trash
-Master :email-remote:"[Gmail]/Trash"
-Slave :email-local:trash
+Patterns *
 
 Group email
-Channel email-inbox
-Channel email-sent
-Channel email-trash
-
-# Gmail mailboxes:
-# "All Mail"
-# "Drafts"
-# "Important"
-# "Sent Mail"
-# "Spam"
-# "Starred"
-# "Trash"
+Channel email-all
