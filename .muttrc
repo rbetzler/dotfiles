@@ -21,6 +21,9 @@ set trash = "~/.mutt/"$MUTT_USER"/trash"
 # Disable record because gmail does this automatically
 unset record
 
+# Do not add + for lines that wrap
+unset markers
+
 # Keybindings when navigating emails
 bind pager <up> previous-line
 bind pager <down> next-line
