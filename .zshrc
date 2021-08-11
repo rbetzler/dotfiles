@@ -17,11 +17,14 @@ fpath=(~/dbt-autocomplete/_dbt $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
-# source dirs with creds, configs, scripts
+# source every non-readme file in the following dirs
+# which contain creds, configs, scripts
 DIRS=(creds_db creds_dbt creds_mutt general work)
 for d in $DIRS; do
   for f in ~/."$d"/*; do
-    source $f;
+    if [ "${f: -3}" != ".md" ]; then
+      source $f;
+    fi
   done
 done
 

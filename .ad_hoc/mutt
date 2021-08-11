@@ -10,19 +10,23 @@ cd .mutt
 
 for f in ~/.creds_mutt/*; do
 
-  echo $f
-  # For every mutt credentials file,
-  # create a user dir
-  source "$f"
-  mkdir -p $MUTT_USER
-  mkdir -p "$MUTT_USER/inbox"
+  # Ignore readme file
+  if [ "${f: -3}" != ".md" ]; then
 
-  # Copy template file if it has been updated
-  cp -u ~/.mbsyncrc "$MUTT_USER/.mbsyncrc"
+    # For every mutt credentials file,
+    # create a user dir
+    source "$f"
+    mkdir -p $MUTT_USER
+    mkdir -p "$MUTT_USER/inbox"
 
-  # Replace user name, password placeholders in the rc file
-  sd 'MY_USER' "$MUTT_USER" "$MUTT_USER/.mbsyncrc"
-  sd 'MY_PWD' "$MUTT_PWD" "$MUTT_USER/.mbsyncrc"
-  sd 'MY_EMAIL_ADDR' "$MUTT_EMAIL_ADDR" "$MUTT_USER/.mbsyncrc"
+    # Copy template file if it has been updated
+    cp -u ~/.mbsyncrc "$MUTT_USER/.mbsyncrc"
+
+    # Replace user name, password placeholders in the rc file
+    sd 'MY_USER' "$MUTT_USER" "$MUTT_USER/.mbsyncrc"
+    sd 'MY_PWD' "$MUTT_PWD" "$MUTT_USER/.mbsyncrc"
+    sd 'MY_EMAIL_ADDR' "$MUTT_EMAIL_ADDR" "$MUTT_USER/.mbsyncrc"
+
+  fi
 
 done
