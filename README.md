@@ -1,11 +1,13 @@
-My `$HOME`
+## My `$HOME`
 
-Install: `sudo bash install.sh`
+### Install
+* Run: `sudo bash install.sh`
 
-Generate ctags
-* `ctags -R -f ~/.ctags/tags --extra=+f --exclude=.git --exclude=venv`
-
-Vim jedi setup step
-* `git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim`
-
-TODO: Setup gh for git
+### Basics
+* `zsh` for shell, with `oh-my-zsh` for plugins
+* `vim` for text editing, with `vundle` for (most) plugins
+* `mutt` for emails, with `isync` to handle them
+* `ipython` for py dev work
+* `gh` to help with github
+* Lots of git aliases
+* Some general data-related bash scripts to make life easier
