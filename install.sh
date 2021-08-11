@@ -102,3 +102,9 @@ git clone https://github.com/dracula/mutt.git dracula/mutt
 
 # Install neomutt
 apt-get install neomutt
+
+# Install asciinema
+apt-get install asciinema
+
+# Pull docker image to convert cast file to gif
+docker pull asciinema/asciicast2gif
