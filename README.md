@@ -1,7 +1,13 @@
 ## My `$HOME`
 
 ### Install
-* Run: `sudo bash install.sh`
+* ```sh
+  git init
+  git remote add origin git@github.com:rbetzler/dotfiles.git
+  git pull origin master
+ 
+  sudo bash install.sh
+  ```
 
 ### Basics
 * `zsh` for shell, with `oh-my-zsh` for plugins
