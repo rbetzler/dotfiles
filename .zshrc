@@ -6,7 +6,6 @@ ZSH_THEME="fino"
 plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
-  # zsh-vi-mode
 )
 
 # dbt autocomplete
@@ -33,9 +32,6 @@ source ${HOME}/.python/venv/bin/activate
 
 # ipython env
 export IPYTHONDIR="$HOME"/.ipython
-
-# Set zsh vi mode to lazy start to speed startup
-# ZVM_LAZY_KEYBINDINGS=false
 
 # Patch inconsistent bat, batcat naming
 if ! type bat &>/dev/null ; then
