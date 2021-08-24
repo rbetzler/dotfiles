@@ -37,6 +37,11 @@ export IPYTHONDIR="$HOME"/.ipython
 # Set zsh vi mode to lazy start to speed startup
 # ZVM_LAZY_KEYBINDINGS=false
 
+# Patch inconsistent bat, batcat naming
+if ! type bat &>/dev/null ; then
+  alias bat="batcat"
+fi
+
 # aliases
 alias b="bat"
 alias c="bat"
