@@ -42,6 +42,9 @@ apt-get install isync
 # Install asciinema
 apt-get install asciinema
 
+# Install chrome
+apt-get install chromium-browser
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
