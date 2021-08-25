@@ -32,7 +32,7 @@ bind pager <down> next-line
 source ~/dracula/mutt/dracula.muttrc
 
 # Macro to sync the current mailbox
-macro index G "!mbsync -a -c ~/.mutt/"$MUTT_USER"/.mbsyncrc<enter>"
+macro index S "!mbsync -a -c ~/.mutt/"$MUTT_USER"/.mbsyncrc<enter>"
 
 # Unset wait key to avoid getting prompt after running macros
 # https://mutt-users.mutt.narkive.com/GUGOK2Xl/pipe-message-without-the-press-any-key-to-continue
