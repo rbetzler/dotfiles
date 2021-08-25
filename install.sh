@@ -45,6 +45,9 @@ apt-get install asciinema
 # Install chrome
 apt-get install chromium-browser
 
+# Install copyq
+apt-get install copyq
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
