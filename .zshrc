@@ -38,6 +38,10 @@ if ! type bat &>/dev/null ; then
   alias bat="batcat"
 fi
 
+# Start copyq if it isn't running
+# Ignore error logs if it is
+copyq 2>/dev/null
+
 # aliases
 alias b="bat"
 alias c="bat"
