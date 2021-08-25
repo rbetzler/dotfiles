@@ -5,7 +5,7 @@
   git init
   git remote add origin git@github.com:rbetzler/dotfiles.git
   git pull origin master
- 
+
   sudo bash install.sh
   ```
 
