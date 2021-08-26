@@ -53,6 +53,7 @@ alias la="exa -a"
 alias ll="exa -l"
 alias lla="exa -al"
 alias m="neomutt -f ~/.mutt/$MUTT_USER/\[Gmail\]/All\ Mail/"
+alias mdrft="neomutt -f ~/.mutt/$MUTT_USER/\[Gmail\]/Drafts"
 alias mr="neomutt -R -f ~/.mutt/$MUTT_USER/\[Gmail\]/All\ Mail/"  # Mutt in read only mode
 alias ms="neomutt -f ~/.mutt/$MUTT_USER/\[Gmail\]/Sent\ Mail/"
 alias s="sync_current_mailbox"
