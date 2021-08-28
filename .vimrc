@@ -79,6 +79,7 @@ nmap <C-l> :wincmd l<CR>
 nmap <C-h> :wincmd h<CR>
 nmap <C-a> :NERDTreeFocusToggle<CR>
 nmap <F8> :call flake8#Flake8()<CR>
+nmap <F9> :setlocal spell! spelllang=en_us<CR>
 " Remove trailing whitespaces
 nmap <C-t><C-w> :%s/\s\+$//e<CR>
 
