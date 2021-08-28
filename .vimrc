@@ -25,6 +25,7 @@ Plugin 'https://github.com/tpope/vim-surround'
 Plugin 'https://github.com/tpope/vim-repeat'
 Plugin 'https://github.com/tpope/vim-dadbod'
 Plugin 'https://github.com/kristijanhusak/vim-dadbod-ui'
+Plugin 'dracula/vim', { 'name': 'dracula' }
 " Plugin 'https://github.com/kristijanhusak/vim-dadbod-completion'
 " Plugin 'https://github.com/neoclide/coc.nvim'
 " Plugin 'iamcco/markdown-preview.nvim'
@@ -50,7 +51,7 @@ endif
 
 " Set color scheme
 set background=dark
-colorscheme oceanic_material
+colorscheme dracula
 
 " Set ctags
 set tags+=$HOME/.ctags/tags
