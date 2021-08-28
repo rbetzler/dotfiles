@@ -25,3 +25,9 @@
   */20 * * * * bash -c "source /home/nautilus/.general/sync_mailboxes && sync_mailboxes"
   ```
   which I will need to find a way to streamline...
+
+### Mutt address book
+* This looks like so
+  ```
+  alias me <me@gmail.com>
+  ```
