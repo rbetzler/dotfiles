@@ -64,7 +64,11 @@ git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-m
 git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
 
 # Clone dracula color scheme for mutt
-git clone https://github.com/dracula/mutt.git dracula/mutt
+git clone https://github.com/dracula/mutt.git $HOME/dracula/mutt
+
+# For zsh (with symbolic link)
+git clone https://github.com/dracula/zsh.git $HOME/dracula/zsh
+ln -s $HOME/dracula/zsh/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
 
 # Install dbt autocomplete
 mkdir ${HOME}/dbt-autocomplete
