@@ -95,9 +95,6 @@ autocmd FileType python setlocal completeopt-=preview
 " Autostart git gutter
 autocmd VimEnter * GitGutter
 
-"" Autostart db ui
-"autocmd FileType sql DBUI
-
 " Autoformat csv on open
 " Borrowed from: https://github.com/chrisbra/csv.vim/blob/master/csv.vmb
 aug CSV_Editing
@@ -152,9 +149,6 @@ let g:db_ui_win_position = 'right'
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = "0"
 
-" Run flake8 when writing a file
-" autocmd BufWritePost *.py call flake8#Flake8()
-
 " Show flake8 gutter
 let g:flake8_show_in_gutter=1
 let g:flake8_show_in_file=1
@@ -165,31 +159,10 @@ let g:syntastic_yaml_checkers = ['yamllint']
 " Patch xterm printing weird chars on line 1
 set t_TI= t_TE=
 
-" Github markdown plugin config
-" let g:mkdp_auto_start = 0
-" let g:mkdp_auto_close = 1
-" let g:mkdp_refresh_slow = 0
-" let g:mkdp_command_for_global = 0
-" let g:mkdp_open_to_the_world = 0
-" let g:mkdp_open_ip = ''
-" let g:mkdp_browser = ''
-" let g:mkdp_echo_preview_url = 0
-" let g:mkdp_browserfunc = ''
-" let g:mkdp_preview_options = {
-"     \ 'mkit': {},
-"     \ 'katex': {},
-"     \ 'uml': {},
-"     \ 'maid': {},
-"     \ 'disable_sync_scroll': 0,
-"     \ 'sync_scroll_type': 'middle',
-"     \ 'hide_yaml_meta': 1,
-"     \ 'sequence_diagrams': {},
-"     \ 'flowchart_diagrams': {},
-"     \ 'content_editable': v:false,
-"     \ 'disable_filename': 0
-"     \ }
-" let g:mkdp_markdown_css = ''
-" let g:mkdp_highlight_css = ''
-" let g:mkdp_port = ''
-" let g:mkdp_page_title = '「${name}」'
-" let g:mkdp_filetypes = ['markdown']
+" Settings for mutt, when in mutt
+function MuttSettings()
+  set wrap
+  set spell spelllang=en_us
+  execute ":NERDTreeClose"
+endfunction
+autocmd VimEnter /tmp/neomutt* call MuttSettings()
