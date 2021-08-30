@@ -16,6 +16,8 @@ fpath=(~/dbt-autocomplete/_dbt $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
+source $HOME/dracula/zsh-syntax/zsh-syntax-highlighting.sh
+
 # source every non-readme file in the following dirs
 # which contain creds, configs, scripts
 DIRS=(creds_db creds_dbt creds_mutt general work)

@@ -70,6 +70,9 @@ git clone https://github.com/dracula/mutt.git $HOME/dracula/mutt
 git clone https://github.com/dracula/zsh.git $HOME/dracula/zsh
 ln -s $HOME/dracula/zsh/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
 
+# For zsh autcomplete
+git clone https://github.com/dracula/zsh-syntax-highlighting.git $HOME/dracula/zsh-syntax
+
 # Install dbt autocomplete
 mkdir ${HOME}/dbt-autocomplete
 curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/_dbt > ${HOME}/dbt-autocomplete/_dbt
