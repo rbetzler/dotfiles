@@ -66,6 +66,9 @@ git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/
 # Clone dracula color scheme for mutt
 git clone https://github.com/dracula/mutt.git $HOME/dracula/mutt
 
+# For terminator
+git clone https://github.com/dracula/terminator.git $HOME/dracula/terminator
+
 # For zsh (with symbolic link)
 git clone https://github.com/dracula/zsh.git $HOME/dracula/zsh
 ln -s $HOME/dracula/zsh/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
