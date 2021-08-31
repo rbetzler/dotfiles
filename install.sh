@@ -158,5 +158,10 @@ cd vgrep
 make build GO=/usr/local/go/bin/go
 make install GO=/usr/local/go/bin/go
 
+# Install vivaldi
+wget https://downloads.vivaldi.com/stable/vivaldi-stable_4.1.2369.21-1_amd64.deb -O $HOME/Downloads/vivaldi.deb
+dpkg -i $HOME/Downloads/vivaldi.deb
+rm $HOME/Downloads/vivaldi.deb
+
 # Install home python venv
 bash ${HOME}/.python/install_venv
