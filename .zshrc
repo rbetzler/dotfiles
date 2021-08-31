@@ -2,6 +2,7 @@
 export ZSH="${HOME}/.oh-my-zsh"
 
 ZSH_THEME="dracula"
+DRACULA_DISPLAY_CONTEXT=1  # print username too
 
 plugins=(
   zsh-autosuggestions
