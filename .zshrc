@@ -36,6 +36,12 @@ source ${HOME}/.python/venv/bin/activate
 # ipython env
 export IPYTHONDIR="$HOME"/.ipython
 
+# Patch slow git autosuggestions
+# https://stackoverflow.com/questions/9810327/zsh-auto-completion-for-git-takes-significant-amount-of-time-can-i-turn-it-off/9810485#9810485
+__git_files () {
+    _wanted files expl 'local files' _files
+}
+
 # Patch inconsistent bat, batcat naming
 if ! type bat &>/dev/null ; then
   alias bat="batcat"
