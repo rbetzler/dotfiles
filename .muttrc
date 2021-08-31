@@ -16,6 +16,9 @@ set folder = "imaps://imap.gmail.com"
 # Purge deleted messages without asking
 set delete = yes
 
+# Mark all unread mail as new (N)
+set mark_old=no
+
 # Local folders
 set spoolfile = "~/.mutt/"$MUTT_USER"/inbox"
 set postponed = "~/.mutt/"$MUTT_USER"/\[Gmail\]/Drafts"
