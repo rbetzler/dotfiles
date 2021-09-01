@@ -48,6 +48,9 @@ apt-get install chromium-browser
 # Install copyq
 apt-get install copyq
 
+# Install preload
+apt-get install preload
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
