@@ -1,4 +1,6 @@
 # General
+set editor="vim"
+
 set from = $MUTT_EMAIL_ADDR
 set realname = $MUTT_NAME
 
