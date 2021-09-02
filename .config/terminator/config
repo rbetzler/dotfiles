@@ -14,6 +14,7 @@
 [plugins]
 [profiles]
   [[default]]
+    cursor_shape = ibeam
     background_color = "#282a36"
     background_image = None
     # font = Anonymous Pro 12
