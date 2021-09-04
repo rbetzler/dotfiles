@@ -51,6 +51,9 @@ apt-get install copyq
 # Install preload
 apt-get install preload
 
+# Install autojump
+apt-get install autojump
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
