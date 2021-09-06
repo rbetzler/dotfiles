@@ -15,6 +15,9 @@ chsh -s $(which zsh)
 # Install terminator
 apt-get install terminator
 
+# Install filezilla
+apt-get install filezilla
+
 # Install vim-gtk
 apt-get install vim-gtk
 
