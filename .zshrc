@@ -40,7 +40,12 @@ source ${HOME}/.python/venv/bin/activate
 export IPYTHONDIR="$HOME"/.ipython
 
 # Set zsh vi mode to lazy start to speed startup
-ZVM_LAZY_KEYBINDINGS=false
+ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
+ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+
 
 # Patch slow git autosuggestions
 # https://stackoverflow.com/questions/9810327/zsh-auto-completion-for-git-takes-significant-amount-of-time-can-i-turn-it-off/9810485#9810485
