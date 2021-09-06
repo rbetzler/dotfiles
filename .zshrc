@@ -7,6 +7,7 @@ DRACULA_DISPLAY_CONTEXT=1  # print username too
 plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
+  zsh-vi-mode
 )
 
 # dbt autocomplete
@@ -37,6 +38,9 @@ source ${HOME}/.python/venv/bin/activate
 
 # ipython env
 export IPYTHONDIR="$HOME"/.ipython
+
+# Set zsh vi mode to lazy start to speed startup
+ZVM_LAZY_KEYBINDINGS=false
 
 # Patch slow git autosuggestions
 # https://stackoverflow.com/questions/9810327/zsh-auto-completion-for-git-takes-significant-amount-of-time-can-i-turn-it-off/9810485#9810485
