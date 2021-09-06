@@ -15,6 +15,9 @@ chsh -s $(which zsh)
 # Install terminator
 apt-get install terminator
 
+# Install postgresl
+apt-get install postgresql-12
+
 # Install filezilla
 apt-get install filezilla
 
