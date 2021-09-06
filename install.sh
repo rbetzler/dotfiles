@@ -150,6 +150,10 @@ wget $DELTA -O $HOME/Downloads/delta.deb
 dpkg -i $HOME/Downloads/delta.deb
 rm $HOME/Downloads/delta.deb
 
+wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O $HOME/Downloads/dbeaver.deb
+dpkg -i $HOME/Downloads/dbeaver.deb
+rm $HOME/Downloads/dbeaver.deb
+
 # Install go (dependency of vgrep)
 wget $GO -O $HOME/Downloads/go.tar.gz
 rm -rf /usr/local/go
