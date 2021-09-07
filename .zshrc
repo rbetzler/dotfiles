@@ -66,7 +66,6 @@ alias fd="fdfind"
 alias fvim='vim $(fz)'
 alias fz="fzf --height 60%"
 alias g="git"
-alias h="hub"
 alias l="exa"
 alias la="exa -a"
 alias ll="exa -l"
