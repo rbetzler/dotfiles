@@ -8,6 +8,8 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-vi-mode
+  docker
+  docker-compose
 )
 
 # dbt autocomplete
