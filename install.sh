@@ -21,6 +21,9 @@ apt-get install postgresql-12
 # Install filezilla
 apt-get install filezilla
 
+# Install nmap
+apt-get install nmap
+
 # Install vim-gtk
 apt-get install vim-gtk
 
