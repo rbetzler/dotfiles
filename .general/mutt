@@ -3,7 +3,7 @@
 # This script sets up mbsync for gmail
 
 setup_isync_mailboxes(){
-  set -eux pipefail
+  set -ux pipefail
 
   # Create and enter mutt dir
   cd $HOME
@@ -28,10 +28,11 @@ setup_isync_mailboxes(){
       sd 'MY_USER' "$MUTT_USER" "$MUTT_USER/.mbsyncrc"
       sd 'MY_PWD' "$MUTT_PWD" "$MUTT_USER/.mbsyncrc"
       sd 'MY_EMAIL_ADDR' "$MUTT_EMAIL_ADDR" "$MUTT_USER/.mbsyncrc"
+      sd 'MY_HOST' "$MUTT_HOST" "$MUTT_USER/.mbsyncrc"
 
     fi
 
   done
 
-  set +eux pipefail
+  set +ux pipefail
 }

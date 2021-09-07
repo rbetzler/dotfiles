@@ -3,7 +3,7 @@ Expunge Both
 SyncState *
 
 IMAPAccount email
-Host imap.gmail.com
+Host MY_HOST
 User MY_USER
 Pass MY_PWD
 SSLType IMAPS
