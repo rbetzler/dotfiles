@@ -45,6 +45,10 @@ source "$HOME/.mutt/address_book"
 # Macro to sync the current mailbox
 macro index S "!mbsync -a -c ~/.mutt/"$MUTT_USER"/.mbsyncrc<enter>"
 
+# Macros for mailbox mgmt
+unbind index s
+macro index sg "<limit>github\n<tag-pattern>\n<tag-prefix><copy-message>=./github"
+
 # Unset wait key to avoid getting prompt after running macros
 # https://mutt-users.mutt.narkive.com/GUGOK2Xl/pipe-message-without-the-press-any-key-to-continue
 unset wait_key
