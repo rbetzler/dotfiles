@@ -7,4 +7,6 @@ export MUTT_EMAIL_ADDR="$MUTT_USER@gmail.com"
 export MUTT_NAME="My User"
 export MUTT_PWD="some_password"
 export MUTT_SMTP="smtps://$MUTT_USER@smtp.gmail.com"
+export MUTT_HOST="imap.gmail.com"
+export MUTT_FOLDER="imaps://imap.gmail.com"
 ```
