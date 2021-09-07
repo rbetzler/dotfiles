@@ -29,7 +29,7 @@ source /usr/share/autojump/autojump.zsh
 DIRS=(creds_db creds_dbt creds_mutt general work)
 for d in $DIRS; do
   for f in ~/."$d"/*; do
-    if [ "${f: -3}" != ".md" ]; then
+    if [ "${f: -3}" != ".md" ] && [ "${f: -7}" != ".ignore" ]; then
       source $f;
     fi
   done
