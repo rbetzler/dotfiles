@@ -1,7 +1,25 @@
 #!/bin/bash
 
-# This script sets up mbsync for gmail
+# Check if the current account is gmail or outlook
+# Then alias mutt commands accordingly
+mutt_dir="~/.mutt/$MUTT_USER"
+gmail_dir="$mutt_dir/\[Gmail\]"
+if [ -d "$gmail_dir" ]; then
+  inbox_dir="$gmail_dir/All\ Mail/"
+  draft_dir="$gmail_dir/Drafts"
+  sent_dir="$gmail_dir/Sent\ Mail"
+else
+  inbox_dir="$mutt_dir/inbox"
+  draft_dir="$mutt_dir/Drafts"
+  sent_dir="$mutt_dir/Sent\ Items"
+fi
 
+alias m="neomutt -f $inbox_dir"
+alias mdrft="neomutt -f $draft_dir"
+alias mr="neomutt -R -f $inbox_dir"  # Read only mode
+alias ms="neomutt -f $sent_dir"
+
+# This script sets up mbsync for gmail
 setup_isync_mailboxes(){
   set -ux pipefail
 
