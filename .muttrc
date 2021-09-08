@@ -55,6 +55,12 @@ unset wait_key
 set sort = threads
 set sort_aux = last-date-received
 
-# (Conditionally) source work mutt configs
+# Tweak binds to handle custom macros
 unbind index s
+macro index ss "<save-message>"
+
+unbind index t
+macro index tt "<tag-entry>"
+
+# (Conditionally) source work mutt configs
 source `FILE=$HOME/.work/muttrc.ignore; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
