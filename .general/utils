@@ -7,3 +7,10 @@ ivgrep()
   vgrep "$1" > /dev/null
   vgrep --interactive
 }
+
+# Do not exclude gitignored directories
+ivgrep-all()
+{
+  vgrep --no-index "$1" > /dev/null
+  vgrep --interactive
+}
