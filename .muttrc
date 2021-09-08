@@ -13,7 +13,8 @@ set smtp_url = $MUTT_SMTP
 set smtp_pass = $MUTT_PWD
 
 # Remote gmail folders
-set folder = $MUTT_FOLDER
+set folder = "~/.mutt/"$MUTT_USER"
+mailboxes "~/.mutt/$MUTT_USER/inbox"
 
 # Purge deleted messages without asking
 set delete = yes
