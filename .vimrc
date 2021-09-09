@@ -89,8 +89,8 @@ xnoremap p pgvy
 
 " Autoopen nerdtree
 autocmd VimEnter * NERDTree | wincmd p
-autocmd FileType python TagbarOpen
-autocmd FileType python setlocal completeopt-=preview
+" autocmd FileType python TagbarOpen
+" autocmd FileType python setlocal completeopt-=preview
 
 " Autostart git gutter
 autocmd VimEnter * GitGutter
