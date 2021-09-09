@@ -63,6 +63,9 @@ apt-get install preload
 # Install autojump
 apt-get install autojump
 
+# Install bluetooth manager
+sudo apt-get install blueman
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
