@@ -28,3 +28,9 @@ remove_line(){
       mv "$2".tmp "$2"
     fi
 }
+
+# Makes a shell script executable
+# according to git
+make_executable(){
+  chmod u+x "$1"
+}
