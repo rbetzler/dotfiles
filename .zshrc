@@ -48,6 +48,10 @@ ZVM_VISUAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 ZVM_VISUAL_LINE_MODE_CURSOR=$ZVM_CURSOR_BLOCK
 ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
 
+# Key binds to override zsh vi mode
+zvm_bindkey viins "^[[H" beginning-of-line
+zvm_bindkey viins "^[[F" end-of-line
+
 # Patch slow git autosuggestions
 # https://stackoverflow.com/questions/9810327/zsh-auto-completion-for-git-takes-significant-amount-of-time-can-i-turn-it-off/9810485#9810485
 __git_files () {
