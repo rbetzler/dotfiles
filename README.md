@@ -1,5 +1,7 @@
 ## My `$HOME`
 
+Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (among other sources)
+
 ### Install
 * ```sh
   git init
