@@ -9,3 +9,4 @@ pipreqs
 pudb
 sqlfluff
 yamllint
+yapf
