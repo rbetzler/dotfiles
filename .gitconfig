@@ -81,11 +81,17 @@
     pr-draft = "!f() { \
       gh pr create --draft --fill; \
     }; f"
+    pr-draft-staging = "!f() { \
+      gh pr create --draft --fill --base staging; \
+    }; f"
     pr-list = !bash ~/.git_aliases/list_prs 0
     pr-list-mine = !bash ~/.git_aliases/list_prs 1
     pr-list-work-team = !bash ~/.git_aliases/list_prs 2
     pr-open = "!f() { \
       gh pr create --fill; \
+    }; f"
+    pr-open-staging = "!f() { \
+      gh pr create --fill --base staging; \
     }; f"
     prs ="!f() { \
       gh pr status; \
