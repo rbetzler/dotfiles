@@ -62,6 +62,7 @@
     dfc = "diff --cached"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
     l = log
+    lg = "log --graph"
     lp = "log -p"
     l-feat-commits = !bash ~/.git_aliases/log_feature_commits
     l-feat-hashs = !bash ~/.git_aliases/log_feature_commits 0
