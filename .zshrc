@@ -68,9 +68,9 @@ fi
 alias b="bat"
 alias c="bat"
 alias dk="docker"
-alias fcat='bat $(fz)'
+alias fc='bat $(fz)'
 alias fd="fdfind"
-alias fvim='vim $(fz)'
+alias fv='vim $(fz)'
 alias fz="fzf --height 60%"
 alias g="git"
 alias l="exa"
