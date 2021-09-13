@@ -34,3 +34,9 @@ remove_line(){
 make_executable(){
   chmod u+x "$1"
 }
+
+
+# Copy to system clipboard
+cp-to-clipboard(){
+  "$@" | xclip -selection clipboard
+}

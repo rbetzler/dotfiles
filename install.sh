@@ -72,6 +72,9 @@ apt-get install blueman
 # Install psql alternative
 apt-get install pgcli
 
+# Install cli clipboard tool
+apt-get install xclip
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
