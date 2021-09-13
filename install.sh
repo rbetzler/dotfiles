@@ -69,6 +69,9 @@ apt-get install tree
 # Install bluetooth manager
 apt-get install blueman
 
+# Install psql alternative
+apt-get install pgcli
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
