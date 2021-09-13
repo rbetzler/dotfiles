@@ -1,0 +1,9 @@
+#!/bin/bash
+
+alias dki="docker images"
+alias dkps="docker ps"
+alias dkpsa="docker ps -a"
+alias dkrm="docker rm"
+alias dkrmf="docker rm -f"
+alias dkrmi="docker rmi"
+alias dkrmif="docker rmi -f"
