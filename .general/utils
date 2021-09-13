@@ -18,7 +18,7 @@ ivgrep-all()
 # Remove entire line from file
 # by writing to a new file
 # then moving it back
-remove_line(){
+remove-line(){
     files=$(grep -rl "$1" .)
     if [ -z "$files" ]; then
       echo "Pattern not found: $1"
@@ -31,7 +31,7 @@ remove_line(){
 
 # Makes a shell script executable
 # according to git
-make_executable(){
+make-executable(){
   chmod u+x "$1"
 }
 
@@ -39,4 +39,9 @@ make_executable(){
 # Copy to system clipboard
 cp-to-clipboard(){
   "$@" | xclip -selection clipboard
+}
+
+# Find running app
+ps-app(){
+  ps -aux | grep "$1" | awk '{print $2, substr($0, index($0, $11))}'
 }
