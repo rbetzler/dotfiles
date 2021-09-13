@@ -60,6 +60,7 @@
     chpkc = "chpk --continue"
     df = diff
     dfc = "diff --cached"
+    ft = "fetch"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
     l = log
     lg = "log --graph"
@@ -116,6 +117,9 @@
       git remote add \"$1\" \"$2\"; \
     }; f"
     rmt-list = "remote -v"
+    rmt-rmv = "!f() { \
+      git remote remove \"$1\"; \
+    }; f"
     rps-add = "!f() { \
       gita add \"$1\"; \
     }; f"
