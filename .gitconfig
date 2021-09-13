@@ -59,7 +59,6 @@
     chpka = "chpk --abort"
     chpkc = "chpk --continue"
     df = diff
-    ft-upstream = !bash ~/.git_aliases/fetch_upstream
     dfc = "diff --cached"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
     l = log
@@ -113,10 +112,14 @@
       git rbi HEAD~\"$1\" --rebase-merges; \
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
-    repos-add = "!f() { \
+    rmt-add = "!f() { \
+      git remote add \"$1\" \"$2\"; \
+    }; f"
+    rmt-list = "remote -v"
+    rps-add = "!f() { \
       gita add \"$1\"; \
     }; f"
-    repos-list-status = "!f() { \
+    rps-list-status = "!f() { \
       gita ll; \
     }; f"
     rflg = "!f() { \
