@@ -1,5 +1,6 @@
 dbt
 flake8
+grip
 ipdb
 ipython==7.15.0
 jedi==0.17.2
