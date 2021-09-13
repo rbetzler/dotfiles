@@ -112,6 +112,12 @@
       git rbi HEAD~\"$1\" --rebase-merges; \
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
+    repos-add = "!f() { \
+      gita add \"$1\"; \
+    }; f"
+    repos-list-status = "!f() { \
+      gita ll; \
+    }; f"
     rflg = "!f() { \
       git reflog --grep-reflog=\"$1\"; \
     }; f"
