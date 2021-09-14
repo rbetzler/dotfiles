@@ -1,5 +1,13 @@
 #!/bin/bash
 
+dkrm-all(){
+  docker rm $(docker ps -aq)
+}
+
+dkrmi-all(){
+  docker rmi $(docker images -q)
+}
+
 alias dkb="docker build"
 alias dke="docker exec -it"
 alias dki="docker images"
