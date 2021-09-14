@@ -1,11 +1,17 @@
 #!/bin/bash
 
+alias dkb="docker build"
+alias dke="docker exec -it"
 alias dki="docker images"
+alias dkpl="docker pull"
 alias dkps="docker ps"
 alias dkpsa="docker ps -a"
+alias dkpsaq="docker ps -aq"
 alias dkrm="docker rm"
 alias dkrmf="docker rm -f"
 alias dkrmi="docker rmi"
+alias dkrmif="docker rmi -f"
 alias dkrn="docker run"
 alias dkrnit="docker run -it"
-alias dks="docker stop"
+alias dkstp="docker stop"
+alias dkst="docker start"
