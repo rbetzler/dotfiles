@@ -29,6 +29,10 @@ remove-line(){
     fi
 }
 
+find-replace(){
+  sd $1 $2 $(grep -rl "$1" .)
+}
+
 # Makes a shell script executable
 # according to git
 make-executable(){
