@@ -15,6 +15,7 @@ set smtp_pass = $MUTT_PWD
 # Remote gmail folders
 set folder = "~/.mutt/"$MUTT_USER"
 mailboxes "~/.mutt/$MUTT_USER/inbox"
+set mbox_type = Maildir
 
 # Purge deleted messages without asking
 set delete = yes
