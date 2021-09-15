@@ -162,10 +162,10 @@ else
   rm $HOME/Downloads/exa.zip
 
   if [ $# -eq 0 ]; then
-    echo "Skipping docker pull for asciinema"
-  else
     echo "Pull docker image to convert cast file to gif"
     docker pull asciinema/asciicast2gif
+  else
+    echo "Skipping docker pull for asciinema"
   fi
 
   echo "Setting download urls for amd, i.e., ubuntu"
@@ -199,8 +199,6 @@ cd ..
 
 # Install vivaldi
 if [ $# -eq 0 ]; then
-  echo "Skipping desktop installs"
-else
   wget https://downloads.vivaldi.com/stable/vivaldi-stable_4.1.2369.21-1_amd64.deb -O $HOME/Downloads/vivaldi.deb
   dpkg -i $HOME/Downloads/vivaldi.deb
   rm $HOME/Downloads/vivaldi.deb
@@ -208,6 +206,8 @@ else
   wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O $HOME/Downloads/dbeaver.deb
   dpkg -i $HOME/Downloads/dbeaver.deb
   rm $HOME/Downloads/dbeaver.deb
+else
+  echo "Skipping desktop installs"
 fi
 
 # Install home python venv
