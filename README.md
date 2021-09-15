@@ -42,5 +42,8 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
 * Run:
   ```
   docker build --tag rlb-env - < Dockerfile
-  docker run -it --rm -v $HOME/:/mnt -w /mnt rlb-env
+  docker run -it --rm -v $HOME/:/mnt -w /mnt rlb-env -c "ln -s /mnt/.ssh /root && zsh"
   ```
+  * The second command is a hacky way to run a symbolic link then stay in the container.
+    Otherwise, docker will exit abruptly.
+  * The symlink is needed to make root ssh keys accessible.
