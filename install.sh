@@ -112,7 +112,8 @@ curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/ma
 curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/dbt-completion.bash > ${HOME}/dbt-autocomplete/.dbt-completion.bash
 
 # Install rustup for cargo for sd
-curl https://sh.rustup.rs -sSf | sh
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+source $HOME/.cargo/env
 
 # Install sd
 cargo install sd
