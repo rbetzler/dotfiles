@@ -78,6 +78,9 @@ apt-get install pgcli
 # Install cli clipboard tool
 apt-get install xclip
 
+# Install tasking tool
+apt-get install taskwarrior
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
