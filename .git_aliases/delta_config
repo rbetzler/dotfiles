@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if ! command -v delta &> /dev/null; then
+  less
+else
+  delta
+fi
