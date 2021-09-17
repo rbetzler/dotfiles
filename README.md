@@ -1,6 +1,7 @@
 ## My `$HOME`
 
-Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (among other sources)
+B
+orrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (among other sources)
 
 ### Install
 * ```sh
