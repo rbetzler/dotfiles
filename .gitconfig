@@ -60,6 +60,12 @@
     chpkc = "chpk --continue"
     df = diff
     dfc = "diff --cached"
+    edit-st-file = "!f() { \
+      vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
+    }; f"
+    edit-df-files = "!f() { \
+      vim -o $(git diff --name-only); \
+    }; f"
     ft = "fetch"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
     l = log
@@ -159,9 +165,6 @@
       git show HEAD~\"$1\" --pretty="" --name-only; \
     }; f"
     st = status
-    st-edit-file = "!f() { \
-      vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
-    }; f"
     sth = stash
     sth-apply = "stash apply"
     sth-clear = "stash clear"
