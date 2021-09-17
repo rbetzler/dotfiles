@@ -119,6 +119,7 @@
       git rbi HEAD~\"$1\" --rebase-merges; \
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
+    rb-staging = !bash ~/.git_aliases/rebase_off_primary 0
     rmt-add = "!f() { \
       git remote add \"$1\" \"$2\"; \
     }; f"
