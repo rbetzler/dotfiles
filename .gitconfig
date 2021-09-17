@@ -123,8 +123,11 @@
     rps-add = "!f() { \
       gita add \"$1\"; \
     }; f"
-    rps-list-status = "!f() { \
+    rps-status = "!f() { \
       gita ll; \
+    }; f"
+    rps-list-branches = "!f() { \
+      gita super bl; \
     }; f"
     rflg = "!f() { \
       git reflog --grep-reflog=\"$1\"; \
