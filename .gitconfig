@@ -9,10 +9,10 @@
     ui = auto
 
 [pager]
-    diff = delta
-    log = delta
-    reflog = delta
-    show = delta
+    diff = bash ~/.git_aliases/delta_config
+    log = bash ~/.git_aliases/delta_config
+    reflog = bash ~/.git_aliases/delta_config
+    show = bash ~/.git_aliases/delta_config
 
 [delta]
     plus-style = "syntax #012800"
@@ -60,6 +60,12 @@
     chpkc = "chpk --continue"
     df = diff
     dfc = "diff --cached"
+    edit-st-file = "!f() { \
+      vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
+    }; f"
+    edit-df-files = "!f() { \
+      vim -o $(git diff --name-only); \
+    }; f"
     ft = "fetch"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
     l = log
@@ -113,6 +119,7 @@
       git rbi HEAD~\"$1\" --rebase-merges; \
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
+    rb-staging = !bash ~/.git_aliases/rebase_off_primary 0
     rmt-add = "!f() { \
       git remote add \"$1\" \"$2\"; \
     }; f"
@@ -123,8 +130,11 @@
     rps-add = "!f() { \
       gita add \"$1\"; \
     }; f"
-    rps-list-status = "!f() { \
+    rps-status = "!f() { \
       gita ll; \
+    }; f"
+    rps-list-branches = "!f() { \
+      gita super bl; \
     }; f"
     rflg = "!f() { \
       git reflog --grep-reflog=\"$1\"; \
@@ -156,9 +166,6 @@
       git show HEAD~\"$1\" --pretty="" --name-only; \
     }; f"
     st = status
-    st-edit-file = "!f() { \
-      vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
-    }; f"
     sth = stash
     sth-apply = "stash apply"
     sth-clear = "stash clear"

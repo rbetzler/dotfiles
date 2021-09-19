@@ -2,10 +2,15 @@
 
 set -euo pipefail
 branch=$(git b-current)
-parent=${1:-$(git b-primary)}
 
-git co "$parent"
+# If no arg provided
+if [[ $# -eq 0 ]]; then
+  target=${1:-$(git b-primary)}
+else
+  target="staging"
+fi
+
+git co "$target"
 git pl
 git co "$branch"
-git rb "$parent"
-
+git rb "$target"
