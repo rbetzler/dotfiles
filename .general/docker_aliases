@@ -8,6 +8,12 @@ dkrmi-all(){
   docker rmi $(docker images -q)
 }
 
+dkstp-rm-rmi-all(){
+  docker stop $(docker ps -aq)
+  dkrm-all
+  dkrmi-all
+}
+
 alias dkb="docker build"
 alias dke="docker exec -it"
 alias dki="docker images"
