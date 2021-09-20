@@ -2,6 +2,7 @@
 
 alias tk="task"
 alias tka="task add"
-alias tkd="task delete"
+alias tkdn="task done"
+alias tkdl="task delete"
 alias tke="task edit"
 alias tkl="task list"
