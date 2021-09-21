@@ -4,8 +4,16 @@ dkrm-all(){
   docker rm $(docker ps -aq)
 }
 
+dkrmf-all(){
+  docker rm -f $(docker ps -aq)
+}
+
 dkrmi-all(){
   docker rmi $(docker images -q)
+}
+
+dkrmif-all(){
+  docker rmi -f $(docker images -q)
 }
 
 dkstp-rm-rmi-all(){
