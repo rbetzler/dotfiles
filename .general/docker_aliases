@@ -25,6 +25,7 @@ dkstp-rm-rmi-all(){
 alias dkb="docker build"
 alias dke="docker exec -it"
 alias dki="docker images"
+alias dkk="docker kill"
 alias dkpl="docker pull"
 alias dkps="docker ps"
 alias dkpsa="docker ps -a"
