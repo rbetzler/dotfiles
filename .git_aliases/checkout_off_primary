@@ -2,11 +2,15 @@
 
 set -euxo pipefail
 
-parent=$(git b-primary)
+if [[ $1 == "primary" ]]; then
+  branch=$(git b-primary)
+else
+  branch="$1"
+fi
 
-git co "$parent"
+git co "$branch"
 
 git pl
 
-git cob "$1"
+git cob "$2"
 
