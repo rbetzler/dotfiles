@@ -87,21 +87,23 @@
     pr-diff = "!f() { \
       gh pr diff \"$1\"; \
     }; f"
-    pr-draft = "!f() { \
-      gh pr create --draft --fill; \
-    }; f"
-    pr-draft-staging = "!f() { \
-      gh pr create --draft --fill --base staging; \
-    }; f"
+
+    # Open, reopen drafts
+    pr-draft = !bash ~/.git_aliases/open_prs draft main open
+    pr-draft-staging = !bash ~/.git_aliases/open_prs draft staging open
+    pr-redraft = !bash ~/.git_aliases/open_prs draft main reopen
+    pr-redraft-staging = !bash ~/.git_aliases/open_prs draft staging reopen
+
     pr-list = !bash ~/.git_aliases/list_prs 0
     pr-list-mine = !bash ~/.git_aliases/list_prs 1
     pr-list-work-team = !bash ~/.git_aliases/list_prs 2
-    pr-open = "!f() { \
-      gh pr create --fill; \
-    }; f"
-    pr-open-staging = "!f() { \
-      gh pr create --fill --base staging; \
-    }; f"
+
+    # Open, reopen prs
+    pr-open = !bash ~/.git_aliases/open_prs open main open
+    pr-open-staging = !bash ~/.git_aliases/open_prs open staging open
+    pr-reopen = !bash ~/.git_aliases/open_prs open main reopen
+    pr-reopen-staging = !bash ~/.git_aliases/open_prs open staging reopen
+
     prs ="!f() { \
       gh pr status; \
     }; f"

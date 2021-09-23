@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+if [ "$1" == "draft" ]; then
+  draft_arg="--draft"
+else
+  draft_arg=""
+fi
+
+if [ "$2" == "staging" ]; then
+  branch_arg="--base $2"
+else
+  branch_arg=""
+fi
+
+
+
+# If reopening pr, close out the existing one
+if [ "$3" == "reopen" ]; then
+
+  gh pr create --fill $draft_arg $branch_arg 2>/tmp/prs || true
+  url=$(cat /tmp/prs | grep http)
+  pr_number=$(echo ${url##*/})
+  gh pr close $pr_number
+  gh pr create --fill $draft_arg $branch_arg
+
+# Otherwise, just print the logs
+else
+
+  gh pr create --fill $draft_arg $branch_arg
+
+fi
