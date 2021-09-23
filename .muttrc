@@ -25,8 +25,8 @@ set mark_old=no
 
 # Local folders
 set spoolfile = "~/.mutt/"$MUTT_USER"/inbox"
-set postponed = "~/.mutt/"$MUTT_USER"/\[Gmail\]/Drafts"
-set trash = "~/.mutt/"$MUTT_USER"/\[Gmail\]/Trash"
+set postponed = "$MUTT_POSTPONED"
+set trash = "$MUTT_TRASH"
 
 # Disable record because gmail does this automatically
 unset record
