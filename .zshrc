@@ -41,6 +41,10 @@ source ${HOME}/.python/venv/bin/activate
 # ipython env
 export IPYTHONDIR="$HOME"/.ipython
 
+# Use ipdb when python comes across breakpoint()
+# in a file
+export PYTHONBREAKPOINT=ipdb.set_trace
+
 # Zsh vi mode cursor configs
 ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
 ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
