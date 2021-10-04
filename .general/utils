@@ -52,5 +52,5 @@ ps-app(){
 
 generate-ctags(){
   mkdir -p $HOME/.ctags
-  ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git --exclude=venv
+  ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git $PWD
 }
