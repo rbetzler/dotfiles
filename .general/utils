@@ -49,3 +49,8 @@ cp-to-clipboard(){
 ps-app(){
   ps -aux | grep "$1" | awk '{print $2, substr($0, index($0, $11))}'
 }
+
+generate-ctags(){
+  mkdir -p $HOME/.ctags
+  ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git --exclude=venv
+}
