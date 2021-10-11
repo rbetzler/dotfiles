@@ -54,3 +54,7 @@ generate-ctags(){
   mkdir -p $HOME/.ctags
   ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git $PWD
 }
+
+vpf(){
+  vim -p $(fd $1)
+}
