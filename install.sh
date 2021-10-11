@@ -18,6 +18,9 @@ apt-get install terminator
 # Install postgresl
 apt-get install postgresql-12
 
+# Install py dev env
+apt-get install python-dev
+
 # Install filezilla
 apt-get install filezilla
 
