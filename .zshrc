@@ -90,4 +90,3 @@ alias s="sync_current_mailbox"
 alias t="pwd && tre -e"
 alias v="vim"
 alias vp="vim -p"
-alias vf='vim $(fz)'

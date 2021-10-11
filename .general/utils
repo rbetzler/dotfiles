@@ -67,3 +67,10 @@ generate-ctags(){
 vpf(){
   vim -p $(fd $1)
 }
+
+vf(){
+  file=$(fzf --height 60%)
+  if [[ "$file" != "" ]]; then
+    vim "$file"
+  fi
+}
