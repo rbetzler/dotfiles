@@ -15,6 +15,15 @@ ivgrep-all()
   vgrep --interactive
 }
 
+# Copied straight from vgreps docs
+fvgrep() {
+  INITIAL_QUERY="$1"
+  VGREP_PREFIX="vgrep --no-header "
+  FZF_DEFAULT_COMMAND="$VGREP_PREFIX '$INITIAL_QUERY'" \
+  fzf --height 60% --bind "change:reload:$VGREP_PREFIX {q} || true" --ansi --phony --tac --query "$INITIAL_QUERY" \
+  | awk '{print $1}' | xargs -I{} -o vgrep --show {}
+}
+
 # Remove entire line from file
 # by writing to a new file
 # then moving it back
