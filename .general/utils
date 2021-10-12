@@ -74,3 +74,10 @@ vf(){
     vim "$file"
   fi
 }
+
+f(){
+  file=$(fd --type directory | fzf --height 60%)
+  if [[ "$file" != "" ]]; then
+    cd "$file"
+  fi
+}
