@@ -55,8 +55,14 @@ cp-to-clipboard(){
 }
 
 # Find running app
-ps-app(){
-  ps -aux | grep "$1" | awk '{print $2, substr($0, index($0, $11))}'
+kill-app(){
+  processes=$(ps -aux | grep "$1" | grep "grep" | awk '{print $2}')
+  if [[ "$processes" != "" ]]; then
+    echo "$processes"
+    if [[ "$2" != "" ]]; then
+      kill -9 $(echo $processes)
+    fi
+  fi
 }
 
 generate-ctags(){
