@@ -38,6 +38,7 @@ remove-line(){
     fi
 }
 
+# Find replace across many files
 find-replace(){
   sd $1 $2 $(grep -rl "$1" .)
 }
@@ -70,8 +71,14 @@ generate-ctags(){
   ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git $PWD
 }
 
-vpf(){
+# vim paginate off fd
+vp-fd(){
   vim -p $(fd $1)
+}
+
+# vim paginate off grep
+vp-grep(){
+  vim -p $(grep -rl $1 .)
 }
 
 vf(){
