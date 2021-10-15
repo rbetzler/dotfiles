@@ -37,6 +37,10 @@
       git show-ref --verify --quiet refs/heads/$1; \
     }; f"
     b-primary = !bash ~/.git_aliases/get_primary_branch
+    # file name, line start, line end or +/-
+    blm-lines =  "!f() { \
+      git blame -L $2,$3 -- $1; \
+    }; f"
     c = commit
     co = checkout
     cob = "checkout -b"
