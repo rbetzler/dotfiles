@@ -45,6 +45,9 @@ apt-get install fd-find -y
 # Install fzf
 apt-get install fzf -y
 
+# Install jq
+apt-get install jq -y
+
 # Install neomutt
 apt-get install neomutt
 
