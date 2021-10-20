@@ -82,14 +82,14 @@ vp-grep(){
 }
 
 vf(){
-  file=$(fzf --height 60%)
+  file=$(fzf --height 60% --preview 'batcat --style=numbers --color=always --line-range :500 {}')
   if [[ "$file" != "" ]]; then
     vim "$file"
   fi
 }
 
 f(){
-  file=$(fd --type directory | fzf --height 60%)
+  file=$(fd --no-ignore --type directory | fzf --height 60% --preview 'tree -C {} | head -200')
   if [[ "$file" != "" ]]; then
     cd "$file"
   fi
