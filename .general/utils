@@ -55,17 +55,6 @@ cp-to-clipboard(){
   "$@" | xclip -selection clipboard
 }
 
-# Find running app
-kill-app(){
-  processes=$(ps -aux | grep "$1" | grep "grep" | awk '{print $2}')
-  if [[ "$processes" != "" ]]; then
-    echo "$processes"
-    if [[ "$2" != "" ]]; then
-      kill -9 $(echo $processes)
-    fi
-  fi
-}
-
 generate-ctags(){
   mkdir -p $HOME/.ctags
   ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git $PWD
