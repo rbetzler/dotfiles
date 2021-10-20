@@ -15,15 +15,6 @@ ivgrep-all()
   vgrep --interactive
 }
 
-# Copied straight from vgreps docs
-fvgrep() {
-  INITIAL_QUERY="$1"
-  VGREP_PREFIX="vgrep --no-header "
-  FZF_DEFAULT_COMMAND="$VGREP_PREFIX '$INITIAL_QUERY'" \
-  fzf --height 60% --bind "change:reload:$VGREP_PREFIX {q} || true" --ansi --phony --tac --query "$INITIAL_QUERY" \
-  | awk '{print $1}' | xargs -I{} -o vgrep --show {}
-}
-
 # Remove entire line from file
 # by writing to a new file
 # then moving it back
@@ -60,27 +51,37 @@ generate-ctags(){
   ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git $PWD
 }
 
-# vim paginate off fd
-vp-fd(){
-  vim -p $(fd $1)
-}
-
 # vim paginate off grep
 vp-grep(){
   vim -p $(grep -rl $1 .)
 }
 
+# Fuzzy commands
 # Template find command and ignore a few top level dirs
-__FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-sdk -E venv -E vgrep --type directory"
+__FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-sdk -E venv -E vgrep"
+__FZF_PREVIEW="if [ -d {} ]; then tree -C {} | head -200; else batcat --style=numbers --color=always --line-range :500 {}; fi"
+# __FZF_BIND='f8:execute(terminator --new-tab {})'
+__FZF_BIND='f8:execute(vim {})'
+fz(){
+  eval $__FD | fzf -m --height 60% --preview $__FZF_PREVIEW --bind $__FZF_BIND
+}
+
 vf(){
-  file=$(eval $__FD | fzf --height 60% --preview 'batcat --style=numbers --color=always --line-range :500 {}')
-  if [[ "$file" != "" ]]; then
-    vim "$file"
+  files=$(fz)
+  if [[ "$files" != "" ]]; then
+    vim -p $(echo $files)
+  fi
+}
+
+vfgrep() {
+  files=$(vgrep --no-header '' | fzf -m --height 60% --bind "change:reload:vgrep --no-header {q} || true" --ansi --phony --tac | awk '{print $2}')
+  if [[ "$files" != "" ]]; then
+    vim -p $(echo $files)
   fi
 }
 
 f(){
-  file=$(eval $__FD | fzf --height 60% --preview 'tree -C {} | head -200')
+  file=$(eval "$__FD  --type directory" | fzf --height 60% --preview $__FZF_PREVIEW)
   if [[ "$file" != "" ]]; then
     cd "$file"
   fi

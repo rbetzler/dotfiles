@@ -76,9 +76,7 @@ setopt no_auto_remove_slash
 alias b="bat"
 alias c="bat"
 alias dk="docker"
-alias fc='bat $(fz)'
 alias fd="fdfind"
-alias fz="fzf --height 60% --preview 'batcat --style=numbers --color=always --line-range :500 {}'"
 alias g="git"
 alias l="exa"
 alias la="exa -a"
