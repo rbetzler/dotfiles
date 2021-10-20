@@ -81,15 +81,17 @@ vp-grep(){
   vim -p $(grep -rl $1 .)
 }
 
+# Template find command and ignore a few top level dirs
+__FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-sdk -E venv -E vgrep --type directory"
 vf(){
-  file=$(fzf --height 60% --preview 'batcat --style=numbers --color=always --line-range :500 {}')
+  file=$(eval $__FD | fzf --height 60% --preview 'batcat --style=numbers --color=always --line-range :500 {}')
   if [[ "$file" != "" ]]; then
     vim "$file"
   fi
 }
 
 f(){
-  file=$(fd --no-ignore --type directory | fzf --height 60% --preview 'tree -C {} | head -200')
+  file=$(eval $__FD | fzf --height 60% --preview 'tree -C {} | head -200')
   if [[ "$file" != "" ]]; then
     cd "$file"
   fi
