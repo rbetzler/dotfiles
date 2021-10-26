@@ -9,6 +9,7 @@ plugins=(
   docker
   docker-compose
   zsh-autosuggestions
+  zsh-interactive-cd
   zsh-syntax-highlighting
   zsh-vi-mode
 )
