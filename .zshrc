@@ -5,11 +5,12 @@ ZSH_THEME="dracula"
 DRACULA_DISPLAY_CONTEXT=1  # print username too
 
 plugins=(
+  aws
+  docker
+  docker-compose
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-vi-mode
-  docker
-  docker-compose
 )
 
 # dbt autocomplete
