@@ -74,9 +74,10 @@ vf(){
 }
 
 vfgrep() {
-  files=$(vgrep --no-header '' | fzf -m --height 60% --bind "change:reload:vgrep --no-header {q} || true" --ansi --phony --tac | awk '{print $2}')
+  files=$(vgrep --no-header '' | fzf -m --height 60% --bind "change:reload:vgrep --no-header {q} || true" --ansi --phony --tac | \
+    awk '{if (NR==1) {print("+" $3, $2)} else {print("+\"tabnew +" $3, $2 "\"")}}' ORS=' ')
   if [[ "$files" != "" ]]; then
-    vim -p $(echo $files)
+    eval 'vim' "$files"
   fi
 }
 
