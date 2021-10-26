@@ -81,7 +81,7 @@ vfgrep() {
 }
 
 f(){
-  file=$(eval "$__FD  --type directory" | fzf --height 60% --preview $__FZF_PREVIEW)
+  file=$(eval "$__FD  --type directory" | fzf --height 60% --reverse --preview $__FZF_PREVIEW)
   if [[ "$file" != "" ]]; then
     cd "$file"
   fi
