@@ -70,6 +70,9 @@ if ! type bat &>/dev/null ; then
   alias bat="batcat"
 fi
 
+# Use bat/batcat when running `man <package>`
+export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+
 # Do not remove slash from dir
 # https://unix.stackexchange.com/questions/160026/how-can-i-keep-the-trailing-slash-after-choosing-a-directory-from-the-zsh-comple
 setopt no_auto_remove_slash
