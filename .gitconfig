@@ -121,6 +121,7 @@
     rbc = "rebase --continue"
     rbi = "rebase -i"
     rbi-mine = !bash ~/.git_aliases/rebase_my_commits
+    rbi-mine-staging = !bash ~/.git_aliases/rebase_my_commits staging
     rbih = "!f() { \
       git rbi HEAD~\"$1\"; \
     }; f"

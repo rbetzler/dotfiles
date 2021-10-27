@@ -3,9 +3,14 @@
 set -euxo pipefail
 
 feature=$(git b-current)
-parent=$(git b-primary)
 
-my_first_commit=$(git cherry "$parent" "$feature" | head -1 | cut -d' ' -f2)
+if [[ $# -eq 0 ]]; then
+  base_branch=$(git b-primary)
+else
+  base_branch="$1"
+fi
+
+my_first_commit=$(git cherry "$base_branch" "$feature" | head -1 | cut -d' ' -f2)
 
 head_commit=$(git rev-parse "$my_first_commit"^1)
 
