@@ -8,6 +8,7 @@ plugins=(
   aws
   docker
   docker-compose
+  fzf-tab
   zsh-autosuggestions
   zsh-interactive-cd
   zsh-syntax-highlighting

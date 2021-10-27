@@ -115,6 +115,9 @@ ln -s $HOME/dracula/zsh/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-th
 # For zsh autcomplete
 git clone https://github.com/dracula/zsh-syntax-highlighting.git $HOME/dracula/zsh-syntax
 
+# For fzf autocomplete in zsh
+git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+
 # Install dbt autocomplete
 mkdir ${HOME}/dbt-autocomplete
 curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/_dbt > ${HOME}/dbt-autocomplete/_dbt
