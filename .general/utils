@@ -48,7 +48,7 @@ make-executable(){
 
 
 # Copy to system clipboard
-cp-to-clipboard(){
+copy(){
   "$@" | xclip -selection clipboard
 }
 
