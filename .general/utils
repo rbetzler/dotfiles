@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Google something from the cli
+ggl(){
+  url=http://www.google.com/search?q=`echo "$@" | tr " " "+"`
+  vivaldi "$url" &> /dev/null &
+}
+
 # Run vgrep but discard the output
 # Then start an interactive vgrep session
 ivgrep()
