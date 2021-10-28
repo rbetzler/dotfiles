@@ -57,11 +57,6 @@ generate-ctags(){
   ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git $PWD
 }
 
-# vim paginate off grep
-vp-grep(){
-  vim -p $(grep -rl $1 .)
-}
-
 # Fuzzy commands
 # Template find command and ignore a few top level dirs
 __FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-sdk -E venv -E vgrep"
