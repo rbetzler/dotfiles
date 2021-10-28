@@ -6,21 +6,6 @@ ggl(){
   vivaldi "$url" &> /dev/null &
 }
 
-# Run vgrep but discard the output
-# Then start an interactive vgrep session
-ivgrep()
-{
-  vgrep "$1" > /dev/null
-  vgrep --interactive
-}
-
-# Do not exclude gitignored directories
-ivgrep-all()
-{
-  vgrep --no-index "$1" > /dev/null
-  vgrep --interactive
-}
-
 # Remove entire line from file
 # by writing to a new file
 # then moving it back
