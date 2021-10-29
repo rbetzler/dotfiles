@@ -90,6 +90,9 @@ apt-get install xclip
 # Install tasking tool
 apt-get install taskwarrior
 
+# Install graphviz
+apt-get install graphviz -y
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 

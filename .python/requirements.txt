@@ -1,6 +1,7 @@
 dbt
 flake8
 gita
+graphviz
 grip
 ipdb
 ipython==7.15.0
