@@ -166,3 +166,12 @@ function MuttSettings()
   execute ":NERDTreeClose"
 endfunction
 autocmd VimEnter /tmp/neomutt* call MuttSettings()
+
+function WritePyBreakpoint()
+  let line=line('.')
+  let indent=indent(line)
+  let pad = repeat(' ', indent)
+  call append(line - 1, pad . 'breakpoint()')
+endfunction
+command! WritePyBreakpoint call WritePyBreakpoint()
+nmap <C-b><C-k> :WritePyBreakpoint<CR>
