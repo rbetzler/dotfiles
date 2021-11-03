@@ -15,16 +15,14 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'majutsushi/tagbar'
 Plugin 'shmup/vim-sql-syntax'
-Plugin 'gilgigilgil/anderson.vim'
-Plugin 'glepnir/oceanic-material'
-Plugin 'jmcantrell/vim-virtualenv'
+" Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'mg979/vim-visual-multi', {'branch': 'master'}
 Plugin 'chrisbra/csv.vim'
 Plugin 'https://github.com/airblade/vim-gitgutter'
 Plugin 'https://github.com/tpope/vim-surround'
 Plugin 'https://github.com/tpope/vim-repeat'
-Plugin 'https://github.com/tpope/vim-dadbod'
-Plugin 'https://github.com/kristijanhusak/vim-dadbod-ui'
+" Plugin 'https://github.com/tpope/vim-dadbod'
+" Plugin 'https://github.com/kristijanhusak/vim-dadbod-ui'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 " Plugin 'https://github.com/kristijanhusak/vim-dadbod-completion'
 " Plugin 'https://github.com/neoclide/coc.nvim'
@@ -119,19 +117,19 @@ function ToggleMouse()
     endif
 endfunction
 
-" Query db using psql
-function DBQuery()
-    let file=expand('%:p')
-    if file=~'.sql'
-        let filename='~/Desktop/output.csv'
-        let arg='psql -A -F"," -f ' . file . ' > ' . filename . ' --pset footer'
-        call system(arg)
-        split
-        exec 'e ' . filename
-        " exec ':%ArrangeColumn'
-    endif
-endfunction
-command! DBQuery call DBQuery()
+"" Query db using psql
+"function DBQuery()
+"    let file=expand('%:p')
+"    if file=~'.sql'
+"        let filename='~/Desktop/output.csv'
+"        let arg='psql -A -F"," -f ' . file . ' > ' . filename . ' --pset footer'
+"        call system(arg)
+"        split
+"        exec 'e ' . filename
+"        " exec ':%ArrangeColumn'
+"    endif
+"endfunction
+"command! DBQuery call DBQuery()
 
 " Highlight trailing whitespace
 function HighlightTrailingWhitespace()
@@ -140,10 +138,10 @@ function HighlightTrailingWhitespace()
 endfunction
 autocmd VimEnter,BufWritePost * call HighlightTrailingWhitespace()
 
-" DB dad bod
-let $DBUI_URL = 'postgresql:'
-let g:db_ui_env_variable_name = 'PGUSER'
-let g:db_ui_win_position = 'right'
+"" DB dad bod
+"let $DBUI_URL = 'postgresql:'
+"let g:db_ui_env_variable_name = 'PGUSER'
+"let g:db_ui_win_position = 'right'
 
 " Jedi do not popup autocomplete after typing dot
 let g:jedi#popup_on_dot = 0
