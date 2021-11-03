@@ -173,3 +173,8 @@ function WritePyBreakpoint()
 endfunction
 command! WritePyBreakpoint call WritePyBreakpoint()
 nmap <C-b><C-k> :WritePyBreakpoint<CR>
+
+function RemovePyBreakpoints()
+  exec ':g/breakpoint()/d'
+endfunction
+command! RemovePyBreakpoints call RemovePyBreakpoints()
