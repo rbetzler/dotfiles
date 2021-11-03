@@ -79,8 +79,6 @@ nmap <C-h> :wincmd h<CR>
 nmap <C-a> :NERDTreeFocusToggle<CR>
 nmap <F8> :call flake8#Flake8()<CR>
 nmap <F9> :setlocal spell! spelllang=en_us<CR>
-" Remove trailing whitespaces
-nmap <C-t><C-w> :%s/\s\+$//e<CR>
 
 " Keep the most recently pasted item in clipboard
 xnoremap p pgvy
@@ -178,3 +176,8 @@ function RemovePyBreakpoints()
   exec ':g/breakpoint()/d'
 endfunction
 command! RemovePyBreakpoints call RemovePyBreakpoints()
+
+function RemoveWhiteSpaces()
+  exec ':%s/\s\+$//e'
+endfunction
+command! RemoveWhiteSpaces call RemoveWhiteSpaces()
