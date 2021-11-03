@@ -11,7 +11,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'davidhalter/jedi-vim', {'pinned': 0.10.0}
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'majutsushi/tagbar'
 Plugin 'shmup/vim-sql-syntax'
