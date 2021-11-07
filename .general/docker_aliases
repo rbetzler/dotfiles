@@ -16,6 +16,10 @@ dkrmif-all(){
   docker rmi -f $(docker images -q)
 }
 
+dkstp-all(){
+  docker stop $(docker ps -q)
+}
+
 dkstp-rm-rmi-all(){
   docker stop $(docker ps -aq)
   dkrm-all
