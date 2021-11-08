@@ -46,7 +46,7 @@ generate-ctags(){
 if ! type bat &>/dev/null ; then
   bat_cmd="batcat"
 else
-  bat_cmd="cat"
+  bat_cmd="bat"
 fi
 
 # Fuzzy commands
