@@ -42,10 +42,17 @@ generate-ctags(){
   ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git $PWD
 }
 
+# Slight duplicate to hack around inconsistent bat installs
+if ! type bat &>/dev/null ; then
+  bat_cmd="batcat"
+else
+  bat_cmd="cat"
+fi
+
 # Fuzzy commands
 # Template find command and ignore a few top level dirs
 __FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-sdk -E venv -E vgrep"
-__FZF_PREVIEW="if [ -d {} ]; then tree -C {} | head -200; else bat --style=numbers --color=always --line-range :500 {}; fi"
+__FZF_PREVIEW="if [ -d {} ]; then tree -C {} | head -200; else $bat_cmd --style=numbers --color=always --line-range :500 {}; fi"
 # __FZF_BIND='f8:execute(terminator --new-tab {})'
 __FZF_BIND='f8:execute(vim {})'
 fz(){
