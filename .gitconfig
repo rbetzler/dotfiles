@@ -65,6 +65,7 @@
     chpkc = "chpk --continue"
     df = diff
     dfc = "diff --cached"
+    dl-tag = "tag -d"
     edit-st-file = "!f() { \
       vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
     }; f"
@@ -85,6 +86,8 @@
     }; f"
     l-mine = "log --author=rbetzler"
     p = push
+    p-tag = "push origin --tags"
+    p-tag-delete = "push origin --delete"
     pf = "push -f"
     pfl = "push --force-with-lease"
     pr-comments ="!f() { \
@@ -183,3 +186,4 @@
     sth-drop = "stash drop"
     sth-list = "stash list"
     sth-pop = "stash pop"
+    tag-a = "tag -a"
