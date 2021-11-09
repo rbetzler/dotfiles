@@ -87,6 +87,7 @@
     l-mine = "log --author=rbetzler"
     p = push
     p-tag = "push origin --tags"
+    pf-tag = "push origin --tags --force"
     p-tag-delete = "push origin --delete"
     pf = "push -f"
     pfl = "push --force-with-lease"
