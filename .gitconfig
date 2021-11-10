@@ -121,6 +121,7 @@
     psu = !bash ~/.git_aliases/push_set_upstream
     psu-force = !bash ~/.git_aliases/push_set_upstream 0
     pl = pull
+    prn-rmt = "fetch --prune origin"
     rb = rebase
     rba = "rebase --abort"
     rbc = "rebase --continue"
