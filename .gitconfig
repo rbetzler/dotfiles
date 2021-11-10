@@ -32,6 +32,7 @@
     ba = "branch -a"
     bl = "branch -l"
     bd = "branch -D"
+    # swap b-current for this: git branch --show-current
     b-current = "!git branch --no-color 2> /dev/null | sed -e '/^[^*]/d; s/^* //;'"
     b-exists =  "!f() { \
       git show-ref --verify --quiet refs/heads/$1; \
