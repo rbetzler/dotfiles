@@ -66,6 +66,10 @@
     chpkc = "chpk --continue"
     df = diff
     dfc = "diff --cached"
+    df-patch = "!f() { \
+      git diff ..\"$1\" > /tmp/my.patch ; \
+      git apply /tmp/my.patch ; \
+    }; f"
     dl-tag = "tag -d"
     edit-st-file = "!f() { \
       vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
