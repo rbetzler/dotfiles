@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -euxo pipefail
+
+current_branch="$(git branch --show-current)"
+
+git fetch --all
+
+branches="main staging $current_branch"
+for branch in $branches; do
+  git checkout $branch
+  git pull
+done
