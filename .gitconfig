@@ -73,6 +73,7 @@
     edit-df-files = "!f() { \
       vim -o $(git diff --name-only); \
     }; f"
+    find-common-ancestor = "merge-base"
     ft = "fetch"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
     l = log
