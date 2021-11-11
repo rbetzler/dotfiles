@@ -34,9 +34,12 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
   alias me <me@gmail.com>
   ```
 ### Asciinema
-* After recording, run:
-  ```
-  docker run --rm -it -v $PWD:/data asciinema/asciicast2gif tempfile123 demo.gif
+* ```
+  # Record locally
+  asciinema rec /tmp/recording
+
+  # Convert file types
+  docker run --rm -it -v /tmp:/data asciinema/asciicast2gif /tmp/recording /tmp/recording.gif
   ```
 ### Docker image
 * Run:
