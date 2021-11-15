@@ -87,10 +87,12 @@
     l-feat-hashs = !bash ~/.git_aliases/log_feature_commits 0
     l-hashs = log --pretty=format:%h
     l-files = "log --name-only"
+    l-files-mine = "log --author=rbetzler --name-only"
     l-grep = "!f() { \
       git log --grep=\"$1\";\
     }; f"
     l-mine = "log --author=rbetzler"
+    lp-mine = "log -p --author=rbetzler"
     p = push
     p-tag = "push origin --tags"
     pf-tag = "push origin --tags --force"
