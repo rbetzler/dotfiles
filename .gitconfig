@@ -25,9 +25,12 @@
     diffFilter = delta --color-only
 
 [alias]
+    # Adding
     a = add
     af = "add -f"
     ap = "add -p"
+
+    # Branching
     b = branch
     ba = "branch -a"
     bl = "branch -l"
@@ -38,11 +41,14 @@
       git show-ref --verify --quiet refs/heads/$1; \
     }; f"
     b-primary = !bash ~/.git_aliases/get_primary_branch
+
+
     # file name, line start, line end or +/-
     blm-lines =  "!f() { \
       git blame -L \"$2\",\"$3\" -- \"$1\"; \
     }; f"
-    c = commit
+
+    # Checkout
     co = checkout
     cob = "checkout -b"
     cob-primary = !bash ~/.git_aliases/checkout_off_primary primary
@@ -57,20 +63,26 @@
     }; f"
     coh-stage = "checkout -p HEAD"
     co-theirs = "co --theirs"
+
+    # Commiting
+    c = commit
     cma = "commit --amend --no-edit"
     cma-message = "commit --amend"
     cmm = "commit -m"
     cmm-no-verify = "commit -n -m"
+
+    # Cherry pick
     chpk = "cherry-pick"
     chpka = "chpk --abort"
     chpkc = "chpk --continue"
+
+    # Diffs
     df = diff
     dfc = "diff --cached"
     df-patch = "!f() { \
       git diff ..\"$1\" > /tmp/my.patch ; \
       git apply /tmp/my.patch ; \
     }; f"
-    dl-tag = "tag -d"
     edit-st-file = "!f() { \
       vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
     }; f"
@@ -80,9 +92,12 @@
     find-common-ancestor = "merge-base"
     ft = "fetch"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
+
+    # Logging
     l = log
     lg = "log --graph"
     lp = "log -p"
+    lp-mine = "log -p --author=rbetzler"
     l-feat-commits = !bash ~/.git_aliases/log_feature_commits
     l-feat-hashs = !bash ~/.git_aliases/log_feature_commits 0
     l-hashs = log --pretty=format:%h
@@ -92,13 +107,14 @@
       git log --grep=\"$1\";\
     }; f"
     l-mine = "log --author=rbetzler"
-    lp-mine = "log -p --author=rbetzler"
+
+    # Pushing
     p = push
-    p-tag = "push origin --tags"
-    pf-tag = "push origin --tags --force"
-    p-tag-delete = "push origin --delete"
     pf = "push -f"
     pfl = "push --force-with-lease"
+    psu = !bash ~/.git_aliases/push_set_upstream
+    psu-force = !bash ~/.git_aliases/push_set_upstream 0
+
     pr-comments ="!f() { \
       gh pr view --comments \"$1\"; \
     }; f"
@@ -125,11 +141,13 @@
     prs ="!f() { \
       gh pr status; \
     }; f"
-    psu = !bash ~/.git_aliases/push_set_upstream
-    psu-force = !bash ~/.git_aliases/push_set_upstream 0
+
+    # Pulling
     pl = pull
     pl-all = !bash ~/.git_aliases/pull_all
     prn-rmt = "fetch --prune origin"
+
+    # Rebasing
     rb = rebase
     rba = "rebase --abort"
     rbc = "rebase --continue"
@@ -144,6 +162,8 @@
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
     rb-staging = !bash ~/.git_aliases/rebase_off_primary 0
+
+    # Remote, repo management
     rmt-add = "!f() { \
       git remote add \"$1\" \"$2\"; \
     }; f"
@@ -160,9 +180,12 @@
     rps-list-branches = "!f() { \
       gita super bl; \
     }; f"
+
     rflg = "!f() { \
       git reflog --grep-reflog=\"$1\"; \
     }; f"
+
+    # Resets
     rset = reset
     rset-head = "!f() { \
       git reset HEAD~\"$1\"; \
@@ -176,12 +199,17 @@
     rset-primary = "!f() { \
       git rset-hard $(git b-primary); \
     }; f"
+
     rstr-stg = "restore --stage"
+
+    # Reverts
     rvrt = revert
     rvrt-a = "revert --abort"
     rvrt-c = "revert --continue"
     rvrt-no-commit = "revert --no-commit"
     rvrt-no-commit-head = "rvrt-no-commit HEAD"
+
+    # Showing
     sh = show
     shh = "!f() { \
       git show HEAD~\"$1\"; \
@@ -189,7 +217,10 @@
     shh-file-names = "!f() { \
       git show HEAD~\"$1\" --pretty="" --name-only; \
     }; f"
+
     st = status
+
+    # Stashing
     sth = stash
     sth-apply = "stash apply"
     sth-clear = "stash clear"
@@ -197,4 +228,10 @@
     sth-drop = "stash drop"
     sth-list = "stash list"
     sth-pop = "stash pop"
+
+    # Tag
+    dl-tag = "tag -d"
+    p-tag = "push origin --tags"
+    p-tag-delete = "push origin --delete"
+    pf-tag = "push origin --tags --force"
     tag-a = "tag -a"
