@@ -54,11 +54,14 @@ fi
 __FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-sdk -E venv -E vgrep"
 __FZF_PREVIEW="if [ -d {} ]; then tree -C {} | head -200; else $bat_cmd --style=numbers --color=always --line-range :500 {}; fi"
 # __FZF_BIND='f8:execute(terminator --new-tab {})'
-__FZF_BIND='f8:execute(vim {})'
+__FZF_BIND='f8:execute(vim {} < /dev/tty)'
+
+# Return the selected file, like regular fzf
 fz(){
   eval $__FD | fzf -m --height 60% --preview $__FZF_PREVIEW --bind $__FZF_BIND
 }
 
+# Open the selected files in vim
 vf(){
   files=$(fz)
   if [[ "$files" != "" ]]; then
@@ -66,6 +69,7 @@ vf(){
   fi
 }
 
+# fzf-vgrep then open in vim
 # If an arg is provided, then do not ignore hidden dirs and pass in the search string
 vfgrep() {
   if [ -z "$1" ]; then
@@ -82,6 +86,7 @@ vfgrep() {
   fi
 }
 
+# fzf to directories
 f(){
   file=$(eval "$__FD  --type directory" | fzf --height 60% --reverse --preview $__FZF_PREVIEW)
   if [[ "$file" != "" ]]; then
