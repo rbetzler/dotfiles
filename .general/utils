@@ -88,3 +88,8 @@ f(){
     cd "$file"
   fi
 }
+
+sddf(){
+  sd "$1" "$2" "$3" -p > /tmp/sd-diff-file
+  delta "$3" /tmp/sd-diff-file
+}
