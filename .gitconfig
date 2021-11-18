@@ -235,3 +235,4 @@
     p-tag-delete = "push origin --delete"
     pf-tag = "push origin --tags --force"
     tag-a = "tag -a"
+    tag-list = "tag -n100"
