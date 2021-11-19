@@ -99,6 +99,7 @@
     # Logging
     l = log
     lg = "log --graph"
+    lfz = !bash ~/.git_aliases/log_fzf
     lp = "log -p"
     lp-mine = "log -p --author=rbetzler"
     l-feat-commits = !bash ~/.git_aliases/log_feature_commits
