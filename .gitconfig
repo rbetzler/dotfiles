@@ -79,6 +79,9 @@
     # Diffs
     df = diff
     dfc = "diff --cached"
+    dfz = "!f() { \
+      git diff --name-only | fzf -m --ansi --preview \"git diff --color=always\" ; \
+    }; f"
     df-patch = "!f() { \
       git diff ..\"$1\" > /tmp/my.patch ; \
       git apply /tmp/my.patch ; \
