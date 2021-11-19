@@ -230,6 +230,7 @@
     sth-clear = "stash clear"
     sth-diff = "stash show -p"
     sth-drop = "stash drop"
+    sth-fz = !bash ~/.git_aliases/stash_fzf
     sth-list = "stash list"
     sth-pop = "stash pop"
 

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sth="$(git stash list | fzf --preview 'git stash show $(echo {} | awk "{print substr(\$1, 1, length(\$1)-1)}") -p --color=always')"
+git stash apply "$(echo "$sth" | awk '{print substr($1, 1, length($1)-1)}')"
+
