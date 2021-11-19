@@ -93,27 +93,3 @@ f(){
     cd "$file"
   fi
 }
-
-sddf(){
-  sd "$1" "$2" "$3" -p > /tmp/sd-diff-file
-  delta "$3" /tmp/sd-diff-file
-}
-
-awk-rpl(){
-  row_nbrs="$(cat "$1" | nl --body-numbering=a | fzf -m | awk '{print $1}')"
-  while : ; do
-    read -e -p ">> " find replace
-    echo -en "\033[1A\033[2K"
-    if [ "$find" == "c" ]; then
-      cp /tmp/fzf-replace "$1"
-      exit 0
-    else
-      cp "$1" /tmp/fzf-replace
-      for row_nbr in $row_nbrs; do
-        awk_cmd="{if (NR==$row_nbr) {gsub(\"$find\", \"$replace\"); print} else {print}}"
-        gawk -i inplace "$awk_cmd" /tmp/fzf-replace
-      done
-      delta "$1" /tmp/fzf-replace || true
-    fi
-  done
-}

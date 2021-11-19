@@ -80,7 +80,7 @@
     df = diff
     dfc = "diff --cached"
     dfz = "!f() { \
-      git diff --name-only | fzf -m --ansi --preview \"git diff --color=always\" ; \
+      git diff $@ --name-only | fzf -m --ansi --preview \"git diff $@ --color=always -- {-1} \" ; \
     }; f"
     df-patch = "!f() { \
       git diff ..\"$1\" > /tmp/my.patch ; \
