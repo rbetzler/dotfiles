@@ -15,6 +15,9 @@ chsh -s $(which zsh)
 # Install terminator
 apt-get install terminator
 
+# Install gnu awk
+apt-get install gawk
+
 # Install postgresl
 apt-get install postgresql-12
 
