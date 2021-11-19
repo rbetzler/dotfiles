@@ -81,6 +81,9 @@ apt-get install unzip -y
 # Install htop for system performance
 apt-get install htop -y
 
+# Install tmux
+apt-get install tmux
+
 # Install bluetooth manager
 apt-get install blueman
 
