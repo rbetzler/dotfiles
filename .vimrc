@@ -182,3 +182,17 @@ function RemoveWhiteSpaces()
   exec ':%s/\s\+$//e'
 endfunction
 command! RemoveWhiteSpaces call RemoveWhiteSpaces()
+
+function GenerateGithubLink()
+  " Get the current branch name and string the new line chars
+  let branch = substitute(system('git branch --show-current'), '\n\+$', '', '')
+  " Get the current repo url, parse it
+  let url = system('git config --get remote.origin.url')
+  let raw_repo_root = split(url, ":")[1]
+  let repo_root = split(raw_repo_root, ".git")[0]
+  let file_name = @%
+  let line_nbr = line(".")
+  " Print full github url
+  echo 'https://github.com/' . repo_root . '/blob/' . branch . '/' . file_name . '#L' . line_nbr
+endfunction
+command! GenerateGithubLink call GenerateGithubLink()
