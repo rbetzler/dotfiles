@@ -196,3 +196,13 @@ function GenerateGithubLink()
   echo 'https://github.com/' . repo_root . '/blob/' . branch . '/' . file_name . '#L' . line_nbr
 endfunction
 command! GenerateGithubLink call GenerateGithubLink()
+
+" Git show the hash under the cursor
+" when doing an interactive rebase
+function RebaseViewer()
+  let hash = expand("<cword>")
+  let cmd = 'git show ' . hash
+  echo cmd
+  exec ':rightbelow vertical ter ' . cmd
+endfunction
+command! RebaseViewer call RebaseViewer()
