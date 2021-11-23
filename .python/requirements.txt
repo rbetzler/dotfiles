@@ -11,6 +11,8 @@ pandas
 pipdeptree
 pipreqs
 pre-commit
+# bq cli tool is busted
+pyparsing==2.4.2
 pudb
 sqlfluff
 yamllint
