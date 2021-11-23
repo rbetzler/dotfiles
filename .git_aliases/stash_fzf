@@ -1,5 +1,10 @@
 #!/bin/bash
 
 sth="$(git stash list | fzf --preview 'git stash show $(echo {} | awk "{print substr(\$1, 1, length(\$1)-1)}") -p --color=always')"
-git stash apply "$(echo "$sth" | awk '{print substr($1, 1, length($1)-1)}')"
 
+if [ "$sth" == "" ]; then
+  echo 'No selection'
+  exit 0
+else
+  git stash apply "$(echo "$sth" | awk '{print substr($1, 1, length($1)-1)}')"
+fi
