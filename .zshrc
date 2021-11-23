@@ -32,7 +32,7 @@ source /usr/share/autojump/autojump.zsh
 DIRS=(creds_db creds_dbt creds_mutt general work)
 for d in $DIRS; do
   for f in ~/."$d"/*; do
-    if [ "${f: -3}" != ".md" ] && [ "${f: -5}" != ".json" ] && [ "${f: -7}" != ".ignore" ]; then
+    if [ "${f: -3}" != ".md" ] && [ "${f: -5}" != ".json" ] && [ "${f: -7}" != ".ignore" ] && [ "${f: -4}" != ".yml" ]; then
       source $f;
     fi
   done
