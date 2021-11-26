@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sth="$(git stash list | fzf --preview 'git stash show $(echo {} | awk "{print substr(\$1, 1, length(\$1)-1)}") -p --color=always' \
-  --bind 'F8:execute(git stash drop $(echo {} | awk "{print substr(\$1, 1, length(\$1)-1)}"))+reload(git stash list)')"
+  --bind 'F8:execute(git stash drop $(echo {} | awk "{print substr(\$1, 1, length(\$1)-1)}") > /dev/null)+reload(git stash list)')"
 
 if [ "$sth" == "" ]; then
   echo 'No selection'
