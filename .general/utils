@@ -86,6 +86,25 @@ vfgrep() {
   fi
 }
 
+sdgrep(){
+  query=$(vgrep --no-header | \
+    fzf --height 60% --bind "change:reload:vgrep --no-header {q} || true" --ansi --phony --tac --print-query | \
+    awk 'NR==1 {print}'
+  )
+  while true; do
+    print -n -P "%F{cyan}%BReplacement: "
+    read replacement
+    sd "$query" "$replacement" $(fd --type f)
+    git diff
+    print -n -P "%F{cyan}%BAccept? (Y/N): "
+    read accept
+    case $accept in
+      [Yy]* ) break ;;
+      [Nn]* ) git checkout . 2>/dev/null ;;
+    esac
+  done
+}
+
 # fzf to directories
 f(){
   file=$(eval "$__FD  --type directory" | fzf --height 60% --reverse --preview $__FZF_PREVIEW)
