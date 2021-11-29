@@ -1,27 +1,11 @@
 #!/bin/bash
 
-_dbt_compiler()
+
+dbt-comp-model()
 {
   dbt compile -m "$1"
-  DBT_COMPILED_DIR="$DBT_PROFILES_DIR/target/compiled/analytics/$2"
-  COMPILED=$(find "$DBT_COMPILED_DIR" -name "$1*.sql")
-  if [[ -d $COMPILED ]]; then
-    for f in "$COMPILED"/*; do
-      cat $f;
-      echo '\n';
-    done
-  else
-    cat $COMPILED
-  fi
-}
-
-dbt_compile_model()
-{
-  _dbt_compiler $1 "models"
-}
-
-
-dbt_compile_test()
-{
-  _dbt_compiler $1 "tests"
+  top_dir="$(git rev-parse --show-toplevel)"
+  dbt_dir="$(fdfind dbt --type d "$top_dir")"
+  file="$(fdfind --type f --full-path "$dbt_dir" --no-ignore | fzf --query "target compiled $1" --select-1)"
+  batcat "$file"
 }
