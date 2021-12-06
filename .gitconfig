@@ -112,6 +112,11 @@
     }; f"
     l-mine = "log --author=rbetzler"
 
+    # Pick their changes from conflict
+    pick-theirs = "!f() { \
+      git checkout --theirs $(git diff --name-only --diff-filter=U); \
+    }; f"
+
     # Pushing
     p = push
     pf = "push -f"
