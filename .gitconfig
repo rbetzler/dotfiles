@@ -24,6 +24,9 @@
 [interactive]
     diffFilter = delta --color-only
 
+[merge]
+	tool = vimdiff
+
 [alias]
     # Adding
     a = add
