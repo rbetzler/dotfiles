@@ -112,7 +112,10 @@
     }; f"
     l-mine = "log --author=rbetzler"
 
-    # Pick their changes from conflict
+    # Pick changes from conflict
+    pick-ours = "!f() { \
+      git checkout --ours $(git diff --name-only --diff-filter=U); \
+    }; f"
     pick-theirs = "!f() { \
       git checkout --theirs $(git diff --name-only --diff-filter=U); \
     }; f"
