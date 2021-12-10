@@ -1,0 +1,15 @@
+#/bin/bash
+
+current_branch="$(git branch --show-current)"
+
+git checkout "$1"
+
+git pull
+
+git checkout "$current_branch"
+
+git rebase -X ours "$1"
+
+while [ ! -z "$(git status | grep rebase)" ]; do
+  git rebase --continue
+done
