@@ -114,6 +114,7 @@
       git log --grep=\"$1\";\
     }; f"
     l-mine = "log --author=rbetzler"
+    l-search = "log -S"
 
     # Pick changes from conflict
     pick-ours = "!f() { \
