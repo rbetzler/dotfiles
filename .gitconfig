@@ -99,6 +99,10 @@
     ft = "fetch"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
 
+    gh-apply-patch = "!f() { \
+      curl \"$1\" | git apply ;\
+    }; f"
+
     # Logging
     l = log
     lg = "log --graph"
