@@ -75,9 +75,9 @@
     cmm-no-verify = "commit -n -m"
 
     # Cherry pick
-    chpk = "cherry-pick"
-    chpka = "chpk --abort"
-    chpkc = "chpk --continue"
+    chy = "cherry-pick"
+    chya = "cherry-pick --abort"
+    chyc = "cherry-pick --continue"
 
     # Diffs
     df = diff
