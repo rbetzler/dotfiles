@@ -6,7 +6,7 @@ current_branch="$(git branch --show-current)"
 
 git fetch --all
 
-branches="main staging $current_branch"
+branches="main staging"
 for branch in $branches; do
   git checkout $branch
   git pull
