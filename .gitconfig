@@ -212,18 +212,18 @@
     }; f"
 
     # Resets
-    rset = reset
-    rset-head = "!f() { \
+    rst = reset
+    rst-head = "!f() { \
       git reset HEAD~\"$1\"; \
     }; f"
-    rset-hard = "!f() { \
+    rst-hard = "!f() { \
       git reset --hard origin/\"$1\"; \
     }; f"
-    rset-current = "!f() { \
-      git rset-hard $(git b-current); \
+    rst-current = "!f() { \
+      git reset-hard $(git b-current); \
     }; f"
-    rset-primary = "!f() { \
-      git rset-hard $(git b-primary); \
+    rst-primary = "!f() { \
+      git reset-hard $(git b-primary); \
     }; f"
 
     rstr-stg = "restore --stage"
