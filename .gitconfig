@@ -57,7 +57,9 @@
     cob-primary = !bash ~/.git_aliases/checkout_off_primary primary
     cob-staging = !bash ~/.git_aliases/checkout_off_primary staging
     cof = "!f() { \
-      git branch -l | fzf --reverse --height 10% | git checkout ; \
+      git checkout $(git branch -l | \
+        fzf --reverse --height 10% | \
+          awk '{ if ($1==\"*\") {print $2} else {print $1} }') ; \
     }; f"
     coh = "!f() { \
       git co HEAD~\"$1\"; \
