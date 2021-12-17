@@ -2,6 +2,9 @@
     name = rbetzler
     email = rbetzler94@gmail.com
 
+[core]
+	excludesfile = ~/.gitignore.global
+
 [color]
     diff = auto
     status = auto
