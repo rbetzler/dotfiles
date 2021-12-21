@@ -83,6 +83,7 @@ setopt no_auto_remove_slash
 # Mutt aliases exist in .general/mutt
 alias b="bat"
 alias c="bat"
+alias clk="clickhouse-client"
 alias dk="docker"
 alias fd="fdfind"
 alias g="git"

@@ -99,6 +99,14 @@ apt-get install taskwarrior
 # Install graphviz
 apt-get install graphviz -y
 
+# Install clickhouse client
+wget https://repo.clickhouse.com/deb/stable/main/clickhouse-client_21.9.7.2_all.deb -O $HOME/Downloads/clk-cmn.deb
+dpkg -i $HOME/Downloads/clk-cmn.deb
+rm $HOME/Downloads/clk-cmn.deb
+wget https://repo.clickhouse.com/deb/stable/main/clickhouse-common-static_21.9.7.2_amd64.deb -O $HOME/Downloads/clk-cl.deb
+dpkg -i $HOME/Downloads/clk-cl.deb
+rm $HOME/Downloads/clk-cl.deb
+
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
 
