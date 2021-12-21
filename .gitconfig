@@ -91,6 +91,8 @@
     # Diffs
     df = diff
     dfc = "diff --cached"
+    df-search = "diff -G"
+    dfc-search = "diff --cached -G"
     dfz = "!f() { \
       git diff $@ --name-only | fzf -m --ansi --preview \"git diff $@ --color=always -- {-1} \" ; \
     }; f"
