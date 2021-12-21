@@ -9,6 +9,8 @@ plugins=(
   docker
   docker-compose
   fzf-tab
+  kubectl
+  minikube
   zsh-autosuggestions
   zsh-interactive-cd
   zsh-syntax-highlighting
