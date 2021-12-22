@@ -226,10 +226,10 @@
       git reset --hard origin/\"$1\"; \
     }; f"
     rst-current = "!f() { \
-      git reset-hard $(git b-current); \
+      git rst-hard $(git b-current); \
     }; f"
     rst-primary = "!f() { \
-      git reset-hard $(git b-primary); \
+      git rst-hard $(git b-primary); \
     }; f"
 
     rstr-stg = "restore --stage"
