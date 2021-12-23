@@ -42,3 +42,6 @@ alias dkr="docker run"
 alias dkrit="docker run -it"
 alias dkstp="docker stop"
 alias dks="docker start"
+
+alias mk="minikube"
+alias kc="kubectl"
