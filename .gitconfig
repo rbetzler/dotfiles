@@ -30,6 +30,9 @@
 [merge]
 	tool = vimdiff
 
+[rebase]
+  instructionFormat = "%<(14)%ar %<(20)%an %s"
+
 [alias]
     # Adding
     a = add
