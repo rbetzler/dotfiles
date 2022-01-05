@@ -31,7 +31,7 @@
 	tool = vimdiff
 
 [rebase]
-  instructionFormat = "%<(12)%ar %<(18)%an %s"
+  instructionFormat = "%<(10,trunc)%cr %<(12,trunc)%an %s"
 
 [alias]
     # Adding
