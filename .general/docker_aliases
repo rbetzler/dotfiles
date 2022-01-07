@@ -44,4 +44,4 @@ alias dkstp="docker stop"
 alias dks="docker start"
 
 alias mk="minikube"
-alias kc="kubectl"
+alias k="kubectl"
