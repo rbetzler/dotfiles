@@ -79,6 +79,8 @@ export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 # https://unix.stackexchange.com/questions/160026/how-can-i-keep-the-trailing-slash-after-choosing-a-directory-from-the-zsh-comple
 setopt no_auto_remove_slash
 
+source <(kubectl completion zsh)
+
 # Most aliases
 # Mutt aliases exist in .general/mutt
 alias b="bat"
