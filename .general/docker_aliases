@@ -45,3 +45,8 @@ alias dks="docker start"
 
 alias mk="minikube"
 alias k="kubectl"
+
+# Load kubectl autocomplete
+kk(){
+  source <(kubectl completion zsh)
+}
