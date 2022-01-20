@@ -1,5 +1,6 @@
 cookiecutter
-dbt
+dbt-bigquery
+dbt-core
 flake8
 gita
 graphviz
