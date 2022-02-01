@@ -49,4 +49,5 @@ alias k="kubectl"
 # Load kubectl autocomplete
 kk(){
   source <(kubectl completion zsh)
+  source <(helm completion zsh)
 }
