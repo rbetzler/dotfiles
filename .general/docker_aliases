@@ -45,6 +45,7 @@ alias dks="docker start"
 
 alias mk="minikube"
 alias k="kubectl"
+alias hl="helm"
 
 # Load kubectl autocomplete
 kk(){
