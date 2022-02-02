@@ -206,3 +206,8 @@ function RebaseViewer()
   exec ':rightbelow vertical ter ' . cmd
 endfunction
 command! RebaseViewer call RebaseViewer()
+
+function TurnOffSyntaxLongLines()
+  set synmaxcol=300
+endfunction
+command! TurnOffSyntaxLongLines call TurnOffSyntaxLongLines()
