@@ -209,6 +209,11 @@ else
 
 fi
 
+# Install java manually, might need to fix dependencies
+wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb -O $HOME/Downloads/java.deb
+dpkg -i $HOME/Downloads/java.deb
+rm $HOME/Downloads/java.deb
+
 # Install delta manually
 wget $DELTA -O $HOME/Downloads/delta.deb
 dpkg -i $HOME/Downloads/delta.deb
