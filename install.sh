@@ -96,6 +96,9 @@ apt-get install xclip
 # Install tasking tool
 apt-get install taskwarrior
 
+# Install java
+apt-get install default-jre -y
+
 # Install graphviz
 apt-get install graphviz -y
 
