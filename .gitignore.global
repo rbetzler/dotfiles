@@ -1,3 +1,5 @@
 # Global gitignore (for when other ppl's repos don't ignore vim swap files)
 *.swp
 *.swo
+patches
+.pc
