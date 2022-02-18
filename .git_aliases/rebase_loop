@@ -12,4 +12,7 @@ git rebase -X ours "$1"
 
 while [ ! -z "$(git status | grep rebase)" ]; do
   git rebase --continue
+  if git status | grep 'Unmerged paths' ; then
+    exit 127
+  fi
 done
