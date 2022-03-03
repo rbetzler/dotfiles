@@ -30,6 +30,9 @@ apt-get install filezilla
 # Install nmap
 apt-get install nmap
 
+# Install traceroute
+apt-get install traceroute
+
 # Install vim-gtk
 apt-get install vim-gtk -y
 
