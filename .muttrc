@@ -56,6 +56,9 @@ unset wait_key
 set sort = threads
 set sort_aux = last-date-received
 
+# Set scrolling
+set menu_scroll
+
 # Tweak binds to handle custom macros
 unbind index s
 macro index ss "<save-message>"
