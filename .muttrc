@@ -59,12 +59,18 @@ set sort_aux = last-date-received
 # Set scrolling
 set menu_scroll
 
-# Tweak binds to handle custom macros
-unbind index s
-macro index ss "<save-message>"
-
-unbind index t
-macro index tt "<tag-entry>"
-
 # (Conditionally) source work mutt configs
 source `FILE=$HOME/.work/muttrc.ignore; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
+
+# Bindings
+# Partly from https://ryanlue.com/posts/2017-05-21-mutt-the-vim-way
+bind index,pager,attach  g         noop
+bind generic,index       gg        first-entry
+bind generic,index       G         last-entry
+bind pager               gg        top
+bind pager               G         bottom
+
+unbind index s
+unbind index t
+macro index ss "<save-message>"
+macro index tt "<tag-entry>"
