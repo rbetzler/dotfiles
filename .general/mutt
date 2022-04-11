@@ -14,7 +14,8 @@ else
   sent_dir="$mutt_dir/Sent\ Items"
 fi
 
-alias m="sync_current_mailbox && neomutt -f $inbox_dir"
+alias m="neomutt -f $inbox_dir"
+alias mm="sync_current_mailbox && neomutt -f $inbox_dir"
 alias mdrft="neomutt -f $draft_dir"
 alias mr="neomutt -R -f $inbox_dir"  # Read only mode
 alias ms="neomutt -f $sent_dir"
