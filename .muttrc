@@ -74,3 +74,6 @@ unbind index s
 unbind index t
 macro index ss "<save-message>"
 macro index tt "<tag-entry>"
+
+# https://brianbuccola.com/how-to-mark-all-emails-as-read-in-mutt/
+macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
