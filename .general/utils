@@ -118,3 +118,8 @@ hist(){
   cmd="$(LC_ALL=C awk --field-separator=';' '{if (substr($1, 1, 1) ~ ":") {print substr($0, index($0, ";")+1)}}' $HOME/.zsh_history | fzf --tiebreak=index)"
   print -z "$cmd"
 }
+
+# Scroll and view json with color
+cjson(){
+  cat "$1" | jq -C | less
+}
