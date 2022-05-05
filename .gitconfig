@@ -116,6 +116,7 @@
     }; f"
     find-common-ancestor = "merge-base"
     ft = "fetch"
+    fta = "fetch --all"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
 
     gh-apply-patch = "!f() { \
