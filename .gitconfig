@@ -93,7 +93,7 @@
     chya = "cherry-pick --abort"
     chyc = "cherry-pick --continue"
     chyf = "!f() { \
-      git log staging --oneline | fzf | awk '{print $1 \"^..staging\"}' | git rev-list --reverse --stdin | git cherry-pick --stdin ; \
+      git log staging --oneline | fzf --preview \" echo {} | awk '{print \\$1}' | git show --stdin --color \" | awk '{print $1 \"^..staging\"}' | git rev-list --reverse --stdin | git cherry-pick --stdin ; \
     }; f"
 
     # Diffs
