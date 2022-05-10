@@ -272,9 +272,9 @@
     sth-pop = "stash pop"
 
     # Tag
-    dl-tag = "tag -d"
-    p-tag = "push origin --tags"
-    p-tag-delete = "push origin --delete"
-    pf-tag = "push origin --tags --force"
-    tag-a = "tag -a"
+    tag-annotate = "tag -a"
+    tag-delete = "tag -d"
     tag-list = "tag -n100"
+    tag-push = "push origin --tags"
+    tag-push-delete = "push origin --delete"
+    tag-push-force = "push origin --tags --force"
