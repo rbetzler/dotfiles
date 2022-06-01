@@ -240,6 +240,10 @@ make build GO=/usr/local/go/bin/go
 make install GO=/usr/local/go/bin/go
 cd ..
 
+# Install argo cli
+curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+chmod +x /usr/local/bin/argocd
+
 # Install vivaldi
 if [ $# -eq 0 ]; then
   wget https://downloads.vivaldi.com/stable/vivaldi-stable_4.1.2369.21-1_amd64.deb -O $HOME/Downloads/vivaldi.deb
