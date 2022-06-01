@@ -1,0 +1,8 @@
+[main]
+destructive_warning = False
+auto_expand = True
+keyword_casing = lower
+syntax_style = vim
+vi = True
+row_limit = 0
+less_chatty = True
