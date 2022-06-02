@@ -244,6 +244,10 @@ cd ..
 curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
 chmod +x /usr/local/bin/argocd
 
+# Install pulumi, setup autocomplete
+curl -fsSL https://get.pulumi.com | sh
+pulumi gen-completion zsh >> "$HOME/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh"
+
 # Install vivaldi
 if [ $# -eq 0 ]; then
   wget https://downloads.vivaldi.com/stable/vivaldi-stable_4.1.2369.21-1_amd64.deb -O $HOME/Downloads/vivaldi.deb

@@ -11,6 +11,7 @@ plugins=(
   fzf-tab
   kubectl
   minikube
+  pulumi
   zsh-autosuggestions
   zsh-interactive-cd
   zsh-syntax-highlighting
