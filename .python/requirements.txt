@@ -2,6 +2,7 @@ cookiecutter
 dbt-bigquery
 dbt-clickhouse
 dbt-core
+dbt-postgres
 flake8
 gita
 graphviz
