@@ -20,7 +20,7 @@ SubFolders Verbatim
 Channel email-all
 Master :email-remote:
 Slave :email-local:
-Patterns *
+Patterns "INBOX"
 
 Group email
 Channel email-all
