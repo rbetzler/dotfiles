@@ -28,6 +28,9 @@ set spoolfile = "~/.mutt/"$MUTT_USER"/inbox"
 set postponed = "$MUTT_POSTPONED"
 set trash = "$MUTT_TRASH"
 
+# Temporary attachment directory
+set tmpdir = "$HOME/Desktop"
+
 # Disable record because gmail does this automatically
 unset record
 
