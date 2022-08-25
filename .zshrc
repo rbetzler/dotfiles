@@ -47,6 +47,9 @@ source ${HOME}/.python/venv/bin/activate
 # ipython env
 export IPYTHONDIR="$HOME"/.ipython
 
+# Pulumi path
+export PATH=$PATH:$HOME/.pulumi/bin
+
 # Use ipdb when python comes across breakpoint()
 # in a file
 export PYTHONBREAKPOINT=ipdb.set_trace
