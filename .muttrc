@@ -44,8 +44,8 @@ bind pager <down> next-line
 # Source dracula color scheme
 source ~/dracula/mutt/dracula.muttrc
 
-# Where my email aliases are stored
-source "$HOME/.mutt/address_book"
+## Where my email aliases are stored
+#source "$HOME/.mutt/address_book"
 
 # Macro to sync the current mailbox
 macro index S "!mbsync -a -c ~/.mutt/"$MUTT_USER"/.mbsyncrc<enter>"

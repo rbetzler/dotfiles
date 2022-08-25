@@ -14,11 +14,16 @@ else
   sent_dir="$mutt_dir/Sent\ Items"
 fi
 
-alias m="neomutt -f $inbox_dir"
-alias mm="sync_current_mailbox && neomutt -f $inbox_dir"
+alias m="neomutt"
+alias mm="sync_current_mailbox && neomutt"
 alias mdrft="neomutt -f $draft_dir"
 alias mr="neomutt -R -f $inbox_dir"  # Read only mode
 alias ms="neomutt -f $sent_dir"
+
+sync_current_mailbox(){
+  echo $MUTT_USER
+  mbsync -a -c ~/.mutt/"$MUTT_USER"/.mbsyncrc
+}
 
 # This script sets up mbsync for gmail
 setup_isync_mailboxes(){
