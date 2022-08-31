@@ -85,7 +85,7 @@ nmap <F9> :setlocal spell! spelllang=en_us<CR>
 xnoremap p pgvy
 
 " Autoopen nerdtree
-autocmd VimEnter * NERDTree | wincmd p
+" autocmd VimEnter * NERDTree | wincmd p
 " autocmd FileType python TagbarOpen
 " autocmd FileType python setlocal completeopt-=preview
 
