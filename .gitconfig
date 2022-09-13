@@ -125,6 +125,7 @@
     gh-apply-patch = "!f() { \
       curl \"$1\" | git apply ;\
     }; f"
+    gh-generate-commit-link = !bash ~/.git_aliases/generate_gh_link
 
     # Logging
     l = log

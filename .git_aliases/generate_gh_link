@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+# Generate a link to a github commit
+# Arguments
+#  Commit hash
+repo_url="$(git config --get remote.origin.url)"
+
+owner_repo="${repo_url:15:-4}"
+
+url="https://github.com/$owner_repo/commit/$1"
+
+echo "$url" | xclip -selection clipboard
+echo "$url"
