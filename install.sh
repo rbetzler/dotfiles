@@ -185,7 +185,7 @@ if uname -m | grep --quiet 'arm' ; then
 # Otherwise, ubuntu
 else
 
-  # Install batcat
+  # Install batcat (might need to upgrade manually, using a deb file)
   apt-get install bat -y
 
   echo "Download exa, delta manually"
