@@ -94,8 +94,8 @@ export FZF_DEFAULT_OPTS='
 
 # Most aliases
 # Mutt aliases exist in .general/mutt
-alias b="bat"
-alias c="bat"
+alias b="bat --theme Dracula"
+alias c="bat --theme Dracula"
 alias ch="clickhouse-client --vertical"
 alias dk="docker"
 alias fd="fdfind"
