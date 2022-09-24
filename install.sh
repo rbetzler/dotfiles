@@ -19,6 +19,7 @@ apt-get install terminator
 apt-get install gawk
 
 # Install postgresl
+# Do not forget, `sudo systemctl disable postgresql`
 apt-get install postgresql-12
 
 # Install py dev env
@@ -84,9 +85,6 @@ apt-get install unzip -y
 # Install htop for system performance
 apt-get install htop -y
 
-# Install tmux
-apt-get install tmux
-
 # Install bluetooth manager
 apt-get install blueman
 
@@ -96,22 +94,27 @@ apt-get install pgcli
 # Install cli clipboard tool
 apt-get install xclip
 
-# Install tasking tool
-apt-get install taskwarrior
-
 # Install java
 apt-get install default-jre -y
 
 # Install graphviz
 apt-get install graphviz -y
 
-# Install clickhouse client
-wget https://repo.clickhouse.com/deb/stable/main/clickhouse-common-static_21.9.7.2_amd64.deb -O $HOME/Downloads/clk-cl.deb
-dpkg -i $HOME/Downloads/clk-cl.deb
-rm $HOME/Downloads/clk-cl.deb
-wget https://repo.clickhouse.com/deb/stable/main/clickhouse-client_21.9.7.2_all.deb -O $HOME/Downloads/clk-cmn.deb
-dpkg -i $HOME/Downloads/clk-cmn.deb
-rm $HOME/Downloads/clk-cmn.deb
+# Install batcat (might need to upgrade manually, using a deb file)
+apt-get install bat -y
+
+# Install go md2man for vgrep
+apt-get install go-md2man -y
+
+# Install gh
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+apt update
+apt install gh
+
+###########
+# Git repos
+###########
 
 # Clone vundle
 git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
@@ -144,10 +147,9 @@ git clone https://github.com/dracula/zsh-syntax-highlighting.git $HOME/dracula/z
 # For fzf autocomplete in zsh
 git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 
-# Install dbt autocomplete
-mkdir ${HOME}/dbt-autocomplete
-curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/_dbt > ${HOME}/dbt-autocomplete/_dbt
-curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/dbt-completion.bash > ${HOME}/dbt-autocomplete/.dbt-completion.bash
+################
+# Cargo packages
+################
 
 # Install rustup for cargo for sd
 curl https://sh.rustup.rs -sSf | sh -s -- -y
@@ -159,58 +161,19 @@ cargo install sd
 # Install tree alternative
 cargo install tre-command
 
-# Install gh
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-apt update
-apt install gh
+############################
+# Debian packages, tars, etc
+############################
 
-# If arm, i.e., pi
-if uname -m | grep --quiet 'arm' ; then
-
-  echo "Download exa via apt get"
-  apt-get install exa
-
-  # Delta install succeeds but does not work
-  # apt-get install delta
-
-  echo "Setting download urls for arm, i.e., pi"
-  DELTA="https://github.com/dandavison/delta/releases/download/0.8.3/git-delta_0.8.3_armhf.deb"
-  GO="https://golang.org/dl/go1.17.linux-armv6l.tar.gz"
-
-  wget https://github.com/sharkdp/bat/releases/download/v0.18.2/bat_0.18.2_armhf.deb -O $HOME/Downloads/bat.deb
-  dpkg -i $HOME/Downloads/bat.deb
-  rm $HOME/Downloads/bat.deb
-
-# Otherwise, ubuntu
-else
-
-  # Install batcat (might need to upgrade manually, using a deb file)
-  apt-get install bat -y
-
-  echo "Download exa, delta manually"
-  # Install exa
-  wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -O $HOME/Downloads/exa.zip
-  mkdir $HOME/Downloads/exa
-  unzip $HOME/Downloads/exa.zip -d $HOME/Downloads/exa
-  cp -r $HOME/Downloads/exa/bin/. /usr/local/bin/
-  cp -r Downloads/exa/man/. /usr/share/man/man1/
-  cp $HOME/Downloads/exa/completions/exa.zsh /usr/local/share/zsh/site-functions/exa.zsh
-  rm -rf $HOME/Downloads/exa
-  rm $HOME/Downloads/exa.zip
-
-  if [ $# -eq 0 ]; then
-    echo "Pull docker image to convert cast file to gif"
-    docker pull asciinema/asciicast2gif
-  else
-    echo "Skipping docker pull for asciinema"
-  fi
-
-  echo "Setting download urls for amd, i.e., ubuntu"
-  DELTA="https://github.com/dandavison/delta/releases/download/0.8.2/git-delta_0.8.2_amd64.deb"
-  GO="https://golang.org/dl/go1.16.5.linux-amd64.tar.gz"
-
-fi
+# Install exa
+wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -O $HOME/Downloads/exa.zip
+mkdir $HOME/Downloads/exa
+unzip $HOME/Downloads/exa.zip -d $HOME/Downloads/exa
+cp -r $HOME/Downloads/exa/bin/. /usr/local/bin/
+cp -r Downloads/exa/man/. /usr/share/man/man1/
+cp $HOME/Downloads/exa/completions/exa.zsh /usr/local/share/zsh/site-functions/exa.zsh
+rm -rf $HOME/Downloads/exa
+rm $HOME/Downloads/exa.zip
 
 # Install java manually, might need to fix dependencies
 wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb -O $HOME/Downloads/java.deb
@@ -218,27 +181,40 @@ dpkg -i $HOME/Downloads/java.deb
 rm $HOME/Downloads/java.deb
 
 # Install delta manually
-wget $DELTA -O $HOME/Downloads/delta.deb
+wget https://github.com/dandavison/delta/releases/download/0.8.2/git-delta_0.8.2_amd64.deb -O $HOME/Downloads/delta.deb
 dpkg -i $HOME/Downloads/delta.deb
 rm $HOME/Downloads/delta.deb
 
 # Install go (dependency of vgrep)
-wget $GO -O $HOME/Downloads/go.tar.gz
+wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz -O $HOME/Downloads/go.tar.gz
 rm -rf /usr/local/go
 tar -C /usr/local -xzf $HOME/Downloads/go.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 
-# Install go md2man for vgrep
-apt-get install go-md2man -y
-
 # Install vgrep
-# Might need to back up a few commits
-# (given the head of master was busted in 2021-07)
+# Might need to back up a few commits, (given the head of master was busted in 2021-07)
 git clone https://github.com/vrothberg/vgrep.git
 cd vgrep
 make build GO=/usr/local/go/bin/go
 make install GO=/usr/local/go/bin/go
 cd ..
+
+# Dbeaver
+wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O $HOME/Downloads/dbeaver.deb
+dpkg -i $HOME/Downloads/dbeaver.deb
+rm $HOME/Downloads/dbeaver.deb
+
+# Install clickhouse client
+wget https://repo.clickhouse.com/deb/stable/main/clickhouse-common-static_21.9.7.2_amd64.deb -O $HOME/Downloads/clk-cl.deb
+dpkg -i $HOME/Downloads/clk-cl.deb
+rm $HOME/Downloads/clk-cl.deb
+wget https://repo.clickhouse.com/deb/stable/main/clickhouse-client_21.9.7.2_all.deb -O $HOME/Downloads/clk-cmn.deb
+dpkg -i $HOME/Downloads/clk-cmn.deb
+rm $HOME/Downloads/clk-cmn.deb
+
+##############
+# Devops tools
+##############
 
 # Install argo cli
 curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
@@ -257,18 +233,21 @@ chmod 700 get_helm.sh
 curl -fsSL https://get.pulumi.com | sh
 pulumi gen-completion zsh >> "$HOME/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh"
 
-# Install vivaldi
-if [ $# -eq 0 ]; then
-  wget https://downloads.vivaldi.com/stable/vivaldi-stable_4.1.2369.21-1_amd64.deb -O $HOME/Downloads/vivaldi.deb
-  dpkg -i $HOME/Downloads/vivaldi.deb
-  rm $HOME/Downloads/vivaldi.deb
+#######
+# Other
+#######
 
-  wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O $HOME/Downloads/dbeaver.deb
-  dpkg -i $HOME/Downloads/dbeaver.deb
-  rm $HOME/Downloads/dbeaver.deb
-else
-  echo "Skipping desktop installs"
-fi
+# Dbt autocomplete
+mkdir ${HOME}/dbt-autocomplete
+curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/_dbt > ${HOME}/dbt-autocomplete/_dbt
+curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/dbt-completion.bash > ${HOME}/dbt-autocomplete/.dbt-completion.bash
+
+# Pull docker container for asci cinema
+docker pull asciinema/asciicast2gif
+
+#######################
+# App installs, configs
+#######################
 
 # Install home python venv
 bash ${HOME}/.python/install_venv
