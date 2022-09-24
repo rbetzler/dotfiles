@@ -10,17 +10,18 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 chsh -s $(which zsh)
 
 
-## Install cli tools
+########################
+# Debian package manager
+########################
 
 # Install terminator
 apt-get install terminator
 
-# Install gnu awk
-apt-get install gawk
-
-# Install postgresl
+# Install postgres and related tooling
 # Do not forget, `sudo systemctl disable postgresql`
-apt-get install postgresql-12
+apt-get install -y \
+  postgresql-12 \
+  pgcli
 
 # Install py dev env
 apt-get install python-dev
@@ -28,38 +29,33 @@ apt-get install python-dev
 # Install filezilla
 apt-get install filezilla
 
-# Install nmap
-apt-get install nmap
+# Install networking stuff
+apt-get install -y \
+  nmap \
+  traceroute
 
-# Install traceroute
-apt-get install traceroute
-
-# Install vim-gtk
-apt-get install vim-gtk -y
-
-# Install ctags
-apt-get install ctags
+# Install vim stuff
+apt-get install -y \
+  vim-gtk \
+  ctags
 
 # Install cmatrix, for fun
-apt-get install cmatrix
+apt-get install \
+  cmatrix \
+  figlet \
+  graphviz
 
-# Install figlet
-apt-get install figlet
+# Install improved cli tools
+# Batcat might need to upgrade manually, using a deb file
+apt-get install -y \
+  fd-find \
+  fzf \
+  jq \
+  bat \
+  gawk
 
-# Install fd
-apt-get install fd-find -y
-
-# Install fzf
-apt-get install fzf -y
-
-# Install jq
-apt-get install jq -y
-
-# Install neomutt
-apt-get install neomutt
-
-# Install isync
-apt-get install isync
+# Install mail tooling
+apt-get install -y neomutt isync
 
 # Install asciinema
 apt-get install asciinema
@@ -67,44 +63,19 @@ apt-get install asciinema
 # Install chrome
 apt-get install chromium-browser
 
-# Install copyq
-apt-get install copyq
-
-# Install preload
-apt-get install preload
+# Install miscellaneous
+apt-get install -y copyq preload unzip blueman htop
 
 # Install autojump
-apt-get install autojump -y
+apt-get install -y \
+  autojump \
+  tree \
+  xclip
 
-# Install tree
-apt-get install tree -y
-
-# Install tree
-apt-get install unzip -y
-
-# Install htop for system performance
-apt-get install htop -y
-
-# Install bluetooth manager
-apt-get install blueman
-
-# Install psql alternative
-apt-get install pgcli
-
-# Install cli clipboard tool
-apt-get install xclip
-
-# Install java
-apt-get install default-jre -y
-
-# Install graphviz
-apt-get install graphviz -y
-
-# Install batcat (might need to upgrade manually, using a deb file)
-apt-get install bat -y
-
-# Install go md2man for vgrep
-apt-get install go-md2man -y
+# Install java and go md2man (for vgrep)
+apt-get install -y \
+  default-jre \
+  go-md2man
 
 # Install gh
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
