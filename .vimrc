@@ -40,13 +40,8 @@ syntax on
 " Line numbering
 set nu
 
-" Access system clipboard for mac
-if has('macunix')
-    set clipboard=unnamed
-" Or for linux
-else
-    set clipboard=unnamedplus
-endif
+" Access system clipboard
+set clipboard=unnamedplus
 
 " Set color scheme
 set background=dark
@@ -116,31 +111,12 @@ function ToggleMouse()
     endif
 endfunction
 
-"" Query db using psql
-"function DBQuery()
-"    let file=expand('%:p')
-"    if file=~'.sql'
-"        let filename='~/Desktop/output.csv'
-"        let arg='psql -A -F"," -f ' . file . ' > ' . filename . ' --pset footer'
-"        call system(arg)
-"        split
-"        exec 'e ' . filename
-"        " exec ':%ArrangeColumn'
-"    endif
-"endfunction
-"command! DBQuery call DBQuery()
-
 " Highlight trailing whitespace
 function HighlightTrailingWhitespace()
   highlight ExtraWhitespace ctermbg=red guibg=red
   match ExtraWhitespace /\s\+\%#\@<!$/
 endfunction
 autocmd VimEnter,BufWritePost * call HighlightTrailingWhitespace()
-
-"" DB dad bod
-"let $DBUI_URL = 'postgresql:'
-"let g:db_ui_env_variable_name = 'PGUSER'
-"let g:db_ui_win_position = 'right'
 
 " Jedi do not popup autocomplete after typing dot
 let g:jedi#popup_on_dot = 0
@@ -196,16 +172,6 @@ function GenerateGithubLink()
   echo 'https://github.com/' . repo_root . '/blob/' . branch . '/' . file_name . '#L' . line_nbr
 endfunction
 command! GenerateGithubLink call GenerateGithubLink()
-
-" Git show the hash under the cursor
-" when doing an interactive rebase
-function RebaseViewer()
-  let hash = expand("<cword>")
-  let cmd = 'git show ' . hash
-  echo cmd
-  exec ':rightbelow vertical ter ' . cmd
-endfunction
-command! RebaseViewer call RebaseViewer()
 
 function TurnOffSyntaxLongLines()
   set synmaxcol=300
