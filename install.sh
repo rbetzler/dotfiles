@@ -3,12 +3,11 @@
 # Install zsh
 apt-get install zsh -y
 
-# Install oh my zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 # Switch default shell to zsh
 chsh -s $(which zsh)
 
+# Install oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ########################
 # Debian package manager
@@ -133,7 +132,7 @@ cargo install sd
 cargo install tre-command
 
 ############################
-# Debian packages, tars, etc
+# Debian files, tars, etc
 ############################
 
 # Install exa
