@@ -1,15 +1,7 @@
 #!/bin/bash
 
-dkrm-all(){
-  docker rm $(docker ps -aq)
-}
-
 dkrmf-all(){
   docker rm -f $(docker ps -aq)
-}
-
-dkrmi-all(){
-  docker rmi $(docker images -q)
 }
 
 dkrmif-all(){
@@ -26,8 +18,6 @@ dkstp-rm-rmi-all(){
   dkrmi-all
 }
 
-alias dkb="docker build"
-alias dke="docker exec -it"
 alias dki="docker images"
 alias dkk="docker kill"
 alias dkpl="docker pull"
@@ -38,10 +28,7 @@ alias dkrm="docker rm"
 alias dkrmf="docker rm -f"
 alias dkrmi="docker rmi"
 alias dkrmif="docker rmi -f"
-alias dkr="docker run"
-alias dkrit="docker run -it"
 alias dkstp="docker stop"
-alias dks="docker start"
 
 alias mk="minikube"
 alias k="kubectl"

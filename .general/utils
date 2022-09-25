@@ -1,36 +1,10 @@
 #!/bin/bash
 
-# Google something from the cli
-ggl(){
-  url=http://www.google.com/search?q=`echo "$@" | tr " " "+"`
-  vivaldi "$url" &> /dev/null &
-}
-
-# Remove entire line from file
-# by writing to a new file
-# then moving it back
-remove-line(){
-    files=$(grep -rl "$1" .)
-    if [ -z "$files" ]; then
-      echo "Pattern not found: $1"
-      echo "In file: $2"
-    else
-      grep -vwE "$1" "$2" > "$2".tmp
-      mv "$2".tmp "$2"
-    fi
-}
-
-# Find replace across many files
-find-replace(){
-  sd $1 $2 $(grep -rl "$1" .)
-}
-
 # Makes a shell script executable
 # according to git
 make-executable(){
   chmod u+x "$1"
 }
-
 
 # Copy to system clipboard
 copy(){
@@ -103,14 +77,6 @@ sdgrep(){
       [Nn]* ) git checkout . 2>/dev/null ;;
     esac
   done
-}
-
-# fzf to directories
-f(){
-  file=$(eval "$__FD  --type directory" | fzf --height 60% --reverse --preview $__FZF_PREVIEW)
-  if [[ "$file" != "" ]]; then
-    cd "$file"
-  fi
 }
 
 hist(){

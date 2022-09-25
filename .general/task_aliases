@@ -1,8 +1,0 @@
-#!/bin/bash
-
-alias tk="task"
-alias tka="task add"
-alias tkdn="task done"
-alias tkdl="task delete"
-alias tke="task edit"
-alias tkl="task list"
