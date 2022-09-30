@@ -3,20 +3,14 @@
     email = rbetzler94@gmail.com
 
 [core]
-	excludesfile = ~/.gitignore.global
+    excludesfile = ~/.gitignore.global
+    pager = delta
 
 [color]
     branch = auto
     diff = auto
     status = auto
     ui = auto
-
-[pager]
-    blame = bash ~/.git_aliases/delta_config
-    diff = bash ~/.git_aliases/delta_config
-    log = bash ~/.git_aliases/delta_config
-    reflog = bash ~/.git_aliases/delta_config
-    show = bash ~/.git_aliases/delta_config
 
 [delta]
     minus-style = "syntax #340001"
