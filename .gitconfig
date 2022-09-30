@@ -12,6 +12,7 @@
     ui = auto
 
 [pager]
+    blame = bash ~/.git_aliases/delta_config
     diff = bash ~/.git_aliases/delta_config
     log = bash ~/.git_aliases/delta_config
     reflog = bash ~/.git_aliases/delta_config
