@@ -6,9 +6,9 @@
 	excludesfile = ~/.gitignore.global
 
 [color]
+    branch = auto
     diff = auto
     status = auto
-    branch = auto
     ui = auto
 
 [pager]
@@ -19,11 +19,11 @@
     show = bash ~/.git_aliases/delta_config
 
 [delta]
-    plus-style = "syntax #012800"
     minus-style = "syntax #340001"
-    syntax-theme = Dracula
     navigate = true
+    plus-style = "syntax #012800"
     side-by-side = true
+    syntax-theme = Dracula
 
 [interactive]
     diffFilter = delta --color-only
@@ -32,7 +32,7 @@
 	tool = vimdiff
 
 [rebase]
-  instructionFormat = "%<(10,trunc)%cr %<(12,trunc)%an %s"
+    instructionFormat = "%<(10,trunc)%cr %<(12,trunc)%an %s"
 
 [alias]
     # Adding
