@@ -215,6 +215,11 @@ curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/ma
 # Pull docker container for asci cinema
 docker pull asciinema/asciicast2gif
 
+# Budibase cli
+mkdir $HOME/.budi
+wget https://github.com/Budibase/budibase/releases/latest/download/cli-linux -O $HOME/.budi/budi
+chmod +x $HOME/.budi/budi
+
 #######################
 # App installs, configs
 #######################
