@@ -16,6 +16,14 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Install terminator
 apt-get install terminator
 
+# Placeholder for docker, docker-compose
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
 # Install postgres and related tooling
 # Do not forget, `sudo systemctl disable postgresql`
 apt-get install -y \

@@ -53,6 +53,9 @@ export PATH=$PATH:$HOME/.pulumi/bin
 # Budibase path
 export PATH=$PATH:$HOME/.budi/
 
+# Support for `docker-compose` command
+export PATH=$PATH:$HOME/.docker/cli-plugins/
+
 # Use ipdb when python comes across breakpoint()
 # in a file
 export PYTHONBREAKPOINT=ipdb.set_trace
