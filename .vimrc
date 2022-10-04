@@ -21,6 +21,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'https://github.com/airblade/vim-gitgutter'
 Plugin 'https://github.com/tpope/vim-surround'
 Plugin 'https://github.com/tpope/vim-repeat'
+Plugin 'https://github.com/tpope/vim-fugitive'
 " Plugin 'https://github.com/tpope/vim-dadbod'
 " Plugin 'https://github.com/kristijanhusak/vim-dadbod-ui'
 Plugin 'dracula/vim', { 'name': 'dracula' }
