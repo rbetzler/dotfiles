@@ -27,7 +27,7 @@ fi
 # Template find command and ignore a few top level dirs
 __FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-sdk -E venv -E vgrep"
 __FZF_PREVIEW="if [ -d {} ]; then tree -C {} | head -200; else $bat_cmd --style=numbers --color=always --line-range :500 {}; fi"
-__FZF_PREVIEW_VFGREP=" n={3}; if (( \$n < 10 )); then m=0; else m=\$((\$n-5)); fi; bat {2} --style=numbers --color=always --line-range \$m: "
+__FZF_PREVIEW_VFGREP=" n={3}; if (( \$n < 10 )); then m=0; else m=\$((\$n-5)); fi; bat {2} --style=numbers --color=always --highlight-line {3} --line-range \$m: "
 # __FZF_BIND='f8:execute(terminator --new-tab {})'
 __FZF_BIND='f8:execute(vim {} < /dev/tty)'
 
