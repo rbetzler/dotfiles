@@ -19,6 +19,9 @@
     side-by-side = true
     syntax-theme = Dracula
 
+[diff]
+    renameLimit = 10000
+
 [interactive]
     diffFilter = delta --color-only
 
