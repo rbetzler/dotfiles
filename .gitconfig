@@ -129,6 +129,10 @@
     l = log
     lg = "log --graph"
     lfz = !bash ~/.git_aliases/log_fzf
+    # Fuzzy find an author and their git log
+    lfz-author = "!f() { \
+      git shortlog --summary --numbered | cut -f 2 | fzf | xargs -I {} git log --author {} ;\
+    }; f"
     lp = "log -p"
     lp-mine = "log -p --author=rbetzler"
     l-feat-commits = !bash ~/.git_aliases/log_feature_commits
