@@ -36,6 +36,11 @@ fz(){
   eval $__FD | fzf -m --height 60% --preview $__FZF_PREVIEW --bind $__FZF_BIND
 }
 
+# Copy a file into clipboard using fzf
+copyfz(){
+  copy cat "$(fzf -m --height 60% --preview $__FZF_PREVIEW --bind $__FZF_BIND)"
+}
+
 # Open the selected files in vim
 vf(){
   files=$(fz)
