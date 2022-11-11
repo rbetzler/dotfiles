@@ -29,6 +29,8 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 " Plugin 'https://github.com/neoclide/coc.nvim'
 " A few manual steps in https://github.com/iamcco/markdown-preview.nvim
 Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Vundle exec
 call vundle#end()
