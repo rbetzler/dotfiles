@@ -83,7 +83,7 @@ if ! type bat &>/dev/null ; then
 fi
 
 # Use bat/batcat when running `man <package>`
-export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # For airbyte dev in java
 export JAVA_HOME=/usr/lib/jvm/jdk-17/
