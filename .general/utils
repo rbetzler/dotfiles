@@ -95,3 +95,15 @@ hist(){
 cjson(){
   cat "$1" | jq -C | less
 }
+
+# Fuzzy jq for dbt manifest
+djson(){
+  # Remove trailing commas, invalid brackets, lead whitespaces
+  # Do not colorize input but do colorize preview
+  selection="$(cat "$1" | jq '.nodes | keys' | sed 's/,$//g' | awk '{if(length>1 && $1=$1) {print}}' | fzf --preview "bat $1 | jq -C '.nodes[\"{}\"]'")"
+  if [ -z "$selection" ]; then
+    echo 'No selection'
+  else;
+    bat "$1" | jq -C ".nodes[$selection]" | less
+  fi
+}
