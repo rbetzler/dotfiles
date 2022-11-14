@@ -169,9 +169,10 @@ function GenerateGithubLink()
   let raw_repo_root = split(url, ":")[1]
   let repo_root = split(raw_repo_root, ".git")[0]
   let file_name = @%
+  let file_path = trim(system('git ls-files --full-name ' . file_name))
   let line_nbr = line(".")
   " Print full github url
-  echo 'https://github.com/' . repo_root . '/blob/' . branch . '/' . file_name . '#L' . line_nbr
+  echo 'https://github.com/' . repo_root . '/blob/' . branch . '/' . file_path . '#L' . line_nbr
 endfunction
 command! GenerateGithubLink call GenerateGithubLink()
 
