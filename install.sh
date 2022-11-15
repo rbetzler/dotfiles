@@ -56,10 +56,15 @@ apt-get install \
 # Batcat might need to upgrade manually, using a deb file
 apt-get install -y \
   fd-find \
-  fzf \
   jq \
   bat \
   gawk
+
+# Debian packages were older
+curl -LO https://github.com/junegunn/fzf/releases/download/0.35.0/fzf-0.35.0-linux_amd64.tar.gz
+tar -zxvf fzf-0.35.0-linux_amd64.tar.gz
+rm fzf-0.35.0-linux_amd64.tar.gz
+mv fzf /usr/local/bin/
 
 # Install mail tooling
 apt-get install -y neomutt isync
