@@ -107,3 +107,8 @@ djson(){
     bat "$1" | jq -C ".nodes[$selection]" | less
   fi
 }
+
+# Horizontal cat using python
+hcat(){
+  python -c 'import sys, pandas as pd; print(pd.read_csv(sys.argv[1], nrows=3).head(1).T)' "$1"
+}
