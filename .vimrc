@@ -180,3 +180,15 @@ function TurnOffSyntaxLongLines()
   set synmaxcol=300
 endfunction
 command! TurnOffSyntaxLongLines call TurnOffSyntaxLongLines()
+
+" Semantically easier way to get out of a csv view
+function CSVDisable()
+  exec ':%UnArrangeColumn'
+endfunction
+command! CSVDisable call CSVDisable()
+
+" Semantically easier way to start csv view
+function CSVEnable()
+  exec ':%ArrangeColumn'
+endfunction
+command! CSVEnable call CSVEnable()
