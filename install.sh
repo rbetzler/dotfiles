@@ -53,11 +53,9 @@ apt-get install \
   graphviz
 
 # Install improved cli tools
-# Batcat might need to upgrade manually, using a deb file
 apt-get install -y \
   fd-find \
   jq \
-  bat \
   gawk
 
 # Debian packages were older
@@ -157,6 +155,11 @@ cp -r Downloads/exa/man/. /usr/share/man/man1/
 cp $HOME/Downloads/exa/completions/exa.zsh /usr/local/share/zsh/site-functions/exa.zsh
 rm -rf $HOME/Downloads/exa
 rm $HOME/Downloads/exa.zip
+
+# Install bat manually
+curl -LO https://github.com/sharkdp/bat/releases/download/v0.22.1/bat_0.22.1_amd64.deb
+dpkg -i bat_0.22.1_amd64.deb
+rm bat_0.22.1_amd64.deb
 
 # Install java manually, might need to fix dependencies
 wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb -O $HOME/Downloads/java.deb
