@@ -249,3 +249,8 @@ bash ${HOME}/.python/install_venv
 
 # Install vim plugins
 vim --clean '+source ~/.vimrc' +PluginInstall +qall
+
+##################
+# Install crontabs
+##################
+crontab ./.crontab
