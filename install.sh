@@ -31,7 +31,7 @@ apt-get install -y \
   pgcli
 
 # Install py dev env
-apt-get install python-dev
+apt-get install python-dev python3.9-dev python3.9-venv
 
 # Install filezilla
 apt-get install filezilla
