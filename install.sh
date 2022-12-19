@@ -132,6 +132,9 @@ git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/p
 # Cargo packages
 ################
 
+# Requirement for rust
+apt-get install -y build-essential
+
 # Install rustup for cargo for sd
 curl https://sh.rustup.rs -sSf | sh -s -- -y
 source $HOME/.cargo/env
