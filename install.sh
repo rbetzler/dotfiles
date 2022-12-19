@@ -224,6 +224,7 @@ install minikube-linux-amd64 /usr/local/bin/minikube
 
 # Install pulumi, setup autocomplete
 curl -fsSL https://get.pulumi.com | sh
+mkdir "$HOME/.oh-my-zsh/custom/plugins/pulumi"
 pulumi gen-completion zsh >> "$HOME/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh"
 
 # Install aws cli
