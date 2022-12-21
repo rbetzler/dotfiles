@@ -30,6 +30,7 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'gelguy/wilder.nvim'
 
 " Vundle exec
 call vundle#end()
@@ -192,3 +193,9 @@ function CSVEnable()
   exec ':%ArrangeColumn'
 endfunction
 command! CSVEnable call CSVEnable()
+
+" Menu for vim commands
+call wilder#setup({'modes': [':', '/', '?']})
+call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({'highlights': {'border': 'Normal'}, 'border': 'rounded'})))
+set wildmenu
+set wildmode=longest
