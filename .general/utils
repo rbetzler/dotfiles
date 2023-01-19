@@ -110,5 +110,5 @@ djson(){
 
 # Horizontal cat using python
 hcat(){
-  python -c 'import sys, pandas as pd; print(pd.read_csv(sys.argv[1], nrows=3).head(1).T)' "$1"
+  python -c 'import sys, pandas as pd; pd.set_option("display.max_columns", None); pd.set_option("display.max_rows", None); print(pd.read_csv(sys.argv[1], nrows=3).head(1).T)' "$1"
 }
