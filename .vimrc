@@ -199,3 +199,9 @@ call wilder#setup({'modes': [':', '/', '?']})
 call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({'highlights': {'border': 'Normal'}, 'border': 'rounded'})))
 set wildmenu
 set wildmode=longest
+
+" Format json files
+function FormatJSON()
+  exec ':%!python -m json.tool'
+endfunction
+command! FormatJSON call FormatJSON()
