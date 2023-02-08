@@ -194,6 +194,13 @@ make build GO=/usr/local/go/bin/go
 sudo make install GO=/usr/local/go/bin/go
 cd ..
 
+# Clone agg for asciinema, build binaries
+git clone https://github.com/asciinema/agg.git
+cd agg
+cargo build -r
+sudo cp ./target/release/agg /usr/bin/
+cd ..
+
 # Dbeaver
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O $HOME/Downloads/dbeaver.deb
 sudo dpkg -i $HOME/Downloads/dbeaver.deb
@@ -252,9 +259,6 @@ sudo ./aws/install
 mkdir ${HOME}/dbt-autocomplete
 curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/_dbt > ${HOME}/dbt-autocomplete/_dbt
 curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/dbt-completion.bash > ${HOME}/dbt-autocomplete/.dbt-completion.bash
-
-# Pull docker container for asci cinema
-docker pull asciinema/asciicast2gif
 
 # Budibase cli
 mkdir $HOME/.budi

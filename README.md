@@ -39,7 +39,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
   asciinema rec /tmp/recording
 
   # Convert file types
-  docker run --rm -it -v /tmp:/data asciinema/asciicast2gif /tmp/recording /tmp/recording.gif
+  agg /tmp/recording /tmp/recording.gif
   ```
 ### Docker image
 * Run:
