@@ -215,6 +215,12 @@ wget https://repo.clickhouse.com/deb/stable/main/clickhouse-client_21.9.7.2_all.
 sudo dpkg -i $HOME/Downloads/clk-cmn.deb
 rm $HOME/Downloads/clk-cmn.deb
 
+# Install age
+wget https://github.com/FiloSottile/age/releases/download/v1.1.1/age-v1.1.1-linux-amd64.tar.gz -O $HOME/Downloads/age.tar.gz
+sudo tar -C $HOME/Downloads/ -xzf $HOME/Downloads/age.tar.gz
+sudo mv $HOME/Downloads/age/age /usr/bin/
+sudo mv $HOME/Downloads/age/age-keygen /usr/bin/
+
 ##############
 # Devops tools
 ##############
