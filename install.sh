@@ -181,6 +181,13 @@ wget https://github.com/dandavison/delta/releases/download/0.14.0/git-delta_0.14
 sudo dpkg -i $HOME/Downloads/delta.deb
 rm $HOME/Downloads/delta.deb
 
+# Install sops
+wget https://github.com/mozilla/sops/releases/download/v3.7.3/sops_3.7.3_amd64.deb -O $HOME/Downloads/sops.deb
+sudo dpkg -i $HOME/Downloads/sops.deb
+rm $HOME/Downloads/sops.deb
+# Create directory for age keys
+mkdir -p ~/.config/sops/age/
+
 # Install go (dependency of vgrep)
 wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz -O $HOME/Downloads/go.tar.gz
 rm -rf /usr/local/go
