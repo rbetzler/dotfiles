@@ -40,7 +40,8 @@ sudo apt-get install filezilla
 # Install networking stuff
 sudo apt-get install -y \
   nmap \
-  traceroute
+  traceroute \
+  wireshark
 
 # Install vim stuff
 sudo apt-get install -y \
