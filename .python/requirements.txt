@@ -8,7 +8,7 @@ gita
 graphviz
 grip
 ipdb
-ipython==8.0.1
+ipython>=8.10
 jedi==0.17.2
 jupyter
 pandas
