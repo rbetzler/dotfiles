@@ -13,7 +13,8 @@ copy(){
 
 generate-ctags(){
   mkdir -p $HOME/.ctags
-  ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git $PWD
+  pydir="$(which python | xargs -i dirname {})/../lib/"
+  ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git "$pydir"
 }
 
 # Slight duplicate to hack around inconsistent bat installs
