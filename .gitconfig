@@ -80,9 +80,11 @@
     c = commit
     ca = "commit --all"
     cma = "commit --amend --no-edit"
+    cman = "commit --amend --no-edit --no-verify"
     cma-message = "commit --amend"
     cmm = "commit -m"
     cmma = "commit --all -m"
+    cmmn = "commit --no-verify -m"
     cmm-reuse = "commit --reuse-message=ORIG_HEAD"
     cmm-no-verify = "commit -n -m"
 
