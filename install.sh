@@ -100,40 +100,15 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 sudo apt update
 sudo apt install gh
 
-###########
-# Git repos
-###########
+##########################
+# Git repos via submodules
+##########################
 
-# Clone vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
+# Init, update submodules
+git submodule update --init --recursive
 
-# Clone zsh syntax highlighting repo
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-# Clone zsh autocomplete repo
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-
-# Clone zsh vi mode
-git clone https://github.com/jeffreytse/zsh-vi-mode $HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode
-
-# Clone jedi for vim
-git clone --recursive https://github.com/davidhalter/jedi-vim.git ~/.vim/bundle/jedi-vim
-
-# Clone dracula color scheme for mutt
-git clone https://github.com/dracula/mutt.git $HOME/dracula/mutt
-
-# For terminator
-git clone https://github.com/dracula/terminator.git $HOME/dracula/terminator
-
-# For zsh (with symbolic link)
-git clone https://github.com/dracula/zsh.git $HOME/dracula/zsh
+# Symbolic link for zsh theme
 ln -s $HOME/dracula/zsh/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
-
-# For zsh autcomplete
-git clone https://github.com/dracula/zsh-syntax-highlighting.git $HOME/dracula/zsh-syntax
-
-# For fzf autocomplete in zsh
-git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 
 ################
 # Cargo packages
@@ -194,20 +169,20 @@ rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf $HOME/Downloads/go.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 
-# Install vgrep
+# Build vgrep
+# Repo is cloned via submodules
 # Might need to back up a few commits, (given the head of master was busted in 2021-07)
-git clone https://github.com/vrothberg/vgrep.git
-cd vgrep
+cd repos/vgrep
 make build GO=/usr/local/go/bin/go
 sudo make install GO=/usr/local/go/bin/go
-cd ..
+cd ../..
 
-# Clone agg for asciinema, build binaries
-git clone https://github.com/asciinema/agg.git
-cd agg
+# Build binaries for asciinema
+# Repo is cloned via submodules
+cd repos/agg
 cargo build -r
 sudo cp ./target/release/agg /usr/bin/
-cd ..
+cd ../..
 
 # Dbeaver
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O $HOME/Downloads/dbeaver.deb
