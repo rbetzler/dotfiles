@@ -203,6 +203,11 @@ sudo tar -C $HOME/Downloads/ -xzf $HOME/Downloads/age.tar.gz
 sudo mv $HOME/Downloads/age/age /usr/bin/
 sudo mv $HOME/Downloads/age/age-keygen /usr/bin/
 
+# Install obsidian
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.15/obsidian_1.1.15_amd64.deb -O $HOME/Downloads/obsidian.deb
+sudo dpkg -i $HOME/Downloads/obsidian.deb
+rm $HOME/Downloads/obsidian.deb
+
 ##############
 # Devops tools
 ##############
