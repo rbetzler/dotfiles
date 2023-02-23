@@ -208,6 +208,11 @@ wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.15/o
 sudo dpkg -i $HOME/Downloads/obsidian.deb
 rm $HOME/Downloads/obsidian.deb
 
+# Install pandoc
+wget https://github.com/jgm/pandoc/releases/download/3.1/pandoc-3.1-1-amd64.deb -O $HOME/Downloads/pandoc.deb
+sudo dpkg -i $HOME/Downloads/pandoc.deb
+rm $HOME/Downloads/pandoc.deb
+
 ##############
 # Devops tools
 ##############
