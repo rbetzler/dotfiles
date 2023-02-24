@@ -76,7 +76,7 @@ sudo apt-get install asciinema
 sudo apt-get install chromium-browser
 
 # Install miscellaneous
-sudo apt-get install -y copyq preload unzip blueman htop xkbset screen
+sudo apt-get install -y copyq preload unzip blueman htop xkbset screen pwgen
 
 # Install autojump
 sudo apt-get install -y \
