@@ -19,6 +19,7 @@ pulumi
 # bq cli tool is busted
 pyparsing==2.4.2
 pudb
+shellcheck-py
 sqlfluff
 yamllint
 yapf
