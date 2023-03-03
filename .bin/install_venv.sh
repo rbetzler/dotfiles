@@ -4,8 +4,7 @@ set -eu
 
 echo 'Creating home py venv'
 
-PY_DIR=${HOME}/.python/
-cd $PY_DIR
+cd $HOME
 echo $(pwd)
 
 if [ -d venv ]; then
@@ -17,8 +16,8 @@ echo 'Creating venv'
 python3.9 -m venv venv
 
 echo 'Activating venv'
-source ${HOME}/.python/venv/bin/activate
+source ./venv/bin/activate
 
 echo 'Installing packages'
 pip3 install --upgrade pip
-pip3 install -r ${HOME}/.python/requirements.txt
+pip3 install -r ./requirements.txt

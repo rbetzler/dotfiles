@@ -42,7 +42,7 @@ for d in $DIRS; do
 done
 
 # activate home python venv
-source ${HOME}/.python/venv/bin/activate
+source ${HOME}/venv/bin/activate
 
 # ipython env
 export IPYTHONDIR="$HOME"/.ipython

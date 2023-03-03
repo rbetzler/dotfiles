@@ -269,7 +269,7 @@ chmod +x $HOME/.budi/budi
 #######################
 
 # Install home python venv
-bash ${HOME}/.python/install_venv
+bash ${HOME}/.bin/install_venv.sh
 
 # Install vim plugins
 vim --clean '+source ~/.vimrc' +PluginInstall +qall
