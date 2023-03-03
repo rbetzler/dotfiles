@@ -113,3 +113,12 @@ djson(){
 hcat(){
   python -c 'import sys, pandas as pd; pd.set_option("display.max_columns", None); pd.set_option("display.max_rows", None); print(pd.read_csv(sys.argv[1], nrows=3).head(1).T)' "$1"
 }
+
+# Check if an ip address is public or private
+is-ip-private(){
+  if echo "$1" | grep --quiet -E '^(192\.168|10\.|172\.1[6789]\.|172\.2[0-9]\.|172\.3[01]\.)' ; then
+    echo "Private: $1" ;
+  else
+    echo "Public: $1" ;
+  fi
+}
