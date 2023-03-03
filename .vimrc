@@ -10,6 +10,7 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'davidhalter/jedi-vim', {'pinned': 0.10.0}
 Plugin 'scrooloose/nerdtree'
+Plugin 'preservim/nerdcommenter'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
@@ -131,6 +132,12 @@ let g:flake8_show_in_file=1
 
 " Yaml lint
 let g:syntastic_yaml_checkers = ['yamllint']
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Align comments left
+let g:NERDDefaultAlign = 'left'
 
 " Patch xterm printing weird chars on line 1
 set t_TI= t_TE=
