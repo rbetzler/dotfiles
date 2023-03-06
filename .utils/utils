@@ -7,7 +7,7 @@ make-executable(){
 }
 
 # Copy to system clipboard
-copy(){
+cpc(){
   "$@" | xclip -selection clipboard
 }
 
