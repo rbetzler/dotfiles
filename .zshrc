@@ -103,6 +103,7 @@ export FZF_DEFAULT_OPTS='
 alias b="bat --theme Dracula"
 alias c="bat --theme Dracula"
 alias ch="clickhouse-client --vertical"
+alias cpc-stdin="xclip -selection clipboard"
 alias dk="docker"
 alias fd="fdfind"
 alias g="git"
