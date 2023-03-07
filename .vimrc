@@ -139,9 +139,6 @@ let g:NERDSpaceDelims = 1
 " Align comments left
 let g:NERDDefaultAlign = 'left'
 
-" Patch xterm printing weird chars on line 1
-set t_TI= t_TE=
-
 " Settings for mutt, when in mutt
 function MuttSettings()
   set wrap
