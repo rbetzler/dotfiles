@@ -32,7 +32,7 @@ source /usr/share/autojump/autojump.zsh
 
 # source every non-readme file in the following dirs
 # which contain creds, configs, scripts
-DIRS=(creds_mutt utils work)
+DIRS=(creds utils work)
 for d in $DIRS; do
   for f in ~/."$d"/*; do
     if [ "${f: -3}" != ".md" ] && [ "${f: -5}" != ".json" ] && [ "${f: -7}" != ".ignore" ] && [ "${f: -4}" != ".yml" ] && [ "${f: -3}" != ".py" ]; then

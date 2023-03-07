@@ -34,7 +34,7 @@ setup_isync_mailboxes(){
   mkdir -p .mutt
   cd .mutt
 
-  for f in ~/.creds_mutt/*; do
+  for f in ~/.creds/*; do
 
     # Ignore readme file
     if [ "${f: -3}" != ".md" ]; then
