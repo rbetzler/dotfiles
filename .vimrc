@@ -209,3 +209,20 @@ function FormatJSON()
   exec ':%!python -m json.tool'
 endfunction
 command! FormatJSON call FormatJSON()
+
+" Query postgres
+function QueryPostgres()
+  " Get the current window
+  let l:currentWindow=winnr()
+  " Write the current file
+  exec ':write'
+  " Get path variables
+  let home_dir = expand('$HOME')
+  let file_name = expand('%:p')
+  " Compose, execute bash
+  let cmd = home_dir . '/.bin/vim_query.sh pg ' . file_name
+  exec ':below terminal ' . cmd
+  " Go back to original window
+  exec l:currentWindow . "wincmd w"
+endfunction
+command! QueryPostgres call QueryPostgres()
