@@ -9,17 +9,17 @@ graphviz
 grip
 ipdb
 ipython>=8.10
-jedi==0.17.2
+jedi
 jupyter
 pandas
 pipdeptree
 pipreqs
 pre-commit
+pudb
 pulumi
 pynvim
 # bq cli tool is busted
 pyparsing==2.4.2
-pudb
 shellcheck-py
 sqlfluff
 yamllint
