@@ -101,6 +101,14 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githu
 sudo apt update
 sudo apt install gh
 
+# Install gnome extensions (for window manager)
+sudo apt-get -y install \
+  gnome-shell-extensions\
+  chrome-gnome-shell
+wget https://github.com/Fmstrat/wintile/releases/download/v7/wintile@nowsci.com.zip -O $HOME/Downloads/wintile@nowsci.com.zip
+mkdir -p ~/.local/share/gnome-shell/extensions/
+unzip $HOME/Downloads/wintile@nowsci.com.zip -d .local/share/gnome-shell/extensions/wintile@nowsci.com/
+
 ##########################
 # Git repos via submodules
 ##########################
