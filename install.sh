@@ -46,7 +46,8 @@ sudo apt-get install -y \
 # Install vim stuff
 sudo apt-get install -y \
   vim-gtk \
-  ctags
+  ctags \
+  neovim
 
 # Install cmatrix, for fun
 sudo apt-get install \
