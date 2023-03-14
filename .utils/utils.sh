@@ -30,7 +30,7 @@ __FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-s
 __FZF_PREVIEW="if [ -d {} ]; then tree -C {} | head -200; else $bat_cmd --style=numbers --color=always --line-range :500 {}; fi"
 __FZF_PREVIEW_VFGREP=" n={3}; if (( \$n < 10 )); then m=0; else m=\$((\$n-5)); fi; bat {2} --style=numbers --color=always --highlight-line {3} --line-range \$m: "
 # __FZF_BIND='f8:execute(terminator --new-tab {})'
-__FZF_BIND='f8:execute(vim {} < /dev/tty)'
+__FZF_BIND='f8:execute(nvim {} < /dev/tty)'
 
 # Return the selected file, like regular fzf
 fzfd(){
@@ -42,15 +42,15 @@ copyfz(){
   copy cat "$(fzf -m --height 60% --preview $__FZF_PREVIEW --bind $__FZF_BIND)"
 }
 
-# Open the selected files in vim
+# Open the selected files in nvim
 vf(){
   files=$(fzfd)
   if [[ "$files" != "" ]]; then
-    vim -p $(echo $files)
+    nvim -p $(echo $files)
   fi
 }
 
-# fzf-vgrep then open in vim
+# fzf-vgrep then open in nvim
 # If an arg is provided, then do not ignore hidden dirs and pass in the search string
 vfgrep() {
   if [ -z "$1" ]; then
@@ -63,7 +63,7 @@ vfgrep() {
   files=$(vgrep --no-header $include_hidden_files "$search_arg" | fzf -m --height 60% --preview $__FZF_PREVIEW_VFGREP --bind "change:reload:vgrep $include_hidden_files --no-header {q} || true" --ansi --phony --tac | \
     awk '{if (NR==1) {print("+" $3, $2)} else {print("+\"tabnew +" $3, $2 "\"")}}' ORS=' ')
   if [[ "$files" != "" ]]; then
-    eval 'vim' "$files"
+    eval 'nvim' "$files"
   fi
 }
 
