@@ -14,7 +14,7 @@ cpc(){
 generate-ctags(){
   mkdir -p $HOME/.ctags
   pydir="$(which python | xargs -i dirname {})/../lib/"
-  ctags -f $HOME/.ctags/tags --recurse=yes --exclude=.git "$pydir"
+  ctags -n -f $HOME/.ctags/tags --recurse=yes --exclude=.git "$pydir"
 }
 
 # Slight duplicate to hack around inconsistent bat installs
@@ -29,8 +29,10 @@ fi
 __FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-sdk -E venv -E vgrep"
 __FZF_PREVIEW="if [ -d {} ]; then tree -C {} | head -200; else $bat_cmd --style=numbers --color=always --line-range :500 {}; fi"
 __FZF_PREVIEW_VFGREP=" n={3}; if (( \$n < 10 )); then m=0; else m=\$((\$n-5)); fi; bat {2} --style=numbers --color=always --highlight-line {3} --line-range \$m: "
+__FZF_PREVIEW_CTAGS="x={}; file_name=\$(echo \$x | awk '{print \$2}') ; line_start=\$(echo \$x | awk '{print \$3}' | awk -F';' '{print \$1}') ; tmp_window_start=\$((\$line_start - 2)) ; window_start=\$(( \$tmp_window_start > 0 ? \$tmp_window_start : 0 )) ; bat --color=always \$file_name --highlight-line \$line_start --line-range \$window_start:"
 # __FZF_BIND='f8:execute(terminator --new-tab {})'
 __FZF_BIND='f8:execute(nvim {} < /dev/tty)'
+__FZF_BIND_CTAGS="f8:execute(nvim \$(echo {} | awk '{print \$2}'))"
 
 # Return the selected file, like regular fzf
 fzfd(){
@@ -112,6 +114,10 @@ djson(){
 # Horizontal cat using python
 hcat(){
   python -c 'import sys, pandas as pd; pd.set_option("display.max_columns", None); pd.set_option("display.max_rows", None); print(pd.read_csv(sys.argv[1], nrows=3).head(1).T)' "$1"
+}
+
+ftags(){
+  cat $HOME/.ctags/tags | fzf --preview $__FZF_PREVIEW_CTAGS --bind $__FZF_BIND_CTAGS
 }
 
 # Check if an ip address is public or private
