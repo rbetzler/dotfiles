@@ -69,6 +69,9 @@ set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
 " Turn off search highlighting
 set nohlsearch
 
+" Disable omnicomplete preview
+set completeopt-=preview
+
 " Customize keybindings
 vmap <C-c> y
 vmap <C-x> x
