@@ -8,7 +8,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'preservim/nerdcommenter'
 Plugin 'jistr/vim-nerdtree-tabs'
