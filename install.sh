@@ -269,6 +269,10 @@ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip
 unzip awscliv2.zip
 sudo ./aws/install
 
+# Install vim plug for neovim plugins
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+
 #######
 # Other
 #######
@@ -298,10 +302,6 @@ sudo npm install --global yarn
 cd $HOME/.vim/bundle/coc.nvim
 yarn install
 yarn build
-cd $HOME/.config/coc/extensions/
-npm install \
-  coc-jedi \
-  coc-pyright
 cd $HOME
 
 ##################
