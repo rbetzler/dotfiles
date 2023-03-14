@@ -144,10 +144,6 @@ cargo install tre-command
 # Debian files, tars, etc
 ############################
 
-# Install yarn for neovim
-sudo npm install --global yarn
-yarn install
-
 # Install neovim
 wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb -O $HOME/Downloads/nvim.deb
 sudo dpkg -i $HOME/Downloads/nvim.deb
@@ -297,9 +293,11 @@ bash ${HOME}/.bin/install_venv.sh
 vim --clean '+source ~/.vimrc' +PluginInstall +qall
 
 # Install neovim dependencies
+sudo npm install --global yarn
 cd $HOME/.vim/bundle/coc.nvim
 yarn install
 yarn build
+cd $HOME
 
 ##################
 # Install crontabs
