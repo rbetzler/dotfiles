@@ -299,7 +299,9 @@ cd $HOME/.vim/bundle/coc.nvim
 yarn install
 yarn build
 cd $HOME/.config/coc/extensions/
-npm install coc-jedi
+npm install \
+  coc-jedi \
+  coc-pyright
 cd $HOME
 
 ##################
