@@ -46,8 +46,7 @@ sudo apt-get install -y \
 # Install vim stuff
 sudo apt-get install -y \
   vim-gtk \
-  ctags \
-  neovim
+  ctags
 
 # Install cmatrix, for fun
 sudo apt-get install \
@@ -89,6 +88,11 @@ sudo apt-get install -y \
 sudo apt-get install -y \
   default-jre \
   go-md2man
+
+# Install neovim dependencies
+sudo apt-get install -y \
+  nodejs \
+  npm
 
 # Install obs studio for screencasting, vlc for viewing
 sudo add-apt-repository ppa:obsproject/obs-studio && \
@@ -139,6 +143,15 @@ cargo install tre-command
 ############################
 # Debian files, tars, etc
 ############################
+
+# Install yarn for neovim
+sudo npm install --global yarn
+yarn install
+
+# Install neovim
+wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb -O $HOME/Downloads/nvim.deb
+sudo dpkg -i $HOME/Downloads/nvim.deb
+rm $HOME/Downloads/nvim.deb
 
 # Install exa
 wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -O $HOME/Downloads/exa.zip
@@ -282,6 +295,11 @@ bash ${HOME}/.bin/install_venv.sh
 
 # Install vim plugins
 vim --clean '+source ~/.vimrc' +PluginInstall +qall
+
+# Install neovim dependencies
+cd $HOME/.vim/bundle/coc.nvim
+yarn install
+yarn build
 
 ##################
 # Install crontabs

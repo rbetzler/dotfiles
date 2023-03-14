@@ -26,7 +26,7 @@ Plugin 'https://github.com/tpope/vim-fugitive'
 " Plugin 'https://github.com/kristijanhusak/vim-dadbod-ui'
 Plugin 'dracula/vim', { 'name': 'dracula' }
 " Plugin 'https://github.com/kristijanhusak/vim-dadbod-completion'
-" Plugin 'https://github.com/neoclide/coc.nvim'
+Plugin 'neoclide/coc.nvim'
 " A few manual steps in https://github.com/iamcco/markdown-preview.nvim
 Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plugin 'vim-airline/vim-airline'
