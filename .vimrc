@@ -125,6 +125,9 @@ function HighlightTrailingWhitespace()
 endfunction
 autocmd VimEnter,BufWritePost * call HighlightTrailingWhitespace()
 
+" Ignore coc warning for regular vim
+let g:coc_disable_startup_warning = 1
+
 " Jedi do not popup autocomplete after typing dot
 let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = "0"
