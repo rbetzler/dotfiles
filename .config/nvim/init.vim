@@ -195,6 +195,21 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_bo
 set wildmenu
 set wildmode=longest
 
+" Enable fuzzy finding for wilder
+call wilder#set_option('pipeline', [
+  \   wilder#branch(
+  \     wilder#cmdline_pipeline({
+  \       'language': 'python',
+  \       'fuzzy': 1,
+  \     }),
+  \     wilder#python_search_pipeline({
+  \       'pattern': wilder#python_fuzzy_pattern(),
+  \       'sorter': wilder#python_difflib_sorter(),
+  \       'engine': 're',
+  \     }),
+  \   ),
+  \ ])
+
 " Format json files
 function FormatJSON()
   exec ':%!python -m json.tool'
