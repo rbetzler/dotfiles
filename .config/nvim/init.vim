@@ -5,6 +5,7 @@ call plug#begin()
 
 Plug 'chrisbra/csv.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
 Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'fannheyward/coc-pyright', {'do': 'yarn install && yarn build'}
 Plug 'gelguy/wilder.nvim'
@@ -74,6 +75,15 @@ nmap <F9> :setlocal spell! spelllang=en_us<CR>
 
 " Keep the most recently pasted item in clipboard
 xnoremap p pgvy
+
+" Ale Linting and Configuration.
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['autoflake', 'black', 'isort'],
+\}
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 
 " Autoopen nerdtree
 " autocmd VimEnter * NERDTree | wincmd p
