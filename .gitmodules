@@ -8,11 +8,6 @@
 	path = repos/agg
 	url = https://github.com/asciinema/agg.git
 
-# Clone vundle
-[submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-	url = https://github.com/VundleVim/Vundle.vim.git
-
 # Clone zsh syntax highlighting repo
 [submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
@@ -27,11 +22,6 @@
 [submodule ".oh-my-zsh/custom/plugins/zsh-vi-mode"]
 	path = .oh-my-zsh/custom/plugins/zsh-vi-mode
 	url = https://github.com/jeffreytse/zsh-vi-mode
-
-# Clone jedi for vim
-[submodule ".vim/bundle/jedi-vim"]
-	path = .vim/bundle/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
 
 # Clone dracula color scheme for mutt
 [submodule "dracula/mutt"]

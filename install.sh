@@ -273,6 +273,9 @@ sudo ./aws/install
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
   https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
+# Install neovim dependencies
+sudo npm install --global yarn
+
 #######
 # Other
 #######
@@ -295,14 +298,8 @@ chmod +x $HOME/.budi/budi
 bash ${HOME}/.bin/install_venv.sh
 
 # Install vim plugins
-vim --clean '+source ~/.vimrc' +PluginInstall +qall
-
-# Install neovim dependencies
-sudo npm install --global yarn
-cd $HOME/.vim/bundle/coc.nvim
-yarn install
-yarn build
-cd $HOME
+# TODO: Fix this, since it doesn't work
+nvim --clean '+source ~/.config/nvim/init.vim' +PlugInstall +qall
 
 ##################
 # Install crontabs

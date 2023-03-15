@@ -18,6 +18,9 @@ plugins=(
   zsh-vi-mode
 )
 
+# Set neovim as default editor
+export EDITOR="nvim"
+
 # dbt autocomplete
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
