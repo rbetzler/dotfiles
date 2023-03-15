@@ -210,6 +210,13 @@ call wilder#set_option('pipeline', [
   \   ),
   \ ])
 
+" Format for wilder
+call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+  \ 'highlighter': wilder#basic_highlighter(),
+  \ 'min_width': '100%',
+  \ 'min_height': '25%',
+  \ })))
+
 " Format json files
 function FormatJSON()
   exec ':%!python -m json.tool'
