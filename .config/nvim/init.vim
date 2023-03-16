@@ -17,6 +17,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
+Plug 'romgrk/fzy-lua-native'
 Plug 'preservim/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
@@ -211,11 +212,26 @@ call wilder#set_option('pipeline', [
   \ ])
 
 " Format for wilder
-call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
-  \ 'highlighter': wilder#basic_highlighter(),
+let s:highlighters = [
+  \ wilder#lua_fzy_highlighter(),
+  \ ]
+
+let s:popupmenu_renderer = wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+  \ 'border': 'rounded',
+  \ 'highlighter': s:highlighters,
   \ 'min_width': '100%',
   \ 'min_height': '25%',
-  \ })))
+  \ }))
+
+let s:wildmenu_renderer = wilder#wildmenu_renderer({
+  \ 'highlighter': s:highlighters,
+  \ })
+
+call wilder#set_option('renderer', wilder#renderer_mux({
+  \ ':': s:popupmenu_renderer,
+  \ '/': s:wildmenu_renderer,
+  \ 'substitute': s:wildmenu_renderer,
+  \ }))
 
 " Format json files
 function FormatJSON()
