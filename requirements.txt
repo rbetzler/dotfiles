@@ -1,8 +1,12 @@
+build
+bump2version
 cookiecutter
+coverage
 dbt-bigquery
 dbt-clickhouse
 dbt-core
 dbt-postgres
+doq
 flake8
 gita
 graphviz
@@ -11,6 +15,7 @@ ipdb
 ipython>=8.10
 jedi
 jupyter
+keyring
 pandas
 pipdeptree
 pipreqs
@@ -20,7 +25,10 @@ pulumi
 pynvim
 # bq cli tool is busted
 pyparsing==2.4.2
+pytest
 shellcheck-py
 sqlfluff
+twine
+wheel
 yamllint
 yapf
