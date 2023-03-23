@@ -55,6 +55,9 @@ export PATH=$PATH:$HOME/.pulumi/bin
 # Go path
 export PATH=$PATH:/usr/local/go/bin
 
+# Go executables
+export PATH=$PATH:$HOME/go/bin
+
 # Budibase path
 export PATH=$PATH:$HOME/.budi/
 
