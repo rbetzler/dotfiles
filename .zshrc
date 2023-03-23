@@ -52,6 +52,9 @@ export IPYTHONDIR="$HOME"/.ipython
 # Pulumi path
 export PATH=$PATH:$HOME/.pulumi/bin
 
+# Go path
+export PATH=$PATH:/usr/local/go/bin
+
 # Budibase path
 export PATH=$PATH:$HOME/.budi/
 
