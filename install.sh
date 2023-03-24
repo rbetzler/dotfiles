@@ -208,6 +208,12 @@ cargo build -r
 sudo cp ./target/release/agg /usr/bin/
 cd ../..
 
+# Build, install grex
+cd repos/grex
+cargo build
+sudo cp ./target/debug/grex /usr/bin/
+cd ../..
+
 # Dbeaver
 wget https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb -O $HOME/Downloads/dbeaver.deb
 sudo dpkg -i $HOME/Downloads/dbeaver.deb

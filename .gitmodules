@@ -8,6 +8,11 @@
 	path = repos/agg
 	url = https://github.com/asciinema/agg.git
 
+# For cli regex generator
+[submodule "repos/grex"]
+	path = repos/grex
+	url = https://github.com/pemistahl/grex.git
+
 # Clone zsh syntax highlighting repo
 [submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
 	path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
