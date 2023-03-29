@@ -252,6 +252,12 @@ curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/lat
 sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
 rm argocd-linux-amd64
 
+# Install argo workflows cli
+curl -sLO https://github.com/argoproj/argo-workflows/releases/download/v3.4.5/argo-linux-amd64.gz -o $HOME/Downloads/argo.gz
+gunzip $HOME/Downloads/argo.gz
+chmod +x $HOME/Downloads/argo
+mv $HOME/Downloads/argo /usr/local/bin/argo
+
 # Install kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
