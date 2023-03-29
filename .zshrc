@@ -21,12 +21,6 @@ plugins=(
 # Set neovim as default editor
 export EDITOR="nvim"
 
-# dbt autocomplete
-autoload -U +X compinit && compinit
-autoload -U +X bashcompinit && bashcompinit
-source ~/dbt-autocomplete/.dbt-completion.bash
-fpath=(~/dbt-autocomplete/_dbt $fpath)
-
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/dracula/zsh-syntax/zsh-syntax-highlighting.sh

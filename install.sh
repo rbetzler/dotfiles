@@ -298,11 +298,6 @@ sudo npm install --global yarn
 # Other
 #######
 
-# Dbt autocomplete
-mkdir ${HOME}/dbt-autocomplete
-curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/_dbt > ${HOME}/dbt-autocomplete/_dbt
-curl https://raw.githubusercontent.com/fishtown-analytics/dbt-completion.bash/master/dbt-completion.bash > ${HOME}/dbt-autocomplete/.dbt-completion.bash
-
 # Budibase cli
 mkdir $HOME/.budi
 wget https://github.com/Budibase/budibase/releases/latest/download/cli-linux -O $HOME/.budi/budi
