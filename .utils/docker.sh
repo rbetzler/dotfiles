@@ -34,12 +34,6 @@ alias mk="minikube"
 alias k="kubectl"
 alias hl="helm"
 
-# Load kubectl autocomplete
-kk(){
-  source <(kubectl completion zsh)
-  source <(helm completion zsh)
-}
-
 # Spin up docker postgres db
 spin_up_dockerized_postgres(){
   docker run -d --rm -p $PGPORT:$PGPORT -e POSTGRES_PASSWORD=$PGPASSWORD --network bridge postgres

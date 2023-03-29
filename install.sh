@@ -257,10 +257,14 @@ curl -sLO https://github.com/argoproj/argo-workflows/releases/download/v3.4.5/ar
 gunzip $HOME/Downloads/argo.gz
 chmod +x $HOME/Downloads/argo
 mv $HOME/Downloads/argo /usr/local/bin/argo
+argo completion zsh > $HOME/.utils/argo.sh
+# https://github.com/argoproj/argo-cd/issues/10534
+sed -i '1i compdef _argo argo' $HOME/.utils/argo.sh
 
 # Install kubectl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+kubectl completion zsh > $HOME/.utils/kubectl.sh
 
 # Install kubelet, kubeadm
 sudo apt-get install -y apt-transport-https ca-certificates
@@ -272,6 +276,7 @@ sudo apt-get install -y kubeadm kubelet
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 chmod 700 get_helm.sh
 ./get_helm.sh
+helm completion zsh > $HOME/.utils/helm.sh
 
 # Minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
