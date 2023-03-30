@@ -251,6 +251,8 @@ rm $HOME/Downloads/pandoc.deb
 curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
 sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
 rm argocd-linux-amd64
+argocd completion zsh > $HOME/.utils/argocd.sh
+sed -i '1i compdef _argocd argocd' $HOME/.utils/argocd.sh
 
 # Install argo workflows cli
 curl -sLO https://github.com/argoproj/argo-workflows/releases/download/v3.4.5/argo-linux-amd64.gz -o $HOME/Downloads/argo.gz
