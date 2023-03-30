@@ -15,6 +15,7 @@ plugins=(
   zsh-autosuggestions
   zsh-interactive-cd
   zsh-syntax-highlighting
+  zsh-system-clipboard
   zsh-vi-mode
 )
 
@@ -72,6 +73,9 @@ ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
 # Key binds to override zsh vi mode
 zvm_bindkey viins "^[[H" beginning-of-line
 zvm_bindkey viins "^[[F" end-of-line
+
+# Shortcut to copy entire zsh register into clipboard
+bindkey -M vicmd 'yy' zsh-system-clipboard-vicmd-vi-yank-whole-line
 
 # Patch slow git autosuggestions
 # https://stackoverflow.com/questions/9810327/zsh-auto-completion-for-git-takes-significant-amount-of-time-can-i-turn-it-off/9810485#9810485
