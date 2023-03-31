@@ -284,6 +284,11 @@ helm completion zsh > $HOME/.utils/helm.sh
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
+# Kubeseal for sealed secrets
+wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.20.2/kubeseal-0.20.2-linux-amd64.tar.gz
+tar -xvzf kubeseal-0.20.2-linux-amd64.tar.gz kubeseal
+sudo install -m 755 kubeseal /usr/local/bin/kubeseal
+
 # Install pulumi, setup autocomplete
 curl -fsSL https://get.pulumi.com | sh
 mkdir "$HOME/.oh-my-zsh/custom/plugins/pulumi"
