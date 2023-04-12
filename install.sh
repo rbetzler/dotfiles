@@ -306,6 +306,11 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 # Install neovim dependencies
 sudo npm install --global yarn
 
+# Install hugo
+go install -tags extended github.com/gohugoio/hugo@latest
+hugo completion zsh > $HOME/.utils/hugo.sh
+sed -i '1i compdef _hugo hugo' $HOME/.utils/hugo.sh
+
 #######
 # Other
 #######
