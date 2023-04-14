@@ -57,3 +57,8 @@
 [submodule ".oh-my-zsh/custom/plugins/zsh-system-clipboard"]
 	path = .oh-my-zsh/custom/plugins/zsh-system-clipboard
 	url = https://github.com/kutsan/zsh-system-clipboard
+
+# For pyenv
+[submodule "repos/pyenv"]
+	path = repos/pyenv
+	url = https://github.com/pyenv/pyenv.git

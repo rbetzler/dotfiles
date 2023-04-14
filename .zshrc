@@ -104,6 +104,11 @@ export FZF_DEFAULT_OPTS='
   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
 '
 
+# Pyenv config
+export PYENV_ROOT="$HOME/repos/pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # Most aliases
 # Mutt aliases exist in .utils/mutt
 alias b="bat --theme Dracula"
