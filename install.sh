@@ -188,7 +188,7 @@ rm $HOME/Downloads/sops.deb
 mkdir -p ~/.config/sops/age/
 
 # Install go (dependency of vgrep)
-wget https://golang.org/dl/go1.16.5.linux-amd64.tar.gz -O $HOME/Downloads/go.tar.gz
+wget https://golang.org/dl/go1.20.3.linux-amd64.tar.gz -O $HOME/Downloads/go.tar.gz
 rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf $HOME/Downloads/go.tar.gz
 export PATH=$PATH:/usr/local/go/bin
