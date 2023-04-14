@@ -62,3 +62,8 @@
 [submodule "repos/pyenv"]
 	path = repos/pyenv
 	url = https://github.com/pyenv/pyenv.git
+
+# Hugo theme
+[submodule "repos/tailbliss"]
+	path = repos/tailbliss
+	url = https://github.com/nusserstudios/tailbliss.git
