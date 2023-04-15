@@ -1,69 +1,69 @@
 # For vgrep
 [submodule "repos/vgrep"]
-	path = repos/vgrep
-	url = https://github.com/vrothberg/vgrep.git
+    path = repos/vgrep
+    url = https://github.com/vrothberg/vgrep.git
 
 # For asciinema
 [submodule "repos/agg"]
-	path = repos/agg
-	url = https://github.com/asciinema/agg.git
+    path = repos/agg
+    url = https://github.com/asciinema/agg.git
 
 # For cli regex generator
 [submodule "repos/grex"]
-	path = repos/grex
-	url = https://github.com/pemistahl/grex.git
+    path = repos/grex
+    url = https://github.com/pemistahl/grex.git
 
 # Clone zsh syntax highlighting repo
 [submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-	path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+    path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 # Clone zsh autocomplete repo
 [submodule ".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-	path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
+    path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
+    url = https://github.com/zsh-users/zsh-autosuggestions
 
 # Clone zsh vi mode
 [submodule ".oh-my-zsh/custom/plugins/zsh-vi-mode"]
-	path = .oh-my-zsh/custom/plugins/zsh-vi-mode
-	url = https://github.com/jeffreytse/zsh-vi-mode
+    path = .oh-my-zsh/custom/plugins/zsh-vi-mode
+    url = https://github.com/jeffreytse/zsh-vi-mode
 
 # Clone dracula color scheme for mutt
 [submodule "dracula/mutt"]
-	path = dracula/mutt
-	url = https://github.com/dracula/mutt.git
+    path = dracula/mutt
+    url = https://github.com/dracula/mutt.git
 
 # For terminator
 [submodule "dracula/terminator"]
-	path = dracula/terminator
-	url = https://github.com/dracula/terminator.git
+    path = dracula/terminator
+    url = https://github.com/dracula/terminator.git
 
 # For zsh (with symbolic link)
 [submodule "dracula/zsh"]
-	path = dracula/zsh
-	url = https://github.com/dracula/zsh.git
+    path = dracula/zsh
+    url = https://github.com/dracula/zsh.git
 
 # For zsh autcomplete
 [submodule "dracula/zsh-syntax"]
-	path = dracula/zsh-syntax
-	url = https://github.com/dracula/zsh-syntax-highlighting.git
+    path = dracula/zsh-syntax
+    url = https://github.com/dracula/zsh-syntax-highlighting.git
 
 # For fzf autocomplete in zsh
 [submodule ".oh-my-zsh/custom/plugins/fzf-tab"]
-	path = .oh-my-zsh/custom/plugins/fzf-tab
-	url = https://github.com/Aloxaf/fzf-tab
+    path = .oh-my-zsh/custom/plugins/fzf-tab
+    url = https://github.com/Aloxaf/fzf-tab
 
 # For zsh clipboard copies
 [submodule ".oh-my-zsh/custom/plugins/zsh-system-clipboard"]
-	path = .oh-my-zsh/custom/plugins/zsh-system-clipboard
-	url = https://github.com/kutsan/zsh-system-clipboard
+    path = .oh-my-zsh/custom/plugins/zsh-system-clipboard
+    url = https://github.com/kutsan/zsh-system-clipboard
 
 # For pyenv
 [submodule "repos/pyenv"]
-	path = repos/pyenv
-	url = https://github.com/pyenv/pyenv.git
+    path = repos/pyenv
+    url = https://github.com/pyenv/pyenv.git
 
 # Hugo theme
 [submodule "repos/tailbliss"]
-	path = repos/tailbliss
-	url = https://github.com/nusserstudios/tailbliss.git
+    path = repos/tailbliss
+    url = https://github.com/nusserstudios/tailbliss.git
