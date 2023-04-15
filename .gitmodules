@@ -67,3 +67,4 @@
 [submodule "repos/tailbliss"]
     path = repos/tailbliss
     url = https://github.com/nusserstudios/tailbliss.git
+    ignore = dirty
