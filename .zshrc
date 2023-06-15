@@ -105,9 +105,9 @@ export FZF_DEFAULT_OPTS='
 '
 
 # Pyenv config
-export PYENV_ROOT="$HOME/repos/pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/repos/pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # Most aliases
 # Mutt aliases exist in .utils/mutt

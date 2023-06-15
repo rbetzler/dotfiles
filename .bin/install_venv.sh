@@ -13,7 +13,10 @@ if [ -d venv ]; then
 fi
 
 echo 'Creating venv'
-python3.9 -m venv venv
+export PYENV_ROOT="$HOME/repos/pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+pyenv exec python3.10 -m venv venv
 
 echo 'Activating venv'
 source ./venv/bin/activate
