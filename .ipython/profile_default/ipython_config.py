@@ -10,3 +10,5 @@ c.TerminalIPythonApp.exec_lines = [
     "print('\\n (╯°□°)╯︵ ┻━┻')",
 ]
 
+# Ignore startup venv warning
+c.InteractiveShell.warn_venv = False
