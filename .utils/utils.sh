@@ -97,3 +97,10 @@ __FZF_BIND_CTAGS="f8:execute(nvim \$(echo {} | awk '{print \$2}'))"
 ftags(){
   cat $HOME/.ctags/tags | fzf --preview $__FZF_PREVIEW_CTAGS --bind $__FZF_BIND_CTAGS
 }
+
+# Activate pyenv
+activate_pyenv(){
+  export PYENV_ROOT="$HOME/repos/pyenv"
+  command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+}
