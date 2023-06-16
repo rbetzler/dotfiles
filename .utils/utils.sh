@@ -97,12 +97,3 @@ __FZF_BIND_CTAGS="f8:execute(nvim \$(echo {} | awk '{print \$2}'))"
 ftags(){
   cat $HOME/.ctags/tags | fzf --preview $__FZF_PREVIEW_CTAGS --bind $__FZF_BIND_CTAGS
 }
-
-# Check if an ip address is public or private
-is-ip-private(){
-  if echo "$1" | grep --quiet -E '^(192\.168|10\.|172\.1[6789]\.|172\.2[0-9]\.|172\.3[01]\.)' ; then
-    echo "Private: $1" ;
-  else
-    echo "Public: $1" ;
-  fi
-}
