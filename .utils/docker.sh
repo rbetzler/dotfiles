@@ -35,11 +35,6 @@ alias k="kubectl"
 alias hl="helm"
 
 # Spin up docker postgres db
-spin_up_dockerized_postgres(){
+dkpsql(){
   docker run -d --rm -p $PGPORT:$PGPORT -e POSTGRES_PASSWORD=$PGPASSWORD --network bridge postgres
-  echo 'Sleeping while postgres spins up'
-  sleep 5
-  echo 'Connecting to db'
-  pgcli
 }
-
