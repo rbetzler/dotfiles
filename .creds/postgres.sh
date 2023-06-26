@@ -1,3 +1,4 @@
+export PGDATABASE=postgres
 export PGHOST=localhost
 export PGPASSWORD=password
 export PGPORT=5432
