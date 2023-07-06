@@ -52,3 +52,9 @@ docker run -it --rm -v $HOME/:/mnt -w /mnt rlb-env -c "ln -s /mnt/.ssh /root && 
 * The second command is a hacky way to run a symbolic link then stay in the container.
   Otherwise, docker will exit abruptly.
 * The symlink is needed to make root ssh keys accessible.
+
+#### Neovim
+Run
+```
+:UpdateRemotePlugins
+```
