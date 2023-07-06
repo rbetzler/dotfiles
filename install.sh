@@ -32,7 +32,7 @@ sudo apt-get install -y \
   pgcli
 
 # Install py dev env
-sudo apt-get install python-dev python3.9-dev python3.9-venv
+sudo apt-get install python3.10-dev python3.10-venv
 
 # Install pyenv dependencies
 sudo apt-get install -y build-essential zlib1g-dev libffi-dev libssl-dev libbz2-dev libreadline-dev libsqlite3-dev liblzma-dev python-tk python3-tk tk-dev
