@@ -159,7 +159,8 @@ cargo install tre-command
 # Debian files, tars, etc
 ############################
 
-# Install neovim
+# Install neovim, twice
+sudo apt-get install -y neovim
 wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz -O $HOME/Downloads/nvim.tar.gz
 tar -C $HOME/Downloads/ -xzvf $HOME/Downloads/nvim-linux64.tar.gz
 sudo mv $HOME/Downloads/nvim-linux64/bin/nvim /usr/bin/nvim
