@@ -28,7 +28,7 @@ sudo chmod 777 /var/run/docker.sock
 # Install postgres and related tooling
 # Do not forget, `sudo systemctl disable postgresql`
 sudo apt-get install -y \
-  postgresql-12 \
+  postgresql-14 \
   pgcli
 
 # Install py dev env
