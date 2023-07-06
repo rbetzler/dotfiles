@@ -160,9 +160,9 @@ cargo install tre-command
 ############################
 
 # Install neovim
-wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb -O $HOME/Downloads/nvim.deb
-sudo dpkg -i $HOME/Downloads/nvim.deb
-rm $HOME/Downloads/nvim.deb
+wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz -O $HOME/Downloads/nvim.tar.gz
+tar -C $HOME/Downloads/ -xzvf $HOME/Downloads/nvim-linux64.tar.gz
+sudo mv $HOME/Downloads/nvim-linux64/bin/nvim /usr/bin/nvim
 
 # Install exa
 wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -O $HOME/Downloads/exa.zip
