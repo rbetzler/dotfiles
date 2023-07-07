@@ -100,9 +100,7 @@ sudo apt-get install -y \
 
 # Install neovim dependencies
 curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
-sudo apt-get install -y \
-  nodejs \
-  npm
+sudo apt-get install -y nodejs
 
 # Install obs studio for screencasting, vlc for viewing
 sudo add-apt-repository ppa:obsproject/obs-studio && \
@@ -162,7 +160,7 @@ cargo install tre-command
 # Install neovim, twice
 sudo apt-get install -y neovim
 wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz -O $HOME/Downloads/nvim.tar.gz
-tar -C $HOME/Downloads/ -xzvf $HOME/Downloads/nvim-linux64.tar.gz
+tar -C $HOME/Downloads/ -xzvf $HOME/Downloads/nvim.tar.gz
 sudo mv $HOME/Downloads/nvim-linux64/bin/nvim /usr/bin/nvim
 
 # Install exa
