@@ -19,6 +19,9 @@ plugins=(
   zsh-vi-mode
 )
 
+# Initialize vi mode early
+ZVM_INIT_MODE=sourcing
+
 # Set neovim as default editor
 export EDITOR="nvim"
 
