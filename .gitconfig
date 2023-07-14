@@ -60,6 +60,7 @@
     cob = "checkout -b"
     cob-primary = !bash ~/.git_aliases/checkout_off_primary primary
     cob-staging = !bash ~/.git_aliases/checkout_off_primary staging
+    cob-development = !bash ~/.git_aliases/checkout_off_primary development
     cof = "!f() { \
       git checkout $(git branch -l | \
         fzf --reverse --height 10% | \
