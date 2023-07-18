@@ -8,10 +8,10 @@ else
   draft_arg=""
 fi
 
-if [ "$2" == "staging" ]; then
-  branch_arg="--base $2"
-else
+if [ "$2" == "" ]; then
   branch_arg=""
+else
+  branch_arg="--base $2"
 fi
 
 
