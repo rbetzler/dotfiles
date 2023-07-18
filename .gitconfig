@@ -176,6 +176,7 @@
     # Open, reopen drafts
     pr-draft = !bash ~/.git_aliases/open_prs draft main open
     pr-draft-staging = !bash ~/.git_aliases/open_prs draft staging open
+    pr-draft-development = !bash ~/.git_aliases/open_prs draft development open
     pr-redraft = !bash ~/.git_aliases/open_prs draft main reopen
     pr-redraft-staging = !bash ~/.git_aliases/open_prs draft staging reopen
 
@@ -186,6 +187,7 @@
     # Open, reopen prs
     pr-open = !bash ~/.git_aliases/open_prs open main open
     pr-open-staging = !bash ~/.git_aliases/open_prs open staging open
+    pr-open-development = !bash ~/.git_aliases/open_prs open development open
     pr-reopen = !bash ~/.git_aliases/open_prs open main reopen
     pr-reopen-staging = !bash ~/.git_aliases/open_prs open staging reopen
 
