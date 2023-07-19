@@ -8,6 +8,7 @@ dbt-clickhouse
 dbt-core
 dbt-postgres
 doq
+duckdb
 flake8
 gita
 graphviz
