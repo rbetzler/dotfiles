@@ -162,7 +162,7 @@ cargo install tre-command
 sudo apt-get install -y neovim
 wget https://github.com/neovim/neovim/releases/download/v0.9.1/nvim-linux64.tar.gz -O $HOME/Downloads/nvim.tar.gz
 tar -C $HOME/Downloads/ -xzvf $HOME/Downloads/nvim.tar.gz
-sudo mv $HOME/Downloads/nvim-linux64/bin/nvim /usr/bin/nvim
+sudo mv $HOME/Downloads/nvim-linux64/bin/nvim /usr/local/bin/nvim
 
 # Install exa
 wget https://github.com/ogham/exa/releases/download/v0.10.0/exa-linux-x86_64-v0.10.0.zip -O $HOME/Downloads/exa.zip
@@ -214,13 +214,13 @@ cd ../..
 # Repo is cloned via submodules
 cd repos/agg
 cargo build -r
-sudo cp ./target/release/agg /usr/bin/
+sudo cp ./target/release/agg /usr/local/bin/
 cd ../..
 
 # Build, install grex
 cd repos/grex
 cargo build
-sudo cp ./target/debug/grex /usr/bin/
+sudo cp ./target/debug/grex /usr/local/bin/
 cd ../..
 
 # Dbeaver
@@ -239,8 +239,8 @@ rm $HOME/Downloads/clk-cmn.deb
 # Install age
 wget https://github.com/FiloSottile/age/releases/download/v1.1.1/age-v1.1.1-linux-amd64.tar.gz -O $HOME/Downloads/age.tar.gz
 sudo tar -C $HOME/Downloads/ -xzf $HOME/Downloads/age.tar.gz
-sudo mv $HOME/Downloads/age/age /usr/bin/
-sudo mv $HOME/Downloads/age/age-keygen /usr/bin/
+sudo mv $HOME/Downloads/age/age /usr/local/bin/
+sudo mv $HOME/Downloads/age/age-keygen /usr/local/bin/
 
 # Install obsidian
 wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.15/obsidian_1.1.15_amd64.deb -O $HOME/Downloads/obsidian.deb
