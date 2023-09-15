@@ -25,11 +25,13 @@ pipreqs
 pre-commit
 pudb
 pulumi
+pymysql
 pynvim
 # bq cli tool is busted
 pyparsing==2.4.2
 pytest
 shellcheck-py
+sqlalchemy
 sqlfluff
 twine
 wheel
