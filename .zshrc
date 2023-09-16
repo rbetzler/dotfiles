@@ -112,6 +112,10 @@ export FZF_DEFAULT_OPTS='
 # command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
 
+# Aws prompt format
+ZSH_THEME_AWS_PROFILE_SUFFIX=""
+ZSH_THEME_AWS_REGION_PREFIX=""
+
 # Most aliases
 # Mutt aliases exist in .utils/mutt
 alias b="bat --theme Dracula"
