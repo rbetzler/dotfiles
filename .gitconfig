@@ -113,6 +113,7 @@
       git diff ..\"$1\" > /tmp/my.patch ; \
       git apply /tmp/my.patch ; \
     }; f"
+    df-vertical = "-c delta.side-by-side=false diff"
     edit-st-file = "!f() { \
       vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
     }; f"
