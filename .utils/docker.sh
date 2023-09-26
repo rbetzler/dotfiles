@@ -38,3 +38,8 @@ alias hl="helm"
 dkpsql(){
   docker run -d --rm -p $PGPORT:$PGPORT -e POSTGRES_PASSWORD=$PGPASSWORD --network bridge postgres
 }
+
+# Spin up docker clickhouse db
+dkch() {
+  docker run -d -p 8123:8123 -p 9000:9000 --ulimit nofile=262144:262144 -e CLICKHOUSE_PASSWORD="$CH_PASSWORD" clickhouse/clickhouse-server
+}
