@@ -104,3 +104,7 @@ activate_pyenv(){
   command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
   eval "$(pyenv init -)"
 }
+
+killzoom(){
+  kill $(ps aux | grep '[z]oom' | awk '{print $2}')
+}
