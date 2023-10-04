@@ -114,6 +114,7 @@
       git apply /tmp/my.patch ; \
     }; f"
     df-vertical = "-c delta.side-by-side=false diff"
+    dfc-vertical = "-c delta.side-by-side=false diff --cached"
     edit-st-file = "!f() { \
       vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
     }; f"
