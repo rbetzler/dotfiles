@@ -108,3 +108,10 @@ activate_pyenv(){
 killzoom(){
   kill $(ps aux | grep '[z]oom' | awk '{print $2}')
 }
+
+# Fuzzy find a dir
+cdf(){
+  file="$(fzf -m --height 60%)"
+  dir="$(dirname "$file")"
+  cd "$dir"
+}
