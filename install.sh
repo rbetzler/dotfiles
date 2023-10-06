@@ -202,6 +202,11 @@ rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf $HOME/Downloads/go.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 
+# Install drawio manually
+wget https://github.com/jgraph/drawio-desktop/releases/download/v22.0.2/drawio-amd64-22.0.2.deb -O $HOME/Downloads/drawio.deb
+sudo dpkg -i $HOME/Downloads/drawio.deb
+rm $HOME/Downloads/drawio.deb
+
 # Build vgrep
 # Repo is cloned via submodules
 # Might need to back up a few commits, (given the head of master was busted in 2021-07)
