@@ -273,6 +273,7 @@
     shh-file-names = "!f() { \
       git show HEAD~\"$1\" --pretty="" --name-only; \
     }; f"
+    sh-vertical = "-c delta.side-by-side=false show"
 
     st = status
 
