@@ -210,6 +210,7 @@
     rbi = "rebase -i"
     rbi-mine = !bash ~/.git_aliases/rebase_my_commits
     rbi-mine-staging = !bash ~/.git_aliases/rebase_my_commits staging
+    rbi-mine-development = !bash ~/.git_aliases/rebase_my_commits development
     rbih = "!f() { \
       git rbi HEAD~\"$1\"; \
     }; f"
@@ -217,7 +218,8 @@
       git rbi HEAD~\"$1\" --rebase-merges; \
     }; f"
     rb-primary = !bash ~/.git_aliases/rebase_off_primary
-    rb-staging = !bash ~/.git_aliases/rebase_off_primary 0
+    rb-staging = !bash ~/.git_aliases/rebase_off_primary staging
+    rb-development = !bash ~/.git_aliases/rebase_off_primary development
     rb-loop = !bash ~/.git_aliases/rebase_loop main
 
     # Remote, repo management

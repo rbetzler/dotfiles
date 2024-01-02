@@ -7,7 +7,7 @@ branch=$(git b-current)
 if [[ $# -eq 0 ]]; then
   target=${1:-$(git b-primary)}
 else
-  target="staging"
+  target=$1
 fi
 
 git co "$target"
