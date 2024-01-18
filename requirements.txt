@@ -16,6 +16,7 @@ grip
 ipdb
 ipython>=8.10
 jedi
+jinja-cli
 jupyter
 keyring
 libcst
