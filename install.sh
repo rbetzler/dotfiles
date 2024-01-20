@@ -100,8 +100,8 @@ sudo apt-get install -y \
   go-md2man
 
 # Install neovim dependencies
-curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - && \
+  sudo apt-get install -y nodejs
 
 # Install obs studio for screencasting, vlc for viewing
 sudo add-apt-repository ppa:obsproject/obs-studio && \
