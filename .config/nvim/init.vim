@@ -20,6 +20,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install'}
 Plug 'romgrk/fzy-lua-native'
 Plug 'preservim/nerdcommenter'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -76,6 +77,10 @@ nmap <F9> :setlocal spell! spelllang=en_us<CR>
 
 " Keep the most recently pasted item in clipboard
 xnoremap p pgvy
+
+" Comment string for typescript
+filetype plugin indent on
+autocmd  BufEnter,BufNew *.tsx setlocal commentstring={/*\ %s\ */}
 
 " Ale Linting and Configuration.
 let g:ale_fixers = {
