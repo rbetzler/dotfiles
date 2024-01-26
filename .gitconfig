@@ -16,7 +16,8 @@
     minus-style = "syntax #340001"
     navigate = true
     plus-style = "syntax #012800"
-    side-by-side = true
+    ; Cannot toggle delta configs if they are in ~/.gitconfig
+    ; side-by-side = true
     syntax-theme = Dracula
 
 [diff]

@@ -186,7 +186,7 @@ sudo dpkg -i $HOME/Downloads/java.deb
 rm $HOME/Downloads/java.deb
 
 # Install delta manually
-wget https://github.com/dandavison/delta/releases/download/0.14.0/git-delta_0.14.0_amd64.deb -O $HOME/Downloads/delta.deb
+wget https://github.com/dandavison/delta/releases/download/0.16.5/git-delta_0.16.5_amd64.deb -O $HOME/Downloads/delta.deb
 sudo dpkg -i $HOME/Downloads/delta.deb
 rm $HOME/Downloads/delta.deb
 

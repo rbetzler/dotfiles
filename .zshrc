@@ -116,6 +116,9 @@ export FZF_DEFAULT_OPTS='
 # ZSH_THEME_AWS_PROFILE_SUFFIX=""
 # ZSH_THEME_AWS_REGION_PREFIX=""
 
+# Cannot toggle delta configs if they are in ~/.gitconfig
+export DELTA_FEATURES=+side-by-side
+
 # Most aliases
 # Mutt aliases exist in .utils/mutt
 alias b="bat --theme Dracula"
