@@ -221,6 +221,10 @@
     rb-staging = !bash ~/.git_aliases/rebase_off_primary staging
     rb-development = !bash ~/.git_aliases/rebase_off_primary development
     rb-loop = !bash ~/.git_aliases/rebase_loop main
+    rmall = "!f() { \
+      git clean -fd; \
+      git reset --hard; \
+    }; f"
 
     # Remote, repo management
     rmt-add = "!f() { \
