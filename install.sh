@@ -80,7 +80,7 @@ sudo apt-get install asciinema
 sudo apt-get install chromium-browser
 
 # Install miscellaneous
-sudo apt-get install -y copyq preload unzip blueman htop xkbset screen pwgen sqlite3 mysql-client
+sudo apt-get install -y copyq preload unzip blueman htop xkbset screen pwgen sqlite3 mysql-client cpulimit
 
 # Install redis
 curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
