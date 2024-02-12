@@ -356,6 +356,11 @@ nvim --clean '+source ~/.config/nvim/init.vim' +PlugInstall +qall
 wget https://github.com/duckdb/duckdb/releases/download/v0.8.1/duckdb_cli-linux-amd64.zip -O $HOME/Downloads/duckdb.zip
 sudo unzip $HOME/Downloads/duckdb.zip -d /usr/local/bin/
 
+# Install git lfs
+curl -LO https://github.com/git-lfs/git-lfs/releases/download/v3.4.1/git-lfs-linux-amd64-v3.4.1.tar.gz
+tar -xf git-lfs-linux-amd64-v3.4.1.tar.gz
+sudo bash git-lfs-3.4.1/install.sh
+
 ##################
 # Install crontabs
 ##################
