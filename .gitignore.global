@@ -5,3 +5,4 @@ patches
 .pc
 .obsidian/
 wtree
+.python-version
