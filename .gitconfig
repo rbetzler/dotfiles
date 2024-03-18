@@ -287,6 +287,7 @@
     shh-file-names = "!f() { \
       git show HEAD~\"$1\" --pretty="" --name-only; \
     }; f"
+    shhash = "rev-parse HEAD"
     sh-vertical = "-c delta.side-by-side=false show"
 
     st = status
