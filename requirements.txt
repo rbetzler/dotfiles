@@ -15,6 +15,7 @@ graphviz
 grip
 ipdb
 ipython>=8.10
+jc
 jedi
 jinja-cli
 jupyter
