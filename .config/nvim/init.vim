@@ -82,6 +82,7 @@ xnoremap p pgvy
 " Comment string for typescript
 filetype plugin indent on
 autocmd  BufEnter,BufNew *.tsx setlocal commentstring={/*\ %s\ */}
+autocmd  BufEnter,BufNew *.svelte setlocal commentstring=/*\ %s\ */
 
 " Ale Linting and Configuration.
 let g:ale_fixers = {
