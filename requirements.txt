@@ -3,6 +3,7 @@ build
 bump2version
 cookiecutter
 coverage
+cron-descriptor
 dbt-bigquery
 dbt-clickhouse
 dbt-core
