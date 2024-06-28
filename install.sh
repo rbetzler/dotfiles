@@ -235,10 +235,10 @@ sudo dpkg -i $HOME/Downloads/dbeaver.deb
 rm $HOME/Downloads/dbeaver.deb
 
 # Install clickhouse client
-wget https://github.com/ClickHouse/ClickHouse/releases/download/v23.6.1.1524-stable/clickhouse-common-static_23.6.1.1524_amd64.deb -O $HOME/Downloads/clk-cl.deb
+wget https://github.com/ClickHouse/ClickHouse/releases/download/v24.4.3.25-stable/clickhouse-common-static_24.4.3.25_amd64.deb -O $HOME/Downloads/clk-cl.deb
 sudo dpkg -i $HOME/Downloads/clk-cl.deb
 rm $HOME/Downloads/clk-cl.deb
-wget https://github.com/ClickHouse/ClickHouse/releases/download/v23.6.1.1524-stable/clickhouse-client_23.6.1.1524_amd64.deb -O $HOME/Downloads/clk-cmn.deb
+wget https://github.com/ClickHouse/ClickHouse/releases/download/v24.4.3.25-stable/clickhouse-client_24.4.3.25_amd64.deb -O $HOME/Downloads/clk-cmn.deb
 sudo dpkg -i $HOME/Downloads/clk-cmn.deb
 rm $HOME/Downloads/clk-cmn.deb
 
