@@ -353,7 +353,7 @@ bash ${HOME}/.bin/install_venv.sh
 nvim --clean '+source ~/.config/nvim/init.vim' +PlugInstall +qall
 
 # Install duckdb cli
-wget https://github.com/duckdb/duckdb/releases/download/v0.8.1/duckdb_cli-linux-amd64.zip -O $HOME/Downloads/duckdb.zip
+wget https://github.com/duckdb/duckdb/releases/download/v1.0.0/duckdb_cli-linux-amd64.zip -O $HOME/Downloads/duckdb.zip
 sudo unzip $HOME/Downloads/duckdb.zip -d /usr/local/bin/
 
 # Install git lfs
