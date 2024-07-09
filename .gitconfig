@@ -132,6 +132,7 @@
     ft = "fetch"
     fta = "fetch --all"
     ft-upstream = !bash ~/.git_aliases/fetch_upstream
+    ft-detach = !bash ~/.git_aliases/fetch_detach $1
 
     gh-apply-patch = "!f() { \
       curl \"$1\" | git apply ;\
