@@ -309,3 +309,6 @@
     tag-push = "push origin --tags"
     tag-push-delete = "push origin --delete"
     tag-push-force = "push origin --tags --force"
+
+[pull]
+    rebase = true
