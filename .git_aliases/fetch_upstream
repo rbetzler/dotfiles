@@ -8,5 +8,4 @@ git fetch upstream
 
 git co "$parent"
 
-git rb upstream/"$parent"
-
+git rb "upstream/${parent}"

@@ -10,7 +10,5 @@ else
   target=$1
 fi
 
-git co "$target"
-git pl
-git co "$branch"
-git rb "$target"
+git fetch --all
+git rebase "$target"
