@@ -121,3 +121,7 @@ jwtd() {
   jq -R 'split(".") | .[0],.[1] | @base64d | fromjson' <<< "${1}"
   echo "Signature: $(echo "${1}" | awk -F'.' '{print $3}')"
 }
+
+fblame(){
+  git log --oneline "$1" | fzf --preview "x={} ; hash=\$(echo \$x | awk '{print \$1}') ; git blame \$hash -- $1 | delta ;"
+}
