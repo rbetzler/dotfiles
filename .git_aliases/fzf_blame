@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd "${GIT_PREFIX:-./}"
+
+git log --oneline "$1" | fzf --preview "x={} ; hash=\$(echo \$x | awk '{print \$1}') ; git blame \$hash -- $1 | delta ;"

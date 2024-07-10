@@ -61,6 +61,7 @@
     blm-lines =  "!f() { \
       git blame -L \"$2\",\"$3\" -- \"$1\"; \
     }; f"
+    blm-fzf = !bash ~/.git_aliases/fzf_blame $1
 
     # Checkout
     co = checkout
