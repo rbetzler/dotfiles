@@ -40,6 +40,18 @@ dkpsql(){
 }
 
 # Spin up docker clickhouse db
+# Optionally specify directory
 dkch() {
-  docker run -d -p 8123:8123 -p 9000:9000 --ulimit nofile=262144:262144 -e CLICKHOUSE_PASSWORD="$CH_PASSWORD" clickhouse/clickhouse-server
+  if [ $# -eq 0 ]; then
+    CH_DIR=$(mktemp -d -p "$HOME/Documents/chdatadk/")
+  else
+    CH_DIR=$1
+  fi
+  docker run -d \
+    -p 8123:8123 \
+    -p 9000:9000 \
+    --ulimit nofile=262144:262144 \
+    -e CLICKHOUSE_PASSWORD="$CH_PASSWORD" \
+    -v "$CH_DIR:/var/lib/clickhouse/" \
+    "clickhouse/clickhouse-server:$(clickhouse-client --version-clean)"
 }
