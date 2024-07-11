@@ -208,6 +208,11 @@ wget https://github.com/jgraph/drawio-desktop/releases/download/v22.0.2/drawio-a
 sudo dpkg -i $HOME/Downloads/drawio.deb
 rm $HOME/Downloads/drawio.deb
 
+# Install spark
+wget https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz -O $HOME/Downloads/spark-3.5.1-bin-hadoop3.tgz
+tar -xvzf $HOME/Downloads/spark-3.5.1-bin-hadoop3.tgz
+sudo mv spark-3.5.1-bin-hadoop3 /opt/spark/
+
 # Build vgrep
 # Repo is cloned via submodules
 # Might need to back up a few commits, (given the head of master was busted in 2021-07)

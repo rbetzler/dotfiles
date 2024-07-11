@@ -62,6 +62,10 @@ export PATH=$PATH:$HOME/.budi/
 # Support for `docker-compose` command
 export PATH=$PATH:$HOME/.docker/cli-plugins/
 
+# Support for spark
+export SPARK_HOME=/opt/spark
+export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
+
 # Use ipdb when python comes across breakpoint()
 # in a file
 export PYTHONBREAKPOINT=ipdb.set_trace
@@ -95,7 +99,7 @@ fi
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # For airbyte dev in java
-export JAVA_HOME=/usr/lib/jvm/jdk-17/
+export JAVA_HOME=/usr/lib/jvm/default-java/
 
 # Do not remove slash from dir
 # https://unix.stackexchange.com/questions/160026/how-can-i-keep-the-trailing-slash-after-choosing-a-directory-from-the-zsh-comple
