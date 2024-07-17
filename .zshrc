@@ -9,6 +9,7 @@ plugins=(
   docker
   docker-compose
   fzf-tab
+  gcloud
   kubectl
   minikube
   pulumi
