@@ -62,7 +62,8 @@ sudo apt-get install \
 sudo apt-get install -y \
   fd-find \
   jq \
-  gawk
+  gawk \
+  csvtool
 
 # Debian packages were older
 curl -LO https://github.com/junegunn/fzf/releases/download/0.35.0/fzf-0.35.0-linux_amd64.tar.gz
