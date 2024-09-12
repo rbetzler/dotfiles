@@ -68,3 +68,8 @@
     path = repos/tailbliss
     url = https://github.com/nusserstudios/tailbliss.git
     ignore = dirty
+
+# Neovim
+[submodule "repos/neovim"]
+    path = repos/neovim
+    url = https://github.com/neovim/neovim

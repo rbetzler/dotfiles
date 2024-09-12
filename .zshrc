@@ -67,6 +67,9 @@ export PATH=$PATH:$HOME/.docker/cli-plugins/
 export SPARK_HOME=/opt/spark
 export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
 
+# Path for neovim
+export PATH=$PATH:/opt/nvim/bin
+
 # Use ipdb when python comes across breakpoint()
 # in a file
 export PYTHONBREAKPOINT=ipdb.set_trace
