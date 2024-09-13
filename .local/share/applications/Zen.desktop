@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Zen
+Comment=Zen Browser
+StartupWMClass=zen-alpha
+Exec=/opt/zen/zen %u
+Icon=/usr/share/icons/zen-black.svg
+Terminal=false
