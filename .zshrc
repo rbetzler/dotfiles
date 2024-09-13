@@ -134,6 +134,12 @@ prompt_nix_shell_setup
 # Activate nix zsh shim
 source $ZSH_CUSTOM/plugins/zsh-nix-shell/nix-shell.plugin.zsh
 
+# Activate direnv if installed
+if ! command -v direnv &> /dev/null; then
+else
+  eval "$(direnv hook zsh)"
+fi
+
 # Most aliases
 # Mutt aliases exist in .utils/mutt
 alias b="bat --theme Dracula"
