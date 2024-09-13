@@ -378,6 +378,9 @@ sudo mv zen /opt/
 # Grab desktop icon manually
 curl https://cdn.jsdelivr.net/gh/zen-browser/www/public/logos/zen-black.svg | sudo tee /usr/share/icons/zen-black.svg
 
+# Nix multi user install
+sh <(curl -L https://nixos.org/nix/install) --daemon
+
 ##################
 # Install crontabs
 ##################

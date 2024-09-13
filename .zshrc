@@ -12,6 +12,7 @@ plugins=(
   gcloud
   kubectl
   minikube
+  nix-zsh-completions
   pulumi
   zsh-autosuggestions
   zsh-interactive-cd
@@ -126,6 +127,12 @@ export FZF_DEFAULT_OPTS='
 
 # Cannot toggle delta configs if they are in ~/.gitconfig
 export DELTA_FEATURES=+side-by-side
+
+# Show if in nix shell
+prompt_nix_shell_setup
+
+# Activate nix zsh shim
+source $ZSH_CUSTOM/plugins/zsh-nix-shell/nix-shell.plugin.zsh
 
 # Most aliases
 # Mutt aliases exist in .utils/mutt
