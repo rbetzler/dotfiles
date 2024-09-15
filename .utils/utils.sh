@@ -17,16 +17,9 @@ generate-ctags(){
   ctags -n -f $HOME/.ctags/tags --recurse=yes --exclude=.git "$pydir"
 }
 
-# Slight duplicate to hack around inconsistent bat installs
-if ! type bat &>/dev/null ; then
-  bat_cmd="batcat"
-else
-  bat_cmd="bat"
-fi
-
 # Return the selected file, like regular fzf
 __FD="fd --no-ignore -E backups -E dbt-autocomplete -E dracula -E google-cloud-sdk -E venv -E vgrep"
-__FZF_PREVIEW="if [ -d {} ]; then tree -C {} | head -200; else $bat_cmd --style=numbers --color=always --line-range :500 {}; fi"
+__FZF_PREVIEW="if [ -d {} ]; then tree -C {} | head -200; else bat --style=numbers --color=always --line-range :500 {}; fi"
 __FZF_BIND='f8:execute(nvim {} < /dev/tty)'
 fzfd(){
   eval $__FD | fzf -m --height 60% --preview $__FZF_PREVIEW --bind $__FZF_BIND

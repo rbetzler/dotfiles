@@ -1,33 +1,3 @@
-# For vgrep
-[submodule "repos/vgrep"]
-    path = repos/vgrep
-    url = https://github.com/vrothberg/vgrep.git
-
-# For asciinema
-[submodule "repos/agg"]
-    path = repos/agg
-    url = https://github.com/asciinema/agg.git
-
-# For cli regex generator
-[submodule "repos/grex"]
-    path = repos/grex
-    url = https://github.com/pemistahl/grex.git
-
-# Clone zsh syntax highlighting repo
-[submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-    path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-    url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-
-# Clone zsh autocomplete repo
-[submodule ".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-    path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
-    url = https://github.com/zsh-users/zsh-autosuggestions
-
-# Clone zsh vi mode
-[submodule ".oh-my-zsh/custom/plugins/zsh-vi-mode"]
-    path = .oh-my-zsh/custom/plugins/zsh-vi-mode
-    url = https://github.com/jeffreytse/zsh-vi-mode
-
 # Clone dracula color scheme for mutt
 [submodule "dracula/mutt"]
     path = dracula/mutt
@@ -48,6 +18,21 @@
     path = dracula/zsh-syntax
     url = https://github.com/dracula/zsh-syntax-highlighting.git
 
+# Clone zsh syntax highlighting repo
+[submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+    path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+# Clone zsh autocomplete repo
+[submodule ".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+    path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
+    url = https://github.com/zsh-users/zsh-autosuggestions
+
+# Clone zsh vi mode
+[submodule ".oh-my-zsh/custom/plugins/zsh-vi-mode"]
+    path = .oh-my-zsh/custom/plugins/zsh-vi-mode
+    url = https://github.com/jeffreytse/zsh-vi-mode
+
 # For fzf autocomplete in zsh
 [submodule ".oh-my-zsh/custom/plugins/fzf-tab"]
     path = .oh-my-zsh/custom/plugins/fzf-tab
@@ -57,6 +42,14 @@
 [submodule ".oh-my-zsh/custom/plugins/zsh-system-clipboard"]
     path = .oh-my-zsh/custom/plugins/zsh-system-clipboard
     url = https://github.com/kutsan/zsh-system-clipboard
+
+[submodule ".oh-my-zsh/custom/plugins/nix-zsh-completions"]
+    path = .oh-my-zsh/custom/plugins/nix-zsh-completions
+    url = https://github.com/nix-community/nix-zsh-completions.git
+
+[submodule ".oh-my-zsh/custom/plugins/zsh-nix-shell"]
+    path = .oh-my-zsh/custom/plugins/zsh-nix-shell
+    url = https://github.com/chisui/zsh-nix-shell.git
 
 # For pyenv
 [submodule "repos/pyenv"]
@@ -73,11 +66,21 @@
 [submodule "repos/neovim"]
     path = repos/neovim
     url = https://github.com/neovim/neovim
+# For vgrep
+[submodule "repos/vgrep"]
+    path = repos/vgrep
+    url = https://github.com/vrothberg/vgrep.git
 
-[submodule ".oh-my-zsh/custom/plugins/nix-zsh-completions"]
-    path = .oh-my-zsh/custom/plugins/nix-zsh-completions
-    url = https://github.com:nix-community/nix-zsh-completions.git
+# For asciinema
+[submodule "repos/agg"]
+    path = repos/agg
+    url = https://github.com/asciinema/agg.git
 
-[submodule ".oh-my-zsh/custom/plugins/zsh-nix-shell"]
-    path = .oh-my-zsh/custom/plugins/zsh-nix-shell
-    url = https://github.com/chisui/zsh-nix-shell.git
+# For cli regex generator
+[submodule "repos/grex"]
+    path = repos/grex
+    url = https://github.com/pemistahl/grex.git
+
+[submodule "repos/yay"]
+    path = repos/yay
+    url = https://aur.archlinux.org/yay.git

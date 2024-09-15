@@ -27,11 +27,11 @@ ZVM_INIT_MODE=sourcing
 # Set neovim as default editor
 export EDITOR="nvim"
 
-source $ZSH/oh-my-zsh.sh
+source "${ZSH}/oh-my-zsh.sh"
 
-source $HOME/dracula/zsh-syntax/zsh-syntax-highlighting.sh
+source "${HOME}/dracula/zsh-syntax/zsh-syntax-highlighting.sh"
 
-source /usr/share/autojump/autojump.zsh
+source "${HOME}/.local/share/autojump/autojump.zsh"
 
 # source all shell files
 DIRS=(creds utils work)
@@ -47,29 +47,7 @@ done
 source ${HOME}/venv/bin/activate
 
 # ipython env
-export IPYTHONDIR="$HOME"/.ipython
-
-# Pulumi path
-export PATH=$PATH:$HOME/.pulumi/bin
-
-# Go path
-export PATH=$PATH:/usr/local/go/bin
-
-# Go executables
-export PATH=$PATH:$HOME/go/bin
-
-# Budibase path
-export PATH=$PATH:$HOME/.budi/
-
-# Support for `docker-compose` command
-export PATH=$PATH:$HOME/.docker/cli-plugins/
-
-# Support for spark
-export SPARK_HOME=/opt/spark
-export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
-
-# Path for neovim
-export PATH=$PATH:/opt/nvim/bin
+export IPYTHONDIR="${HOME}/.ipython"
 
 # Use ipdb when python comes across breakpoint()
 # in a file
@@ -95,16 +73,8 @@ __git_files () {
     _wanted files expl 'local files' _files
 }
 
-# Patch inconsistent bat, batcat naming
-if ! type bat &>/dev/null ; then
-  alias bat="batcat"
-fi
-
 # Use bat/batcat when running `man <package>`
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-# For airbyte dev in java
-export JAVA_HOME=/usr/lib/jvm/default-java/
 
 # Do not remove slash from dir
 # https://unix.stackexchange.com/questions/160026/how-can-i-keep-the-trailing-slash-after-choosing-a-directory-from-the-zsh-comple
@@ -121,10 +91,6 @@ export FZF_DEFAULT_OPTS='
 # command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
 
-# Aws prompt format
-# ZSH_THEME_AWS_PROFILE_SUFFIX=""
-# ZSH_THEME_AWS_REGION_PREFIX=""
-
 # Cannot toggle delta configs if they are in ~/.gitconfig
 export DELTA_FEATURES=+side-by-side
 
@@ -133,6 +99,9 @@ prompt_nix_shell_setup
 
 # Activate nix zsh shim
 source $ZSH_CUSTOM/plugins/zsh-nix-shell/nix-shell.plugin.zsh
+
+# Suppress direnv startup noise
+export DIRENV_LOG_FORMAT=
 
 # Activate direnv if installed
 if ! command -v direnv &> /dev/null; then
@@ -150,7 +119,6 @@ alias ch="clickhouse-client --vertical"
 alias cpcstdin="xclip -selection clipboard"
 alias cpc-stdin="xclip -selection clipboard"
 alias dk="docker"
-alias fd="fdfind"
 alias g="git"
 alias ggrep="git grep"
 alias l="exa"
@@ -158,11 +126,9 @@ alias la="exa -a"
 alias ll="exa -l"
 alias lla="exa -al"
 alias ipy="ipython"
-alias ipyspark="PYSPARK_DRIVER_PYTHON=ipython pyspark"
 alias jc="python -m jc"
 alias pg="pgcli"
 alias pu="pulumi"
-alias s="sync_current_mailbox"
 alias t="pwd && tre -e"
 alias v="nvim"
 alias vp="nvim -p"
