@@ -47,17 +47,6 @@ sudo apt-get install -y \
   traceroute \
   wireshark
 
-# Install vim stuff
-sudo apt-get install -y \
-  vim-gtk \
-  ctags
-
-# Install cmatrix, for fun
-sudo apt-get install \
-  cmatrix \
-  figlet \
-  graphviz
-
 # Install improved cli tools
 sudo apt-get install -y \
   fd-find \
@@ -71,9 +60,6 @@ tar -zxvf fzf-0.35.0-linux_amd64.tar.gz
 rm fzf-0.35.0-linux_amd64.tar.gz
 sudo mv fzf /usr/local/bin/
 
-# Install mail tooling
-sudo apt-get install -y neomutt isync
-
 # Install asciinema
 sudo apt-get install asciinema
 
@@ -81,7 +67,7 @@ sudo apt-get install asciinema
 sudo apt-get install chromium-browser
 
 # Install miscellaneous
-sudo apt-get install -y copyq preload unzip blueman htop xkbset screen pwgen sqlite3 mysql-client cpulimit tmux
+sudo apt-get install -y copyq preload unzip htop pwgen sqlite3 mysql-client
 
 # Install redis
 curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
@@ -114,14 +100,6 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
 sudo apt update
 sudo apt install gh
-
-# Install gnome extensions (for window manager)
-sudo apt-get -y install \
-  gnome-shell-extensions\
-  chrome-gnome-shell
-wget https://github.com/Fmstrat/wintile/releases/download/v7/wintile@nowsci.com.zip -O $HOME/Downloads/wintile@nowsci.com.zip
-mkdir -p ~/.local/share/gnome-shell/extensions/
-unzip $HOME/Downloads/wintile@nowsci.com.zip -d .local/share/gnome-shell/extensions/wintile@nowsci.com/
 
 # Add spotfiy install
 curl -sS https://download.spotify.com/debian/pubkey_6224F9941A8AA6D1.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
@@ -208,11 +186,6 @@ wget https://github.com/jgraph/drawio-desktop/releases/download/v22.0.2/drawio-a
 sudo dpkg -i $HOME/Downloads/drawio.deb
 rm $HOME/Downloads/drawio.deb
 
-# Install spark
-wget https://dlcdn.apache.org/spark/spark-3.5.1/spark-3.5.1-bin-hadoop3.tgz -O $HOME/Downloads/spark-3.5.1-bin-hadoop3.tgz
-tar -xvzf $HOME/Downloads/spark-3.5.1-bin-hadoop3.tgz
-sudo mv spark-3.5.1-bin-hadoop3 /opt/spark/
-
 # Build vgrep
 # Repo is cloned via submodules
 # Might need to back up a few commits, (given the head of master was busted in 2021-07)
@@ -226,12 +199,6 @@ cd ../..
 cd repos/agg
 cargo build -r
 sudo cp ./target/release/agg /usr/local/bin/
-cd ../..
-
-# Build, install grex
-cd repos/grex
-cargo build
-sudo cp ./target/debug/grex /usr/local/bin/
 cd ../..
 
 # Dbeaver
@@ -341,15 +308,6 @@ sed -i '1i compdef _hugo hugo' $HOME/.utils/hugo.sh
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 sudo apt update && sudo apt install vault
-
-#######
-# Other
-#######
-
-# Budibase cli
-mkdir $HOME/.budi
-wget https://github.com/Budibase/budibase/releases/latest/download/cli-linux -O $HOME/.budi/budi
-chmod +x $HOME/.budi/budi
 
 #######################
 # App installs, configs
