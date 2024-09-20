@@ -140,6 +140,9 @@ else
   eval "$(direnv hook zsh)"
 fi
 
+# https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url
+export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
+
 # Most aliases
 # Mutt aliases exist in .utils/mutt
 alias b="bat --theme Dracula"
