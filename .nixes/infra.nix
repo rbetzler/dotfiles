@@ -9,6 +9,7 @@ pkgs.mkShell {
     argocd
     awscli
     docker
+    htop
     kubectl
     kubernetes-helm
     kubeseal
