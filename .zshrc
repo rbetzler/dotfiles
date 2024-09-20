@@ -144,7 +144,6 @@ fi
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 # Most aliases
-# Mutt aliases exist in .utils/mutt
 alias b="bat --theme Dracula"
 alias c="bat --theme Dracula"
 alias ch="clickhouse-client --vertical"
