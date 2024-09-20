@@ -9,7 +9,9 @@ sudo pacman --sync --noconfirm \
   direnv \
   tree \
   copyq \
-  dbeaver
+  dbeaver \
+  wget \
+  nerd-fonts
 
 # Switch default shell to zsh
 chsh -s "$(which zsh)"
