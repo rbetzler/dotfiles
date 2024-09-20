@@ -118,3 +118,87 @@ jwtd() {
 fblame(){
   git log --oneline "$1" | fzf --preview "x={} ; hash=\$(echo \$x | awk '{print \$1}') ; git blame \$hash -- $1 | delta ;"
 }
+
+########
+# Docker
+########
+
+dkrmf-all(){
+  docker rm -f $(docker ps -aq)
+}
+
+dkrmif-all(){
+  docker rmi -f $(docker images -q)
+}
+
+dkstp-all(){
+  docker stop $(docker ps -q)
+}
+
+dkstp-rm-rmi-all(){
+  docker stop $(docker ps -aq)
+  dkrm-all
+  dkrmi-all
+}
+
+alias dki="docker images"
+alias dkk="docker kill"
+alias dkpl="docker pull"
+alias dkps="docker ps"
+alias dkpsa="docker ps -a"
+alias dkpsaq="docker ps -aq"
+alias dkrm="docker rm"
+alias dkrmf="docker rm -f"
+alias dkrmi="docker rmi"
+alias dkrmif="docker rmi -f"
+alias dkstp="docker stop"
+
+alias mk="minikube"
+alias k="kubectl"
+alias hl="helm"
+
+# Spin up docker postgres db
+dkpsql(){
+  docker run -d --rm -p $PGPORT:$PGPORT -e POSTGRES_PASSWORD=$PGPASSWORD --network bridge postgres
+}
+
+# Spin up docker clickhouse db
+# Optionally specify directory
+dkch() {
+  if [ $# -eq 0 ]; then
+    CH_DIR=$(mktemp -d -p "$HOME/Documents/chdatadk/")
+  else
+    CH_DIR=$1
+  fi
+  docker run -d \
+    -p 8123:8123 \
+    -p 9000:9000 \
+    --ulimit nofile=262144:262144 \
+    -e CLICKHOUSE_PASSWORD="$CH_PASSWORD" \
+    -v "$CH_DIR:/var/lib/clickhouse/" \
+    "clickhouse/clickhouse-server:$(clickhouse-client --version-clean)"
+}
+
+#####
+# Nix
+#####
+
+# Override nix zsh prompt, original lines commented out
+function prompt_nix_shell_precmd {
+  if [[ -n ${IN_NIX_SHELL} && ${IN_NIX_SHELL} != "0" || ${IN_NIX_RUN} && ${IN_NIX_RUN} != "0" ]]; then
+    if [[ -n ${IN_WHICH_NIX_SHELL} ]] then
+      # NIX_SHELL_NAME=": ${IN_WHICH_NIX_SHELL}"
+      NIX_SHELL_NAME="${IN_WHICH_NIX_SHELL}"
+    fi
+    # if [[ -n ${IN_NIX_SHELL} && ${IN_NIX_SHELL} != "0" ]]; then
+    #   NAME="nix"
+    # else
+    #   NAME="nix-run"
+    # fi
+    # NIX_PROMPT="%F{8}[%F{3}${NAME}${NIX_SHELL_NAME}%F{8}]%f"
+    NIX_PROMPT="%F{8}[%F{3}${NIX_SHELL_NAME}%F{8}]%f"
+    if [[ $PROMPT != *"$NIX_PROMPT"* ]] then
+      PROMPT="$NIX_PROMPT $PROMPT"
+    fi
+  fi
+}
