@@ -11,7 +11,8 @@ sudo pacman --sync --noconfirm \
   copyq \
   dbeaver \
   wget \
-  nerd-fonts
+  nerd-fonts \
+  gnome-tweaks
 
 # Switch default shell to zsh
 chsh -s "$(which zsh)"
