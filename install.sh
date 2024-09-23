@@ -7,13 +7,24 @@ sudo pacman --sync --noconfirm \
   git \
   xclip \
   direnv \
-  tree \
   copyq \
   dbeaver \
   wget \
   nerd-fonts \
   gnome-tweaks \
   gnome-themes-extra
+
+# Install global cli tools
+sudo pacman --sync --noconfirm \
+  bat \
+  eza \
+  fd \
+  fzf \
+  gawk \
+  git-delta \
+  jq \
+  sd \
+  tree
 
 # Switch default shell to zsh
 chsh -s "$(which zsh)"
@@ -60,10 +71,6 @@ cached-nix-shell --command '${HOME}/.bin/install_venv.sh'
 mkdir "${HOME}/.oh-my-zsh/custom/plugins/pulumi"
 cached-nix-shell --command 'pulumi gen-completion zsh >> "${HOME}/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh"'
 
-# Autojump
-mkdir "${HOME}/.local/share/autojump/"
-cached-nix-shell --command 'cat "$(which autojump | cut -d/ -f1-4)/share/autojump/autojump.zsh" > "${HOME}/.local/share/autojump/autojump.zsh"'
-
 # Argo
 cached-nix-shell --command 'argo completion zsh > "${HOME}/.utils/argo.sh"'
 sed -i '1i compdef _argo argo' "${HOME}/.utils/argo.sh"
@@ -87,6 +94,12 @@ cd ~/repos/yay/
 makepkg -si
 
 # Install aur packages
-yay zoom
-yay spotify
+yay autojump-rs
 yay slack-desktop
+yay spotify
+yay tre-command
+yay vgrep
+yay zoom
+
+# Generate autojump autocompletes
+cat "$(which autojump | cut -d/ -f1-2)/share/autojump/autojump.zsh" > "${HOME}/.local/share/autojump/autojump.zsh"
