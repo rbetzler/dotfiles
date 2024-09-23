@@ -121,5 +121,8 @@ yay tre-command
 yay vgrep
 yay zoom
 
+# Maybe
+yay zramswap
+
 # Generate autojump autocompletes
 cat "$(which autojump | cut -d/ -f1-2)/share/autojump/autojump.zsh" > "${HOME}/.local/share/autojump/autojump.zsh"
