@@ -21,6 +21,12 @@ sudo pacman --sync --noconfirm \
   pipewire-pulse \
   sof-firmware
 
+# Install, enable bluetooth
+sudo pacman --sync --noconfirm \
+  bluez \
+  bluez-utils
+sudo systemctl enable bluetooth.service
+
 # Install global cli tools
 sudo pacman --sync --noconfirm \
   bat \
