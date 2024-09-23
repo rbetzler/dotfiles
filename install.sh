@@ -5,14 +5,21 @@ sudo pacman --sync --noconfirm \
   zsh \
   terminator \
   git \
-  xclip \
-  direnv \
-  copyq \
-  dbeaver \
-  wget \
+  wget
+
+# Install aesthetic helpers
+sudo pacman --sync --noconfirm \
   nerd-fonts \
   gnome-tweaks \
-  gnome-themes-extra
+  gnome-themes-extra \
+
+# Install audio
+sudo pacman --sync --noconfirm \
+  pipewire \
+  pipewire-alsa \
+  pipewire-audio \
+  pipewire-pulse \
+  sof-firmware
 
 # Install global cli tools
 sudo pacman --sync --noconfirm \
@@ -25,6 +32,13 @@ sudo pacman --sync --noconfirm \
   jq \
   sd \
   tree
+
+# Install other apps
+sudo pacman --sync --noconfirm \
+  copyq \
+  dbeaver \
+  direnv \
+  xclip
 
 # Switch default shell to zsh
 chsh -s "$(which zsh)"
