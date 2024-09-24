@@ -103,12 +103,6 @@ source $ZSH_CUSTOM/plugins/zsh-nix-shell/nix-shell.plugin.zsh
 # Suppress direnv startup noise
 export DIRENV_LOG_FORMAT=
 
-# Activate direnv if installed
-if ! command -v direnv &> /dev/null; then
-else
-  eval "$(direnv hook zsh)"
-fi
-
 # https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
@@ -119,8 +113,8 @@ alias ch="clickhouse-client --vertical"
 alias cpcstdin="xclip -selection clipboard"
 alias cpc-stdin="xclip -selection clipboard"
 alias dk="docker"
-alias direnvenable="direnv allow ~/.envrc"
-alias direnvdisable="direnv disallow ~/.envrc"
+alias direnvallow="direnv allow ~/.envrc"
+alias direnvdisallow="direnv disallow ~/.envrc"
 alias g="git"
 alias ggrep="git grep"
 alias l="exa"
@@ -134,3 +128,6 @@ alias pu="pulumi"
 alias t="pwd && tre -e"
 alias v="nvim"
 alias vp="nvim -p"
+
+# Source cached direnv nix shell
+eval "$(direnv export zsh)"

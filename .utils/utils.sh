@@ -202,3 +202,8 @@ function prompt_nix_shell_precmd {
     fi
   fi
 }
+
+# Turn on direnv
+direnvenable(){
+  eval "$(direnv hook zsh)"
+}
