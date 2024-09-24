@@ -28,22 +28,23 @@ sudo pacman --sync --noconfirm \
 sudo systemctl enable bluetooth.service
 
 # Install global cli tools
-sudo pacman --sync --noconfirm \
-  bat \
-  eza \
-  fd \
-  fzf \
-  gawk \
-  git-delta \
-  jq \
-  sd \
-  tree
+# Also in nix
+# sudo pacman --sync --noconfirm \
+#   bat \
+#   eza \
+#   fd \
+#   fzf \
+#   gawk \
+#   git-delta \
+#   jq \
+#   sd
 
 # Install other apps
 sudo pacman --sync --noconfirm \
   copyq \
   dbeaver \
   direnv \
+  tree \
   xclip
 
 # Switch default shell to zsh
@@ -114,12 +115,14 @@ cd ~/repos/yay/
 makepkg -si
 
 # Install aur packages
-yay autojump-rs
 yay slack-desktop
 yay spotify
-yay tre-command
-yay vgrep
 yay zoom
+
+# Also in nix
+# yay autojump-rs
+# yay tre-command
+# yay vgrep
 
 # Maybe
 yay zramswap

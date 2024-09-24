@@ -6,23 +6,21 @@ in
 pkgs.mkShell {
   buildInputs = with pkgs; [
     age
-    # autojump
-    # bat
-    # delta
-    # eza
-    # fd
-    # fzf
-    # gawk
+    autojump
+    bat
+    delta
+    eza
+    fd
+    fzf
+    gawk
     gh
-    # jq
+    jq
     pandoc
     pgcli
-    # sd
+    sd
     sops
-    # terminator
-    # tre-command
+    tre-command
     unzip
-    # vgrep
-    # zsh
+    vgrep
   ];
 }
