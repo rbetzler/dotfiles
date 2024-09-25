@@ -117,6 +117,7 @@ cd ~/repos/yay/
 makepkg -si
 
 # Install aur packages
+yay google-cloud-cli
 yay slack-desktop
 yay spotify
 yay zoom
