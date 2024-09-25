@@ -74,7 +74,7 @@ __git_files () {
 }
 
 # Use bat/batcat when running `man <package>`
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c 'bat -l man -p'"
 
 # Do not remove slash from dir
 # https://unix.stackexchange.com/questions/160026/how-can-i-keep-the-trailing-slash-after-choosing-a-directory-from-the-zsh-comple
