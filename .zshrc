@@ -126,9 +126,9 @@ alias vp="nvim -p"
 eval "$(direnv export zsh)"
 
 # Pyenv config
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init --path)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 # Activate home python venv after nix
 source ${HOME}/venv/bin/activate
