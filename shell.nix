@@ -6,8 +6,10 @@ let
   generic = import ./.nixes/generic.nix;
   infra = import ./.nixes/infra.nix;
 in
+{ nixpkgs ? import <nixpkgs> {} }:
 
 pkgs.mkShell {
+  LD_LIBRARY_PATH = "${nixpkgs.stdenv.cc.cc.lib}/lib";
   buildInputs = with pkgs; [
     hello
   ]
