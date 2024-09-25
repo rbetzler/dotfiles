@@ -8,7 +8,7 @@ pkgs.mkShell {
     argo
     argocd
     awscli
-    docker
+    # docker
     htop
     kubectl
     kubernetes-helm

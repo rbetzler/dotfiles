@@ -45,6 +45,8 @@ sudo pacman --sync --noconfirm \
   copyq \
   dbeaver \
   direnv \
+  docker \
+  docker-buildx \
   libreoffice-still \
   tree \
   xclip
