@@ -37,6 +37,7 @@ sudo systemctl enable bluetooth.service
 #   gawk \
 #   git-delta \
 #   jq \
+#   pyenv \
 #   sd
 
 # Install other apps

@@ -14,6 +14,7 @@ plugins=(
   minikube
   nix-zsh-completions
   pulumi
+  # pyenv
   zsh-autosuggestions
   zsh-interactive-cd
   zsh-syntax-highlighting
@@ -42,9 +43,6 @@ for d in $DIRS; do
     fi
   done
 done
-
-# activate home python venv
-source ${HOME}/venv/bin/activate
 
 # ipython env
 export IPYTHONDIR="${HOME}/.ipython"
@@ -86,11 +84,6 @@ export FZF_DEFAULT_OPTS='
   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
 '
 
-# Pyenv config
-# export PYENV_ROOT="$HOME/repos/pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
 # Cannot toggle delta configs if they are in ~/.gitconfig
 export DELTA_FEATURES=+side-by-side
 
@@ -131,3 +124,11 @@ alias vp="nvim -p"
 
 # Source cached direnv nix shell
 eval "$(direnv export zsh)"
+
+# Pyenv config
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
+
+# Activate home python venv after nix
+source ${HOME}/venv/bin/activate
