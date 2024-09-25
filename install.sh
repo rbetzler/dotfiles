@@ -45,11 +45,16 @@ sudo pacman --sync --noconfirm \
   copyq \
   dbeaver \
   direnv \
-  docker \
-  docker-buildx \
   libreoffice-still \
   tree \
   xclip
+
+# Install docker
+sudo pacman --sync --noconfirm \
+  docker \
+  docker-buildx
+sudo systemctl enable docker.service
+sudo systemctl enable docker.socket
 
 # Switch default shell to zsh
 chsh -s "$(which zsh)"
