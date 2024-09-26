@@ -15,5 +15,6 @@ pkgs.mkShell {
     kubeseal
     minikube
     pulumi
+    pulumiPackages.pulumi-language-python
   ];
 }
