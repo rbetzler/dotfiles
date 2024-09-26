@@ -72,7 +72,7 @@ nix-env -iA nixpkgs.cached-nix-shell
 git submodule update --init --recursive
 
 # Symbolic link for zsh theme
-ln -s "${HOME}/dracula/zsh/dracula.zsh-theme" "${HOME}/.oh-my-zsh/themes/dracula.zsh-theme"
+ln -s "${HOME}/dracula/zsh/dracula.zsh-theme" "${HOME}/.oh-my-zsh/custom/themes/dracula.zsh-theme"
 
 # Install vim plug for neovim plugins
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
