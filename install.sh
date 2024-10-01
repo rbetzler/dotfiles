@@ -137,5 +137,7 @@ yay zoom
 # Maybe
 yay zramswap
 
-# Generate autojump autocompletes
-cat "$(which autojump | cut -d/ -f1-2)/share/autojump/autojump.zsh" > "${HOME}/.local/share/autojump/autojump.zsh"
+# Generate autojump autocompletes, depending on how installed
+mkdir "${HOME}/.local/share/autojump/"
+# cat "$(which autojump | cut -d/ -f1-2)/share/autojump/autojump.zsh" > "${HOME}/.local/share/autojump/autojump.zsh"
+cached-nix-shell --command 'cat "$(which autojump | cut -d/ -f1-4)/share/autojump/autojump.zsh" > "${HOME}/.local/share/autojump/autojump.zsh"'
