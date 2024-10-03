@@ -128,6 +128,7 @@ yay google-cloud-cli
 yay google-cloud-cli-gke-gcloud-auth-plugin
 yay slack-desktop
 yay spotify
+# See notes on install
 yay zoom
 
 # Also in nix
