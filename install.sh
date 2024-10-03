@@ -125,6 +125,7 @@ makepkg -si
 
 # Install aur packages
 yay google-cloud-cli
+yay google-cloud-cli-gke-gcloud-auth-plugin
 yay slack-desktop
 yay spotify
 yay zoom
