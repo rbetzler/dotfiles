@@ -37,7 +37,7 @@ source "${HOME}/.local/share/autojump/autojump.zsh"
 # source all shell files
 DIRS=(creds utils work)
 for d in $DIRS; do
-  for f in ~/."$d"/*; do
+  for f in $HOME/.${d}/*; do
     if [[ "${f: -3}" == ".sh" ]]; then
       source $f;
     fi
