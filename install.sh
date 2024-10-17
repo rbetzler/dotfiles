@@ -132,6 +132,8 @@ yay google-cloud-cli-gke-gcloud-auth-plugin
 yay slack-desktop
 yay spotify
 yay zoom
+yay dracula-gtk-theme
+yay dracula-icons-git
 
 # Also in nix
 # yay autojump-rs
