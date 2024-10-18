@@ -84,3 +84,7 @@
 [submodule "repos/yay"]
     path = repos/yay
     url = https://aur.archlinux.org/yay.git
+
+[submodule "/home/rlb/repos/wallpaper"]
+    path = /home/rlb/repos/wallpaper
+    url = https://github.com/dracula/wallpaper.git
