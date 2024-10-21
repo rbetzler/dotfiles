@@ -9,6 +9,7 @@ application/x-extension-shtml=Zen.desktop
 application/xhtml+xml=Zen.desktop
 application/x-extension-xhtml=Zen.desktop
 application/x-extension-xht=Zen.desktop
+application/pdf=org.gnome.Evince.desktop
 
 [Added Associations]
 x-scheme-handler/http=Zen.desktop;
@@ -21,3 +22,4 @@ application/x-extension-shtml=Zen.desktop;
 application/xhtml+xml=Zen.desktop;
 application/x-extension-xhtml=Zen.desktop;
 application/x-extension-xht=Zen.desktop;
+application/pdf=org.gnome.Evince.desktop;
