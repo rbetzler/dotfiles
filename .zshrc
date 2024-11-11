@@ -135,3 +135,6 @@ source ${HOME}/venv/bin/activate
 
 # Disable pythonpath (since nix messes with it)
 export PYTHONPATH=''
+
+# Set path that nix does not like
+export LD_LIBRARY_PATH=''

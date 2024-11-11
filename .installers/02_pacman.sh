@@ -40,7 +40,6 @@ sudo systemctl enable bluetooth.service
 #   gawk \
 #   git-delta \
 #   jq \
-#   pyenv \
 #   sd
 
 # Install other apps
@@ -49,6 +48,7 @@ sudo pacman --sync --noconfirm \
   dbeaver \
   direnv \
   libreoffice-still \
+  pyenv \
   tree \
   xclip
 

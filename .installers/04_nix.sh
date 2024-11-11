@@ -2,8 +2,13 @@
 
 set -euxo pipefail
 
-# Nix multi user install
-sh <(curl -L https://nixos.org/nix/install) --daemon
+# Nix install
+# Likely need to reboot
+sudo pacman -Sy nix
+sudo gpasswd -a $USER nix-users
+sudo systemctl enable nix-daemon.service
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+nix-channel --update
 
 # Install nix shell caching
 nix-env -iA nixpkgs.cached-nix-shell
