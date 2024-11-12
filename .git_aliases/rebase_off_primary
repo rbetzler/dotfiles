@@ -11,4 +11,4 @@ else
 fi
 
 git fetch --all
-git rebase "$target"
+git rebase "origin/${target}"
