@@ -25,6 +25,9 @@ plugins=(
 # Initialize vi mode early
 ZVM_INIT_MODE=sourcing
 
+# Due to python issues
+export LC_ALL=C
+
 # Set neovim as default editor
 export EDITOR="nvim"
 
