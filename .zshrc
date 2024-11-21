@@ -137,4 +137,5 @@ source ${HOME}/venv/bin/activate
 export PYTHONPATH=''
 
 # Set path that nix does not like
+# TODO Figure out what to do with this
 export LD_LIBRARY_PATH=''
