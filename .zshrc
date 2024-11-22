@@ -125,10 +125,6 @@ alias vp="nvim -p"
 # Source cached direnv nix shell
 eval "$(direnv export zsh)"
 
-# Add pipx
-export PATH="$PATH:/home/rlb/.local/bin"
-eval "$(register-python-argcomplete pipx)"
-
 # Pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
