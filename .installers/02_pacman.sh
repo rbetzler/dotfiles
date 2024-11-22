@@ -49,6 +49,7 @@ sudo pacman --sync --noconfirm \
   direnv \
   libreoffice-still \
   pyenv \
+  python-pipx \
   tk \
   tree \
   xclip
