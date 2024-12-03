@@ -209,7 +209,10 @@
 
     # Pulling
     pl = pull
-    pl-all = !bash ~/.git_aliases/pull_all
+    plprimaries = "!f() { \
+      git fetch origin main:main --update-head-ok; \
+      git fetch origin staging:staging --update-head-ok; \
+    }; f"
     prn-rmt = "fetch --prune origin"
 
     # Rebasing
