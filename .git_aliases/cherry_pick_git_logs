@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# Provide a string list of commits from `git log`
+# Then reverse, clean, cherry pick
+
+set -euxo pipefail
+
+x=$(tac /dev/stdin)
+
+echo $x | awk '{print $1}' | git cherry-pick --stdin
