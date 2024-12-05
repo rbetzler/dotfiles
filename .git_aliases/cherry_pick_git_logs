@@ -7,4 +7,6 @@ set -euxo pipefail
 
 x=$(tac /dev/stdin)
 
-echo $x | awk '{print $1}' | git cherry-pick --stdin
+echo $x
+
+echo $x | awk '{print $1}' | git cherry-pick --stdin --allow-empty

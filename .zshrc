@@ -100,6 +100,7 @@ export DIRENV_LOG_FORMAT=
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
 # Most aliases
+alias awk1="awk '{print \$1}'"
 alias b="bat --theme Dracula"
 alias c="bat --theme Dracula"
 alias ch="clickhouse-client --vertical"
