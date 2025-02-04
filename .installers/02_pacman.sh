@@ -47,6 +47,7 @@ sudo pacman --sync --noconfirm \
   copyq \
   dbeaver \
   direnv \
+  dpkg \
   libreoffice-still \
   pyenv \
   tk \
