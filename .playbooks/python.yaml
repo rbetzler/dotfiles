@@ -2,6 +2,10 @@
 - hosts: localhost
   connection: local
   tasks:
+    - name: Install virtualenv
+      pip:
+        name: virtualenv
+        executable: pip3
     - name: Install python venv
       ansible.builtin.pip:
         virtualenv: "{{ ansible_env.HOME }}/venv"
