@@ -18,12 +18,14 @@
         group: nix-users
     - name: Enable, start nix service
       when: include_nix
+      become: yes
       ansible.builtin.systemd_service:
         name: nix-daemon.service
         enabled: true
         state: started
     - name: Enable, start nix socket
       when: include_nix
+      become: yes
       ansible.builtin.systemd_service:
         name: nix-daemon.socket
         enabled: true
