@@ -1,0 +1,99 @@
+---
+- hosts: localhost
+  connection: local
+  vars_files:
+    - ./variables.yaml
+  tasks:
+    - name: Install global requirements
+      when: ansible_facts["distribution"] == "Archlinux"
+      community.general.pacman:
+        state: present
+        name:
+          - git
+          - terminator
+          - wget
+          - zsh
+    - name: Install aesthetic helpers
+      when: ansible_facts["distribution"] == "Archlinux"
+      community.general.pacman:
+        state: present
+        name:
+          - nerd-fonts
+          - gnome-themes-extra
+          - gnome-tweaks
+    - name: Install cli tooling
+      when:
+        - ansible_facts["distribution"] == "Archlinux"
+        - install_cli_tooling_outside_nix
+      community.general.pacman:
+        state: present
+        name:
+          - bat
+          - eza
+          - fd
+          - fzf
+          - gawk
+          - git-delta
+          - jq
+          - sd
+    - name: Install xorg (for zoom mainly)
+      when: ansible_facts["distribution"] == "Archlinux"
+      community.general.pacman:
+        state: present
+        name: xorg-server
+    - name: Install other apps
+      when: ansible_facts["distribution"] == "Archlinux"
+      community.general.pacman:
+        state: present
+        name:
+          - copyq
+          - dbeaver
+          - direnv
+          - dpkg
+          - libreoffice-still
+          - pyenv
+          - tk
+          - tree
+          - xclip
+    - name: Install audio
+      when: ansible_facts["distribution"] == "Archlinux"
+      community.general.pacman:
+        state: present
+        name:
+          - pipewire
+          - pipewire-alsa
+          - pipewire-audio
+          - pipewire-pulse
+          - sof-firmware
+    - name: Install bluetooth
+      when: ansible_facts["distribution"] == "Archlinux"
+      community.general.pacman:
+        state: present
+        name:
+          - bluez
+          - bluez-utils
+    - name: Enable, start bluetooth
+      when: ansible_facts["distribution"] == "Archlinux"
+      ansible.builtin.systemd_service:
+        name: bluetooth.service
+        state: started
+        enabled: true
+    - name: Install docker
+      when: ansible_facts["distribution"] == "Archlinux"
+      community.general.pacman:
+        state: present
+        name:
+          - docker
+          - docker-buildx
+    - name: Enable, start docker service
+      when: ansible_facts["distribution"] == "Archlinux"
+      ansible.builtin.systemd_service:
+        name: docker.service
+        enabled: true
+        state: started
+    - name: Enable, start docker socket
+      when: ansible_facts["distribution"] == "Archlinux"
+      ansible.builtin.systemd_service:
+        name: docker.socket
+        enabled: true
+        state: started

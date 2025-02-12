@@ -1,0 +1,78 @@
+---
+- hosts: localhost
+  connection: local
+  vars_files:
+    - ./variables.yaml
+  tasks:
+    - name: Create the `aur_builder` user
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
+      ansible.builtin.user:
+        name: aur_builder
+        create_home: yes
+        group: wheel
+    - name: Allow the `aur_builder` user to run `sudo pacman` without a password
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
+      ansible.builtin.lineinfile:
+        path: /etc/sudoers.d/11-install-aur_builder
+        line: 'aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman'
+        create: yes
+        mode: 0644
+        validate: 'visudo -cf %s'
+    - name: Install yay using makepkg
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        name: yay
+        use: makepkg
+        state: present
+        local_pkgbuild: "{{ ansible_env.HOME }}/repos/yay"
+    - name: Install common apps
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - slack-desktop
+          - spotify
+          - zoom
+    - name: Install gcloud cli
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - google-cloud-cli
+          - google-cloud-cli-gke-gcloud-auth-plugin
+    - name: Install dracula aesthetics
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - dracula-gtk-theme
+          - dracula-icons-git
+    - name: Install hardware helpers
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - zramswap
+    - name: Install cli tooling
+      when:
+        - ansible_facts["distribution"] == "Archlinux"
+        - install_cli_tooling_outside_nix
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - autojump-rs
+          - tre-command
+          - vgrep
+    - name: Install zen
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - zen-browser-bin
+    # - name: Install oh my zsh
+    #   kewlfft.aur.aur:
+    #     use: yay
+    #     name:
+    #       - oh-my-zsh-git

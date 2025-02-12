@@ -1,0 +1,60 @@
+---
+- hosts: localhost
+  connection: local
+  vars_files:
+    - ./variables.yaml
+  tasks:
+    - name: Install nix
+      when: include_nix
+      community.general.pacman:
+        state: present
+        name: nix
+    - name: Add user to nix group
+      when: include_nix
+      become: yes
+      ansible.builtin.user:
+        name: "{{ ansible_env.USER }}"
+        group: nix-users
+    - name: Enable, start nix service
+      when: include_nix
+      ansible.builtin.systemd_service:
+        name: nix-daemon.service
+        enabled: true
+        state: started
+    - name: Enable, start nix socket
+      when: include_nix
+      ansible.builtin.systemd_service:
+        name: nix-daemon.socket
+        enabled: true
+        # state: started
+    - name: Check for nix channel
+      changed_when: false
+      register: nix_channel
+      ansible.builtin.shell: |
+        export LD_LIBRARY_PATH=''
+        if nix-channel --list | grep -q unstable ; then
+          echo installed
+        else
+          echo not-installed
+        fi
+    - name: Install nix channel
+      when: nix_channel.stdout == "not-installed"
+      ansible.builtin.shell: |
+        export LD_LIBRARY_PATH=''
+        nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+        nix-channel --update
+    - name: Check for nix shell caching
+      changed_when: false
+      register: nix_shell
+      ansible.builtin.shell: |
+        export LD_LIBRARY_PATH=''
+        if nix-env -qa --installed "*" | grep -q cache ; then
+          echo installed
+        else
+          echo not-installed
+        fi
+    - name: Install nix shell caching
+      when: nix_shell.stdout == "not-installed"
+      ansible.builtin.shell: |
+        export LD_LIBRARY_PATH=''
+        nix-env -iA nixpkgs.cached-nix-shell

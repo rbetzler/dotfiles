@@ -5,12 +5,9 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
 #### Install
 
 ```bash
-~/.installers/00_git.sh
-~/.installers/01_zsh.sh
-~/.installers/02_pacman.sh
-~/.installers/03_yay.sh
-~/.installers/04_nix.sh
-~/.installers/05_other.sh
+sudo -i exit
+~/install.sh
+ansible-playbook ~/.playbooks/main.yaml
 ```
 
 After getting ssh keys configured, update remote
