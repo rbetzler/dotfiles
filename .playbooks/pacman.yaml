@@ -11,6 +11,8 @@
         state: present
         name:
           - git
+          - python
+          - python-pip
           - terminator
           - wget
           - zsh
