@@ -13,6 +13,7 @@
           - git
           - python
           - python-pip
+          - python-virtualenv
           - terminator
           - wget
           - zsh
