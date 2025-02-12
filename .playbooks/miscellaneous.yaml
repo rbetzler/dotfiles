@@ -3,6 +3,7 @@
   connection: local
   tasks:
     - name: Set default shell to zsh
+      become: yes
       ansible.builtin.command: usermod --shell /usr/bin/zsh {{ ansible_env.USER }}
       changed_when: false
     - name: Link dracula themes
