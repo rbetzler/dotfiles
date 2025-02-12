@@ -6,6 +6,7 @@
   tasks:
     - name: Install global requirements
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       community.general.pacman:
         state: present
         name:
@@ -15,6 +16,7 @@
           - zsh
     - name: Install aesthetic helpers
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       community.general.pacman:
         state: present
         name:
@@ -25,6 +27,7 @@
       when:
         - ansible_facts["distribution"] == "Archlinux"
         - install_cli_tooling_outside_nix
+      become: yes
       community.general.pacman:
         state: present
         name:
@@ -38,11 +41,13 @@
           - sd
     - name: Install xorg (for zoom mainly)
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       community.general.pacman:
         state: present
         name: xorg-server
     - name: Install other apps
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       community.general.pacman:
         state: present
         name:
@@ -57,6 +62,7 @@
           - xclip
     - name: Install audio
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       community.general.pacman:
         state: present
         name:
@@ -67,6 +73,7 @@
           - sof-firmware
     - name: Install bluetooth
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       community.general.pacman:
         state: present
         name:
@@ -80,6 +87,7 @@
         enabled: true
     - name: Install docker
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       community.general.pacman:
         state: present
         name:
