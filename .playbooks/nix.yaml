@@ -6,6 +6,7 @@
   tasks:
     - name: Install nix
       when: include_nix
+      become: yes
       community.general.pacman:
         state: present
         name: nix
