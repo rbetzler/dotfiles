@@ -6,6 +6,10 @@
       become: yes
       ansible.builtin.command: usermod --shell /usr/bin/zsh {{ ansible_env.USER }}
       changed_when: false
+    - name: Creates oh my zsh theme directory
+      ansible.builtin.file:
+        state: directory
+        path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/"
     - name: Link dracula themes
       ansible.builtin.file:
         src: "{{ ansible_env.HOME }}/dracula/zsh/dracula.zsh-theme"
