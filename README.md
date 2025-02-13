@@ -5,8 +5,10 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
 #### Install
 
 ```bash
+# Install git and ansible, clone dotfiles
+sh <(https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/arch/install.sh)
+# Install via playbooks
 sudo -i exit
-~/install.sh
 ansible-playbook ~/.playbooks/main.yaml
 ```
 
