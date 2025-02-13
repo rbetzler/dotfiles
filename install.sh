@@ -17,6 +17,9 @@ git fetch --all
 rm "$HOME/.bashrc"
 git checkout arch
 
+# Install oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Init, update submodules
 git submodule update --init --recursive
 
