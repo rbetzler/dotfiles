@@ -24,13 +24,18 @@
         enabled: true
         state: started
     # Requires reboot
-    - name: Enable, start nix socket
+    - name: Enable nix socket
       when: include_nix
       become: yes
-      ansible.builtin.systemd_service:
-        name: nix-daemon.socket
-        enabled: true
-        # state: started
+      block:
+        - name: Enable nix socket
+          ansible.builtin.systemd_service:
+            name: nix-daemon.socket
+            enabled: true
+            # state: started
+      rescue:
+        - fail:
+            msg: 'Reboot required on new install, do so manually'
     - name: Check for nix channel
       changed_when: false
       register: nix_channel
