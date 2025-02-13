@@ -23,6 +23,7 @@
         name: nix-daemon.service
         enabled: true
         state: started
+    # Requires reboot
     - name: Enable, start nix socket
       when: include_nix
       become: yes
@@ -45,6 +46,9 @@
       ansible.builtin.shell: |
         export LD_LIBRARY_PATH=''
         nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+    - name: Update nix channel
+      ansible.builtin.shell: |
+        export LD_LIBRARY_PATH=''
         nix-channel --update
     - name: Check for nix shell caching
       changed_when: false
