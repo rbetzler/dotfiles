@@ -52,9 +52,16 @@
         export LD_LIBRARY_PATH=''
         nix-channel --add https://nixos.org/channels/nixpkgs-unstable
     - name: Update nix channel
-      ansible.builtin.shell: |
-        export LD_LIBRARY_PATH=''
-        nix-channel --update
+      block:
+        - name: Update nix channel
+          ansible.builtin.shell: |
+            export LD_LIBRARY_PATH=''
+            nix-channel --update
+      rescue:
+        - fail:
+            msg: >
+              Cannot update nix channel while in nix shell,
+              exit nix shell then retry
     - name: Check for nix shell caching
       changed_when: false
       register: nix_shell
