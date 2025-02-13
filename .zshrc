@@ -99,6 +99,9 @@ export DIRENV_LOG_FORMAT=
 # https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
+# Setting this for consistency
+export NIX_SSL_CERT_FILE=$CURL_CA_BUNDLE
+
 # Most aliases
 alias awk1="awk '{print \$1}'"
 alias b="bat --theme Dracula"
