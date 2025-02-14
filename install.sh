@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-reqs="git zsh"
+reqs="git zsh ansible"
 for req in $reqs; do
   if grep -q Arch /etc/os-release; then
     sudo pacman --sync --noconfirm $req
@@ -18,6 +18,5 @@ git checkout arch
 # Init, update submodules
 git submodule update --init --recursive
 
-# Install ansible
-sudo pacman --sync --noconfirm ansible
+# Install ansible modules
 ansible-galaxy collection install -r ~/.playbooks/requirements.yaml
