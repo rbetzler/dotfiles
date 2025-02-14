@@ -2,14 +2,17 @@
 
 set -euxo pipefail
 
-if which git > /dev/null; then
-  echo 'Git installed'
-else
-  echo 'Git not installed, installing now'
-  if grep -q Arch /etc/os-release; then
-    sudo pacman --sync --noconfirm git
+reqs="git zsh"
+for req in $reqs; do
+  if which $req > /dev/null; then
+    echo "$req installed"
+  else
+    echo "$req not installed, installing now"
+    if grep -q Arch /etc/os-release; then
+      sudo pacman --sync --noconfirm $req
+    fi
   fi
-fi
+done
 
 git init
 git remote add https https://github.com/rbetzler/dotfiles.git
