@@ -11,107 +11,89 @@
       become: yes
       ansible.builtin.command: usermod --shell /usr/bin/zsh {{ ansible_env.USER }}
       changed_when: false
-    - name: Creates oh my zsh theme directory
+    # These likely exist, but leaving this just in case
+    # - name: Creates oh my zsh directories
+    #   ansible.builtin.file:
+    #     state: directory
+    #     path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/{{ item }}/"
+    #   loop:
+    #     - plugins
+    #     - themes
+    - name: Link themes
       ansible.builtin.file:
-        state: directory
-        path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/"
-    - name: Link dracula themes
-      ansible.builtin.file:
-        src: "{{ ansible_env.HOME }}/dracula/zsh/dracula.zsh-theme"
+        src: "{{ ansible_env.HOME }}/repos/oh-my-zsh-extensions/themes/zsh/dracula.zsh-theme"
         dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/dracula.zsh-theme"
         state: link
+    - name: Link plugins
+      ansible.builtin.file:
+        src: "{{ ansible_env.HOME }}/repos/oh-my-zsh-extensions/plugins/{{ item }}"
+        dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/{{ item }}"
+        state: link
+      loop:
+        - fzf-tab
+        - nix-zsh-completions
+        - zsh-autosuggestions
+        - zsh-nix-shell
+        - zsh-syntax-highlighting
+        - zsh-system-clipboard
+        - zsh-vi-mode
     - name: Check for neovim plugins
-      changed_when: false
       register: nvim_plugins
-      ansible.builtin.shell: |
-        if [ -f "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim" ]; then
-          echo installed
-        else
-          echo not-installed
-        fi
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim"
     - name: Install vim plug for neovim plugins
-      when: nvim_plugins.stdout == "not-installed"
+      when: nvim_plugins.stat.isreg is not defined
       ansible.builtin.shell: |
         sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     - name: Check for autocomplete for pulumi
-      changed_when: false
       register: autocomplete_pulumi
-      ansible.builtin.shell: |
-        if [ -f "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh" ]; then
-          echo installed
-        else
-          echo not-installed
-        fi
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh"
     - name: Generate autocomplete for pulumi
-      when: autocomplete_pulumi.stdout == "not-installed"
+      when: autocomplete_pulumi.stat.isreg is not defined
       ansible.builtin.shell: |
         mkdir -p "${HOME}/.oh-my-zsh/custom/plugins/pulumi"
         pulumi gen-completion zsh > "${HOME}/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh"
     - name: Check for autocomplete for argo
-      changed_when: false
       register: autocomplete_argo
-      ansible.builtin.shell: |
-        if [ -f "{{ ansible_env.HOME }}/.utils/argo.sh" ]; then
-          echo installed
-        else
-          echo not-installed
-        fi
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.utils/argo.sh"
     - name: Generate autocomplete for argo
-      when: autocomplete_argo.stdout == "not-installed"
+      when: autocomplete_argo.stat.isreg is not defined
       ansible.builtin.shell: |
         argo completion zsh > "${HOME}/.utils/argo.sh"
         sed -i '1i compdef _argo argo' "${HOME}/.utils/argo.sh"
     - name: Check for autocomplete for argocd
-      changed_when: false
       register: autocomplete_argocd
-      ansible.builtin.shell: |
-        if [ -f "{{ ansible_env.HOME }}/.utils/argocd.sh" ]; then
-          echo installed
-        else
-          echo not-installed
-        fi
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.utils/argocd.sh"
     - name: Generate autocomplete for argocd
-      when: autocomplete_argocd.stdout == "not-installed"
+      when: autocomplete_argocd.stat.isreg is not defined
       ansible.builtin.shell: |
         argocd completion zsh > "${HOME}/.utils/argocd.sh"
     - name: Check for autocomplete for kubectl
-      changed_when: false
       register: autocomplete_kubectl
-      ansible.builtin.shell: |
-        if [ -f "{{ ansible_env.HOME }}/.utils/kubectl.sh" ]; then
-          echo installed
-        else
-          echo not-installed
-        fi
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.utils/kubectl.sh"
     - name: Generate autocomplete for kubectl
-      when: autocomplete_kubectl.stdout == "not-installed"
+      when: autocomplete_kubectl.stat.isreg is not defined
       ansible.builtin.shell: |
         kubectl completion zsh > "${HOME}/.utils/kubectl.sh"
     - name: Check for autocomplete for helm
-      changed_when: false
       register: autocomplete_helm
-      ansible.builtin.shell: |
-        if [ -f "{{ ansible_env.HOME }}/.utils/helm.sh" ]; then
-          echo installed
-        else
-          echo not-installed
-        fi
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.utils/helm.sh"
     - name: Generate autocomplete for helm
-      when: autocomplete_helm.stdout == "not-installed"
+      when: autocomplete_helm.stat.isreg is not defined
       ansible.builtin.shell: |
         helm completion zsh > "${HOME}/.utils/helm.sh"
     - name: Check for autocomplete for autojump
-      changed_when: false
       register: autocomplete_autojump
-      ansible.builtin.shell: |
-        if [ -f "{{ ansible_env.HOME }}/.local/share/autojump/autojump.zsh" ]; then
-          echo installed
-        else
-          echo not-installed
-        fi
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.local/share/autojump/autojump.zsh"
     - name: Generate autocomplete for autojump
-      when: autocomplete_autojump.stdout == "not-installed"
+      when: autocomplete_autojump.stat.isreg is not defined
       ansible.builtin.shell: |
         mkdir -p "${HOME}/.local/share/autojump/"
         cat "$(which autojump | cut -d/ -f1-4)/share/autojump/autojump.zsh" > "${HOME}/.local/share/autojump/autojump.zsh"

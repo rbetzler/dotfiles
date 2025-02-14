@@ -30,7 +30,7 @@ export EDITOR="nvim"
 
 source "${ZSH}/oh-my-zsh.sh"
 
-source "${HOME}/dracula/zsh-syntax/zsh-syntax-highlighting.sh"
+source "${HOME}/repos/oh-my-zsh-extensions/themes/zsh-syntax/zsh-syntax-highlighting.sh"
 
 source "${HOME}/.local/share/autojump/autojump.zsh"
 

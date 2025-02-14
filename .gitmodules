@@ -1,49 +1,49 @@
 [submodule "dracula/mutt"]
-    path = dracula/mutt
+    path = repos/oh-my-zsh-extensions/themes/mutt
     url = https://github.com/dracula/mutt.git
 
 [submodule "dracula/terminator"]
-    path = dracula/terminator
+    path = repos/oh-my-zsh-extensions/themes/terminator
     url = https://github.com/dracula/terminator.git
 
 [submodule "dracula/zsh"]
-    path = dracula/zsh
+    path = repos/oh-my-zsh-extensions/themes/zsh
     url = https://github.com/dracula/zsh.git
 
 [submodule "dracula/zsh-syntax"]
-    path = dracula/zsh-syntax
+    path = repos/oh-my-zsh-extensions/themes/zsh-syntax
     url = https://github.com/dracula/zsh-syntax-highlighting.git
 
-[submodule ".oh-my-zsh"]
+[submodule "oh-my-zsh"]
     path = .oh-my-zsh
     url = https://github.com/ohmyzsh/ohmyzsh.git
 
-[submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-    path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+[submodule "plugins/zsh-syntax-highlighting"]
+    path = repos/oh-my-zsh-extensions/plugins/zsh-syntax-highlighting
     url = https://github.com/zsh-users/zsh-syntax-highlighting.git
 
-[submodule ".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
-    path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
+[submodule "plugins/zsh-autosuggestions"]
+    path = repos/oh-my-zsh-extensions/plugins/zsh-autosuggestions
     url = https://github.com/zsh-users/zsh-autosuggestions
 
-[submodule ".oh-my-zsh/custom/plugins/zsh-vi-mode"]
-    path = .oh-my-zsh/custom/plugins/zsh-vi-mode
+[submodule "plugins/zsh-vi-mode"]
+    path = repos/oh-my-zsh-extensions/plugins/zsh-vi-mode
     url = https://github.com/jeffreytse/zsh-vi-mode
 
-[submodule ".oh-my-zsh/custom/plugins/fzf-tab"]
-    path = .oh-my-zsh/custom/plugins/fzf-tab
+[submodule "plugins/fzf-tab"]
+    path = repos/oh-my-zsh-extensions/plugins/fzf-tab
     url = https://github.com/Aloxaf/fzf-tab
 
-[submodule ".oh-my-zsh/custom/plugins/zsh-system-clipboard"]
-    path = .oh-my-zsh/custom/plugins/zsh-system-clipboard
+[submodule "plugins/zsh-system-clipboard"]
+    path = repos/oh-my-zsh-extensions/plugins/zsh-system-clipboard
     url = https://github.com/kutsan/zsh-system-clipboard
 
-[submodule ".oh-my-zsh/custom/plugins/nix-zsh-completions"]
-    path = .oh-my-zsh/custom/plugins/nix-zsh-completions
+[submodule "plugins/nix-zsh-completions"]
+    path = repos/oh-my-zsh-extensions/plugins/nix-zsh-completions
     url = https://github.com/nix-community/nix-zsh-completions.git
 
-[submodule ".oh-my-zsh/custom/plugins/zsh-nix-shell"]
-    path = .oh-my-zsh/custom/plugins/zsh-nix-shell
+[submodule "plugins/zsh-nix-shell"]
+    path = repos/oh-my-zsh-extensions/plugins/zsh-nix-shell
     url = https://github.com/chisui/zsh-nix-shell.git
 
 [submodule "repos/yay"]
