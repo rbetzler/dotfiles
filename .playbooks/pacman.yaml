@@ -54,11 +54,16 @@
       community.general.pacman:
         state: present
         name:
+          - argo-bin
+          - argocd
           - copyq
           - dbeaver
           - direnv
           - dpkg
+          - helm
+          - kubectl
           - libreoffice-still
+          - pulumi
           - pyenv
           - tk
           - tree
