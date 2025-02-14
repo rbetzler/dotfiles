@@ -6,7 +6,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
 
 ```bash
 # Install git and ansible, clone dotfiles
-sh <(https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/arch/install.sh)
+sh <(curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/arch/install.sh)
 # Install via playbooks
 sudo -i exit
 ansible-playbook ~/.playbooks/main.yaml
