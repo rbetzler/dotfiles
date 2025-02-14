@@ -37,6 +37,7 @@
         - fail:
             msg: 'Reboot required on new install, do so manually'
     - name: Check for nix channel
+      when: include_nix
       changed_when: false
       register: nix_channel
       ansible.builtin.shell: |
@@ -47,11 +48,14 @@
           echo not-installed
         fi
     - name: Install nix channel
-      when: nix_channel.stdout == "not-installed"
+      when:
+        - include_nix
+        - nix_channel.stdout == "not-installed"
       ansible.builtin.shell: |
         export LD_LIBRARY_PATH=''
         nix-channel --add https://nixos.org/channels/nixpkgs-unstable
     - name: Update nix channel
+      when: include_nix
       block:
         - name: Update nix channel
           ansible.builtin.shell: |
@@ -63,6 +67,7 @@
               Cannot update nix channel while in nix shell,
               exit nix shell then retry
     - name: Check for nix shell caching
+      when: include_nix
       changed_when: false
       register: nix_shell
       ansible.builtin.shell: |
@@ -73,7 +78,9 @@
           echo not-installed
         fi
     - name: Install nix shell caching
-      when: nix_shell.stdout == "not-installed"
+      when:
+        - include_nix
+        - nix_shell.stdout == "not-installed"
       ansible.builtin.shell: |
         export LD_LIBRARY_PATH=''
         nix-env -iA nixpkgs.cached-nix-shell
