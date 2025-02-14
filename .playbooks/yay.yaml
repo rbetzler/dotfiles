@@ -62,6 +62,7 @@
       kewlfft.aur.aur:
         use: yay
         name:
+          - argo-bin
           - autojump-rs
           - tre-command
           - vgrep
