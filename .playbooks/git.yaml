@@ -2,6 +2,18 @@
 - hosts: localhost
   connection: local
   tasks:
+    - name: Check if git repo is initialized
+      register: dotfiles
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.git"
+    - name: Init, clone dotfiles
+      when: dotfiles.stat.isdir is not defined
+      ansible.builtin.shell: |
+        git init
+        git remote add https https://github.com/rbetzler/dotfiles.git
+        git fetch --all
+        rm "$HOME/.bashrc"
+        git checkout arch
     - name: Clone dotfiles
       ansible.builtin.git:
         repo: https://github.com/rbetzler/dotfiles.git
