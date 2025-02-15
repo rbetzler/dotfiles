@@ -8,6 +8,8 @@
         path: "{{ ansible_env.HOME }}/.git"
     - name: Init, clone dotfiles
       when: dotfiles.stat.isdir is not defined
+      args:
+        chdir: "{{ ansible_env.HOME }}"
       ansible.builtin.shell: |
         git init
         git remote add https https://github.com/rbetzler/dotfiles.git
