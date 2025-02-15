@@ -2,6 +2,7 @@
 
 set -euxo pipefail
 
+# Install dependencies
 reqs="git zsh ansible"
 for req in $reqs; do
   if grep -q Arch /etc/os-release; then
@@ -9,14 +10,12 @@ for req in $reqs; do
   fi
 done
 
-git init
-git remote add https https://github.com/rbetzler/dotfiles.git
-git fetch --all
-rm "$HOME/.bashrc"
-git checkout arch
-
-# Init, update submodules
-git submodule update --init --recursive
+# Clone dotfiles
+curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/arch/.playbooks/git.yaml -o /tmp/git.yaml
+ansible-playbook /tmp/git.yaml
 
 # Install ansible modules
 ansible-galaxy collection install -r ~/.playbooks/requirements.yaml
+
+# Install
+# ansible-playbook ~/.playbooks/main.yaml
