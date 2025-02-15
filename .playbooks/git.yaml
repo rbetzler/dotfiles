@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Clone dotfiles
+      ansible.builtin.git:
+        repo: https://github.com/rbetzler/dotfiles.git
+        dest: "{{ ansible_env.HOME }}"
+        force: true
+        remote: https
+        version: arch
