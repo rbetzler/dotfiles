@@ -46,9 +46,9 @@
     path = repos/oh-my-zsh-extensions/themes/zsh-syntax
     url = https://github.com/dracula/zsh-syntax-highlighting.git
 
-[submodule "yay"]
-    path = repos/yay
-    url = https://aur.archlinux.org/yay.git
+[submodule "yay-bin"]
+    path = repos/yay-bin
+    url = https://aur.archlinux.org/yay-bin.git
 
 [submodule "wallpaper"]
     path = repos/wallpaper

@@ -26,7 +26,7 @@
         name: yay
         use: makepkg
         state: present
-        local_pkgbuild: "{{ ansible_env.HOME }}/repos/yay"
+        local_pkgbuild: "{{ ansible_env.HOME }}/repos/yay-bin"
     - name: Install common apps
       when: ansible_facts["distribution"] == "Archlinux"
       kewlfft.aur.aur:
