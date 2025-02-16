@@ -92,8 +92,8 @@
       register: autocomplete_autojump
       ansible.builtin.stat:
         path: "{{ ansible_env.HOME }}/.local/share/autojump/autojump.zsh"
-    - name: Generate autocomplete for autojump
+    - name: Copy autocomplete for autojump
       when: autocomplete_autojump.stat.isreg is not defined
       ansible.builtin.shell: |
         mkdir -p "${HOME}/.local/share/autojump/"
-        cat "$(which autojump | cut -d/ -f1-4)/share/autojump/autojump.zsh" > "${HOME}/.local/share/autojump/autojump.zsh"
+        cp $(find / -name autojump.zsh 2> /dev/null | head -n 1) "${HOME}/.local/share/autojump/autojump.zsh"
