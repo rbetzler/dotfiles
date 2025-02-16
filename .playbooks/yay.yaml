@@ -62,6 +62,7 @@
         name:
           - argo-bin
           - autojump-rs
+          - clickhouse
           - tre-command
           - vgrep
     - name: Install zen

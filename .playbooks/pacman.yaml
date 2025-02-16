@@ -39,8 +39,10 @@
           - fzf
           - gawk
           - git-delta
+          - htop
           - jq
           - sd
+          - unzip
     - name: Install xorg (for zoom mainly)
       when: ansible_facts["distribution"] == "Archlinux"
       become: yes
@@ -53,16 +55,24 @@
       community.general.pacman:
         state: present
         name:
+          - age
           - argocd
+          - aws-cli
           - copyq
           - dbeaver
           - direnv
           - dpkg
+          - github-cli
           - helm
           - kubectl
           - libreoffice-still
+          - minikube
+          - nodejs
+          - pandoc-cli
+          - pgcli
           - pulumi
           - pyenv
+          - sops
           - tk
           - tree
           - xclip
