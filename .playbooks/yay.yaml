@@ -56,9 +56,7 @@
         name:
           - zramswap
     - name: Install cli tooling
-      when:
-        - ansible_facts["distribution"] == "Archlinux"
-        - install_cli_tooling_outside_nix
+      when: ansible_facts["distribution"] == "Archlinux"
       kewlfft.aur.aur:
         use: yay
         name:

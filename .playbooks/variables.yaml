@@ -1,3 +1,2 @@
 ---
-include_nix: true
-install_cli_tooling_outside_nix: false
+include_nix: false

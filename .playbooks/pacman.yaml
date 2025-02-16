@@ -27,9 +27,7 @@
           - gnome-themes-extra
           - gnome-tweaks
     - name: Install cli tooling
-      when:
-        - ansible_facts["distribution"] == "Archlinux"
-        - install_cli_tooling_outside_nix
+      when: ansible_facts["distribution"] == "Archlinux"
       become: yes
       community.general.pacman:
         state: present
