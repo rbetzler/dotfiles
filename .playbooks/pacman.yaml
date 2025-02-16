@@ -11,6 +11,7 @@
         state: present
         name:
           - git
+          - neovim
           - python
           - python-pip
           - python-virtualenv
