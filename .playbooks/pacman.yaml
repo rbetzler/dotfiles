@@ -58,6 +58,7 @@
           - age
           - argocd
           - aws-cli
+          - bind
           - copyq
           - dbeaver
           - direnv
