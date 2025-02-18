@@ -1,25 +1,25 @@
 [Default Applications]
-x-scheme-handler/http=Zen.desktop
-x-scheme-handler/https=Zen.desktop
-x-scheme-handler/chrome=Zen.desktop
-text/html=Zen.desktop
-application/x-extension-htm=Zen.desktop
-application/x-extension-html=Zen.desktop
-application/x-extension-shtml=Zen.desktop
-application/xhtml+xml=Zen.desktop
-application/x-extension-xhtml=Zen.desktop
-application/x-extension-xht=Zen.desktop
+x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=zen.desktop
+x-scheme-handler/chrome=zen.desktop
+text/html=zen.desktop
+application/x-extension-htm=zen.desktop
+application/x-extension-html=zen.desktop
+application/x-extension-shtml=zen.desktop
+application/xhtml+xml=zen.desktop
+application/x-extension-xhtml=zen.desktop
+application/x-extension-xht=zen.desktop
 application/pdf=org.gnome.Evince.desktop
 
 [Added Associations]
-x-scheme-handler/http=Zen.desktop;
-x-scheme-handler/https=Zen.desktop;
-x-scheme-handler/chrome=Zen.desktop;
-text/html=Zen.desktop;
-application/x-extension-htm=Zen.desktop;
-application/x-extension-html=Zen.desktop;
-application/x-extension-shtml=Zen.desktop;
-application/xhtml+xml=Zen.desktop;
-application/x-extension-xhtml=Zen.desktop;
-application/x-extension-xht=Zen.desktop;
+x-scheme-handler/http=Zen.desktop;zen.desktop;
+x-scheme-handler/https=Zen.desktop;zen.desktop;
+x-scheme-handler/chrome=Zen.desktop;zen.desktop;
+text/html=Zen.desktop;zen.desktop;
+application/x-extension-htm=Zen.desktop;zen.desktop;
+application/x-extension-html=Zen.desktop;zen.desktop;
+application/x-extension-shtml=Zen.desktop;zen.desktop;
+application/xhtml+xml=Zen.desktop;zen.desktop;
+application/x-extension-xhtml=Zen.desktop;zen.desktop;
+application/x-extension-xht=Zen.desktop;zen.desktop;
 application/pdf=org.gnome.Evince.desktop;
