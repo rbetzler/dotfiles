@@ -5,3 +5,4 @@
 - import_playbook: nix.yaml
 - import_playbook: python.yaml
 - import_playbook: miscellaneous.yaml
+- import_playbook: crypto.yaml

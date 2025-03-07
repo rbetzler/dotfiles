@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Generate default ssh keypair
+      community.crypto.openssh_keypair:
+        path: "{{ ansible_env.HOME }}/.ssh/id_ed25519"
+        type: ed25519
+    - name: Check for default sops/age key
+      register: default_age_key
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.config/sops/age/keys.txt"
+    - name: Generate default sops/age key
+      when: default_age_key.stat.isreg is not defined
+      ansible.builtin.shell: |
+        age-keygen -o "${HOME}/.config/sops/age/keys.txt"
