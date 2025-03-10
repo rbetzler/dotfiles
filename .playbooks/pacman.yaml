@@ -41,6 +41,7 @@
           - git-delta
           - htop
           - jq
+          - pwgen
           - sd
           - unzip
     - name: Install xorg (for zoom mainly)
