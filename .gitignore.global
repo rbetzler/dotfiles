@@ -7,3 +7,4 @@ patches
 wtree
 .python-version
 .env.home
+.envrc

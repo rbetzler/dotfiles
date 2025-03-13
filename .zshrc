@@ -6,6 +6,7 @@ ZSH_THEME="dracula"
 
 plugins=(
   aws
+  direnv
   docker
   docker-compose
   fzf-tab
@@ -94,7 +95,7 @@ prompt_nix_shell_setup
 source $ZSH_CUSTOM/plugins/zsh-nix-shell/nix-shell.plugin.zsh
 
 # Suppress direnv startup noise
-export DIRENV_LOG_FORMAT=
+# export DIRENV_LOG_FORMAT=
 
 # https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
@@ -125,9 +126,6 @@ alias pu="pulumi"
 alias t="pwd && tre -e"
 alias v="nvim"
 alias vp="nvim -p"
-
-# Source cached direnv nix shell
-eval "$(direnv export zsh)"
 
 # Pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
