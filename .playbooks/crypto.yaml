@@ -6,6 +6,10 @@
       community.crypto.openssh_keypair:
         path: "{{ ansible_env.HOME }}/.ssh/id_ed25519"
         type: ed25519
+    - name: Generate personal ssh keypair
+      community.crypto.openssh_keypair:
+        path: "{{ ansible_env.HOME }}/.ssh/personal"
+        type: ed25519
     - name: Check for default sops/age key
       register: default_age_key
       ansible.builtin.stat:
@@ -22,11 +26,11 @@
     - name: Check if age public key is in sops config
       changed_when: false
       ignore_errors: true
-      register: check_sops_public_key
+      register: is_sops_public_key_included
       ansible.builtin.shell: |
         grep -q "{{ age_public_key.stdout }}" ~/.encrypted/.sops.yaml
     - name: Add age public key to sops config
-      when: check_sops_public_key.rc == 1
+      when: is_sops_public_key_included.rc == 1
       ansible.builtin.lineinfile:
         path: "{{ ansible_env.HOME }}/.encrypted/.sops.yaml"
         insertafter: true
