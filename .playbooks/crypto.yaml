@@ -14,3 +14,21 @@
       when: default_age_key.stat.isreg is not defined
       ansible.builtin.shell: |
         age-keygen -o "${HOME}/.config/sops/age/keys.txt"
+    - name: Get age, sops public key
+      changed_when: false
+      register: age_public_key
+      ansible.builtin.shell: |
+        age-keygen -y ~/.config/sops/age/keys.txt
+    - name: Check if age public key is in sops config
+      changed_when: false
+      ignore_errors: true
+      register: check_sops_public_key
+      ansible.builtin.shell: |
+        grep -q "{{ age_public_key.stdout }}" ~/.encrypted/.sops.yaml
+    - name: Add age public key to sops config
+      when: check_sops_public_key.rc == 1
+      ansible.builtin.lineinfile:
+        path: "{{ ansible_env.HOME }}/.encrypted/.sops.yaml"
+        insertafter: true
+        search_string: "  - age: |"
+        line: "  - age: |\n      {{ age_public_key.stdout }},"
