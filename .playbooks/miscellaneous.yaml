@@ -97,3 +97,7 @@
       ansible.builtin.shell: |
         mkdir -p "${HOME}/.local/share/autojump/"
         cp $(find / -name autojump.zsh 2> /dev/null | head -n 1) "${HOME}/.local/share/autojump/autojump.zsh"
+    - name: Install, update neovim plugins
+      ansible.builtin.shell: |
+        nvim --headless +PlugInstall +qa
+        nvim --headless +UpdateRemotePlugins +qa
