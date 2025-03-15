@@ -1,4 +1,3 @@
-
 ---
 - hosts: localhost
   connection: local
@@ -24,7 +23,7 @@
         path: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
         insertafter: EOF
         line: "{{ ssh_personal_public_key.stdout | trim }}"
-    - name: Encrypt a secret text
+    - name: Encrypt ssh authorized keys
       when: is_ssh_personal_public_key_included.rc == 1
       community.sops.sops_encrypt:
         path: "{{ ansible_env.HOME }}/.encrypted/authorized_keys.enc"

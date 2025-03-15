@@ -11,6 +11,9 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     sh <(curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/master/install.sh)
     # Install via playbooks
     ansible-playbook ~/.playbooks/main.yaml
+    git add ~/.encrypted/
+    git commit -m "Add sops key for new machine"
+    git push
     ```
 2. Reencrypt sops files on server
     ```bash
