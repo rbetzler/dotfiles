@@ -11,7 +11,7 @@ for req in $reqs; do
 done
 
 # Clone dotfiles
-curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/arch/.playbooks/git.yaml -o /tmp/git.yaml
+curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/master/.playbooks/git.yaml -o /tmp/git.yaml
 ansible-playbook /tmp/git.yaml
 
 # Install ansible modules

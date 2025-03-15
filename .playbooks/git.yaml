@@ -22,4 +22,4 @@
         dest: "{{ ansible_env.HOME }}"
         force: true
         remote: https
-        version: arch
+        version: master
