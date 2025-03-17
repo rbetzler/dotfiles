@@ -1,2 +1,3 @@
 ---
 include_nix: false
+ansible_python_interpreter: "{{ lookup('ansible.builtin.env', 'HOME') }}/venv/bin/python3"
