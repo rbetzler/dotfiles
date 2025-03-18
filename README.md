@@ -34,3 +34,4 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     git remote add origin git@github.com:rbetzler/dotfiles.git
     git pull origin master
     ```
+6. Configure browser plugins (e.g,. bitwarden)
