@@ -28,11 +28,11 @@
       ignore_errors: true
       register: is_sops_public_key_included
       ansible.builtin.shell: |
-        grep -q "{{ age_public_key.stdout }}" ~/.encrypted/.sops.yaml
+        grep -q "{{ age_public_key.stdout }}" ~/.sops.yaml
     - name: Add age public key to sops config
       when: is_sops_public_key_included.rc == 1
       ansible.builtin.lineinfile:
-        path: "{{ ansible_env.HOME }}/.encrypted/.sops.yaml"
+        path: "{{ ansible_env.HOME }}/.sops.yaml"
         insertafter: true
         search_string: "  - age: |"
         line: "  - age: |\n      {{ age_public_key.stdout }},"

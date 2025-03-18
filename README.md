@@ -18,8 +18,8 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
 2. Reencrypt sops files on server
     ```bash
     git pull
-    sops --config ~/.encrypted/.sops.yaml updatekeys --yes ~/.encrypted/authorized_keys.enc
-    sops --config ~/.encrypted/.sops.yaml updatekeys --yes ~/.encrypted/public.enc.yaml
+    sops --config ~/.sops.yaml updatekeys --yes ~/.encrypted/authorized_keys.enc
+    sops --config ~/.sops.yaml updatekeys --yes ~/.encrypted/public.enc.yaml
     git add ~/.encrypted/
     git commit -m "Reencrypt sops files for new machine"
     git push
