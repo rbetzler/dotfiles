@@ -26,7 +26,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     ```
 3. Update ssh keys, first on new machine, then on server
     ```bash
-    ansible-playbook ~/.playbooks/sync_ssh_setup.yaml
+    ansible-playbook ~/.playbooks/ssh.yaml
     ```
 4. Update ssh key on Github
 5. Update git remote on new machine
