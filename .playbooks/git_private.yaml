@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Clone notes
+      ansible.builtin.git:
+        repo: git@github.com:rbetzler/notes.git
+        dest: "{{ ansible_env.HOME }}/repos/notes"
+    - name: Check if private git repo is initialized
+      register: private_repo
+      ansible.builtin.stat:
+        path: "{{ ansible_env.HOME }}/.work/.git"
+    - name: Init, clone private repo
+      when: private_repo.stat.isdir is not defined
+      args:
+        chdir: "{{ ansible_env.HOME }}/.work"
+      ansible.builtin.shell: |
+        git init
+        git remote add {{ item.origin }} {{ item.repo }}
+        git fetch --all
+      with_items:
+        - {
+          origin: "{{ lookup('community.sops.sops', '~/.encrypted/public.enc.yaml', extract='[\"repos\"][\"private\"][\"origin\"]') }}",
+          repo: "{{ lookup('community.sops.sops', '~/.encrypted/public.enc.yaml', extract='[\"repos\"][\"private\"][\"repo\"]') }}"
+        }
