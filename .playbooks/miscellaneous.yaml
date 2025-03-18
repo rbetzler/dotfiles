@@ -101,3 +101,15 @@
       ansible.builtin.shell: |
         nvim --headless +PlugInstall +qa
         nvim --headless +UpdateRemotePlugins +qa
+    - name: List all zen profiles
+      register: zen_profiles
+      ansible.builtin.find:
+        paths: "{{ ansible_env.HOME }}/.zen/"
+        recurse: no
+        file_type: directory
+    - name: Link user.js
+      ansible.builtin.file:
+        src: "{{ ansible_env.HOME }}/user.js"
+        dest: "{{ item }}/user.js"
+        state: link
+      with_items: "{{ zen_profiles.files | map(attribute='path') | list }}"
