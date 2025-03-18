@@ -23,3 +23,9 @@
           origin: "{{ lookup('community.sops.sops', '~/.encrypted/public.enc.yaml', extract='[\"repos\"][\"private\"][\"origin\"]') }}",
           repo: "{{ lookup('community.sops.sops', '~/.encrypted/public.enc.yaml', extract='[\"repos\"][\"private\"][\"repo\"]') }}"
         }
+    # Slight duplication of `git.yaml`
+    - name: Add ssh remote to dotfiles
+      ansible.builtin.git:
+        repo: git@github.com:rbetzler/dotfiles.git
+        dest: "{{ ansible_env.HOME }}"
+        remote: origin
