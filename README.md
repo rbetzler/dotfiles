@@ -11,11 +11,21 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     sh <(curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/master/install.sh)
     # Install via playbooks
     ansible-playbook ~/.playbooks/main.yaml
+    ```
+2. Configure browser plugins (e.g,. bitwarden)
+3. Update ssh key on Github
+4. Update git remote on new machine
+    ```bash
+    git remote add origin git@github.com:rbetzler/dotfiles.git
+    git pull origin master
+    ```
+5. Push new keys
+    ```bash
     git add ~/.encrypted/
     git commit -m "Add sops key for new machine"
     git push
     ```
-2. Reencrypt sops files on server
+6. Reencrypt sops files on server
     ```bash
     git pull
     fd enc -I --search-path ~/.encrypted/ -x sops updatekeys --yes
@@ -23,7 +33,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     git commit -m "Reencrypt sops files for new machine"
     git push
     ```
-3. Update ssh keys, first on new machine, then on server
+7. Update ssh keys, first on new machine, then on server
     ```bash
     git pull
     ansible-playbook ~/.playbooks/post.yaml
@@ -31,10 +41,3 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     git commit -m "Add ssh keys for new machine"
     git push
     ```
-4. Update ssh key on Github
-5. Update git remote on new machine
-    ```bash
-    git remote add origin git@github.com:rbetzler/dotfiles.git
-    git pull origin master
-    ```
-6. Configure browser plugins (e.g,. bitwarden)
