@@ -32,3 +32,8 @@
       ansible.builtin.copy:
         content: "{{ lookup('community.sops.sops', '~/.encrypted/ssh_config.enc', rstrip=false) }}"
         dest: "{{ ansible_env.HOME }}/.ssh/config"
+    - name: Sync ssh server config
+      become: yes
+      ansible.builtin.copy:
+        content: "{{ lookup('community.sops.sops', '~/.encrypted/sshd_config.enc', rstrip=false) }}"
+        dest: "/etc/ssh/sshd_config"
