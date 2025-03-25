@@ -17,5 +17,8 @@ ansible-playbook /tmp/git.yaml
 # Install ansible modules
 ansible-galaxy collection install -r ~/.playbooks/requirements.yaml
 
+# Make an empty python venv because ansible expects it via `ansible_python_interpreter`
+python3 -m venv ~/venv
+
 # Install
 # ansible-playbook ~/.playbooks/main.yaml
