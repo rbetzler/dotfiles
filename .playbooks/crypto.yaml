@@ -2,6 +2,13 @@
 - hosts: localhost
   connection: local
   tasks:
+    - name: Create directory if it does not exist
+      ansible.builtin.file:
+        path: "{{ ansible_env.HOME }}/{{ item }}"
+        state: directory
+      with_items:
+        - .ssh/
+        - .config/sops/age/
     - name: Generate default ssh keypair
       community.crypto.openssh_keypair:
         path: "{{ ansible_env.HOME }}/.ssh/id_ed25519"
