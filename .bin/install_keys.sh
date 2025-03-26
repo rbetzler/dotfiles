@@ -49,6 +49,7 @@ fd enc -I --search-path ~/.encrypted/ --search-path ~/.work/ -x sops updatekeys 
 
 # Copy personal ssh key to server, then dedup
 cat ~/.ssh/personal.pub | ssh -i ~/.ssh/common_0 "$SSH_ALIAS" -T "cat >> ~/.ssh/authorized_keys"
+ssh -i ~/.ssh/common_0 "$SSH_ALIAS" 'sed -i -r "s/[ \t]*$//" ~/.ssh/authorized_keys'
 ssh -i ~/.ssh/common_0 "$SSH_ALIAS" 'sort -u -o ~/.ssh/authorized_keys ~/.ssh/authorized_keys'
 
 # Clean up temporary keys
