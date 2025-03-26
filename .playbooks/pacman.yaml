@@ -99,6 +99,7 @@
           - bluez-utils
     - name: Enable, start bluetooth
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       ansible.builtin.systemd_service:
         name: bluetooth.service
         state: started
@@ -113,12 +114,14 @@
           - docker-buildx
     - name: Enable, start docker service
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       ansible.builtin.systemd_service:
         name: docker.service
         enabled: true
         state: started
     - name: Enable, start docker socket
       when: ansible_facts["distribution"] == "Archlinux"
+      become: yes
       ansible.builtin.systemd_service:
         name: docker.socket
         enabled: true
