@@ -60,6 +60,7 @@
           - argocd
           - aws-cli
           - bind
+          - bitwarden-cli
           - copyq
           - dbeaver
           - direnv
@@ -69,7 +70,7 @@
           - kubectl
           - libreoffice-still
           - minikube
-          - nodejs
+          # - nodejs
           - pandoc-cli
           - pgcli
           - pulumi
