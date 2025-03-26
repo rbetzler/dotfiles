@@ -20,7 +20,5 @@
         git fetch --all
         cp ~/.gitignore ~/.work/
       with_items:
-        - {
-          origin: "{{ lookup('community.sops.sops', '~/.encrypted/public.enc.yaml', extract='[\"repos\"][\"private\"][\"origin\"]') }}",
+        - origin: "{{ lookup('community.sops.sops', '~/.encrypted/public.enc.yaml', extract='[\"repos\"][\"private\"][\"origin\"]') }}"
           repo: "{{ lookup('community.sops.sops', '~/.encrypted/public.enc.yaml', extract='[\"repos\"][\"private\"][\"repo\"]') }}"
-        }
