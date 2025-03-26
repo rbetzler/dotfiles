@@ -6,28 +6,6 @@
       ansible.builtin.copy:
         content: "{{ lookup('community.sops.sops', '~/.encrypted/authorized_keys.enc', rstrip=false) }}"
         dest: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
-    - name: Get personal public key
-      changed_when: false
-      register: ssh_personal_public_key
-      ansible.builtin.shell: |
-        cat ~/.ssh/personal.pub
-    - name: Check if personal public key is in authorized keys
-      changed_when: false
-      ignore_errors: true
-      register: is_ssh_personal_public_key_included
-      ansible.builtin.shell: |
-        grep -q "{{ ssh_personal_public_key.stdout | trim }}" ~/.ssh/authorized_keys
-    - name: Add ssh public key to authorized keys
-      when: is_ssh_personal_public_key_included.rc == 1
-      ansible.builtin.lineinfile:
-        path: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
-        insertafter: EOF
-        line: "{{ ssh_personal_public_key.stdout | trim }}"
-    - name: Encrypt ssh authorized keys
-      when: is_ssh_personal_public_key_included.rc == 1
-      community.sops.sops_encrypt:
-        path: "{{ ansible_env.HOME }}/.encrypted/authorized_keys.enc"
-        content_text: "{{ lookup('ansible.builtin.file', '~/.ssh/authorized_keys') }}"
     - name: Sync ssh config
       ansible.builtin.copy:
         content: "{{ lookup('community.sops.sops', '~/.encrypted/ssh_config.enc', rstrip=false) }}"
