@@ -25,5 +25,5 @@
       become: yes
       ansible.builtin.systemd_service:
         name: sshd.service
-        enabled: true
+        enabled: false
         state: restarted
