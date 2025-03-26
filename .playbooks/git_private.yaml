@@ -18,6 +18,7 @@
         git init
         git remote add {{ item.origin }} {{ item.repo }}
         git fetch --all
+        cp ~/.gitignore ~/.work/
       with_items:
         - {
           origin: "{{ lookup('community.sops.sops', '~/.encrypted/public.enc.yaml', extract='[\"repos\"][\"private\"][\"origin\"]') }}",
