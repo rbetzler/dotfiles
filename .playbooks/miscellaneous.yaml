@@ -8,7 +8,7 @@
           dconf load / < "${HOME}/.desktop.conf"
         fi
     - name: Set default shell to zsh
-      become: yes
+      become: true
       ansible.builtin.command: usermod --shell /usr/bin/zsh {{ ansible_env.USER }}
       changed_when: false
     # These likely exist, but leaving this just in case
@@ -21,13 +21,13 @@
     #     - themes
     - name: Link themes
       ansible.builtin.file:
-        src: "{{ ansible_env.HOME }}/repos/oh-my-zsh-extensions/themes/zsh/dracula.zsh-theme"
-        dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/dracula.zsh-theme"
+        src: '{{ ansible_env.HOME }}/repos/oh-my-zsh-extensions/themes/zsh/dracula.zsh-theme'
+        dest: '{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/dracula.zsh-theme'
         state: link
     - name: Link plugins
       ansible.builtin.file:
-        src: "{{ ansible_env.HOME }}/repos/oh-my-zsh-extensions/plugins/{{ item }}"
-        dest: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/{{ item }}"
+        src: '{{ ansible_env.HOME }}/repos/oh-my-zsh-extensions/plugins/{{ item }}'
+        dest: '{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/{{ item }}'
         state: link
       loop:
         - fzf-tab
@@ -40,7 +40,7 @@
     - name: Check for neovim plugins
       register: nvim_plugins
       ansible.builtin.stat:
-        path: "{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim"
+        path: '{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim'
     - name: Install vim plug for neovim plugins
       when: nvim_plugins.stat.isreg is not defined
       ansible.builtin.shell: |
@@ -49,7 +49,7 @@
     - name: Check for autocomplete for pulumi
       register: autocomplete_pulumi
       ansible.builtin.stat:
-        path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh"
+        path: '{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh'
     - name: Generate autocomplete for pulumi
       when: autocomplete_pulumi.stat.isreg is not defined
       ansible.builtin.shell: |
@@ -58,7 +58,7 @@
     - name: Check for autocomplete for argo
       register: autocomplete_argo
       ansible.builtin.stat:
-        path: "{{ ansible_env.HOME }}/.utils/argo.sh"
+        path: '{{ ansible_env.HOME }}/.utils/argo.sh'
     - name: Generate autocomplete for argo
       when: autocomplete_argo.stat.isreg is not defined
       ansible.builtin.shell: |
@@ -67,7 +67,7 @@
     - name: Check for autocomplete for argocd
       register: autocomplete_argocd
       ansible.builtin.stat:
-        path: "{{ ansible_env.HOME }}/.utils/argocd.sh"
+        path: '{{ ansible_env.HOME }}/.utils/argocd.sh'
     - name: Generate autocomplete for argocd
       when: autocomplete_argocd.stat.isreg is not defined
       ansible.builtin.shell: |
@@ -75,7 +75,7 @@
     - name: Check for autocomplete for kubectl
       register: autocomplete_kubectl
       ansible.builtin.stat:
-        path: "{{ ansible_env.HOME }}/.utils/kubectl.sh"
+        path: '{{ ansible_env.HOME }}/.utils/kubectl.sh'
     - name: Generate autocomplete for kubectl
       when: autocomplete_kubectl.stat.isreg is not defined
       ansible.builtin.shell: |
@@ -83,7 +83,7 @@
     - name: Check for autocomplete for helm
       register: autocomplete_helm
       ansible.builtin.stat:
-        path: "{{ ansible_env.HOME }}/.utils/helm.sh"
+        path: '{{ ansible_env.HOME }}/.utils/helm.sh'
     - name: Generate autocomplete for helm
       when: autocomplete_helm.stat.isreg is not defined
       ansible.builtin.shell: |
@@ -91,7 +91,7 @@
     - name: Check for autocomplete for autojump
       register: autocomplete_autojump
       ansible.builtin.stat:
-        path: "{{ ansible_env.HOME }}/.local/share/autojump/autojump.zsh"
+        path: '{{ ansible_env.HOME }}/.local/share/autojump/autojump.zsh'
     - name: Copy autocomplete for autojump
       when: autocomplete_autojump.stat.isreg is not defined
       ansible.builtin.shell: |
@@ -104,12 +104,12 @@
     - name: List all zen profiles
       register: zen_profiles
       ansible.builtin.find:
-        paths: "{{ ansible_env.HOME }}/.zen/"
-        recurse: no
+        paths: '{{ ansible_env.HOME }}/.zen/'
+        recurse: false
         file_type: directory
     - name: Link user.js
       ansible.builtin.file:
-        src: "{{ ansible_env.HOME }}/user.js"
-        dest: "{{ item }}/user.js"
+        src: '{{ ansible_env.HOME }}/user.js'
+        dest: '{{ item }}/user.js'
         state: link
       with_items: "{{ zen_profiles.files | map(attribute='path') | list }}"

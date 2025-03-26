@@ -4,5 +4,5 @@
   tasks:
     - name: Install python venv
       ansible.builtin.pip:
-        virtualenv: "{{ ansible_env.HOME }}/venv"
-        requirements: "{{ ansible_env.HOME }}/requirements.txt"
+        virtualenv: '{{ ansible_env.HOME }}/venv'
+        requirements: '{{ ansible_env.HOME }}/requirements.txt'

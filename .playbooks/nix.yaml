@@ -6,19 +6,19 @@
   tasks:
     - name: Install nix
       when: include_nix
-      become: yes
+      become: true
       community.general.pacman:
         state: present
         name: nix
     - name: Add user to nix group
       when: include_nix
-      become: yes
+      become: true
       ansible.builtin.user:
-        name: "{{ ansible_env.USER }}"
+        name: '{{ ansible_env.USER }}'
         group: nix-users
     - name: Enable, start nix service
       when: include_nix
-      become: yes
+      become: true
       ansible.builtin.systemd_service:
         name: nix-daemon.service
         enabled: true
@@ -26,7 +26,7 @@
     # Requires reboot
     - name: Enable nix socket
       when: include_nix
-      become: yes
+      become: true
       block:
         - name: Enable nix socket
           ansible.builtin.systemd_service:
@@ -35,7 +35,7 @@
             # state: started
       rescue:
         - fail:
-            msg: 'Reboot required on new install, do so manually'
+            msg: Reboot required on new install, do so manually
     - name: Check for nix channel
       when: include_nix
       changed_when: false
@@ -81,6 +81,6 @@
       when:
         - include_nix
         - nix_shell.stdout == "not-installed"
-      ansible.builtin.shell: |
+      ansible.builtin.shell: |-
         export LD_LIBRARY_PATH=''
         nix-env -iA nixpkgs.cached-nix-shell

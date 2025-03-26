@@ -6,7 +6,7 @@
   tasks:
     - name: Install global requirements
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       community.general.pacman:
         state: present
         name:
@@ -21,7 +21,7 @@
           - zsh
     - name: Install aesthetic helpers
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       community.general.pacman:
         state: present
         name:
@@ -30,7 +30,7 @@
           - gnome-tweaks
     - name: Install cli tooling
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       community.general.pacman:
         state: present
         name:
@@ -47,13 +47,13 @@
           - unzip
     - name: Install xorg (for zoom mainly)
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       community.general.pacman:
         state: present
         name: xorg-server
     - name: Install other apps
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       community.general.pacman:
         state: present
         name:
@@ -84,7 +84,7 @@
           - xclip
     - name: Install audio
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       community.general.pacman:
         state: present
         name:
@@ -95,7 +95,7 @@
           - sof-firmware
     - name: Install bluetooth
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       community.general.pacman:
         state: present
         name:
@@ -103,14 +103,14 @@
           - bluez-utils
     - name: Enable, start bluetooth
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       ansible.builtin.systemd_service:
         name: bluetooth.service
         state: started
         enabled: true
     - name: Install docker
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       community.general.pacman:
         state: present
         name:
@@ -118,14 +118,14 @@
           - docker-buildx
     - name: Enable, start docker service
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       ansible.builtin.systemd_service:
         name: docker.service
         enabled: true
         state: started
     - name: Enable, start docker socket
       when: ansible_facts["distribution"] == "Archlinux"
-      become: yes
+      become: true
       ansible.builtin.systemd_service:
         name: docker.socket
         enabled: true

@@ -4,23 +4,23 @@
   tasks:
     - name: Create directory if it does not exist
       ansible.builtin.file:
-        path: "{{ ansible_env.HOME }}/{{ item }}"
+        path: '{{ ansible_env.HOME }}/{{ item }}'
         state: directory
       with_items:
         - .ssh/
         - .config/sops/age/
     - name: Generate default ssh keypair
       community.crypto.openssh_keypair:
-        path: "{{ ansible_env.HOME }}/.ssh/id_ed25519"
+        path: '{{ ansible_env.HOME }}/.ssh/id_ed25519'
         type: ed25519
     - name: Generate personal ssh keypair
       community.crypto.openssh_keypair:
-        path: "{{ ansible_env.HOME }}/.ssh/personal"
+        path: '{{ ansible_env.HOME }}/.ssh/personal'
         type: ed25519
     - name: Check for default sops/age key
       register: default_age_key
       ansible.builtin.stat:
-        path: "{{ ansible_env.HOME }}/.config/sops/age/keys.txt"
+        path: '{{ ansible_env.HOME }}/.config/sops/age/keys.txt'
     - name: Generate default sops/age key
       when: default_age_key.stat.isreg is not defined
       ansible.builtin.shell: |
@@ -39,7 +39,7 @@
     - name: Add age public key to sops config
       when: is_sops_public_key_included.rc == 1
       ansible.builtin.lineinfile:
-        path: "{{ ansible_env.HOME }}/.sops.yaml"
+        path: '{{ ansible_env.HOME }}/.sops.yaml'
         insertafter: true
-        search_string: "  - age: |"
+        search_string: '  - age: |'
         line: "  - age: |\n      {{ age_public_key.stdout }},"

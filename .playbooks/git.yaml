@@ -5,11 +5,11 @@
     - name: Check if git repo is initialized
       register: dotfiles
       ansible.builtin.stat:
-        path: "{{ ansible_env.HOME }}/.git"
+        path: '{{ ansible_env.HOME }}/.git'
     - name: Init, clone dotfiles
       when: dotfiles.stat.isdir is not defined
       args:
-        chdir: "{{ ansible_env.HOME }}"
+        chdir: '{{ ansible_env.HOME }}'
       ansible.builtin.shell: |
         git init
         git remote add https https://github.com/rbetzler/dotfiles.git
@@ -19,7 +19,7 @@
     - name: Clone dotfiles
       ansible.builtin.git:
         repo: https://github.com/rbetzler/dotfiles.git
-        dest: "{{ ansible_env.HOME }}"
+        dest: '{{ ansible_env.HOME }}'
         force: true
         remote: https
         version: master
