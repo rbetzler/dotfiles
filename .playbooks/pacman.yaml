@@ -70,7 +70,9 @@
           - kubectl
           - libreoffice-still
           - minikube
+          - networkmanager-openvpn
           # - nodejs
+          - openvpn
           - pandoc-cli
           - pgcli
           - pulumi
