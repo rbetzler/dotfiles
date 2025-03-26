@@ -37,3 +37,9 @@
       ansible.builtin.copy:
         content: "{{ lookup('community.sops.sops', '~/.encrypted/sshd_config.enc', rstrip=false) }}"
         dest: "/etc/ssh/sshd_config"
+    - name: Enable, restart ssh server
+      become: yes
+      ansible.builtin.systemd_service:
+        name: sshd.service
+        enabled: true
+        state: restarted
