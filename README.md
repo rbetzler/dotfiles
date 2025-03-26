@@ -4,7 +4,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
 
 #### Install
 
-1. On local
+1. Run main installs on new machine
     ```bash
     sudo -i exit
     # Install git and ansible, clone dotfiles
@@ -19,25 +19,17 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     git remote add origin git@github.com:rbetzler/dotfiles.git
     git pull origin master
     ```
-5. Push new keys
+5. Reencrypt sops files, put new pub key on server. See script (or private repo) for required environment variables.
     ```bash
-    git add ~/.encrypted/
-    git commit -m "Add sops key for new machine"
-    git push
+    ~/.bin/install_keys.sh
     ```
-6. Reencrypt sops files on server
+6. Clone private repos
     ```bash
-    git pull
-    fd enc -I --search-path ~/.encrypted/ -x sops updatekeys --yes
+    ansible-playbook ~/.playbooks/git_private.yaml
+    ```
+7. Verify, commit updated sops files
+    ```bash
     git add ~/.encrypted/
     git commit -m "Reencrypt sops files for new machine"
-    git push
-    ```
-7. Update ssh keys, first on new machine, then on server
-    ```bash
-    git pull
-    ansible-playbook ~/.playbooks/post.yaml
-    git add ~/.encrypted/
-    git commit -m "Add ssh keys for new machine"
     git push
     ```
