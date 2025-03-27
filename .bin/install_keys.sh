@@ -5,11 +5,12 @@
 # Push new personal ssh key to server
 #
 # Globals
-#   SSH_ALIAS
 #   BW_USERNAME
 #   BW_PASSWORD
 #   BW_HOST_NAME
 #   BW_PORT
+#   SSH_PORT
+#   SSH_USER
 
 set -exo pipefail
 
@@ -17,8 +18,10 @@ set -exo pipefail
 export BW_HOST="${BW_HOST_NAME}:${BW_PORT}"
 export BW_URL="https://${BW_HOST}"
 
-# Logout just in case
+# Logout just in case, ignore exit code
+set +e
 bw logout
+set -e
 
 # Get self signed cert
 echo | openssl s_client -showcerts -connect "$BW_HOST" 2>/dev/null | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /tmp/bitwarden.crt
@@ -48,9 +51,9 @@ export SOPS_AGE_KEY_FILE=~/.config/sops/age/common_0.txt
 fd enc -I --search-path ~/.encrypted/ --search-path ~/.work/ -x sops updatekeys --yes
 
 # Copy personal ssh key to server, then dedup
-cat ~/.ssh/personal.pub | ssh -i ~/.ssh/common_0 "$SSH_ALIAS" -T "cat >> ~/.ssh/authorized_keys"
-ssh -i ~/.ssh/common_0 "$SSH_ALIAS" 'sed -i -r "s/[ \t]*$//" ~/.ssh/authorized_keys'
-ssh -i ~/.ssh/common_0 "$SSH_ALIAS" 'sort -u -o ~/.ssh/authorized_keys ~/.ssh/authorized_keys'
+cat ~/.ssh/personal.pub | ssh "${SSH_USER}@${BW_HOST_NAME}" -i ~/.ssh/common_0 -p "$SSH_PORT" -T "cat >> ~/.ssh/authorized_keys"
+ssh "${SSH_USER}@${BW_HOST_NAME}" -i ~/.ssh/common_0 -p "$SSH_PORT" 'sed -i -r "s/[ \t]*$//" ~/.ssh/authorized_keys'
+ssh "${SSH_USER}@${BW_HOST_NAME}" -i ~/.ssh/common_0 -p "$SSH_PORT" 'sort -u -o ~/.ssh/authorized_keys ~/.ssh/authorized_keys'
 
 # Clean up temporary keys
 rm ~/.ssh/common_0 ~/.config/sops/age/common_0.txt
