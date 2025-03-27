@@ -19,7 +19,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     git remote add origin git@github.com:rbetzler/dotfiles.git
     git pull origin master
     ```
-5. Reencrypt sops files, put new pub key on server. See script (or private repo) for required environment variables.
+5. Reencrypt sops files, put new pub key on server. See script (or private repo or bw note) for required environment variables.
     ```bash
     ~/.bin/install_keys.sh
     ```
