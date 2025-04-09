@@ -71,6 +71,12 @@
         use: yay
         name:
           - zen-browser-bin
+    - name: Install ventoy
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - ventoy-bin
     # - name: Install oh my zsh
     #   kewlfft.aur.aur:
     #     use: yay

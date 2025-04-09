@@ -67,6 +67,7 @@
           - direnv
           - dpkg
           - github-cli
+          - gparted
           - helm
           - kubectl
           - libreoffice-still
