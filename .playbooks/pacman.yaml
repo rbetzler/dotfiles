@@ -82,6 +82,8 @@
           - sops
           - tk
           - tree
+          - vagrant
+          - virtualbox
           - xclip
     - name: Install audio
       when: ansible_facts["distribution"] == "Archlinux"
