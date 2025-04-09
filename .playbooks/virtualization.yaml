@@ -1,0 +1,40 @@
+---
+# Manually add user to `libvirt` group
+# sudo usermod -a -G libvirt $USER
+- hosts: localhost
+  connection: local
+  vars_files:
+    - ./variables.yaml
+  tasks:
+    - name: Install virtualization tooling
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: true
+      community.general.pacman:
+        state: present
+        name:
+          - dnsmasq
+          - iptables-nft
+          - libvirt
+          - vagrant
+          - virtualbox
+    - name: Enable, start libvirtd socket
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: true
+      ansible.builtin.systemd_service:
+        name: libvirtd.socket
+        enabled: true
+        state: started
+    - name: Check for vagrant plugins
+      register: vagrant_plugins
+      ansible.builtin.shell: |
+        if vagrant plugin list | grep -q libvirt ; then
+          echo installed
+        else
+          echo not-installed
+        fi
+    - name: Install vagrant plugins
+      when:
+        - vagrant_plugins.stdout == "not-installed"
+      ansible.builtin.shell: |
+        export VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1
+        vagrant plugin install vagrant-libvirt
