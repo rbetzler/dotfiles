@@ -3,12 +3,15 @@
 set -euxo pipefail
 
 # Install dependencies
-reqs="git zsh ansible"
-for req in $reqs; do
-  if grep -q Arch /etc/os-release; then
-    sudo pacman --sync --noconfirm $req
-  fi
-done
+if grep -q Arch /etc/os-release; then
+  sudo pacman --sync --noconfirm git zsh ansible
+elif grep -q Ubuntu /etc/os-release; then
+  # Dependencies for ansible
+  sudo apt update
+  sudo apt install --yes software-properties-common
+  sudo add-apt-repository --yes --update ppa:ansible/ansible
+  sudo apt install --yes git zsh ansible
+fi
 
 # Clone dotfiles
 curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/master/.playbooks/git.yaml -o /tmp/git.yaml
