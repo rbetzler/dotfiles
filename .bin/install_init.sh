@@ -10,7 +10,7 @@ elif grep -q Ubuntu /etc/os-release; then
   sudo apt update
   sudo apt install --yes software-properties-common
   sudo add-apt-repository --yes --update ppa:ansible/ansible
-  sudo apt install --yes git zsh ansible
+  sudo apt install --yes git zsh ansible python3.12-venv
 fi
 
 # Clone dotfiles
