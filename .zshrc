@@ -127,6 +127,11 @@ alias t="pwd && tre -e"
 alias v="nvim"
 alias vp="nvim -p"
 
+# Source os specific shell configs
+if grep --quiet Ubuntu /etc/os-release; then
+  source ~/.zsh_profiles/ubuntu.zsh
+fi
+
 # Pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
