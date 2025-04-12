@@ -44,57 +44,6 @@
       ansible.builtin.shell: |
         sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    - name: Check for autocomplete for pulumi
-      register: autocomplete_pulumi
-      ansible.builtin.stat:
-        path: '{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh'
-    - name: Generate autocomplete for pulumi
-      when: autocomplete_pulumi.stat.isreg is not defined
-      ansible.builtin.shell: |
-        mkdir -p "${HOME}/.oh-my-zsh/custom/plugins/pulumi"
-        pulumi gen-completion zsh > "${HOME}/.oh-my-zsh/custom/plugins/pulumi/pulumi.plugin.zsh"
-    - name: Check for autocomplete for argo
-      register: autocomplete_argo
-      ansible.builtin.stat:
-        path: '{{ ansible_env.HOME }}/.utils/argo.sh'
-    - name: Generate autocomplete for argo
-      when: autocomplete_argo.stat.isreg is not defined
-      ansible.builtin.shell: |
-        argo completion zsh > "${HOME}/.utils/argo.sh"
-        sed -i '1i compdef _argo argo' "${HOME}/.utils/argo.sh"
-    - name: Check for autocomplete for argocd
-      register: autocomplete_argocd
-      ansible.builtin.stat:
-        path: '{{ ansible_env.HOME }}/.utils/argocd.sh'
-    - name: Generate autocomplete for argocd
-      when: autocomplete_argocd.stat.isreg is not defined
-      ansible.builtin.shell: |
-        argocd completion zsh > "${HOME}/.utils/argocd.sh"
-    - name: Check for autocomplete for kubectl
-      register: autocomplete_kubectl
-      ansible.builtin.stat:
-        path: '{{ ansible_env.HOME }}/.utils/kubectl.sh'
-    - name: Generate autocomplete for kubectl
-      when: autocomplete_kubectl.stat.isreg is not defined
-      ansible.builtin.shell: |
-        kubectl completion zsh > "${HOME}/.utils/kubectl.sh"
-    - name: Check for autocomplete for helm
-      register: autocomplete_helm
-      ansible.builtin.stat:
-        path: '{{ ansible_env.HOME }}/.utils/helm.sh'
-    - name: Generate autocomplete for helm
-      when: autocomplete_helm.stat.isreg is not defined
-      ansible.builtin.shell: |
-        helm completion zsh > "${HOME}/.utils/helm.sh"
-    - name: Check for autocomplete for autojump
-      register: autocomplete_autojump
-      ansible.builtin.stat:
-        path: '{{ ansible_env.HOME }}/.local/share/autojump/autojump.zsh'
-    - name: Copy autocomplete for autojump
-      when: autocomplete_autojump.stat.isreg is not defined
-      ansible.builtin.shell: |
-        mkdir -p "${HOME}/.local/share/autojump/"
-        cp $(find / -name autojump.zsh 2> /dev/null | head -n 1) "${HOME}/.local/share/autojump/autojump.zsh"
     - name: Install, update neovim plugins
       ansible.builtin.shell: |
         nvim --headless +PlugInstall +qa
