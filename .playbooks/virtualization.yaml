@@ -17,8 +17,29 @@
           - libvirt
           - vagrant
           - virtualbox
+    - name: Add hashicorp gpg key
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      apt_key:
+        state: present
+        url: https://apt.releases.hashicorp.com/gpg
+    - name: Add docker repository
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      apt_repository:
+        state: present
+        repo: deb https://apt.releases.hashicorp.com noble main
+    - name: Install virtualbox, libvirt
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.apt:
+        state: present
+        update_cache: true
+        name:
+          - libvirt-daemon-system
+          - vagrant
+          - virtualbox
     - name: Enable, start libvirtd socket
-      when: ansible_facts["distribution"] == "Archlinux"
       become: true
       ansible.builtin.systemd_service:
         name: libvirtd.socket
@@ -32,6 +53,8 @@
         else
           echo not-installed
         fi
+    # Likely need to run `brew remove --ignore-dependencies pkg-config`
+    # https://github.com/vagrant-libvirt/vagrant-libvirt/issues/1498#issuecomment-1133594122
     - name: Install vagrant plugins
       when:
         - vagrant_plugins.stdout == "not-installed"
