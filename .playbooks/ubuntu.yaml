@@ -48,6 +48,7 @@
           - dpkg
           - gparted
           - nodejs
+          - npm
           - openssh-server
           - openvpn
           - pandoc

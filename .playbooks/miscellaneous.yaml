@@ -60,3 +60,8 @@
         dest: '{{ item }}/user.js'
         state: link
       with_items: "{{ zen_profiles.files | map(attribute='path') | list }}"
+    - name: Install local proxy globally
+      become: true
+      community.general.npm:
+        name: local-ssl-proxy
+        global: true
