@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  connection: local
+  vars_files:
+    - ./variables.yaml
+  tasks:
+    - name: Install homebrew packages
+      when: ansible_facts["distribution"] == "Ubuntu"
+      homebrew:
+        state: present
+        update_homebrew: yes
+        name:
+          - argo
+          - argocd
+          - autojump
+          - awscli
+          # - dbeaver-community
+          - gcc
+          - gh
+          - helm
+          - kubernetes-cli
+          - neovim
+          - pulumi
+          - pyenv
+          - sops
+          - vgrep

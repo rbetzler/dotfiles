@@ -11,6 +11,9 @@ elif grep -q Ubuntu /etc/os-release; then
   sudo apt install --yes software-properties-common
   sudo add-apt-repository --yes --update ppa:ansible/ansible
   sudo apt install --yes git zsh ansible python3.12-venv
+
+  # Install homebrew
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # Clone dotfiles

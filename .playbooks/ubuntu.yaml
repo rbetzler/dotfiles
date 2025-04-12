@@ -1,0 +1,97 @@
+---
+- hosts: localhost
+  connection: local
+  vars_files:
+    - ./variables.yaml
+  tasks:
+    - name: Install global requirements
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.apt:
+        state: present
+        name:
+          - apt-transport-https
+          - build-essential
+          - ca-certificates
+          - git
+          - less
+          - terminator
+          - wget
+          - zsh
+    - name: Install cli tooling
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.apt:
+        state: present
+        name:
+          - bat
+          - eza
+          - fd-find
+          - fzf
+          - gawk
+          - git-delta
+          - htop
+          - jq
+          - pwgen
+          - sd
+          - unzip
+    - name: Install other apps
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.apt:
+        state: present
+        name:
+          - age
+          - bind9
+          - copyq
+          - direnv
+          - dpkg
+          - gparted
+          - nodejs
+          - openssh-server
+          - openvpn
+          - pandoc
+          - pgcli
+          - python3-neovim
+          - tk
+          - tre-command
+          - tree
+          - xclip
+    - name: Add docker gpg key
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      apt_key:
+        state: present
+        url: https://download.docker.com/linux/ubuntu/gpg
+    - name: Add docker repository
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      apt_repository:
+        state: present
+        repo: deb https://download.docker.com/linux/ubuntu   noble stable
+    - name: Install docker
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.apt:
+        state: present
+        update_cache: true
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+    - name: Enable, start docker service
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.systemd_service:
+        name: docker.service
+        enabled: true
+        state: started
+    - name: Enable, start docker socket
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.systemd_service:
+        name: docker.socket
+        enabled: true
+        state: started
