@@ -117,6 +117,7 @@
         name:
           - docker
           - docker-buildx
+          - docker-compose
     - name: Enable, start docker service
       when: ansible_facts["distribution"] == "Archlinux"
       become: true
