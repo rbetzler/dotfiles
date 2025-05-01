@@ -74,6 +74,7 @@
           - minikube
           - networkmanager-openvpn
           # - nodejs
+          - obsidian
           - openvpn
           - pandoc-cli
           - pgcli
