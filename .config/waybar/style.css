@@ -1,0 +1,88 @@
+@import url("./colors.css");
+* {
+    border: 3;
+    border-radius: 30;
+    font-family: Mononoki Nerd Font;
+    font-size: 11pt;
+    min-height: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+window#waybar {
+    opacity: 1;
+    background: @background;
+    background-color: transparent;
+    color: @foreground;
+    border-bottom: 0px solid @background;
+}
+#workspaces button {
+    padding: 0 10px;
+    color: @foreground;
+    border: 1;
+    border-radius: 150;
+    border-color: @purple;
+    border-style: solid;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+#workspaces button:hover {
+    background: linear-gradient(150deg, @purple, @selection);
+}
+#workspaces button.active {
+    background: linear-gradient(150deg, @purple, @selection);
+}
+#workspaces button.urgent {
+    background: linear-gradient(10deg, @red, @background-darker);
+}
+#taskbar button.active {
+    background: linear-gradient(10deg, @selection, @background-darker);
+}
+#tray {
+    color: @foreground;
+    border: 1;
+    border-radius: 150;
+    border-color: @purple;
+    border-style: solid;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+#pulseaudio {
+    color: @foreground;
+    border: 1;
+    border-radius: 150;
+    border-color: @purple;
+    border-style: solid;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+#upower {
+    color: @foreground;
+    border: 1;
+    border-radius: 150;
+    border-color: @purple;
+    border-style: solid;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+#clock {
+    background-size: 200% 300%;
+    font-size: 15px;
+
+    padding: 0 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 25px;
+
+    color: @foreground;
+    border: 1;
+    border-radius: 150;
+    border-color: @purple;
+    border-style: solid;
+}
+#custom-notification {
+  font-family: "Mononoki Nerd Font";
+}

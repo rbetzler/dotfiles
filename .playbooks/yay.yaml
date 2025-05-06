@@ -77,6 +77,12 @@
         use: yay
         name:
           - ventoy-bin
+    - name: Install hyprland extras
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - hyprland-monitor-attached
     # - name: Install oh my zsh
     #   kewlfft.aur.aur:
     #     use: yay
