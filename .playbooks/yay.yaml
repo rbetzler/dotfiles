@@ -83,6 +83,7 @@
         use: yay
         name:
           - hyprland-monitor-attached
+          - hyprshot
     # - name: Install oh my zsh
     #   kewlfft.aur.aur:
     #     use: yay

@@ -26,16 +26,13 @@
         state: present
         name:
           - blueman
-          - grim
           - hyprland
           - hyprpaper
           - network-manager-applet
           - pavucontrol
           - rofi
-          - slurp
           - swaync
           - waybar
-          - wl-clipboard
           - xdg-desktop-portal-hyprland
     - name: Install aesthetic helpers
       when: ansible_facts["distribution"] == "Archlinux"
