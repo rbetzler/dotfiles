@@ -7,9 +7,9 @@ restart_waybar(){
   hyprctl dispatch exec waybar
 }
 
-monitors=$(hyprctl monitors -j | jq '.[]."name"')
-if echo "$monitors" | grep --quiet 'DP-1'; then
-if echo "$monitors" | grep --quiet 'DP-3'; then
+monitors=$(hyprctl monitors -j | jq -r '.[]."name"')
+if echo "$monitors" | grep --quiet --basic-regexp '^DP-1'; then
+if echo "$monitors" | grep --quiet --basic-regexp '^DP-3'; then
   hyprctl keyword monitor "eDP-1, disable"
   hyprctl keyword monitor "DP-1, 1920x1080, 1920x0, 1"
   hyprctl keyword monitor "DP-3, 2560x1440, 3840x0, 1"
