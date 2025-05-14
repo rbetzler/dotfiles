@@ -53,3 +53,12 @@
       ansible.builtin.shell: |
         mkdir -p "${HOME}/.local/share/autojump/"
         cp $(find / -name autojump.zsh 2> /dev/null | head -n 1) "${HOME}/.local/share/autojump/autojump.zsh"
+    - name: Check for autocomplete for mise
+      register: autocomplete_mise
+      ansible.builtin.stat:
+        path: '{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/mise/mise.plugin.zsh'
+    - name: Generate autocomplete for mise
+      when: autocomplete_mise.stat.isreg is not defined
+      ansible.builtin.shell: |
+        mkdir -p "${HOME}/.oh-my-zsh/custom/plugins/mise"
+        mise completion zsh > "${HOME}/.oh-my-zsh/custom/plugins/mise/mise.plugin.zsh"

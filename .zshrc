@@ -13,6 +13,7 @@ plugins=(
   gcloud
   kubectl
   minikube
+  mise
   nix-zsh-completions
   pulumi
   # pyenv
@@ -136,6 +137,9 @@ fi
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
+
+# Mise
+eval "$(mise activate zsh)"
 
 # Activate home python venv after nix
 source ${HOME}/venv/bin/activate

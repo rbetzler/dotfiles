@@ -87,6 +87,7 @@
           - kubectl
           - libreoffice-still
           - minikube
+          - mise
           - networkmanager-openvpn
           # - nodejs
           - obsidian
@@ -98,6 +99,7 @@
           - sops
           - tk
           - tree
+          - usage
           - xclip
     - name: Install audio
       when: ansible_facts["distribution"] == "Archlinux"
