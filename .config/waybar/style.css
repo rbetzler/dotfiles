@@ -86,3 +86,15 @@ window#waybar {
 #custom-notification {
   font-family: "Mononoki Nerd Font";
 }
+/*
+#memory {
+    color: @foreground;
+    border: 1;
+    border-radius: 150;
+    border-color: @purple;
+    border-style: solid;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 5px;
+}
+*/
