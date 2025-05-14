@@ -29,7 +29,7 @@
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "tray": {
-    "spacing": 4
+    "spacing": 8
   },
   "pulseaudio": {
     "format": "{volume} {icon}",
