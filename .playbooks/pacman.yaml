@@ -26,6 +26,7 @@
         state: present
         name:
           - blueman
+          - cava
           - hyprland
           - hyprpaper
           - network-manager-applet
