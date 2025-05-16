@@ -138,11 +138,11 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
-# Mise
-eval "$(mise activate zsh)"
-
 # Activate home python venv after nix
 source ${HOME}/venv/bin/activate
 
 # Disable pythonpath (since nix messes with it)
 export PYTHONPATH=''
+
+# Mise
+eval "$(mise activate zsh)"
