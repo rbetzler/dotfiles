@@ -142,7 +142,7 @@ eval "$(pyenv init --path)"
 source ${HOME}/venv/bin/activate
 
 # Disable pythonpath (since nix messes with it)
-export PYTHONPATH=''
+# export PYTHONPATH=''
 
 # Mise
 eval "$(mise activate zsh)"
