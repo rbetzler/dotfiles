@@ -15,22 +15,22 @@ keybind = alt+right=goto_split:right
 keybind = alt+up=goto_split:up
 keybind = alt+down=goto_split:down
 
-keybind = alt+shift+h=new_split:left
-keybind = alt+shift+l=new_split:right
-keybind = alt+shift+k=new_split:up
-keybind = alt+shift+j=new_split:down
-keybind = alt+shift+left=new_split:left
-keybind = alt+shift+right=new_split:right
-keybind = alt+shift+up=new_split:up
-keybind = alt+shift+down=new_split:down
+keybind = alt+ctrl+h=new_split:left
+keybind = alt+ctrl+l=new_split:right
+keybind = alt+ctrl+k=new_split:up
+keybind = alt+ctrl+j=new_split:down
+keybind = alt+ctrl+left=new_split:left
+keybind = alt+ctrl+right=new_split:right
+keybind = alt+ctrl+up=new_split:up
+keybind = alt+ctrl+down=new_split:down
 
-keybind = ctrl+alt+shift+h=resize_split:left,10
-keybind = ctrl+alt+shift+l=resize_split:right,10
-keybind = ctrl+alt+shift+k=resize_split:up,10
-keybind = ctrl+alt+shift+j=resize_split:down,10
-keybind = ctrl+alt+shift+left=resize_split:left,10
-keybind = ctrl+alt+shift+right=resize_split:right,10
-keybind = ctrl+alt+shift+up=resize_split:up,10
-keybind = ctrl+alt+shift+down=resize_split:down,10
+keybind = alt+shift+h=resize_split:left,10
+keybind = alt+shift+l=resize_split:right,10
+keybind = alt+shift+k=resize_split:up,10
+keybind = alt+shift+j=resize_split:down,10
+keybind = alt+shift+left=resize_split:left,10
+keybind = alt+shift+right=resize_split:right,10
+keybind = alt+shift+up=resize_split:up,10
+keybind = alt+shift+down=resize_split:down,10
 
 keybind = ctrl+alt+n=new_window
