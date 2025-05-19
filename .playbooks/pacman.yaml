@@ -18,6 +18,7 @@
           - python-pip
           - python-virtualenv
           - terminator
+          - uv
           - wget
           - zsh
     - name: Install hyprland, etc
