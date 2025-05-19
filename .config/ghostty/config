@@ -1,7 +1,6 @@
 theme = dracula
 
 font-size = 10
-link-url = true
 
 keybind = ctrl+shift+e=new_split:right
 keybind = ctrl+shift+o=new_split:down
