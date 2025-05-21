@@ -32,4 +32,7 @@ keybind = alt+shift+right=resize_split:right,10
 keybind = alt+shift+up=resize_split:up,10
 keybind = alt+shift+down=resize_split:down,10
 
+keybind = alt+page_up=scroll_page_lines:-10
+keybind = alt+page_down=scroll_page_lines:10
+
 keybind = ctrl+alt+n=new_window
