@@ -132,3 +132,6 @@ element-text, element-icon {
     background-color: inherit;
     text-color: inherit;
 }
+element-text {
+    padding: 8px 0px 0px 0px ;
+}
