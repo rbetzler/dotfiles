@@ -132,5 +132,5 @@ element-text, element-icon {
     text-color: inherit;
 }
 element-text {
-    padding: 8px 0px 0px 0px ;
+    padding: 10px 0px 0px 0px ;
 }
