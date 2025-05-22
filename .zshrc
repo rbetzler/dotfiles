@@ -106,6 +106,14 @@ export NIX_SSL_CERT_FILE=$CURL_CA_BUNDLE
 
 # Most aliases
 alias awk1="awk '{print \$1}'"
+alias awk2="awk '{print \$2}'"
+alias awk3="awk '{print \$3}'"
+alias awk4="awk '{print \$4}'"
+alias awk5="awk '{print \$5}'"
+alias awk6="awk '{print \$6}'"
+alias awk7="awk '{print \$7}'"
+alias awk8="awk '{print \$8}'"
+alias awk9="awk '{print \$9}'"
 alias b="bat --theme Dracula"
 alias c="bat --theme Dracula"
 alias ch="clickhouse-client --vertical"
