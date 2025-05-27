@@ -1,4 +1,10 @@
 [plugin]
 prepend_previewers = [
-  { name = "*.md", run = "glow" },
+	{ name = "*.md", run = "glow" },
+	{ mime = "text/*", run = "bat" },
+]
+
+append_previewers = [
+	{ name = "*/", run = "folder", sync = true },
+	{ mime = "*", run = "bat" },
 ]
