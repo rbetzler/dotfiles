@@ -32,7 +32,7 @@ easing = "easeInOutCubic"
 preview = { tab_size = 2, max_width = 100, max_height = 50, cache_size = 50, scroll_offset = 5 }
 preview_ratios = [1, 4, 4]
 preview_shown = true
-preview_service = { image = "ueberzug", video = "ffmpegthumbnailer", pdf = "pdftoppm" }
+preview_service = { pdf = "pdftoppm" }
 
 # Sophisticated hover effects
 hovered = { fg = "#f8f8f2", bg = "#44475a", italic = true }
@@ -306,7 +306,7 @@ edit = [
 ]
 open = [
     { exec = 'xdg-open "$@"', desc = "Open with system default" },
-    { exec = 'firefox "$@"', desc = "Open in Firefox" }
+    # { exec = 'firefox "$@"', desc = "Open in Firefox" }
 ]
 reveal = [
     { exec = 'nautilus "$@"', desc = "Reveal in file manager" }
