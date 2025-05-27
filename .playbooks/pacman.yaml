@@ -52,6 +52,7 @@
         state: present
         name:
           - bat
+          - dysk
           - eza
           - fd
           - fzf
