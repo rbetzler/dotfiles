@@ -58,6 +58,7 @@
           - fzf
           - gawk
           - git-delta
+          - glow
           - htop
           - jq
           - pwgen
