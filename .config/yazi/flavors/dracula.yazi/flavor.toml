@@ -287,10 +287,10 @@ animate = true
 cache = true
 
 [preview.preview_service]
-image = "ueberzug"
-video = "ffmpegthumbnailer"
+# image = "ueberzug"
+# video = "ffmpegthumbnailer"
 pdf = "pdftoppm"
-epub = "epub-thumbnailer"
+# epub = "epub-thumbnailer"
 office = "libreoffice --headless --convert-to pdf"
 markdown = "glow"
 
@@ -302,7 +302,7 @@ background = "#282a36"
 [opener]
 edit = [
     { exec = 'nvim "$@"', desc = "Edit with Neovim" },
-    { exec = 'code "$@"', desc = "Edit with VS Code" }
+    # { exec = 'code "$@"', desc = "Edit with VS Code" }
 ]
 open = [
     { exec = 'xdg-open "$@"', desc = "Open with system default" },
