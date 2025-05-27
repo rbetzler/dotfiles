@@ -63,6 +63,7 @@
           - pwgen
           - sd
           - unzip
+          - yazi
     - name: Install xorg (for zoom mainly)
       when: ansible_facts["distribution"] == "Archlinux"
       become: true
