@@ -135,6 +135,7 @@ alias pu="pulumi"
 alias t="pwd && tre -e"
 alias v="nvim"
 alias vp="nvim -p"
+alias y="yazi"
 
 # Source os specific shell configs
 if grep --quiet Ubuntu /etc/os-release; then
