@@ -95,6 +95,7 @@
           - libxcrypt-compat
           - minikube
           - mise
+          - ncspot
           - networkmanager-openvpn
           # - nodejs
           - obsidian
