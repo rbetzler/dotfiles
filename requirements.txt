@@ -38,6 +38,7 @@ pytest
 shellcheck-py
 sqlalchemy
 sqlfluff
+sqlfmt
 twine
 wheel
 yamllint
