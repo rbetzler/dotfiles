@@ -160,16 +160,6 @@ endfunction
 command! WritePyBreakpoint call WritePyBreakpoint()
 nmap <C-b><C-k> :WritePyBreakpoint<CR>
 
-function RemovePyBreakpoints()
-  exec ':g/breakpoint()/d'
-endfunction
-command! RemovePyBreakpoints call RemovePyBreakpoints()
-
-function RemoveWhiteSpaces()
-  exec ':%s/\s\+$//e'
-endfunction
-command! RemoveWhiteSpaces call RemoveWhiteSpaces()
-
 function GenerateGithubLink()
   " Get the current branch name and string the new line chars
   let branch = substitute(system('git branch --show-current'), '\n\+$', '', '')
@@ -189,18 +179,6 @@ function TurnOffSyntaxLongLines()
   set synmaxcol=300
 endfunction
 command! TurnOffSyntaxLongLines call TurnOffSyntaxLongLines()
-
-" Semantically easier way to get out of a csv view
-function CSVDisable()
-  exec ':%UnArrangeColumn'
-endfunction
-command! CSVDisable call CSVDisable()
-
-" Semantically easier way to start csv view
-function CSVEnable()
-  exec ':%ArrangeColumn'
-endfunction
-command! CSVEnable call CSVEnable()
 
 " Menu for vim commands
 call wilder#setup({'modes': [':', '/', '?']})
@@ -244,12 +222,6 @@ call wilder#set_option('renderer', wilder#renderer_mux({
   \ '/': s:wildmenu_renderer,
   \ 'substitute': s:wildmenu_renderer,
   \ }))
-
-" Format json files
-function FormatJSON()
-  exec ':%!python -m json.tool'
-endfunction
-command! FormatJSON call FormatJSON()
 
 " Tweak dracula multi select highlighting
 hi! link IncSearch    DraculaOrange
