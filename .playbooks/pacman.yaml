@@ -80,6 +80,7 @@
           - age
           - argocd
           - aws-cli
+          - bc
           - bind
           - bitwarden-cli
           - copyq
