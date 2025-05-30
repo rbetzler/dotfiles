@@ -1,9 +1,9 @@
-require('plugins')
+require("plugins")
 
-require('bindings')
-require('files')
-require('general')
-require('github')
+require("bindings")
+require("files")
+require("general")
+require("github")
 
-require('configs.ale')
-require('configs.wilder')
+require("configs.ale")
+require("configs.wilder")

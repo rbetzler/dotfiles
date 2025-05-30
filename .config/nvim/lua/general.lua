@@ -1,5 +1,4 @@
-
-vim.g.python3_host_prog = '~/venv/bin/python'
+vim.g.python3_host_prog = "~/venv/bin/python"
 
 -- Syntax highlighting
 vim.g.python_highlight_all = 1
@@ -19,7 +18,7 @@ vim.o.background = "dark"
 vim.cmd("colorscheme dracula")
 
 -- Allow mouse
-vim.opt.mouse = 'a'
+vim.opt.mouse = "a"
 vim.g.is_mouse_enabled = 1
 
 -- Set ctags
@@ -51,14 +50,14 @@ vim.opt.completeopt:remove("preview")
 vim.g.NERDSpaceDelims = 1
 
 -- Align comments left
-vim.g.NERDDefaultAlign = 'left'
+vim.g.NERDDefaultAlign = "left"
 
 vim.api.nvim_set_hl(0, "IncSearch", { link = "DraculaOrange" })
 
 vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    vim.cmd("GitGutter")
-  end,
+	callback = function()
+		vim.cmd("GitGutter")
+	end,
 })
 
 -- Enable filetype plugins and indentation
