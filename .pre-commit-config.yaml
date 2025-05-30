@@ -40,3 +40,8 @@ repos:
     rev: 2.1.5
     hooks:
       - id: shellcheck
+  # Lua
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v2.1.0
+    hooks:
+      - id: stylua
