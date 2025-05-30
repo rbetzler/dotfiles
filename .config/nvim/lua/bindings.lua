@@ -10,9 +10,32 @@ keymap("v", "<C-x>", "x", opts)
 keymap("i", "<C-v>", "<Esc>P", opts)
 
 -- Normal mode mappings
-keymap("n", "<C-k>", ":wincmd k<CR>", opts)
-keymap("n", "<C-j>", ":wincmd j<CR>", opts)
-keymap("n", "<C-l>", ":wincmd l<CR>", opts)
-keymap("n", "<C-h>", ":wincmd h<CR>", opts)
+keymap("n", "<C-h>", "<CMD>wincmd h<CR>", opts)
+keymap("n", "<C-j>", "<CMD>wincmd j<CR>", opts)
+keymap("n", "<C-k>", "<CMD>wincmd k<CR>", opts)
+keymap("n", "<C-l>", "<CMD>wincmd l<CR>", opts)
+
+vim.keymap.set("n", "<C-S-h>", function()
+  vim.cmd("vsplit")
+  vim.cmd("wincmd l")
+  vim.cmd("wincmd H")
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<C-S-j>", function()
+  vim.cmd("split")
+  vim.cmd("wincmd j")
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<C-S-k>", function()
+  vim.cmd("split")
+  vim.cmd("wincmd j")
+  vim.cmd("wincmd K")
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<C-S-l>", function()
+  vim.cmd("vsplit")
+  vim.cmd("wincmd l")
+end, { noremap = true, silent = true })
+
 keymap("n", "<C-a>", ":NERDTreeFocusToggle<CR>", opts)
 keymap("n", "<F9>", ":setlocal spell! spelllang=en_us<CR>", opts)
