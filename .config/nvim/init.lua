@@ -1,4 +1,4 @@
-require("plugins")
+require("configs.lazy")
 
 require("bindings")
 require("files")

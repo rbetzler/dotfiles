@@ -111,6 +111,7 @@
           - usage
           - uv
           - xclip
+          - yarn
     - name: Install audio
       when: ansible_facts["distribution"] == "Archlinux"
       become: true

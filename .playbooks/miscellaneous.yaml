@@ -35,19 +35,19 @@
         - zsh-syntax-highlighting
         - zsh-system-clipboard
         - zsh-vi-mode
-    - name: Check for neovim plugins
-      register: nvim_plugins
-      ansible.builtin.stat:
-        path: '{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim'
-    - name: Install vim plug for neovim plugins
-      when: nvim_plugins.stat.isreg is not defined
-      ansible.builtin.shell: |
-        sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-          https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    - name: Install, update neovim plugins
-      ansible.builtin.shell: |
-        nvim --headless +PlugInstall +qa
-        nvim --headless +UpdateRemotePlugins +qa
+    # - name: Check for neovim plugins
+    #   register: nvim_plugins
+    #   ansible.builtin.stat:
+    #     path: '{{ ansible_env.HOME }}/.local/share/nvim/site/autoload/plug.vim'
+    # - name: Install vim plug for neovim plugins
+    #   when: nvim_plugins.stat.isreg is not defined
+    #   ansible.builtin.shell: |
+    #     sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+    #       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    # - name: Install, update neovim plugins
+    #   ansible.builtin.shell: |
+    #     nvim --headless +PlugInstall +qa
+    #     nvim --headless +UpdateRemotePlugins +qa
     - name: List all zen profiles
       register: zen_profiles
       ansible.builtin.find:
