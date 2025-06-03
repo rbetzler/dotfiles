@@ -13,10 +13,6 @@ return {
   "https://github.com/airblade/vim-gitgutter",
   "https://github.com/tpope/vim-repeat",
   "https://github.com/tpope/vim-surround",
-  {
-    "jistr/vim-nerdtree-tabs",
-    lazy = false,
-  },
   "mg979/vim-visual-multi",
   {
     "neoclide/coc.nvim",

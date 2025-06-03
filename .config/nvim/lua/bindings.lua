@@ -37,5 +37,5 @@ vim.keymap.set("n", "<C-S-l>", function()
   vim.cmd("wincmd l")
 end, { noremap = true, silent = true })
 
-keymap("n", "<C-a>", ":NERDTreeFocusToggle<CR>", opts)
+keymap("n", "<C-a>", ":NERDTreeFocus<CR>", opts)
 keymap("n", "<F9>", ":setlocal spell! spelllang=en_us<CR>", opts)
