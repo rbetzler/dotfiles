@@ -10,8 +10,8 @@ keymap("v", "<C-x>", "x", opts)
 keymap("i", "<C-v>", "<Esc>P", opts)
 
 -- Match visual selector vim-native bindings with arrow keys
-vim.keymap.set('n', '<C-k>', '<Plug>(VM-Add-Cursor-Up)', opts)
-vim.keymap.set('n', '<C-j>', '<Plug>(VM-Add-Cursor-Down)', opts)
+vim.keymap.set("n", "<C-k>", "<Plug>(VM-Add-Cursor-Up)", opts)
+vim.keymap.set("n", "<C-j>", "<Plug>(VM-Add-Cursor-Down)", opts)
 
 -- Normal mode navigation mappings
 keymap("n", "<leader><C-h>", "<CMD>wincmd h<CR>", opts)
@@ -20,25 +20,25 @@ keymap("n", "<leader><C-k>", "<CMD>wincmd k<CR>", opts)
 keymap("n", "<leader><C-l>", "<CMD>wincmd l<CR>", opts)
 
 vim.keymap.set("n", "<leader><C-S-h>", function()
-  vim.cmd("vsplit")
-  vim.cmd("wincmd l")
-  vim.cmd("wincmd H")
+	vim.cmd("vsplit")
+	vim.cmd("wincmd l")
+	vim.cmd("wincmd H")
 end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader><C-S-j>", function()
-  vim.cmd("split")
-  vim.cmd("wincmd j")
+	vim.cmd("split")
+	vim.cmd("wincmd j")
 end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader><C-S-k>", function()
-  vim.cmd("split")
-  vim.cmd("wincmd j")
-  vim.cmd("wincmd K")
+	vim.cmd("split")
+	vim.cmd("wincmd j")
+	vim.cmd("wincmd K")
 end, { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader><C-S-l>", function()
-  vim.cmd("vsplit")
-  vim.cmd("wincmd l")
+	vim.cmd("vsplit")
+	vim.cmd("wincmd l")
 end, { noremap = true, silent = true })
 
 -- Random
