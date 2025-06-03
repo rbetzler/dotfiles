@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require("configs.lazy")
 
 require("bindings")
