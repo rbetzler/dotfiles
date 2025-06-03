@@ -23,7 +23,6 @@ return {
   "romgrk/fzy-lua-native",
   "scrooloose/nerdtree",
   "sheerun/vim-polyglot",
-  "tpope/vim-commentary",
   "vim-airline/vim-airline",
   "vim-airline/vim-airline-themes",
 }
