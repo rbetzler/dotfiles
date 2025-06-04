@@ -40,3 +40,4 @@ repos:
     rev: v2.1.0
     hooks:
       - id: stylua
+        args: ["--indent-type", "Spaces"]
