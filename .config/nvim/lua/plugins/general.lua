@@ -10,7 +10,12 @@ return {
 		build = "yarn install && yarn build",
 	},
 	"gelguy/wilder.nvim",
-	"https://github.com/airblade/vim-gitgutter",
+	{
+	  "https://github.com/airblade/vim-gitgutter",
+	  init = function()
+	    vim.g.gitgutter_map_keys = 0
+	  end,
+	},
 	"https://github.com/tpope/vim-repeat",
 	"https://github.com/tpope/vim-surround",
 	"mg979/vim-visual-multi",
