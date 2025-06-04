@@ -36,7 +36,7 @@ return {
 		end
 
 		Hydra({
-			name = "Window resize",
+			name = "Windows",
 			mode = "n",
 			body = "<leader>w",
 			heads = {
