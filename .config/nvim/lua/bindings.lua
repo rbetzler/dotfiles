@@ -16,10 +16,14 @@ vim.keymap.set("n", "<C-Up>", "<Plug>(VM-Add-Cursor-Up)", opts)
 vim.keymap.set("n", "<C-Down>", "<Plug>(VM-Add-Cursor-Down)", opts)
 
 -- Normal mode navigation mappings
-keymap("n", "<C-S-h>", "<CMD>wincmd h<CR>", opts)
-keymap("n", "<C-S-j>", "<CMD>wincmd j<CR>", opts)
-keymap("n", "<C-S-k>", "<CMD>wincmd k<CR>", opts)
-keymap("n", "<C-S-l>", "<CMD>wincmd l<CR>", opts)
+keymap("n", "<leader><C-h>", "<CMD>wincmd h<CR>", opts)
+keymap("n", "<leader><C-j>", "<CMD>wincmd j<CR>", opts)
+keymap("n", "<leader><C-k>", "<CMD>wincmd k<CR>", opts)
+keymap("n", "<leader><C-l>", "<CMD>wincmd l<CR>", opts)
+keymap("n", "<leader><C-Left>", "<CMD>wincmd h<CR>", opts)
+keymap("n", "<leader><C-Down>", "<CMD>wincmd j<CR>", opts)
+keymap("n", "<leader><C-Up>", "<CMD>wincmd k<CR>", opts)
+keymap("n", "<leader><C-Right>", "<CMD>wincmd l<CR>", opts)
 
 -- Create splits
 vim.keymap.set("n", "<leader><C-S-h>", function()
@@ -45,10 +49,19 @@ vim.keymap.set("n", "<leader><C-S-l>", function()
 end, opts)
 
 -- Resize splits
-vim.keymap.set('n', '<C-S-Left>', '<CMD>vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<C-S-Down>', '<CMD>resize +2<CR>', opts)
-vim.keymap.set('n', '<C-S-Up>', '<CMD>resize -2<CR>', opts)
-vim.keymap.set('n', '<C-S-Right>', '<CMD>vertical resize +2<CR>', opts)
+local resize = function(win, amt, dir)
+    return function()
+        require("winresize").resize(win, amt, dir)
+    end
+end
+vim.keymap.set("n", "<C-S-h>", resize(0, 2, "left"))
+vim.keymap.set("n", "<C-S-j>", resize(0, 1, "down"))
+vim.keymap.set("n", "<C-S-k>", resize(0, 1, "up"))
+vim.keymap.set("n", "<C-S-l>", resize(0, 2, "right"))
+vim.keymap.set("n", "<C-S-Left>", resize(0, 2, "left"))
+vim.keymap.set("n", "<C-S-Down>", resize(0, 1, "down"))
+vim.keymap.set("n", "<C-S-Up>", resize(0, 1, "up"))
+vim.keymap.set("n", "<C-S-Right>", resize(0, 2, "right"))
 
 -- Random
 keymap("n", "<leader><C-a>", "<CMD>NERDTreeFocus<CR>", opts)

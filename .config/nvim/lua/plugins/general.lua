@@ -19,6 +19,7 @@ return {
 		branch = "release",
 		build = "yarn install",
 	},
+	"pogyomo/winresize.nvim",
 	"preservim/nerdcommenter",
 	"romgrk/fzy-lua-native",
 	"scrooloose/nerdtree",

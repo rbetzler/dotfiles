@@ -40,5 +40,6 @@ keybind = ctrl+shift+o=new_split:down
 keybind = ctrl+alt+n=new_window
 
 keybind = ctrl+shift+j=unbind
+keybind = ctrl+shift+n=unbind
 keybind = ctrl+shift+left=unbind
 keybind = ctrl+shift+right=unbind
