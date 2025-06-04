@@ -1,5 +1,4 @@
--- Set keymaps
-local keymap = vim.api.nvim_set_keymap
+local Windows = require("windows")
 local opts = { noremap = true, silent = true }
 
 -- Visual mode mappings
@@ -21,6 +20,10 @@ vim.keymap.set("n", "<leader>j", "<CMD>wincmd j<CR>", opts)
 vim.keymap.set("n", "<leader>k", "<CMD>wincmd k<CR>", opts)
 vim.keymap.set("n", "<leader>l", "<CMD>wincmd l<CR>", opts)
 vim.keymap.set("n", "<leader>a", "<CMD>NERDTreeFocus<CR>", opts)
+vim.keymap.set("n", "<leader><C-h>", Windows.openSplitLeft(), opts)
+vim.keymap.set("n", "<leader><C-j>", Windows.openSplitDown(), opts)
+vim.keymap.set("n", "<leader><C-k>", Windows.openSplitUp(), opts)
+vim.keymap.set("n", "<leader><C-l>", Windows.openSplitRight(), opts)
 
 -- Random
 vim.keymap.set("n", "<F9>", ":setlocal spell! spelllang=en_us<CR>", opts)

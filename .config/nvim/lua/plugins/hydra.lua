@@ -3,35 +3,10 @@ return {
 	dependencies = { "anuvyklack/keymap-layer.nvim" },
 	config = function()
 		local Hydra = require("hydra")
+		local Windows = require("windows")
 		local resize = function(win, amt, dir)
 			return function()
 				require("winresize").resize(win, amt, dir)
-			end
-		end
-		local hfunction = function()
-			return function()
-				vim.cmd("vsplit")
-				vim.cmd("wincmd l")
-				vim.cmd("wincmd H")
-			end
-		end
-		local jfunction = function()
-			return function()
-				vim.cmd("split")
-				vim.cmd("wincmd j")
-			end
-		end
-		local kfunction = function()
-			return function()
-				vim.cmd("split")
-				vim.cmd("wincmd j")
-				vim.cmd("wincmd K")
-			end
-		end
-		local lfunction = function()
-			return function()
-				vim.cmd("vsplit")
-				vim.cmd("wincmd l")
 			end
 		end
 
@@ -47,10 +22,10 @@ return {
 				{ "k", "<CMD>wincmd k<CR>" },
 				{ "l", "<CMD>wincmd l<CR>" },
 
-				{ "<C-h>", hfunction() },
-				{ "<C-j>", jfunction() },
-				{ "<C-k>", kfunction() },
-				{ "<C-l>", lfunction() },
+				{ "<C-h>", Windows.openSplitLeft() },
+				{ "<C-j>", Windows.openSplitDown() },
+				{ "<C-k>", Windows.openSplitUp() },
+				{ "<C-l>", Windows.openSplitRight() },
 
 				{ "<C-S-h>", resize(0, 2, "left") },
 				{ "<C-S-j>", resize(0, 2, "down") },
