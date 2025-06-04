@@ -1,9 +1,9 @@
 local Windows = require("windows")
 local opts = { noremap = true, silent = true }
 local resize = function(win, amt, dir)
-        return function()
-                require("winresize").resize(win, amt, dir)
-        end
+    return function()
+        require("winresize").resize(win, amt, dir)
+    end
 end
 
 -- Visual mode mappings

@@ -1,10 +1,10 @@
 vim.g.ale_fixers = {
-	["*"] = { "remove_trailing_lines", "trim_whitespace" },
-	python = { "autoflake", "black", "isort" },
+    ["*"] = { "remove_trailing_lines", "trim_whitespace" },
+    python = { "autoflake", "black", "isort" },
 }
 
 vim.g.ale_linters_ignore = {
-	sql = { "sqlfluff" },
+    sql = { "sqlfluff" },
 }
 
 vim.g.ale_sign_error = "✘"

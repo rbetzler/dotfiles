@@ -55,9 +55,9 @@ vim.g.NERDDefaultAlign = "left"
 vim.api.nvim_set_hl(0, "IncSearch", { link = "DraculaOrange" })
 
 vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		vim.cmd("GitGutter")
-	end,
+    callback = function()
+        vim.cmd("GitGutter")
+    end,
 })
 
 -- Enable filetype plugins and indentation
