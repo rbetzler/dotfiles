@@ -40,6 +40,8 @@ return {
 			mode = "n",
 			body = "<leader>w",
 			heads = {
+				{ "a", "<CMD>NERDTreeFocus<CR>" },
+
 				{ "h", "<CMD>wincmd h<CR>" },
 				{ "j", "<CMD>wincmd j<CR>" },
 				{ "k", "<CMD>wincmd k<CR>" },
