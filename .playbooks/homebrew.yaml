@@ -19,8 +19,10 @@
           - gh
           - helm
           - kubernetes-cli
+          - mise
           - neovim
           - pulumi
           - pyenv
           - sops
           - vgrep
+          - yarn
