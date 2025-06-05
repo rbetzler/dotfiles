@@ -99,6 +99,7 @@
           - ncspot
           - networkmanager-openvpn
           # - nodejs
+          - nvm
           - obsidian
           - openvpn
           - pandoc-cli
