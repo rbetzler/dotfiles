@@ -1,6 +1,7 @@
 theme = dracula
 
 font-size = 10
+confirm-close-surface = false
 
 keybind = alt+h=goto_split:left
 keybind = alt+l=goto_split:right
