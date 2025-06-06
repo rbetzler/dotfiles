@@ -18,6 +18,7 @@
           - gcc
           - gh
           - helm
+          - kind
           - kubernetes-cli
           - mise
           - neovim
