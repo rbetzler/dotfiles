@@ -24,5 +24,6 @@
           - pulumi
           - pyenv
           - sops
+          - talosctl
           - vgrep
           - yarn
