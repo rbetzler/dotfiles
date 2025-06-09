@@ -1,7 +1,7 @@
 {
   "ale": { "branch": "master", "commit": "80ff84db84ba172bfcdee5e2748924bb2249134b" },
   "coc-pyright": { "branch": "master", "commit": "eed1e27b164b7c9aa2f747382c77a0f78de43d4a" },
-  "coc.nvim": { "branch": "release", "commit": "9f7f280194f70229ec667721373a74d238618220" },
+  "coc.nvim": { "branch": "release", "commit": "aa96f1ddd567ac117fcc5cb24559f2d7a659ec85" },
   "csv.vim": { "branch": "master", "commit": "b8eb7f67babce96168e7f6b93b2ba8328b72a390" },
   "dracula": { "branch": "master", "commit": "d4b0823100c702af127cba8dd5595a8f599041ec" },
   "fzy-lua-native": { "branch": "master", "commit": "9d720745d5c2fb563c0d86c17d77612a3519c506" },
