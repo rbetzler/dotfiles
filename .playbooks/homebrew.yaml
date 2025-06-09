@@ -18,6 +18,8 @@
           - gcc
           - gh
           - helm
+          # Might want to run `docker update --restart=no [container-id]`
+          # https://github.com/kubernetes-sigs/kind/issues/2631#issuecomment-1627428400
           - kind
           - kubernetes-cli
           - mise
