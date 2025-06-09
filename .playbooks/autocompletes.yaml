@@ -62,3 +62,11 @@
       ansible.builtin.shell: |
         mkdir -p "${HOME}/.oh-my-zsh/custom/plugins/mise"
         mise completion zsh > "${HOME}/.oh-my-zsh/custom/plugins/mise/mise.plugin.zsh"
+    - name: Check for autocomplete for kind
+      register: autocomplete_kind
+      ansible.builtin.stat:
+        path: '{{ ansible_env.HOME }}/.utils/kind.sh'
+    - name: Generate autocomplete for kind
+      when: autocomplete_kind.stat.isreg is not defined
+      ansible.builtin.shell: |
+        kind completion zsh > "${HOME}/.utils/kind.sh"
