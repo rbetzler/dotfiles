@@ -198,6 +198,9 @@
     pr-list-mine-global ="!f() { \
       gh search prs --author=@me --state=open --json 'isDraft,title,url' --archived=false; \
     }; f"
+    pr-list-mine-global-urls ="!f() { \
+      git pr-list-mine-global | jq -r '.[].url'; \
+    }; f"
     pr-list-work-team = !bash ~/.git_aliases/list_prs 2
 
     # Open, reopen prs
