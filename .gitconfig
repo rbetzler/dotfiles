@@ -195,13 +195,13 @@
     pr-redraft = !bash ~/.git_aliases/open_prs draft main reopen
     pr-redraft-staging = !bash ~/.git_aliases/open_prs draft staging reopen
 
-    pr-list = !bash ~/.git_aliases/list_prs 0
-    pr-list-mine = !bash ~/.git_aliases/list_prs 1
-    pr-list-mine-global ="!f() { \
+    pr-list-all = !bash ~/.git_aliases/list_prs 0
+    pr-list = !bash ~/.git_aliases/list_prs 1
+    pr-list-global ="!f() { \
       gh search prs --author=@me --state=open --json 'isDraft,title,url' --archived=false; \
     }; f"
-    pr-list-mine-global-urls ="!f() { \
-      git pr-list-mine-global | jq -r '.[].url'; \
+    pr-list-global-urls ="!f() { \
+      git pr-list-global | jq -r '.[].url'; \
     }; f"
     pr-list-work-team = !bash ~/.git_aliases/list_prs 2
 
