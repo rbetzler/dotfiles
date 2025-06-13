@@ -1,5 +1,5 @@
-[mgr]
-show_hidden = true
+# [mgr]
+# show_hidden = true
 
 [plugin]
 prepend_previewers = [
