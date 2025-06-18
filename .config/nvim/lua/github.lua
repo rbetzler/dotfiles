@@ -1,5 +1,5 @@
 -- Generate a github link for the highlighted line
-local function GenerateGithubLink()
+local function GenerateGithubLink(opts)
     -- Get current branch name
     local branch = vim.fn.system("git branch --show-current"):gsub("%s+$", "")
 
@@ -16,11 +16,11 @@ local function GenerateGithubLink()
 
     -- Send to clipboard and print full github url
     if repo_path and branch ~= "" and file_path ~= "" then
-        local url = "https://github.com/" .. repo_path .. "/blob/" .. branch .. "/" .. file_path .. "#L" .. line_nbr
+        local url = "https://github.com/" .. repo_path .. "/blob/" .. branch .. "/" .. file_path .. "#L" .. opts.line1 .. "-L" .. opts.line2
         vim.fn.setreg("+", url)
         print(url)
     else
         print("Error: Could not generate GitHub URL")
     end
 end
-vim.api.nvim_create_user_command("GenerateGithubLink", GenerateGithubLink, {})
+vim.api.nvim_create_user_command("GenerateGithubLink", GenerateGithubLink, { range = true })
