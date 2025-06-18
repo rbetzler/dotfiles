@@ -1,6 +1,6 @@
 {
   "ale": { "branch": "master", "commit": "80ff84db84ba172bfcdee5e2748924bb2249134b" },
-  "coc-pyright": { "branch": "master", "commit": "eed1e27b164b7c9aa2f747382c77a0f78de43d4a" },
+  "coc-pyright": { "branch": "master", "commit": "749bb4ec1f5ea8cb2640619b9f1a620d56b3e63f" },
   "coc.nvim": { "branch": "release", "commit": "4fee4938afa69843a3c147f9fdb453de67a1a7a2" },
   "csv.vim": { "branch": "master", "commit": "b8eb7f67babce96168e7f6b93b2ba8328b72a390" },
   "dracula": { "branch": "master", "commit": "d4b0823100c702af127cba8dd5595a8f599041ec" },
