@@ -113,6 +113,7 @@
           - uv
           - xclip
           - yarn
+          - ydotool
     - name: Install audio
       when: ansible_facts["distribution"] == "Archlinux"
       become: true
@@ -168,4 +169,11 @@
       ansible.builtin.systemd_service:
         name: systemd-timesyncd.service
         enabled: true
+        state: started
+    - name: Enable, start ydotool
+      when: ansible_facts["distribution"] == "Archlinux"
+      ansible.builtin.systemd_service:
+        name: ydotool
+        enabled: true
+        scope: user
         state: started
