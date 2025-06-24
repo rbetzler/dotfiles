@@ -35,13 +35,14 @@
           - slack-desktop
           - spotify
           - zoom
-    - name: Install gcloud cli
+    - name: Install work cli tooling
       when: ansible_facts["distribution"] == "Archlinux"
       kewlfft.aur.aur:
         use: yay
         name:
           - google-cloud-cli
           - google-cloud-cli-gke-gcloud-auth-plugin
+          - jira-cli
     - name: Install dracula aesthetics
       when: ansible_facts["distribution"] == "Archlinux"
       kewlfft.aur.aur:
