@@ -14,7 +14,7 @@ else
   branch_arg="--base $2"
 fi
 
-
+current_branch=$(git branch --show-current)
 
 # If reopening pr, close out the existing one
 if [ "$3" == "reopen" ]; then
@@ -28,6 +28,8 @@ if [ "$3" == "reopen" ]; then
 # Otherwise, just print the logs
 else
 
-  gh pr create --fill $draft_arg $branch_arg
+  git psu
+  pr=$(gh pr create --fill $draft_arg $branch_arg --head $current_branch)
+  copyq copy "$pr"
 
 fi
