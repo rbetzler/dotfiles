@@ -35,11 +35,7 @@ keybind = alt+page_down=scroll_page_lines:10
 
 keybind = alt+n=new_window
 
-# Legacy bindings
-keybind = ctrl+shift+e=new_split:right
-keybind = ctrl+shift+o=new_split:down
-keybind = ctrl+alt+n=new_window
-
+# Prevent conflicts with hyprland, nvim
 keybind = ctrl+shift+j=unbind
 keybind = ctrl+shift+n=unbind
 keybind = ctrl+shift+left=unbind
