@@ -21,6 +21,15 @@ keybind = alt+ctrl+right=new_split:right
 keybind = alt+ctrl+up=new_split:up
 keybind = alt+ctrl+down=new_split:down
 
+keybind = alt+w>h=new_split:left
+keybind = alt+w>l=new_split:right
+keybind = alt+w>k=new_split:up
+keybind = alt+w>j=new_split:down
+keybind = alt+w>left=new_split:left
+keybind = alt+w>right=new_split:right
+keybind = alt+w>up=new_split:up
+keybind = alt+w>down=new_split:down
+
 keybind = alt+shift+h=resize_split:left,10
 keybind = alt+shift+l=resize_split:right,10
 keybind = alt+shift+k=resize_split:up,10
