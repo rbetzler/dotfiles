@@ -1,5 +1,5 @@
 {
-  "ale": { "branch": "master", "commit": "80ff84db84ba172bfcdee5e2748924bb2249134b" },
+  "ale": { "branch": "master", "commit": "9e49019a2683bff012d53f28546ff968075ea3b9" },
   "coc-pyright": { "branch": "master", "commit": "749bb4ec1f5ea8cb2640619b9f1a620d56b3e63f" },
   "coc.nvim": { "branch": "release", "commit": "6e22c48f3315eeea39c0bb6788dad52216cf6e47" },
   "csv.vim": { "branch": "master", "commit": "b8eb7f67babce96168e7f6b93b2ba8328b72a390" },
