@@ -35,6 +35,7 @@ keybind = alt+page_down=scroll_page_lines:10
 
 keybind = alt+n=new_window
 keybind = alt+q=close_surface
+keybind = alt+w=close_surface
 
 # Prevent conflicts with hyprland, nvim
 keybind = ctrl+shift+j=unbind
