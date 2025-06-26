@@ -12,7 +12,13 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     # Install via playbooks
     ansible-playbook ~/.playbooks/main.yaml
     ```
-2. Configure browser plugins (e.g,. bitwarden)
+2. Configure browser plugins. TODO Move into dotfiles.
+   * Bitwarden
+   * Vimium
+     ```
+     map K previousTab
+     map J nextTab
+     ```
 3. Update ssh key on Github
 4. Update git remote on new machine
     ```bash
