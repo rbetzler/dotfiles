@@ -216,3 +216,7 @@ function y() {
   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
   rm -f -- "$tmp"
 }
+
+gawkheadchy(){
+  awk '{print $2}' | head -n 1 | git cherry-pick --stdin
+}
