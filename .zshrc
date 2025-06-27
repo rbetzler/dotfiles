@@ -24,9 +24,6 @@ plugins=(
   zsh-vi-mode
 )
 
-# Escape, leave a mode with `ctrl-l`
-ZVM_VI_ESCAPE_BINDKEY="^L"
-
 # Initialize vi mode early
 ZVM_INIT_MODE=sourcing
 
