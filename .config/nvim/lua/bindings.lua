@@ -12,6 +12,7 @@ vim.keymap.set("v", "<C-x>", "x", opts)
 
 -- Insert mode mapping
 vim.keymap.set("i", "<C-v>", "<Esc>P", opts)
+vim.keymap.set("i", "<C-l>", "<Esc>", opts)
 
 -- Match visual selector vim-native bindings with arrow keys
 vim.keymap.set("n", "<C-k>", "<Plug>(VM-Add-Cursor-Up)", opts)
