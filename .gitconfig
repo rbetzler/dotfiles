@@ -124,11 +124,11 @@
     }; f"
     df-vertical = "-c delta.side-by-side=false diff"
     dfc-vertical = "-c delta.side-by-side=false diff --cached"
-    edit-st-file = "!f() { \
-      vim $(git status --short | head -\"$1\" | tail -1 | awk '{print $2}'); \
+    edit-files-st = "!f() { \
+      nvim -p $(git diff --name-only --diff-filter=u); \
     }; f"
-    edit-df-files = "!f() { \
-      vim -o $(git diff --name-only); \
+    edit-files-df = "!f() { \
+      nvim -p $(git diff --name-only); \
     }; f"
     find-common-ancestor = "merge-base"
     ft = "fetch"
@@ -145,7 +145,6 @@
 
     # Logging
     l = log
-    lg = "log --graph"
     lfz = !bash ~/.git_aliases/log_fzf
     # Fuzzy find an author and their git log
     lfz-author = "!f() { \
@@ -254,15 +253,6 @@
     rmt-list = "remote -v"
     rmt-rmv = "!f() { \
       git remote remove \"$1\"; \
-    }; f"
-    rps-add = "!f() { \
-      gita add \"$1\"; \
-    }; f"
-    rps-status = "!f() { \
-      gita ll; \
-    }; f"
-    rps-list-branches = "!f() { \
-      gita super bl; \
     }; f"
 
     rflg = "!f() { \
