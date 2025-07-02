@@ -29,6 +29,14 @@ return {
     "romgrk/fzy-lua-native",
     "scrooloose/nerdtree",
     "sheerun/vim-polyglot",
-    "vim-airline/vim-airline",
+    {
+        "vim-airline/vim-airline",
+        init = function()
+            vim.g.airline_section_x = ''
+            vim.g.airline_section_y = ''
+            vim.g.airline_section_z = ''
+            vim.g.airline_extensions = {}
+        end,
+    },
     "vim-airline/vim-airline-themes",
 }
