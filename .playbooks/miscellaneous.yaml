@@ -66,7 +66,3 @@
         name: local-ssl-proxy
         executable: '{{ ansible_env.HOME }}/.nvm/versions/node/v24.1.0/bin/npm'
         global: true
-    - name: Configure libreoffice dracula
-      ansible.builtin.shell: |
-        cp ~/repos/libreoffice/dracula.soc ~/.config/libreoffice/*/user/config/
-        ~/repos/libreoffice/add-dracula-application-colors.sh
