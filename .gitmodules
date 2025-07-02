@@ -53,3 +53,7 @@
 [submodule "wallpaper"]
     path = repos/wallpaper
     url = https://github.com/dracula/wallpaper.git
+
+[submodule "repos/libreoffice"]
+    path = repos/libreoffice
+    url = https://github.com/dracula/libreoffice.git
