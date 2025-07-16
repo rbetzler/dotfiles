@@ -11,6 +11,14 @@ keybind = alt+left=goto_split:left
 keybind = alt+right=goto_split:right
 keybind = alt+up=goto_split:up
 keybind = alt+down=goto_split:down
+keybind = alt+s>h=goto_split:left
+keybind = alt+s>l=goto_split:right
+keybind = alt+s>k=goto_split:up
+keybind = alt+s>j=goto_split:down
+keybind = alt+s>left=goto_split:left
+keybind = alt+s>right=goto_split:right
+keybind = alt+s>up=goto_split:up
+keybind = alt+s>down=goto_split:down
 
 keybind = alt+ctrl+h=new_split:left
 keybind = alt+ctrl+l=new_split:right
@@ -20,6 +28,14 @@ keybind = alt+ctrl+left=new_split:left
 keybind = alt+ctrl+right=new_split:right
 keybind = alt+ctrl+up=new_split:up
 keybind = alt+ctrl+down=new_split:down
+keybind = alt+s>ctrl+h=new_split:left
+keybind = alt+s>ctrl+l=new_split:right
+keybind = alt+s>ctrl+k=new_split:up
+keybind = alt+s>ctrl+j=new_split:down
+keybind = alt+s>ctrl+left=new_split:left
+keybind = alt+s>ctrl+right=new_split:right
+keybind = alt+s>ctrl+up=new_split:up
+keybind = alt+s>ctrl+down=new_split:down
 
 keybind = alt+shift+h=resize_split:left,10
 keybind = alt+shift+l=resize_split:right,10
