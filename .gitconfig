@@ -295,6 +295,7 @@
     sh-vertical = "-c delta.side-by-side=false show"
 
     st = status
+    sts = status --short
 
     # Stashing
     sth = stash
