@@ -211,6 +211,9 @@
     pr-reopen = !bash ~/.git_aliases/open_prs open main reopen
     pr-reopen-staging = !bash ~/.git_aliases/open_prs open staging reopen
 
+    pr-cpcstdin = "!f() { \
+      gh pr list --json 'author,title,url' --limit 1000 | jq -r '.[] | [.url, .author.name, .title] | @tsv' | column -ts $'\t' | fzf | awk '{print $1}' | copyq copy - &> /dev/null; \
+    }; f"
     prs ="!f() { \
       gh pr status; \
     }; f"
