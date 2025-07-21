@@ -88,3 +88,14 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufNewFile" }, {
         vim.bo.commentstring = "/* %s */"
     end,
 })
+
+-----------
+-- Markdown
+-----------
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown", "mkd", "text" },
+  callback = function()
+    vim.fn["pencil#init"]()
+  end,
+})

@@ -26,6 +26,12 @@ return {
     },
     "pogyomo/winresize.nvim",
     "preservim/nerdcommenter",
+    {
+        "preservim/vim-pencil",
+        init = function()
+            vim.g["pencil#wrapModeDefault"] = "soft"
+        end,
+    },
     "romgrk/fzy-lua-native",
     "scrooloose/nerdtree",
     "sheerun/vim-polyglot",
