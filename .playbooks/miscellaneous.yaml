@@ -62,6 +62,7 @@
       with_items: "{{ zen_profiles.files | map(attribute='path') | list }}"
     - name: Install local proxy globally
       become: true
+      ignore_errors: true
       community.general.npm:
         name: local-ssl-proxy
         executable: '{{ ansible_env.HOME }}/.nvm/versions/node/v24.1.0/bin/npm'

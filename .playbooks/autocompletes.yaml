@@ -67,6 +67,7 @@
       ansible.builtin.stat:
         path: '{{ ansible_env.HOME }}/.utils/kind.sh'
     - name: Generate autocomplete for kind
+      ignore_errors: true
       when: autocomplete_kind.stat.isreg is not defined
       ansible.builtin.shell: |
         kind completion zsh > "${HOME}/.utils/kind.sh"
