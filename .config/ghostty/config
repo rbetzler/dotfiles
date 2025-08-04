@@ -64,7 +64,7 @@ keybind = alt+t>6=goto_tab:6
 keybind = alt+t>7=goto_tab:7
 keybind = alt+t>8=goto_tab:8
 keybind = alt+t>9=goto_tab:9
-# keybind = alt+n=new_window
+keybind = alt+n=new_window
 keybind = alt+q=close_surface
 keybind = alt+p>r>i>n>t=write_screen_file:paste
 
