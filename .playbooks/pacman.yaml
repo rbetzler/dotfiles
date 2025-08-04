@@ -60,6 +60,7 @@
           - gawk
           - git-delta
           - glow
+          - graphviz
           - htop
           - jq
           - pwgen
