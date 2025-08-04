@@ -13,6 +13,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     ansible-playbook ~/.playbooks/main.yaml
     ```
 2. Configure browser plugins. TODO Move into dotfiles.
+   * Authenticator
    * Bitwarden
    * Vimium
      ```
