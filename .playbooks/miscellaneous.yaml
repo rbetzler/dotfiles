@@ -54,12 +54,12 @@
         paths: '{{ ansible_env.HOME }}/.zen/'
         recurse: false
         file_type: directory
-    - name: Link user.js
+    - name: Link zen config files
       ansible.builtin.file:
-        src: '{{ ansible_env.HOME }}/.config/rlb/zen/user.js'
-        dest: '{{ item }}/user.js'
+        src: '{{ ansible_env.HOME }}/.config/rlb/zen/{{ item.1 }}'
+        dest: '{{ item.0 }}/{{ item.1 }}'
         state: link
-      with_items: "{{ zen_profiles.files | map(attribute='path') | list }}"
+      loop: "{{ zen_profiles.files | map(attribute='path') | list | product(['user.js', 'zen-keyboard-shortcuts.json']) | list }}"
     - name: Install local proxy globally
       become: true
       ignore_errors: true
