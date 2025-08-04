@@ -56,7 +56,7 @@
         file_type: directory
     - name: Link user.js
       ansible.builtin.file:
-        src: '{{ ansible_env.HOME }}/user.js'
+        src: '{{ ansible_env.HOME }}/.config/rlb/zen/user.js'
         dest: '{{ item }}/user.js'
         state: link
       with_items: "{{ zen_profiles.files | map(attribute='path') | list }}"
