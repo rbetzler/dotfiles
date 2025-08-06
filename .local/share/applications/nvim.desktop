@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=nvim
+Exec=ghostty -e nvim %F
+Terminal=false
