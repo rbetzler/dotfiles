@@ -1,0 +1,72 @@
+(defsrc
+  grv 1 2 3 4 5 6 7 8 9 0 - = bspc
+  tab q w e r t y u i o p [ ] \
+  caps a s d f g h j k l ; ' ret
+  lsft z x c v b n m , . / rsft
+  lctl lmet lalt spc ralt rctl
+)
+
+(deflayer base
+  grv @taph-1 @taph-2 @taph-3 @taph-4 @taph-5 @taph-6 @taph-7 @taph-8 @taph-9 @taph-0 - = bspc
+  tab @taph-q @taph-w e r t y u i o p [ ] \
+  caps @taph-a s d f g h j k l ; ' ret
+  @td-lsft z @taph-x c v b n m , . / @td-lsft
+  @os-lctl lmet @os-lalt spc @os-lalt @os-lctl
+)
+
+(defalias
+  os-lalt (one-shot-press 2000 lalt)
+  os-lctl (one-shot-press 2000 lctl)
+  os-lsft (one-shot-press 2000 lsft)
+)
+
+(defalias
+  td-lsft (tap-dance 200 (@os-lsft caps))
+)
+
+;; Vim macros
+(defalias
+  vim-quit (macro esc S-; q S-1)
+  vim-quit-all (macro esc S-; q a S-1)
+  vim-quit-write (macro esc S-; x)
+  vim-write (macro esc S-; w)
+)
+
+(defalias
+  taph-q (tap-hold 200 200 q @vim-quit)
+  taph-a (tap-hold 200 200 a @vim-quit-all)
+  taph-x (tap-hold 200 200 x @vim-quit-write)
+  taph-w (tap-hold 200 200 w @vim-write)
+)
+
+;; Numbers
+(defalias
+  taph-1 (tap-hold 200 200 1 (macro S-1 200))
+  taph-2 (tap-hold 200 200 2 (macro S-2 200))
+  taph-3 (tap-hold 200 200 3 (macro S-3 200))
+  taph-4 (tap-hold 200 200 4 (macro S-4 200))
+  taph-5 (tap-hold 200 200 5 (macro S-5 200))
+  taph-6 (tap-hold 200 200 6 (macro S-6 200))
+  taph-7 (tap-hold 200 200 7 (macro S-7 200))
+  taph-8 (tap-hold 200 200 8 (macro S-8 200))
+  taph-9 (tap-hold 200 200 9 (macro S-9 200))
+  taph-0 (tap-hold 200 200 0 (macro S-0 200))
+)
+
+;; Chords
+;; (defalias
+;;   ch-v (chord vim-exits v)
+;;   ch-a (chord vim-exits a)
+;;   ch-x (chord vim-exits x)
+;;   ch-q (chord vim-exits q)
+;; )
+;;
+;; (defchords vim-exits 500
+;;   (v)  v
+;;   (a)  a
+;;   (x)  x
+;;   (q)  q
+;;   (v a) @vim-quit-all
+;;   (v x) @vim-quit-write
+;;   (v q) @vim-quit
+;; )

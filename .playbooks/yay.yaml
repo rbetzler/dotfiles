@@ -85,6 +85,12 @@
         name:
           - hyprland-monitor-attached
           - hyprshot
+    - name: Install kanata
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - kanata-bin
     # - name: Install oh my zsh
     #   kewlfft.aur.aur:
     #     use: yay
