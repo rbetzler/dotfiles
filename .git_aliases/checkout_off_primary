@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euxo pipefail
+set -exo pipefail
 
 if [[ $1 == "primary" ]]; then
   branch=$(git b-primary)
@@ -8,8 +8,14 @@ else
   branch="$1"
 fi
 
-git co "$branch"
+git checkout "$branch"
 
-git pl
+git pull
 
-git cob "$2"
+if [ -z "$2" ]; then
+  date="$(date +"%Y%m%d")"
+  suffix="$(head -c 2 /dev/urandom | hexdump -e '2/1 "%02x"')"
+  git checkout -b "rbetzler/${date}-${suffix}"
+else
+  git checkout -b "$2"
+fi

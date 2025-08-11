@@ -2,7 +2,7 @@
 
 set -euxo pipefail
 
-for candidate in master main devel; do
+for candidate in main master; do
   if git b-exists "$candidate"; then
     echo "$candidate"
     exit 0
