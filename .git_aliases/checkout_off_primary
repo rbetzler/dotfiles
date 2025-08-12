@@ -17,5 +17,5 @@ if [ -z "$2" ]; then
   suffix="$(head -c 2 /dev/urandom | hexdump -e '2/1 "%02x"')"
   git checkout -b "rbetzler/${date}-${suffix}"
 else
-  git checkout -b "$2"
+  git checkout -b "rbetzler/${2}"
 fi
