@@ -1,0 +1,270 @@
+# 1. Using rpi-imager, write os to disk (remember to configure wifi, ssh keys, etc.)
+# 2. Run `ansible-playbook -i ~/.playbooks/inventory.yaml ~/.playbooks/pi.yaml --ask-become-pass`
+---
+- hosts: servers
+  vars:
+    repos:
+      - ~/repos/private.git
+  tasks:
+    - name: Add docker gpg key
+      tags:
+        - install
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      apt_key:
+        state: present
+        url: https://download.docker.com/linux/ubuntu/gpg
+    - name: Add docker repository
+      tags:
+        - install
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      apt_repository:
+        state: present
+        repo: deb https://download.docker.com/linux/ubuntu   noble stable
+    - name: Install docker
+      tags:
+        - install
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.apt:
+        state: present
+        update_cache: true
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+    - name: Enable, start docker service
+      tags:
+        - install
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.systemd_service:
+        name: docker.service
+        enabled: true
+        state: started
+    - name: Enable, start docker socket
+      tags:
+        - install
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.systemd_service:
+        name: docker.socket
+        enabled: true
+        state: started
+    - name: Add host user to docker group
+      tags:
+        - install
+      become: true
+      ansible.builtin.user:
+        name: "{{ ansible_env.USER }}"
+        groups: docker
+        append: true
+    #######
+    # Caddy
+    #######
+    - name: Create caddy dir
+      tags:
+        - service
+        - caddy
+      ansible.builtin.file:
+        path: ~/apps/caddy/
+        state: directory
+    - name: Write caddyfile
+      tags:
+        - service
+        - caddy
+      ansible.builtin.copy:
+        dest: ~/apps/caddy/Caddyfile
+        content: |
+          https://pi.local:8081 {
+              reverse_proxy http://192.168.1.170:8080
+              tls internal
+          }
+          https://pi.local:8083 {
+              reverse_proxy http://192.168.1.170:80
+              tls internal
+          }
+    - name: Write caddy docker compose
+      tags:
+        - service
+        - caddy
+      ansible.builtin.copy:
+        dest: ~/apps/caddy/docker-compose.yaml
+        content: |
+          ---
+          services:
+            caddy:
+              image: caddy
+              restart: unless-stopped
+              volumes:
+                - ~/apps/caddy/Caddyfile:/etc/caddy/Caddyfile
+              cap_add:
+                - NET_ADMIN
+              ports:
+                - 8081:8081
+                - 8083:8083
+    - name: Create, start caddy
+      tags:
+        - service
+        - caddy
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/caddy/
+    #############
+    # Vaultwarden
+    #############
+    - name: Create vaultwarden dir
+      tags:
+        - service
+        - vaultwarden
+      ansible.builtin.file:
+        path: ~/apps/vaultwarden/
+        state: directory
+    - name: Write vaultwarden docker compose
+      tags:
+        - service
+        - vaultwarden
+      ansible.builtin.copy:
+        dest: ~/apps/vaultwarden/docker-compose.yaml
+        content: |
+          ---
+          services:
+            vaultwarden:
+              image: vaultwarden/server
+              restart: unless-stopped
+              volumes:
+                - ./data/:/data/
+              ports:
+                - 8080:80
+    - name: Create, start vaultwarden
+      tags:
+        - service
+        - vaultwarden
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/vaultwarden/
+    ########
+    # Pihole
+    ########
+    - name: Create pihole dir
+      tags:
+        - service
+        - pihole
+      ansible.builtin.file:
+        path: ~/apps/pihole/config/
+        state: directory
+    - name: Write systemd dns config
+      tags:
+        - service
+        - pihole
+      become: true
+      ansible.builtin.copy:
+        dest: /etc/systemd/resolved.conf
+        content: |
+          [Resolve]
+          DNS=1.1.1.1
+          DNSStubListener=no
+    - name: Symlink systemd dns config
+      tags:
+        - service
+        - pihole
+      become: true
+      ansible.builtin.file:
+        src: /etc/systemd/resolved.conf
+        dest: /run/systemd/resolve/resolv.conf
+        state: link
+        force: true
+    # - name: Reboot machine and send a message
+    #   become: true
+    #   ansible.builtin.reboot:
+    - name: Write pihole docker compose
+      tags:
+        - service
+        - pihole
+      ansible.builtin.copy:
+        dest: ~/apps/pihole/docker-compose.yaml
+        content: |
+          ---
+          services:
+            pihole:
+              image: pihole/pihole:latest
+              container_name: pihole
+              restart: unless-stopped
+              ports:
+                - "53:53/tcp"
+                - "53:53/udp"
+                - "80:80/tcp"
+                - "443:443/tcp"
+              environment:
+                TZ: America/New_York
+                FTLCONF_dns_listeningMode: all
+              volumes:
+                - "~/apps/pihole/config:/etc/pihole"
+    - name: Create, start pihole
+      tags:
+        - service
+        - pihole
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/pihole/
+    ##########
+    # Jellyfin
+    ##########
+    - name: Create jellyfin dir
+      tags:
+        - service
+        - jellyfin
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - ~/apps/jellyfin/config/
+        - ~/apps/jellyfin/cache/
+    - name: Write jellyfin docker compose
+      tags:
+        - service
+        - jellyfin
+      ansible.builtin.copy:
+        dest: ~/apps/jellyfin/docker-compose.yaml
+        content: |
+          ---
+          services:
+            jellyfin:
+              image: jellyfin/jellyfin
+              container_name: jellyfin
+              restart: unless-stopped
+              ports:
+                - 8096:8096
+              volumes:
+                - ~/apps/jellyfin/config:/config
+                - ~/apps/jellyfin/cache:/cache
+                # - type: bind
+                #   source: /path/to/media
+                #   target: /media
+              environment:
+                - JELLYFIN_PublishedServerUrl=http://pi.local:8096
+    - name: Create, start jellyfin
+      tags:
+        - service
+        - jellyfin
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/jellyfin/
+    #######
+    # Repos
+    #######
+    - name: Create repo dirs
+      tags:
+        - git
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      loop: "{{ repos }}"
+    - name: Initialize repo
+      tags:
+        - git
+      ansible.builtin.shell:
+        cmd: git init --bare
+        chdir: "{{ item }}"
+      args:
+        creates: "{{ item }}/HEAD"
+      loop: "{{ repos }}"
