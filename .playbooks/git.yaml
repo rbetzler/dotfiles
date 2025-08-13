@@ -15,7 +15,7 @@
         git remote add https https://github.com/rbetzler/dotfiles.git
         git fetch --all
         rm "$HOME/.bashrc"
-        git checkout arch
+        git checkout master
     - name: Clone dotfiles
       ansible.builtin.git:
         repo: https://github.com/rbetzler/dotfiles.git
