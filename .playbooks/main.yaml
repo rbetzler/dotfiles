@@ -4,7 +4,6 @@
 - import_playbook: yay.yaml
 - import_playbook: nix.yaml
 - import_playbook: ubuntu.yaml
-- import_playbook: homebrew.yaml
 - import_playbook: python.yaml
 - import_playbook: autocompletes.yaml
 - import_playbook: miscellaneous.yaml

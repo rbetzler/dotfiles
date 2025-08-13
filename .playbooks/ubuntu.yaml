@@ -97,3 +97,28 @@
         name: docker.socket
         enabled: true
         state: started
+    - name: Install homebrew packages
+      when: ansible_facts["distribution"] == "Ubuntu"
+      homebrew:
+        state: present
+        update_homebrew: yes
+        name:
+          - argo
+          - argocd
+          - autojump
+          - awscli
+          # - dbeaver-community
+          - gcc
+          - gh
+          - helm
+          # Might want to run `docker update --restart=no [container-id]`
+          # https://github.com/kubernetes-sigs/kind/issues/2631#issuecomment-1627428400
+          - kind
+          - kubernetes-cli
+          - mise
+          - neovim
+          - pulumi
+          - pyenv
+          - sops
+          - vgrep
+          - yarn
