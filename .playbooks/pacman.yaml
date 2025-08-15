@@ -110,6 +110,7 @@
           - pulumi
           - pyenv
           - sops
+          - tailscale
           - tk
           - tree
           - usage
@@ -179,4 +180,10 @@
         name: ydotool
         enabled: true
         scope: user
+        state: started
+    - name: Enable, start tailscaled
+      when: ansible_facts["distribution"] == "Archlinux"
+      ansible.builtin.systemd_service:
+        name: tailscaled
+        enabled: true
         state: started
