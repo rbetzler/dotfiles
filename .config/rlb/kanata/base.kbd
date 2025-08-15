@@ -7,16 +7,17 @@
 )
 
 (deflayer base
-  grv @taph-1 @taph-2 @taph-3 @taph-4 @taph-5 @taph-6 @taph-7 @taph-8 @taph-9 @taph-0 - = bspc
+  grv @taph-1 @taph-2 @taph-3 @taph-4 @taph-5 @taph-6 @taph-7 @taph-8 @taph-9 @taph-0 @taph-minus @taph-equals bspc
   tab @taph-q @taph-w e r t y u i o p [ ] \
   caps @taph-a s d f g h j k l ; ' ret
   @td-lsft z @taph-x c v b n m , . / @td-lsft
-  @os-lctl lmet @os-lalt spc @os-lalt @os-lctl
+  @os-lctl @os-lmet @os-lalt spc @os-lalt @os-lctl
 )
 
 (defalias
   os-lalt (one-shot-press 2000 lalt)
   os-lctl (one-shot-press 2000 lctl)
+  os-lmet (one-shot-press 2000 lmet)
   os-lsft (one-shot-press 2000 lsft)
 )
 
@@ -51,6 +52,8 @@
   taph-8 (tap-hold 200 200 8 (macro S-8 200))
   taph-9 (tap-hold 200 200 9 (macro S-9 200))
   taph-0 (tap-hold 200 200 0 (macro S-0 200))
+  taph-minus (tap-hold 200 200 - (macro S-- 200))
+  taph-equals (tap-hold 200 200 = (macro S-= 200))
 )
 
 ;; Chords
