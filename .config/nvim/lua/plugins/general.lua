@@ -18,13 +18,13 @@ return {
     },
     "https://github.com/tpope/vim-repeat",
     "https://github.com/tpope/vim-surround",
-    {
-        "junegunn/goyo.vim",
-        init = function()
-            vim.g.goyo_width = "100%"
-            vim.g.goyo_height = "100%"
-        end,
-    },
+    -- {
+    --     "junegunn/goyo.vim",
+    --     init = function()
+    --         vim.g.goyo_width = "100%"
+    --         vim.g.goyo_height = "100%"
+    --     end,
+    -- },
     "mg979/vim-visual-multi",
     {
         "neoclide/coc.nvim",
