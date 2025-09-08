@@ -1,0 +1,24 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Configure email utils
+      ansible.builtin.copy:
+        content: "{{ lookup('community.sops.sops', item.src_file, rstrip=false) }}"
+        dest: '{{ item.dest_file }}'
+        mode: 0644
+      with_items:
+        - src_file: ~/.encrypted/mbsyncrc.enc
+          dest_file: '{{ ansible_env.HOME }}/.mbsyncrc'
+    - name: Setup email sync cron
+      ansible.builtin.cron:
+        name: sync emails
+        minute: "*/5"
+        job: /usr/bin/mbsync --config /home/rlb/.mbsyncrc email
+    - name: Enable, start cronie.service
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: true
+      ansible.builtin.systemd_service:
+        name: cronie.service
+        enabled: true
+        state: started

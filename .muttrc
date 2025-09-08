@@ -66,3 +66,7 @@ macro index tt "<tag-entry>"
 
 # https://brianbuccola.com/how-to-mark-all-emails-as-read-in-mutt/
 macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"
+
+# Tag github emails
+macro index tgit "<limit>~f@github.com<enter><tag-pattern>.<enter><limit><enter>" "Tag all emails from @github.com"
+macro index troot "<limit>~f@rootly.com<enter><tag-pattern>.<enter><limit><enter>" "Tag all emails from @rootly.com"
