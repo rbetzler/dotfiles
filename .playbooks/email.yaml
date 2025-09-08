@@ -10,6 +10,8 @@
       with_items:
         - src_file: ~/.encrypted/mbsyncrc.enc
           dest_file: '{{ ansible_env.HOME }}/.mbsyncrc'
+        - src_file: ~/.encrypted/oama.enc.yaml
+          dest_file: '{{ ansible_env.HOME }}/.config/oama/config.yaml'
     - name: Setup email sync cron
       ansible.builtin.cron:
         name: sync emails
