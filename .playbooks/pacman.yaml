@@ -118,6 +118,14 @@
           - xclip
           - yarn
           - ydotool
+    - name: Install email
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: true
+      community.general.pacman:
+        state: present
+        name:
+          - isync
+          - neomutt
     - name: Install audio
       when: ansible_facts["distribution"] == "Archlinux"
       become: true

@@ -1,0 +1,68 @@
+# General
+set editor="vim"
+
+# Remote gmail folders
+set folder = "~/.email/$MUTT_DIR"
+mailboxes "~/.email/$MUTT_DIR/inbox"
+set mbox_type = Maildir
+
+# Purge deleted messages without asking
+set delete = yes
+
+# Mark all unread mail as new (N)
+set mark_old=no
+
+# Local folders
+set spoolfile = "~/.email/$MUTT_DIR/inbox"
+set postponed = "$MUTT_POSTPONED"
+set trash = "$MUTT_TRASH"
+
+# Temporary attachment directory
+set tmpdir = "$HOME/Desktop"
+
+# Disable record because gmail does this automatically
+unset record
+
+# Do not add + for lines that wrap
+unset markers
+
+# Keybindings when navigating emails
+bind pager <up> previous-line
+bind pager <down> next-line
+
+# Source dracula color scheme
+source ~/repos/mutt/dracula.muttrc
+
+# Macro to sync the current mailbox
+macro index S "!mbsync -a -c ~/.email/$MUTT_DIR/.mbsyncrc<enter>"
+
+# Unset wait key to avoid getting prompt after running macros
+# https://mutt-users.mutt.narkive.com/GUGOK2Xl/pipe-message-without-the-press-any-key-to-continue
+unset wait_key
+
+# Sort by threads then by latest message datetime
+# https://www.edwinwenink.xyz/posts/16-mutt-threads/
+set sort = threads
+set sort_aux = last-date-received
+
+# Set scrolling
+set menu_scroll
+
+# (Conditionally) source work mutt configs
+source `FILE=$HOME/.work/muttrc.ignore; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
+
+# Bindings
+# Partly from https://ryanlue.com/posts/2017-05-21-mutt-the-vim-way
+bind index,pager,attach  g         noop
+bind generic,index       gg        first-entry
+bind generic,index       G         last-entry
+bind pager               gg        top
+bind pager               G         bottom
+
+unbind index s
+unbind index t
+macro index ss "<save-message>"
+macro index tt "<tag-entry>"
+
+# https://brianbuccola.com/how-to-mark-all-emails-as-read-in-mutt/
+macro index A "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"

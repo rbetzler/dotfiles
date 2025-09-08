@@ -85,6 +85,13 @@
         name:
           - hyprland-monitor-attached
           - hyprshot
+    - name: Install email
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - cyrus-sasl-xoauth2-git
+          - oama-bin
     - name: Install kanata
       when: ansible_facts["distribution"] == "Archlinux"
       kewlfft.aur.aur:

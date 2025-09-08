@@ -53,3 +53,7 @@
 [submodule "wallpaper"]
     path = repos/wallpaper
     url = https://github.com/dracula/wallpaper.git
+
+[submodule "mutt"]
+    path = repos/mutt
+    url = https://github.com/dracula/mutt.git
