@@ -60,6 +60,15 @@
         dest: '{{ item.0 }}/{{ item.1 }}'
         state: link
       loop: "{{ zen_profiles.files | map(attribute='path') | list | product(['user.js', 'zen-keyboard-shortcuts.json']) | list }}"
+    - name: Check for nvm install
+      register: nvm_plugins
+      ansible.builtin.stat:
+        path: '{{ ansible_env.HOME }}/.nvm/versions/node/v24.1.0/bin/npm'
+    - name: Install node
+      when: nvm_plugins.stat.isreg is not defined
+      ansible.builtin.shell: |
+        source /usr/share/nvm/init-nvm.sh
+        nvm install 24.1.0
     - name: Install local proxy globally
       become: true
       ignore_errors: true
@@ -70,3 +79,9 @@
     - name: Install github extensions
       ansible.builtin.shell: |
         gh extension install dlvhdr/gh-dash
+    - name: Install gemini cli
+      become: true
+      community.general.npm:
+        name: '@google/gemini-cli'
+        executable: '{{ ansible_env.HOME }}/.nvm/versions/node/v24.1.0/bin/npm'
+        global: true
