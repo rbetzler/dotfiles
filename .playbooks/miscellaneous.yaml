@@ -2,9 +2,9 @@
 - hosts: localhost
   connection: local
   tasks:
-    - name: Load gnome config desktop environment
-      ansible.builtin.shell: |
-        dconf load / < "${HOME}/.desktop.conf"
+    # - name: Load gnome config desktop environment
+    #   ansible.builtin.shell: |
+    #     dconf load / < "${HOME}/.desktop.conf"
     - name: Set default shell to zsh
       become: true
       ansible.builtin.command: usermod --shell /usr/bin/zsh {{ ansible_env.USER }}
