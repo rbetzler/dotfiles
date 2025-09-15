@@ -1,0 +1,132 @@
+# Preinstall
+# 1. Install, start ssh server
+#    ```
+#    sudo apt update
+#    sudo apt install --yes openssh-server
+#    sudo systemctl enable ssh
+#    sudo systemctl start ssh
+#    ```
+# 2. Install homebrew
+#    ```
+#    sudo apt install --yes curl
+#    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#    ```
+---
+- hosts: ubuntu
+  tasks:
+    - name: Sync ssh server config
+      become: true
+      ansible.builtin.copy:
+        content: "{{ lookup('community.sops.sops', item.src_file, rstrip=false) }}"
+        dest: '{{ item.dest_file }}'
+        mode: 0644
+      with_items:
+        - src_file: ~/.encrypted/authorized_keys.enc
+          dest_file: '{{ ansible_env.HOME }}/.ssh/authorized_keys'
+        - src_file: ~/.encrypted/sshd_config.enc
+          dest_file: /etc/ssh/sshd_config
+    - name: Enable, restart ssh server
+      become: true
+      ansible.builtin.systemd_service:
+        name: ssh.service
+        enabled: false
+        state: restarted
+    - name: Install global requirements
+      become: true
+      ansible.builtin.apt:
+        state: present
+        name:
+          - apt-transport-https
+          - build-essential
+          - ca-certificates
+          - git
+          - less
+          - wget
+    - name: Install cli tooling
+      become: true
+      ansible.builtin.apt:
+        state: present
+        name:
+          - bat
+          - eza
+          - fd-find
+          - fzf
+          - gawk
+          - git-delta
+          - htop
+          - jq
+          - pwgen
+          - sd
+          - unzip
+    - name: Install other apps
+      become: true
+      ansible.builtin.apt:
+        state: present
+        name:
+          - age
+          - bind9
+          - copyq
+          - dpkg
+          - gparted
+          - nodejs
+          - npm
+          # Duplicative, should already be installed
+          - openssh-server
+          - tk
+          - tre-command
+          - tree
+    - name: Add docker gpg key
+      become: true
+      apt_key:
+        state: present
+        url: https://download.docker.com/linux/ubuntu/gpg
+    - name: Add docker repository
+      become: true
+      apt_repository:
+        state: present
+        repo: deb https://download.docker.com/linux/ubuntu   noble stable
+    # Run `sudo usermod -aG docker $USER`
+    - name: Install docker
+      become: true
+      ansible.builtin.apt:
+        state: present
+        update_cache: true
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+    - name: Enable, start docker service
+      become: true
+      ansible.builtin.systemd_service:
+        name: docker.service
+        enabled: true
+        state: started
+    - name: Enable, start docker socket
+      become: true
+      ansible.builtin.systemd_service:
+        name: docker.socket
+        enabled: true
+        state: started
+    - name: Install homebrew packages
+      homebrew:
+        state: present
+        update_homebrew: yes
+        name:
+          - argo
+          - argocd
+          - autojump
+          - awscli
+          - gcc
+          - helm
+          # Might want to run `docker update --restart=no [container-id]`
+          # https://github.com/kubernetes-sigs/kind/issues/2631#issuecomment-1627428400
+          - kind
+          - kubernetes-cli
+          - mise
+          - pulumi
+          - pyenv
+          - sops
+          - vgrep
+          - yarn

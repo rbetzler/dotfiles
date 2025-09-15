@@ -1,7 +1,7 @@
 # 1. Using rpi-imager, write os to disk (remember to configure wifi, ssh keys, etc.)
 # 2. Run `ansible-playbook -i ~/.playbooks/inventory.yaml ~/.playbooks/pi.yaml --ask-become-pass`
 ---
-- hosts: servers
+- hosts: pi
   vars:
     repos:
       - ~/repos/pi-apps.git

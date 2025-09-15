@@ -1,4 +1,7 @@
 ---
-servers:
+pi:
   hosts:
     pi:
+ubuntu:
+  hosts:
+    ubuntu:
