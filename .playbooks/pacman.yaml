@@ -104,6 +104,7 @@
           # - nodejs
           - nvm
           - obsidian
+          - ollama
           - openvpn
           - pandoc-cli
           - pgcli
