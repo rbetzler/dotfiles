@@ -13,3 +13,7 @@ git fetch
 
 # Delete all branches
 git for-each-ref --format='%(refname:short)' refs/heads | xargs git branch -D
+
+# Common worktree conventions
+# git worktree add ../01_primary origin/main --detach
+# git worktree add ../09_scratch origin/main --detach

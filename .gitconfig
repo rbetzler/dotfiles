@@ -69,10 +69,19 @@
     cobm = !bash ~/.git_aliases/checkout_off_primary primary
     cobs = !bash ~/.git_aliases/checkout_off_primary origin/staging
     cobd = !bash ~/.git_aliases/checkout_off_primary origin/development
+    cod = "!f() { \
+      git fetch --all ; \
+      git checkout $(git rev-parse origin/$1) ; \
+    }; f"
+    codd = cod development
+    codm = "!f() { \
+      git cod $(git b-primary) ; \
+    }; f"
+    cods = cod staging
     cof = "!f() { \
       git checkout $(git branch -l | \
         fzf --reverse --height 10% | \
-          awk '{ if ($1==\"*\") {print $2} else {print $1} }') ; \
+          awk '{ if ($1==\"*\" || $1==\"+\") {print $2} else {print $1} }') ; \
     }; f"
     coh = "!f() { \
       git co HEAD~\"$1\"; \
