@@ -13,7 +13,7 @@ git fetch --all
 if [ -z "$2" ]; then
   date="$(date +"%Y%m%d")"
   suffix="$(head -c 2 /dev/urandom | hexdump -e '2/1 "%02x"')"
-  git checkout -b "rbetzler/${date}-${suffix}" "${branch}"
+  git checkout -b "rbetzler/${date}-${suffix}" $branch
 else
-  git checkout -b "rbetzler/${2}" "${branch}"
+  git checkout -b "rbetzler/${2}" $branch
 fi
