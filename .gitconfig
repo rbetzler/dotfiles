@@ -65,7 +65,9 @@
 
     # Checkout
     co = checkout
-    cob = !bash ~/.git_aliases/checkout_off_primary
+    cob =  "!f() { \
+      bash ~/.git_aliases/checkout_off_primary $(git b-current) \"$1\"; \
+    }; f"
     cobm = !bash ~/.git_aliases/checkout_off_primary primary
     cobs = !bash ~/.git_aliases/checkout_off_primary origin/staging
     cobd = !bash ~/.git_aliases/checkout_off_primary origin/development
