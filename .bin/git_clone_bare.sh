@@ -2,6 +2,10 @@
 
 set -euxo pipefail
 
+REPO_NAME="$(basename -s .git "$1")"
+mkdir "$REPO_NAME"
+cd "$REPO_NAME"
+
 git clone --bare "$1" ./00_repo.git
 
 cd ./00_repo.git
