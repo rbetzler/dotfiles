@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: List all zen profiles
+      register: zen_profiles
+      ansible.builtin.find:
+        paths: '{{ ansible_env.HOME }}/.zen/'
+        recurse: false
+        file_type: directory
+    - name: Link zen config files
+      ansible.builtin.file:
+        src: '{{ ansible_env.HOME }}/.config/rlb/zen/{{ item.1 }}'
+        dest: '{{ item.0 }}/{{ item.1 }}'
+        state: link
+      loop: "{{ zen_profiles.files | map(attribute='path') | list | product(['user.js', 'zen-keyboard-shortcuts.json']) | list }}"
