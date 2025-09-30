@@ -43,3 +43,15 @@
         name: '@google/gemini-cli'
         executable: '{{ ansible_env.HOME }}/.nvm/versions/node/v24.1.0/bin/npm'
         global: true
+    - name: Setup look away cron
+      ansible.builtin.cron:
+        name: lookaway
+        minute: "*/20"
+        job: /home/rlb/.bin/look_away.sh
+    - name: Enable, start cronie.service
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: true
+      ansible.builtin.systemd_service:
+        name: cronie.service
+        enabled: true
+        state: started
