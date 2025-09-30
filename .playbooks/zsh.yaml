@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Set default shell to zsh
+      become: true
+      ansible.builtin.command: usermod --shell /usr/bin/zsh {{ ansible_env.USER }}
+      changed_when: false
+    # These likely exist, but leaving this just in case
+    # - name: Creates oh my zsh directories
+    #   ansible.builtin.file:
+    #     state: directory
+    #     path: "{{ ansible_env.HOME }}/.oh-my-zsh/custom/{{ item }}/"
+    #   loop:
+    #     - plugins
+    #     - themes
+    - name: Link themes
+      ansible.builtin.file:
+        src: '{{ ansible_env.HOME }}/repos/oh-my-zsh-extensions/themes/zsh/dracula.zsh-theme'
+        dest: '{{ ansible_env.HOME }}/.oh-my-zsh/custom/themes/dracula.zsh-theme'
+        state: link
+    - name: Link plugins
+      ansible.builtin.file:
+        src: '{{ ansible_env.HOME }}/repos/oh-my-zsh-extensions/plugins/{{ item }}'
+        dest: '{{ ansible_env.HOME }}/.oh-my-zsh/custom/plugins/{{ item }}'
+        state: link
+      loop:
+        - fzf-tab
+        - nix-zsh-completions
+        - zsh-autosuggestions
+        - zsh-nix-shell
+        - zsh-syntax-highlighting
+        - zsh-system-clipboard
+        - zsh-vi-mode

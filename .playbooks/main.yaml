@@ -6,5 +6,6 @@
 - import_playbook: ubuntu.yaml
 - import_playbook: python.yaml
 - import_playbook: autocompletes.yaml
+- import_playbook: zsh.yaml
 - import_playbook: miscellaneous.yaml
 - import_playbook: crypto.yaml
