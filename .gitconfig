@@ -76,9 +76,7 @@
       git checkout $(git rev-parse origin/$1) ; \
     }; f"
     codd = cod development
-    codm = "!f() { \
-      git cod $(git b-primary) ; \
-    }; f"
+    codm = cod main
     cods = cod staging
     cof = "!f() { \
       git checkout $(git branch -l | \
