@@ -223,6 +223,9 @@
     pr-cpcstdin = "!f() { \
       gh pr list --json 'author,title,url' --limit 1000 | jq -r '.[] | [.url, .author.name, .title] | @tsv' | column -ts $'\t' | fzf | awk '{print $1}' | copyq copy - &> /dev/null; \
     }; f"
+    pr-update-title ="!f() { \
+      gh pr edit --title 'Please see individual commits <3'; \
+    }; f"
     prs ="!f() { \
       gh pr status; \
     }; f"
