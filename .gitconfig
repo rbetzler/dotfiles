@@ -49,8 +49,7 @@
     ba = "branch -a"
     bl = "branch -l"
     bd = "branch -D"
-    # swap b-current for this: git branch --show-current
-    b-current = "!git branch --no-color 2> /dev/null | sed -e '/^[^*]/d; s/^* //;'"
+    b-current =  "!git symbolic-ref --quiet --short HEAD || git rev-parse --short HEAD"
     b-exists =  "!f() { \
       git show-ref --verify --quiet refs/heads/$1; \
     }; f"
@@ -65,10 +64,8 @@
 
     # Checkout
     co = checkout
-    cob =  "!f() { \
-      bash ~/.git_aliases/checkout_off_primary $(git b-current) \"$1\"; \
-    }; f"
-    cobm = !bash ~/.git_aliases/checkout_off_primary primary
+    cob = !bash ~/.git_aliases/checkout_off_primary $(git b-current)
+    cobm = !bash ~/.git_aliases/checkout_off_primary $(git b-primary)
     cobs = !bash ~/.git_aliases/checkout_off_primary origin/staging
     cobd = !bash ~/.git_aliases/checkout_off_primary origin/development
     cod = "!f() { \
