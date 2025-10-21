@@ -241,9 +241,9 @@
     rba = "rebase --abort"
     rbc = "rebase --continue"
     rbi = "rebase -i"
-    rbi-mine-main = !bash ~/.git_aliases/rebase_my_commits main
-    rbi-mine-staging = !bash ~/.git_aliases/rebase_my_commits staging
-    rbi-mine-development = !bash ~/.git_aliases/rebase_my_commits development
+    rbi-mine-main = !bash ~/.git_aliases/rebase_my_commits origin/main
+    rbi-mine-staging = !bash ~/.git_aliases/rebase_my_commits origin/staging
+    rbi-mine-development = !bash ~/.git_aliases/rebase_my_commits origin/development
     rbih = "!f() { \
       git rbi HEAD~\"$1\"; \
     }; f"
