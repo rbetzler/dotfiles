@@ -220,9 +220,7 @@
     pr-cpcstdin = "!f() { \
       gh pr list --json 'author,title,url' --limit 1000 | jq -r '.[] | [.url, .author.name, .title] | @tsv' | column -ts $'\t' | fzf | awk '{print $1}' | copyq copy - &> /dev/null; \
     }; f"
-    pr-runs = "!f() { \
-      gh run list --branch $(git branch --show-current); \
-    }; f"
+    pr-runs = !bash ~/.git_aliases/gh_pr_runs.sh
     pr-update-title ="!f() { \
       gh pr edit --title 'Please see individual commits <3'; \
     }; f"
