@@ -312,9 +312,9 @@
 
     # Stashing
     sth = stash
+    sthsh = "stash show -p"
     sth-apply = "stash apply"
     sth-clear = "stash clear"
-    sth-diff = "stash show -p"
     sth-drop = "stash drop"
     sthz = !bash ~/.git_aliases/stash_fzf
     sth-list = "stash list"
