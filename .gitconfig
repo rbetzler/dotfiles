@@ -221,8 +221,11 @@
       gh pr list --json 'author,title,url' --limit 1000 | jq -r '.[] | [.url, .author.name, .title] | @tsv' | column -ts $'\t' | fzf | awk '{print $1}' | copyq copy - &> /dev/null; \
     }; f"
     pr-runs = !bash ~/.git_aliases/gh_pr_runs.sh
-    pr-update-title ="!f() { \
+    pr-title-default ="!f() { \
       gh pr edit --title 'Please see individual commits <3'; \
+    }; f"
+    pr-title-head-commit ="!f() { \
+      gh pr edit --title \"$(git sh-head-commit-title)\" --body \"$(git sh-head-commit-body)\"; \
     }; f"
     prs ="!f() { \
       gh pr status; \
@@ -305,6 +308,8 @@
       git show HEAD~\"$1\" --pretty="" --name-only; \
     }; f"
     shhash = "rev-parse HEAD"
+    sh-head-commit-title = "show -s --format='%s'"
+    sh-head-commit-body = "show -s --format='%b'"
     sh-vertical = "-c delta.side-by-side=false show"
 
     st = status
