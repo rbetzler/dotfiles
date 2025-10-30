@@ -44,6 +44,11 @@
     af = "add -f"
     ap = "add -p"
 
+    author-email-head-commit = "show -s --format='%ae' HEAD"
+    author-email-name-head-commit =  "!f() { \
+      git author-email-head-commit | awk -F'@' '{print $1}' ; \
+    }; f"
+
     # Branching
     b = branch
     ba = "branch -a"
@@ -68,6 +73,7 @@
     cobm = !bash ~/.git_aliases/checkout_off_primary origin/$(git b-primary)
     cobs = !bash ~/.git_aliases/checkout_off_primary origin/staging
     cobd = !bash ~/.git_aliases/checkout_off_primary origin/development
+    cobcollab = "!git checkout -b rbetzler/$(git author-email-name-head-commit)"
     cod = "!f() { \
       git fetch --all ; \
       git checkout $(git rev-parse origin/$1) ; \
