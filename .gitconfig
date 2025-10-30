@@ -339,6 +339,10 @@
     tag-push-delete = "push origin --delete"
     tag-push-force = "push origin --tags --force"
 
+    wk-add-ephemeral = "worktree add ../99_ephemeral"
+    wk-ls = "worktree list"
+    wk-rm = "worktree remove"
+
 [pull]
     rebase = true
 
