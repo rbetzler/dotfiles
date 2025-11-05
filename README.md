@@ -40,3 +40,20 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     git commit -m "Reencrypt sops files for new machine"
     git push
     ```
+8. Install mise tools
+    ```bash
+    mise trust
+    mise install
+    mise tasks run install
+    ```
+
+#### Fnox
+
+To authenticate to a bitwarden provider
+
+```bash
+export BW_PASSWORD='[PASSWORD]'
+bw config server http[s]://[URL]:[PORT]
+bw login '[username]'
+export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD --raw)"
+```
