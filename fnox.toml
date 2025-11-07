@@ -8,4 +8,4 @@ recipients = [
 type = "bitwarden"
 
 [secrets]
-EXAMPLE = { provider = "bitwarden", value = "qor4toal-odee-iexi-otha-chae9aaja2jo" }
+ANSIBLE_SOPS_AGE_KEY = { provider = "bitwarden", value = "sops_age_common_0/notes" }

@@ -26,34 +26,17 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     git remote add origin git@github.com:rbetzler/dotfiles.git
     git pull origin master
     ```
-5. Reencrypt sops files, put new pub key on server. See script (or private repo or bw note) for required environment variables.
+5. Clone private repos
     ```bash
-    ~/.bin/install_keys.sh
+    export BW_PASSWORD='[PASSWORD]'
+    bw config server http[s]://[URL]:[PORT]
+    bw login '[USERNAME]'
+    export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD --raw)"
+    fnox exec -- ansible-playbook ~/.playbooks/git_private.yaml --ask-become-pass
     ```
-6. Clone private repos
-    ```bash
-    ansible-playbook ~/.playbooks/git_private.yaml
-    ```
-7. Verify, commit updated sops files
-    ```bash
-    git add ~/.encrypted/
-    git commit -m "Reencrypt sops files for new machine"
-    git push
-    ```
-8. Install mise tools
+6. Install mise tools
     ```bash
     mise trust
     mise install
     mise tasks run install
     ```
-
-#### Fnox
-
-To authenticate to a bitwarden provider
-
-```bash
-export BW_PASSWORD='[PASSWORD]'
-bw config server http[s]://[URL]:[PORT]
-bw login '[username]'
-export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD --raw)"
-```
