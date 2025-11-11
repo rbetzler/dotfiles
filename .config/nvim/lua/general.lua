@@ -15,7 +15,7 @@ vim.keymap.set("x", "p", "pgvy", { noremap = true, silent = true })
 
 -- Set color scheme
 vim.o.background = "dark"
-vim.cmd("colorscheme dracula")
+vim.cmd.colorscheme "dracula"
 
 -- Allow mouse
 vim.opt.mouse = "a"
