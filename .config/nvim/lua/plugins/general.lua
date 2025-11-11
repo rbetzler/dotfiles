@@ -5,6 +5,10 @@ return {
         "dracula/vim",
         name = "dracula",
     },
+    -- {
+    --     "catppuccin/nvim",
+    --     name = "catppuccin",
+    -- },
     {
         "fannheyward/coc-pyright",
         build = "yarn install && yarn build",
