@@ -284,16 +284,16 @@
 
     # Resets
     rst = reset
-    rst-head = "!f() { \
+    rsthead = "!f() { \
       git reset HEAD~\"$1\"; \
     }; f"
-    rst-hard = "!f() { \
+    rsthard = "!f() { \
       git reset --hard origin/\"$1\"; \
     }; f"
-    rst-current = "!f() { \
+    rstcurrent = "!f() { \
       git rst-hard $(git b-current); \
     }; f"
-    rst-primary = "!f() { \
+    rstprimary = "!f() { \
       git rst-hard $(git b-primary); \
     }; f"
 
