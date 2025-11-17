@@ -239,9 +239,10 @@
 
     # Pulling
     pl = pull
-    plprimaries = "!f() { \
+    plall = "!f() { \
       git fetch origin main:main --update-head-ok; \
       git fetch origin staging:staging --update-head-ok; \
+      git fetch origin development:development --update-head-ok; \
     }; f"
     prn-rmt = "fetch --prune origin"
 
@@ -259,9 +260,9 @@
     rbih-merges = "!f() { \
       git rbi HEAD~\"$1\" --rebase-merges; \
     }; f"
-    rb-primary = !bash ~/.git_aliases/rebase_off_primary
-    rb-staging = !bash ~/.git_aliases/rebase_off_primary staging
-    rb-development = !bash ~/.git_aliases/rebase_off_primary development
+    rbom = !bash ~/.git_aliases/rebase_off_primary
+    rbos = !bash ~/.git_aliases/rebase_off_primary staging
+    rbod = !bash ~/.git_aliases/rebase_off_primary development
     rb-loop = !bash ~/.git_aliases/rebase_loop main
     rmall = "!f() { \
       git clean -fd; \
