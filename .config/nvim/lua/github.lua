@@ -1,22 +1,28 @@
 -- Generate a github link for the highlighted line
 local function GenerateGithubLink(opts)
-    -- Get current branch name
+    -- Get current branch name (empty if detached HEAD)
     local branch = vim.fn.system("git branch --show-current"):gsub("%s+$", "")
+
+    -- If branch is empty, get commit hash
+    if branch == "" then
+        branch = vim.fn.system("git rev-parse HEAD"):gsub("%s+$", "")
+    end
 
     -- Get and parse remote URL
     local raw_url = vim.fn.system("git config --get remote.origin.url")
     local repo_path = raw_url:match("[:/]([^:]+/[^/]+)%.git")
 
-    -- Get the file path relative to repo root
+    -- Get file path relative to repo root
     local file_name = vim.fn.expand("%")
     local file_path = vim.fn.trim(vim.fn.system("git ls-files --full-name " .. file_name))
 
-    -- Get current line number
-    local line_nbr = vim.fn.line(".")
-
-    -- Send to clipboard and print full github url
+    -- Build URL (line range already provided via opts)
     if repo_path and branch ~= "" and file_path ~= "" then
-        local url = "https://github.com/" .. repo_path .. "/blob/" .. branch .. "/" .. file_path .. "#L" .. opts.line1 .. "-L" .. opts.line2
+        local url = string.format(
+            "https://github.com/%s/blob/%s/%s#L%d-L%d",
+            repo_path, branch, file_path, opts.line1, opts.line2
+        )
+
         vim.fn.setreg("+", url)
         print(url)
     else
