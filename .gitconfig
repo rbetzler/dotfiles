@@ -230,8 +230,8 @@
     pr-title-default ="!f() { \
       gh pr edit --title 'Please see individual commits <3'; \
     }; f"
-    pr-title-head-commit ="!f() { \
-      gh pr edit --title \"$(git sh-head-commit-title)\" --body \"$(git sh-head-commit-body)\"; \
+    pr-title-commit ="!f() { \
+      gh pr edit --title \"$(git sh-head-commit-title $1)\" --body \"$(git sh-head-commit-body $1)\"; \
     }; f"
     prs ="!f() { \
       gh pr status; \
