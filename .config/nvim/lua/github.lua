@@ -9,8 +9,8 @@ local function GenerateGithubLink(opts)
     end
 
     -- Get and parse remote URL
-    local raw_url = vim.fn.system("git config --get remote.origin.url")
-    local repo_path = raw_url:match("[:/]([^:]+/[^/]+)%.git")
+    local raw_url = vim.fn.system("git config --get remote.origin.url"):gsub("%s+$", "")
+    local repo_path = raw_url:match("[:/]([^:]+/[^/]+)%.git") or raw_url:match("[:/]([^:]+/[^/]+)")
 
     -- Get file path relative to repo root
     local file_name = vim.fn.expand("%")
