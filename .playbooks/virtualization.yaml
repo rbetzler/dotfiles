@@ -15,8 +15,13 @@
           - dnsmasq
           - iptables-nft
           - libvirt
-          - vagrant
           - virtualbox
+    - name: Install vagrant
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - vagrant
     - name: Add hashicorp gpg key
       when: ansible_facts["distribution"] == "Ubuntu"
       become: true
