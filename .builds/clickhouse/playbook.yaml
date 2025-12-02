@@ -1,0 +1,25 @@
+---
+- hosts: dev-clickhouse
+  tasks:
+    - name: Update apt registry
+      become: true
+      apt:
+        update_cache: true
+    - name: Install global requirements
+      become: true
+      ansible.builtin.apt:
+        state: present
+        name:
+          - build-essential
+          - git
+          - cmake
+          - ccache
+          - python3
+          - ninja-build
+          - nasm
+          - yasm
+          - gawk
+          - lsb-release
+          - wget
+          - software-properties-common
+          - gnupg

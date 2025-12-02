@@ -12,6 +12,7 @@
       community.general.pacman:
         state: present
         name:
+          - dmidecode
           - dnsmasq
           - iptables-nft
           - libvirt
@@ -44,6 +45,20 @@
           - libvirt-daemon-system
           - vagrant
           - virtualbox
+    - name: Check firewall backend config
+      changed_when: false
+      ignore_errors: true
+      register: is_iptables_firewall_backend
+      ansible.builtin.shell: |
+        grep -q 'firewall_backend = "iptables"' /etc/libvirt/network.conf
+    - name: Add firewall backend config
+      when: is_iptables_firewall_backend.rc == 1
+      become: true
+      ansible.builtin.lineinfile:
+        path: /etc/libvirt/network.conf
+        insertafter: true
+        search_string: firewall_backend
+        line: firewall_backend = "iptables"
     - name: Enable, start libvirtd socket
       become: true
       ansible.builtin.systemd_service:

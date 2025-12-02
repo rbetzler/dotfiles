@@ -16,25 +16,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.synced_folder "~/repos/ClickHouse", "/home/vagrant/shared"
-  config.vm.provision "shell", inline: <<-SHELL
-    set -eux
-
-    sudo apt-get update -y
-    sudo apt-get install -y \
-      build-essential \
-      git \
-      cmake \
-      ccache \
-      python3 \
-      ninja-build \
-      nasm \
-      yasm \
-      gawk \
-      lsb-release \
-      wget \
-      software-properties-common \
-      gnupg
-
-    sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
-  SHELL
+  config.vm.provision "ansible" do |ansible|
+    ansible.compatibility_mode = "2.0"
+    ansible.playbook = "playbook.yaml"
+  end
 end
