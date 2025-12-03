@@ -29,7 +29,7 @@
       apt_key:
         state: present
         url: https://apt.releases.hashicorp.com/gpg
-    - name: Add docker repository
+    - name: Add hashicorp repository
       when: ansible_facts["distribution"] == "Ubuntu"
       become: true
       apt_repository:
