@@ -1,0 +1,48 @@
+---
+- hosts: pi
+  tasks:
+    - name: Create pihole dir
+      ansible.builtin.file:
+        path: ~/apps/pihole/config/
+        state: directory
+    - name: Write systemd dns config
+      become: true
+      ansible.builtin.copy:
+        dest: /etc/systemd/resolved.conf
+        content: |
+          [Resolve]
+          DNS=1.1.1.1
+          DNSStubListener=no
+    - name: Symlink systemd dns config
+      become: true
+      ansible.builtin.file:
+        src: /etc/systemd/resolved.conf
+        dest: /run/systemd/resolve/resolv.conf
+        state: link
+        force: true
+    # - name: Reboot machine
+    #   become: true
+    #   ansible.builtin.reboot:
+    - name: Write pihole docker compose
+      ansible.builtin.copy:
+        dest: ~/apps/pihole/docker-compose.yaml
+        content: |
+          ---
+          services:
+            pihole:
+              image: pihole/pihole:latest
+              container_name: pihole
+              restart: unless-stopped
+              ports:
+                - "53:53/tcp"
+                - "53:53/udp"
+                - "8090:80/tcp"
+                - "8091:443/tcp"
+              environment:
+                TZ: America/New_York
+                FTLCONF_dns_listeningMode: all
+              volumes:
+                - "~/apps/pihole/config:/etc/pihole"
+    - name: Create, start pihole
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/pihole/

@@ -1,0 +1,25 @@
+---
+- hosts: pi
+  tasks:
+    - name: Create nextcloud dir
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - ~/apps/nextcloud/data/
+    - name: Write nextcloud docker compose
+      ansible.builtin.copy:
+        dest: ~/apps/nextcloud/docker-compose.yaml
+        content: |
+          ---
+          services:
+            nextcloud:
+              image: nextcloud
+              restart: unless-stopped
+              ports:
+                - 9002:80
+              # environment:
+              #   NEXTCLOUD_TRUSTED_DOMAINS: https://{{ item.server_address }}/nextcloud/
+    - name: Create, start nextcloud
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/nextcloud/

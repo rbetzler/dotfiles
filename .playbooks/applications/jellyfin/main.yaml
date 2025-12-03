@@ -1,0 +1,32 @@
+---
+- hosts: pi
+  tasks:
+    - name: Create jellyfin dir
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - ~/apps/jellyfin/config/
+        - ~/apps/jellyfin/cache/
+        - ~/apps/jellyfin/data/
+    - name: Write jellyfin docker compose
+      ansible.builtin.copy:
+        dest: ~/apps/jellyfin/docker-compose.yaml
+        content: |
+          ---
+          services:
+            jellyfin:
+              image: jellyfin/jellyfin
+              container_name: jellyfin
+              restart: unless-stopped
+              ports:
+                - 8096:8096
+              volumes:
+                - ~/apps/jellyfin/config:/config
+                - ~/apps/jellyfin/cache:/cache
+                - ~/apps/jellyfin/data:/data
+              environment:
+                - JELLYFIN_PublishedServerUrl=http://pi.local:8096
+    - name: Create, start jellyfin
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/jellyfin/

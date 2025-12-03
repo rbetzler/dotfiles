@@ -1,0 +1,23 @@
+---
+- hosts: pi
+  tasks:
+    - name: Create vaultwarden dir
+      ansible.builtin.file:
+        path: ~/apps/vaultwarden/
+        state: directory
+    - name: Write vaultwarden docker compose
+      ansible.builtin.copy:
+        dest: ~/apps/vaultwarden/docker-compose.yaml
+        content: |
+          ---
+          services:
+            vaultwarden:
+              image: vaultwarden/server
+              restart: unless-stopped
+              volumes:
+                - ./data/:/data/
+              ports:
+                - 8080:80
+    - name: Create, start vaultwarden
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/vaultwarden/

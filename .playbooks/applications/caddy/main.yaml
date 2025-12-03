@@ -1,0 +1,66 @@
+---
+- hosts: pi
+  tasks:
+    - name: Create caddy dir
+      ansible.builtin.file:
+        path: ~/apps/caddy/
+        state: directory
+    - name: Write caddyfile
+      ansible.builtin.copy:
+        dest: ~/apps/caddy/Caddyfile
+        content: |
+          https://pi.local:8081 {
+              reverse_proxy http://192.168.1.170:8080
+              tls internal
+          }
+          https://pi.local:8082 {
+              reverse_proxy http://192.168.1.170:8090
+              tls internal
+          }
+          https://pi.local:8083 {
+              reverse_proxy http://192.168.1.170:8096
+              tls internal
+          }
+          https://pi.local:8084 {
+              reverse_proxy http://192.168.1.170:9001
+              tls internal
+          }
+          https://pi.local:8085 {
+              reverse_proxy http://192.168.1.170:9002
+              tls internal
+          }
+          {{ item.server_address }} {
+              handle_path /nextcloud/* {
+                  reverse_proxy http://192.168.1.170:9002
+              }
+              handle_path /vault/* {
+                  reverse_proxy http://192.168.1.170:8080
+              }
+          }
+      with_items:
+        - server_address: "{{ lookup('community.sops.sops', '~/.encrypted/public.enc.yaml', extract='[\"vpn\"][\"server_address\"]') }}"
+    - name: Write caddy docker compose
+      ansible.builtin.copy:
+        dest: ~/apps/caddy/docker-compose.yaml
+        content: |
+          ---
+          services:
+            caddy:
+              image: caddy
+              restart: unless-stopped
+              volumes:
+                - ~/apps/caddy/Caddyfile:/etc/caddy/Caddyfile
+                - /var/run/tailscale/tailscaled.sock:/var/run/tailscale/tailscaled.sock
+              cap_add:
+                - NET_ADMIN
+              ports:
+                - 80:80
+                - 443:443
+                - 8081:8081
+                - 8082:8082
+                - 8083:8083
+                - 8084:8084
+                - 8085:8085
+    - name: Create, start caddy
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/caddy/
