@@ -10,7 +10,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     # Install git and ansible, clone dotfiles
     sh <(curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/master/.bin/install_init.sh)
     # Install via playbooks
-    ansible-playbook ~/.playbooks/main.yaml --ask-become-pass
+    ansible-playbook ~/.playbooks/main.yaml --ask-become-pass --limit localhost -i ~/.playbooks/inventory.yaml
     ```
 2. Configure browser plugins. TODO Move into dotfiles.
    * Authenticator
@@ -32,7 +32,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     bw config server http[s]://[URL]:[PORT]
     bw login '[USERNAME]'
     export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD --raw)"
-    fnox exec -- ansible-playbook ~/.playbooks/git_private.yaml --ask-become-pass
+    fnox exec -- ansible-playbook ~/.playbooks/git_private.yaml --ask-become-pass --limit localhost -i ~/.playbooks/inventory.yaml
     ```
 6. Install mise tools
     ```bash

@@ -1,4 +1,8 @@
 ---
+localhost:
+  hosts:
+    localhost:
+      ansible_connection: local
 pi:
   hosts:
     pi:
