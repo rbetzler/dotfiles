@@ -4,6 +4,7 @@
 - import_playbook: yay.yaml
 - import_playbook: nix.yaml
 - import_playbook: ubuntu.yaml
+- import_playbook: docker.yaml
 - import_playbook: python.yaml
 - import_playbook: autocompletes.yaml
 - import_playbook: zsh.yaml
