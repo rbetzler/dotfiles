@@ -26,42 +26,6 @@
       args:
         creates: "{{ item }}/HEAD"
       loop: "{{ repos }}"
-    ###########
-    # Tailscale
-    ###########
-    - name: Add tailscale gpg key
-      tags:
-        - tailscale
-      when: ansible_facts["distribution"] == "Ubuntu"
-      become: true
-      apt_key:
-        state: present
-        url: https://pkgs.tailscale.com/stable/ubuntu/noble.noarmor.gpg
-    - name: Add tailscale repository
-      tags:
-        - tailscale
-      when: ansible_facts["distribution"] == "Ubuntu"
-      become: true
-      apt_repository:
-        state: present
-        repo: deb https://pkgs.tailscale.com/stable/ubuntu noble main
-    - name: Install tailscale
-      tags:
-        - tailscale
-      when: ansible_facts["distribution"] == "Ubuntu"
-      become: true
-      ansible.builtin.apt:
-        state: present
-        update_cache: true
-        name:
-          - tailscale
-    - name: Enable, start tailscaled socket
-      when: ansible_facts["distribution"] == "Ubuntu"
-      become: true
-      ansible.builtin.systemd_service:
-        name: tailscaled
-        enabled: true
-        state: started
     #######
     # Caddy
     #######

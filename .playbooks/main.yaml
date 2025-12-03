@@ -11,3 +11,4 @@
 - import_playbook: zen.yaml
 - import_playbook: miscellaneous.yaml
 - import_playbook: crypto.yaml
+- import_playbook: tailscale.yaml
