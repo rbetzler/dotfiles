@@ -9,3 +9,7 @@ pi:
 ubuntu:
   hosts:
     ubuntu:
+servers:
+  hosts:
+    pi:
+    ubuntu:
