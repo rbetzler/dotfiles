@@ -14,23 +14,6 @@
 ---
 - hosts: ubuntu
   tasks:
-    - name: Sync ssh server config
-      become: true
-      ansible.builtin.copy:
-        content: "{{ lookup('community.sops.sops', item.src_file, rstrip=false) }}"
-        dest: '{{ item.dest_file }}'
-        mode: 0644
-      with_items:
-        - src_file: ~/.encrypted/authorized_keys.enc
-          dest_file: '{{ ansible_env.HOME }}/.ssh/authorized_keys'
-        - src_file: ~/.encrypted/sshd_config.enc
-          dest_file: /etc/ssh/sshd_config
-    - name: Enable, restart ssh server
-      become: true
-      ansible.builtin.systemd_service:
-        name: ssh.service
-        enabled: false
-        state: restarted
     - name: Install global requirements
       become: true
       ansible.builtin.apt:
