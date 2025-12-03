@@ -32,7 +32,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     bw config server http[s]://[URL]:[PORT]
     bw login '[USERNAME]'
     export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD --raw)"
-    fnox exec -- ansible-playbook ~/.playbooks/git_private.yaml --ask-become-pass --limit localhost -i ~/.playbooks/inventory.yaml
+    fnox exec -- ansible-playbook ~/.playbooks/common/git_private.yaml --ask-become-pass --limit localhost -i ~/.playbooks/inventory.yaml
     ```
 6. Install mise tools
     ```bash

@@ -17,7 +17,7 @@ elif grep -q Ubuntu /etc/os-release; then
 fi
 
 # Clone dotfiles
-curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/master/.playbooks/git.yaml -o /tmp/git.yaml
+curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/master/.playbooks/common/git_init.yaml -o /tmp/git.yaml
 ansible-playbook /tmp/git.yaml
 
 # Install ansible modules
