@@ -23,3 +23,9 @@
       args:
         creates: "{{ item }}/HEAD"
       loop: "{{ repos }}"
+- import_playbook: ../applications/caddy/main.yaml
+- import_playbook: ../applications/pihole/main.yaml
+- import_playbook: ../applications/vaultwarden/main.yaml
+- import_playbook: ../applications/minio/main.yaml
+- import_playbook: ../applications/jellyfin/main.yaml
+- import_playbook: ../applications/nextcloud/main.yaml

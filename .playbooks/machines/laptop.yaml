@@ -1,0 +1,12 @@
+---
+- import_playbook: ../common/git_init.yaml
+- import_playbook: ../common/pacman.yaml
+- import_playbook: ../common/yay.yaml
+- import_playbook: ../common/docker.yaml
+- import_playbook: ../common/python.yaml
+- import_playbook: ../common/autocompletes.yaml
+- import_playbook: ../common/zsh.yaml
+- import_playbook: ../common/zen.yaml
+- import_playbook: ../common/miscellaneous.yaml
+- import_playbook: ../common/crypto.yaml
+- import_playbook: ../common/tailscale.yaml

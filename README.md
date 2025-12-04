@@ -10,7 +10,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     # Install git and ansible, clone dotfiles
     sh <(curl https://raw.githubusercontent.com/rbetzler/dotfiles/refs/heads/master/.bin/install_init.sh)
     # Install via playbooks
-    ansible-playbook ~/.playbooks/main.yaml --ask-become-pass --limit localhost -i ~/.playbooks/inventory.yaml
+    ansible-playbook ~/.playbooks/machines/laptop.yaml --ask-become-pass --limit localhost -i ~/.playbooks/inventory.yaml
     ```
 2. Configure browser plugins. TODO Move into dotfiles.
    * Authenticator

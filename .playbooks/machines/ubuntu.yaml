@@ -79,3 +79,4 @@
           - sops
           - vgrep
           - yarn
+- import_playbook: ../applications/minio/main.yaml
