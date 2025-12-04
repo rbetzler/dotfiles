@@ -1,6 +1,4 @@
 ---
-# Manually add user to `libvirt` group
-# sudo usermod -a -G libvirt $USER
 - hosts: localhost
   connection: local
   vars_files:
@@ -17,6 +15,12 @@
           - iptables-nft
           - libvirt
           - virtualbox
+    - name: Add host user to libvirt group
+      become: true
+      ansible.builtin.user:
+        name: "{{ ansible_env.USER }}"
+        groups: libvirt
+        append: true
     - name: Install vagrant
       when: ansible_facts["distribution"] == "Archlinux"
       kewlfft.aur.aur:
