@@ -15,6 +15,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
 2. Configure browser plugins. TODO Move into dotfiles.
    * Authenticator
    * Bitwarden
+   * Stylus (then install github theme https://draculatheme.com/github)
    * Vimium
      ```
      map K previousTab
