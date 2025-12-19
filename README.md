@@ -13,14 +13,16 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     ansible-playbook ~/.playbooks/machines/laptop.yaml --ask-become-pass --limit localhost -i ~/.playbooks/inventory.yaml
     ```
 2. Configure browser plugins. TODO Move into dotfiles.
-   * Authenticator
-   * Bitwarden
-   * Stylus (then install github theme https://draculatheme.com/github)
-   * Vimium
-     ```
-     map K previousTab
-     map J nextTab
-     ```
+    * Authenticator
+    * Bitwarden
+    * Stylus, then install themes:
+        * https://draculatheme.com/github
+        * https://draculatheme.com/google-search
+    * Vimium
+        ```
+        map K previousTab
+        map J nextTab
+        ```
 3. Update ssh key on Github
 4. Update git remote on new machine
     ```bash
