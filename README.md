@@ -15,6 +15,8 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
 2. Configure browser plugins. TODO Move into dotfiles.
     * Authenticator
     * Bitwarden
+    * [Firefox](https://addons.mozilla.org/en-US/firefox/addon/dracula-dark-colorscheme/)
+    * [GDoc Dark Mode](https://addons.mozilla.org/en-US/firefox/addon/docsafterdark/)
     * Stylus, then install themes:
         * https://draculatheme.com/github
         * https://draculatheme.com/google-search
