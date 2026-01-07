@@ -1,0 +1,19 @@
+---
+- hosts: dev-ubuntu-vbox
+  tasks:
+    - name: Update apt registry
+      become: true
+      apt:
+        update_cache: true
+    - name: Install global requirements
+      become: true
+      ansible.builtin.apt:
+        state: present
+        name:
+          - build-essential
+          - gawk
+          - git
+          - lsb-release
+          - python3
+          - software-properties-common
+          - wget
