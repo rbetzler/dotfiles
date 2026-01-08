@@ -51,6 +51,8 @@ keybind = alt+shift+down=resize_split:down,10
 
 keybind = alt+page_up=scroll_page_lines:-10
 keybind = alt+page_down=scroll_page_lines:10
+keybind = alt+i=scroll_page_lines:-10
+keybind = alt+u=scroll_page_lines:10
 
 keybind = alt+t>t=new_tab
 keybind = alt+t>h=previous_tab
