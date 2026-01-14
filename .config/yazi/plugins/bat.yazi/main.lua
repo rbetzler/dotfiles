@@ -55,8 +55,8 @@ function M:peek(job)
     local processed_text = collected_lines:gsub("\t", string.rep(" ", (rt and rt.preview or PREVIEW).tab_size))
 
     -- Create text widget with proper wrapping
-    ya.preview_widgets(job, {
-        ui.Text.parse(processed_text):area(job.area):wrap(is_wrap and ui.Text.WRAP or ui.Text.WRAP_NO),
+    ya.preview_widget(job, {
+        ui.Text.parse(processed_text):area(job.area):wrap(is_wrap and ui.Wrap.YES or ui.Wrap.NO),
     })
 end
 
