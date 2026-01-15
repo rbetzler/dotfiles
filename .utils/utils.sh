@@ -211,6 +211,7 @@ direnvenable(){
 # Yazi alias, helper
 function y() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  sleep .05
   yazi "$@" --cwd-file="$tmp"
   IFS= read -r -d '' cwd < "$tmp"
   [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
