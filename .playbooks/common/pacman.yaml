@@ -81,6 +81,7 @@
       community.general.pacman:
         state: present
         name:
+          - act
           - age
           - argocd
           - aws-cli
