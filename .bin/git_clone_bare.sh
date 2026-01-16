@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# Add repos with a bare root repo, rather than a normal one.
 
 set -euxo pipefail
 
