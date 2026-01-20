@@ -8,12 +8,11 @@ coverage
 cron-descriptor
 dbt-bigquery
 dbt-clickhouse
-dbt-core
+dbt-core>=1
 dbt-postgres
 doq
 duckdb
 flake8
-gita
 graphviz
 grip
 ipdb
@@ -21,19 +20,14 @@ ipython>=8.10
 jc
 jedi
 jinja-cli
-jupyter
 keyring
 libcst
 pandas
-pipdeptree
-pipreqs
 pre-commit
 pudb
 pulumi
 pymysql
 pynvim
-# bq cli tool is busted
-pyparsing==2.4.2
 pytest
 shellcheck-py
 sqlalchemy
