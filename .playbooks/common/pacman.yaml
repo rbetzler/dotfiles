@@ -101,6 +101,7 @@
           - libxcrypt-compat
           - minikube
           - mise
+          - mysql
           - ncspot
           - networkmanager-openvpn
           # - nodejs
