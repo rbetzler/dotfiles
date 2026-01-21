@@ -20,7 +20,7 @@ ipython>=8.10
 jc
 jedi
 jinja-cli
-keyring
+# keyring
 libcst
 pandas
 pre-commit
@@ -33,7 +33,7 @@ shellcheck-py
 sqlalchemy
 sqlfluff
 sqlfmt
-twine
+# twine
 wheel
 yamllint
 yapf
