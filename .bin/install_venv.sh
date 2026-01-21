@@ -22,6 +22,4 @@ python3 -m venv venv
 echo 'Activating venv'
 source ./venv/bin/activate
 
-echo 'Installing packages'
-pip3 install --upgrade pip
-pip3 install -r ./requirements.txt
+uv pip install -r ./requirements.txt
