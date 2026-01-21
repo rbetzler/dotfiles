@@ -149,7 +149,7 @@ fi
 
 # Pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PYENV_ROOT/bin:$HOME/.local/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # Activate home python venv after nix
