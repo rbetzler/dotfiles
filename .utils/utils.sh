@@ -49,8 +49,8 @@ vfgrep() {
     include_hidden_files="--no-git"
     search_arg="$1"
   fi
-  files=$(vgrep --no-header $include_hidden_files "$search_arg" | \
-    fzf -m --height 60% --preview $__FZF_PREVIEW_VFGREP --bind "change:reload:vgrep $include_hidden_files --no-header {q} || true" --ansi --phony --tac | \
+  files=$(vgrep --no-ripgrep --no-header $include_hidden_files "$search_arg" | \
+    fzf -m --height 60% --preview $__FZF_PREVIEW_VFGREP --bind "change:reload:vgrep --no-ripgrep $include_hidden_files --no-header {q} || true" --ansi --phony --tac | \
     awk '{if (NR==1) {print("+" $3, $2)} else {print("+\"tabnew +" $3, $2 "\"")}}' ORS=' ')
   if [[ "$files" != "" ]]; then
     eval 'nvim' "$files"
