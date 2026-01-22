@@ -10,10 +10,43 @@
       ansible.builtin.apt:
         state: present
         name:
+          - apt-transport-https
           - build-essential
+          - ca-certificates
+          - curl
+          - dpkg
           - gawk
           - git
+          - jq
+          - less
           - lsb-release
           - python3
           - software-properties-common
           - wget
+    - name: Install homebrew
+      ansible.builtin.shell: |
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      environment:
+        NONINTERACTIVE: 1
+    - name: Install homebrew packages
+      homebrew:
+        state: present
+        update_homebrew: yes
+        name:
+          - mise
+    - name: Update bashrc
+      ansible.builtin.blockinfile:
+        path: $HOME/.bashrc
+        prepend_newline: true
+        block: |
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+          eval "$(mise activate bash --shims)"
+          source  ~/.venv/bin/activate
+          export PATH="$PATH:$HOME/.local/"
+    - name: Install, configure mise tools
+      ansible.builtin.shell: |
+        /home/linuxbrew/.linuxbrew/bin/mise install python uv
+        /home/linuxbrew/.linuxbrew/bin/mise use -g python uv
+    - name: Setup venv
+      ansible.builtin.shell: |
+        /home/linuxbrew/.linuxbrew/bin/mise exec uv -- uv venv --seed
