@@ -73,6 +73,9 @@ __git_files () {
     _wanted files expl 'local files' _files
 }
 
+# https://stackoverflow.com/questions/12508595/ignore-orig-head-in-zsh-git-autocomplete
+zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
+
 # Use bat/batcat when running `man <package>`
 export MANPAGER="sh -c 'bat -l man -p'"
 
