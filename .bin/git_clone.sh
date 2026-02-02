@@ -19,6 +19,7 @@ git fetch
 git worktree add ../01_primary origin/main --detach
 # git worktree add ../02_development origin/development --detach
 # git worktree add ../03_staging origin/staging --detach
-git worktree add ../09_scratch origin/main --detach
 git worktree add ../88_vm origin/main --detach
+git worktree add ../97_ephemeral origin/main --detach
+git worktree add ../98_ephemeral origin/main --detach
 git worktree add ../99_ephemeral origin/main --detach
