@@ -1,11 +1,11 @@
-[providers.age]
-type = "age"
-recipients = [
-    "age14nalzzwh75keltwhx4gtaqyhqsena2806kn6mc27cxtyqaja25gsnyjpln",
-]
+# [providers.age]
+# type = "age"
+# recipients = [
+#     "age14nalzzwh75keltwhx4gtaqyhqsena2806kn6mc27cxtyqaja25gsnyjpln",
+# ]
 
-[providers.bitwarden]
-type = "bitwarden"
+# [providers.bitwarden]
+# type = "bitwarden"
 
-[secrets]
-ANSIBLE_SOPS_AGE_KEY = { provider = "bitwarden", value = "sops_age_common_0/notes" }
+# [secrets]
+# ANSIBLE_SOPS_AGE_KEY = { provider = "bitwarden", value = "sops_age_common_0/notes" }

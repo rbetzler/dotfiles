@@ -3,6 +3,7 @@ idiomatic_version_file_enable_tools = ["python"]
 experimental = true
 
 [env]
+# _.fnox-env = { tools = true, profile = "dev" }
 FNOX_AGE_KEY_FILE="~/.config/sops/age/keys.txt"
 
 [tools]
@@ -11,3 +12,6 @@ fnox = "latest"
 [tasks.install]
 description = "Install dependencies"
 run = "fnox completion zsh > ~/.utils/fnox.sh"
+
+# [plugins]
+# fnox-env = "https://github.com/jdx/mise-env-fnox"
