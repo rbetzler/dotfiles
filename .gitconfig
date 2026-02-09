@@ -6,6 +6,9 @@
     excludesfile = ~/.gitignore.global
     pager = delta
 
+[commit]
+    template = ~/.gitcommit.template
+
 [color]
     branch = auto
     diff = auto
