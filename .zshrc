@@ -163,3 +163,4 @@ source ${HOME}/venv/bin/activate
 
 # Mise
 eval "$(mise activate zsh)"
+eval "$(fnox activate zsh)"
