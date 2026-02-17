@@ -150,6 +150,9 @@ if grep --quiet Ubuntu /etc/os-release; then
   source ~/.zsh_profiles/ubuntu.zsh
 fi
 
+# Go paths
+export PATH="$HOME/go/bin:$PATH"
+
 # Pyenv config
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$HOME/.local/bin:$PATH"
