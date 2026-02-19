@@ -32,6 +32,7 @@ pytest
 shellcheck-py
 sqlalchemy
 sqlfluff
+sqlit-tui
 # sqlfmt
 # twine
 wheel
