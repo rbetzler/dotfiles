@@ -19,7 +19,7 @@ ipdb
 ipython>=8.10
 jc
 jedi
-jinja-cli
+jinja2-cli
 # keyring
 libcst
 pandas
