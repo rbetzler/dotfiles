@@ -35,6 +35,47 @@ return {
         branch = "release",
         build = "yarn install",
     },
+    -- {
+    --   "olimorris/codecompanion.nvim",
+    --   version = "^19.0.0",
+    --   opts = {},
+    --   config = function()
+    --     require("codecompanion").setup({
+    --       interactions = {
+    --         chat = {
+    --           adapter = "ollama",
+    --         },
+    --         inline = {
+    --           adapter = "ollama",
+    --         },
+    --         cmd = {
+    --           adapter = "ollama",
+    --         }
+    --       },
+    --       adapters = {
+    --         http = {
+    --           ollama = function()
+    --             return require("codecompanion.adapters").extend("ollama", {
+    --               env = {
+    --                 url = "http://desktop.local:11434",
+    --               },
+    --               headers = {
+    --                 ["Content-Type"] = "application/json",
+    --               },
+    --               parameters = {
+    --                 sync = true,
+    --               },
+    --             })
+    --           end,
+    --         },
+    --       },
+    --     })
+    --   end,
+    --   dependencies = {
+    --     "nvim-lua/plenary.nvim",
+    --     "nvim-treesitter/nvim-treesitter",
+    --   },
+    -- },
     "pogyomo/winresize.nvim",
     "preservim/nerdcommenter",
     {
@@ -56,4 +97,50 @@ return {
         end,
     },
     "vim-airline/vim-airline-themes",
+    {
+      "yetone/avante.nvim",
+      build = "make",
+      event = "VeryLazy",
+      version = false,
+      ---@module 'avante'
+      ---@type avante.Config
+      opts = {
+        -- instructions_file = "avante.md",
+        provider = "ollama",
+        mode = "legacy",
+        -- disable_tools = true,
+        providers = {
+          ollama = {
+            endpoint = "http://desktop.local:11434",
+            model = "qwen3.5:4b",
+            is_env_set = true,
+            timeout = 3000,
+            mode = "legacy",
+            disable_tools = true,
+            extra_request_body = {
+              temperature = 0.15,
+              max_tokens = 204,
+            },
+          },
+        },
+      },
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+        "nvim-mini/mini.pick",
+        "nvim-telescope/telescope.nvim",
+        "hrsh7th/nvim-cmp",
+        "ibhagwan/fzf-lua",
+        "stevearc/dressing.nvim",
+        "folke/snacks.nvim",
+        "nvim-tree/nvim-web-devicons",
+        {
+          "MeanderingProgrammer/render-markdown.nvim",
+          opts = {
+            file_types = { "markdown", "Avante" },
+          },
+          ft = { "markdown", "Avante" },
+        },
+      },
+    }
 }
