@@ -1,0 +1,69 @@
+# Preinstall
+# 1. Install curl, ollama
+#    ```
+#    sudo apt update
+#    sudo apt install --yes curl
+#    curl -fsSL https://ollama.com/install.sh | sh
+#    ```
+# 2. Install docker
+#     ```
+#     ansible-playbook ~/.playbooks/common/docker.yaml -i ~/.playbooks/inventory.yaml --ask-become-pass --limit ubuntu
+#     ```
+---
+- hosts: servers
+  tasks:
+    - name: Mount disk
+      when: inventory_hostname in groups['ubuntu']
+      become: true
+      ansible.posix.mount:
+        path: /media/
+        src: /dev/sda1
+        fstype: ext4
+        state: mounted
+        opts: defaults
+    - name: Create ollama dirs
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - ~/apps/ollama/
+    - name: Create ollama dirs
+      become: true
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - /etc/systemd/system/ollama.service.d/
+    - name: Write ollama systemd
+      become: true
+      ansible.builtin.copy:
+        dest: /etc/systemd/system/ollama.service.d/override.conf
+        content: |
+          [Service]
+          Environment="OLLAMA_HOST=0.0.0.0"
+          Environment="OLLAMA_ORIGINS=http://desktop.local:3000"
+          Environment="OLLAMA_MODELS=/media/rick/ollama"
+    - name: Start ollama server
+      become: true
+      ansible.builtin.systemd_service:
+        name: ollama.service
+        enabled: false
+        state: restarted
+    - name: Write ollama docker compose
+      ansible.builtin.copy:
+        dest: ~/apps/ollama/docker-compose.yaml
+        content: |
+          ---
+          services:
+            ollama:
+              image: jakobhoeg/nextjs-ollama-ui
+              restart: unless-stopped
+              extra_hosts:
+                - "host.docker.internal:host-gateway"
+              environment:
+                OLLAMA_URL: http://desktop.local:11434
+              ports:
+                - 8080:3000
+    - name: Create, start ollama
+      community.docker.docker_compose_v2:
+        project_src: ~/apps/ollama/
