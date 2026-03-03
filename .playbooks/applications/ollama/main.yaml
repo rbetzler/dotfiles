@@ -57,6 +57,7 @@
           services:
             chromadb:
               image: ghcr.io/chroma-core/chroma:latest
+              restart: always
               ports:
                 - 8000:8000
               environment:
@@ -65,23 +66,13 @@
                 - "host.docker.internal:host-gateway"
               volumes:
                 - ./chromadb:/chroma/chroma/
-            redis:
-              image: redis/redis-stack-server:latest
-              ports:
-                - 6379:6379
-                # - 8443:8443
-                # - 9443:9443
-                # - 12000:12000
-              extra_hosts:
-                - "host.docker.internal:host-gateway"
-              volumes:
-                - ./redis:/data
             n8n:
               image: docker.n8n.io/n8nio/n8n
               restart: always
               ports:
                 - 5678:5678
               environment:
+                N8N_CONCURRENCY_PRODUCTION_LIMIT: 8
                 N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
                 N8N_HOST: desktop.local
                 N8N_PORT: 5678
@@ -93,9 +84,29 @@
               volumes:
                 - ./n8n/data:/home/node/.n8n
                 - ./n8n/files:/files
+            postgres:
+              image: pgvector/pgvector:pg18-trixie
+              restart: always
+              ports:
+                - 5432:5432
+              extra_hosts:
+                - "host.docker.internal:host-gateway"
+              environment:
+                POSTGRES_HOST_AUTH_METHOD: trust
+              volumes:
+                - ./pgdata:/var/lib/postgresql
+            redis:
+              image: redis/redis-stack-server:latest
+              restart: always
+              ports:
+                - 6379:6379
+              extra_hosts:
+                - "host.docker.internal:host-gateway"
+              volumes:
+                - ./redis:/data
             ui:
               image: jakobhoeg/nextjs-ollama-ui
-              restart: unless-stopped
+              restart: always
               extra_hosts:
                 - "host.docker.internal:host-gateway"
               environment:
