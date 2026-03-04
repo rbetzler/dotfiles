@@ -58,3 +58,7 @@
 [submodule "mutt"]
     path = repos/mutt
     url = https://github.com/dracula/mutt.git
+
+[submodule "opencode"]
+    path = repos/opencode
+    url = https://github.com/dracula/opencode.git

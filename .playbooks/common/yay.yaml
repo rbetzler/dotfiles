@@ -43,6 +43,7 @@
           - google-cloud-cli
           - google-cloud-cli-gke-gcloud-auth-plugin
           - jira-cli
+          - opencode-bin
     - name: Install dracula aesthetics
       when: ansible_facts["distribution"] == "Archlinux"
       kewlfft.aur.aur:
