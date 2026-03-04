@@ -43,6 +43,7 @@
           Environment="OLLAMA_HOST=0.0.0.0"
           Environment="OLLAMA_ORIGINS=http://desktop.local:3000"
           Environment="OLLAMA_MODELS=/media/rick/ollama"
+          Environment="OLLAMA_CONTEXT_LENGTH=64000"
     - name: Start ollama server
       become: true
       ansible.builtin.systemd_service:
