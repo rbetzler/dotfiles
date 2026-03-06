@@ -16,6 +16,21 @@
           "name": "qwen3.5:0.8b"
         }
       }
+    },
+    "n8n": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "n8n (local)",
+      "options": {
+        "baseURL": "http://desktop.local:3333/v1",
+        "headers": {
+          "Authorization": "Bearer {env:N8N_API_KEY}"
+        }
+      },
+      "models": {
+        "ollama-postgres-v2": {
+          "name": "ollama-postgres-v2"
+        }
+      }
     }
   }
 }

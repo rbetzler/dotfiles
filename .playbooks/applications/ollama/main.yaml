@@ -85,6 +85,18 @@
               volumes:
                 - ./n8n/data:/home/node/.n8n
                 - ./n8n/files:/files
+            n8n-bridge:
+              image: ghcr.io/sveneisenschmidt/n8n-openai-bridge:latest
+              restart: always
+              ports:
+                - 3333:3333
+              environment:
+                BEARER_TOKEN: "{{ lookup('ansible.builtin.env', 'N8N_API_KEY') }}"
+                MODEL_LOADER_TYPE: n8n-api
+                AUTO_DISCOVERY_POLL_INTERVAL: 300
+                AUTO_DISCOVERY_TAG: n8n-openai-bridge
+                N8N_API_BEARER_TOKEN: "{{ lookup('ansible.builtin.env', 'N8N_API_KEY') }}"
+                N8N_BASE_URL: http://desktop.local:5678
             postgres:
               image: pgvector/pgvector:pg18-trixie
               restart: always
