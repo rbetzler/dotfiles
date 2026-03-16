@@ -62,3 +62,7 @@
 [submodule "opencode"]
     path = repos/opencode
     url = https://github.com/dracula/opencode.git
+
+[submodule "repos/obra-superpowers"]
+    path = repos/obra-superpowers
+    url = https://github.com/obra/superpowers.git

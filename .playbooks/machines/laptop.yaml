@@ -10,3 +10,4 @@
 - import_playbook: ../common/miscellaneous.yaml
 - import_playbook: ../common/crypto.yaml
 - import_playbook: ../common/tailscale.yaml
+- import_playbook: ../common/ai.yaml

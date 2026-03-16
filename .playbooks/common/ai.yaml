@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Create opencode dirs
+      ansible.builtin.file:
+        state: directory
+        path: "{{ ansible_env.HOME }}/.config/opencode/{{ item }}/"
+      loop:
+        - plugins
+        - themes
+    - name: Link opencode theme
+      ansible.builtin.file:
+        src: '{{ ansible_env.HOME }}/repos/opencode/dracula.json'
+        dest: '{{ ansible_env.HOME }}/.config/opencode/themes/dracula.json'
+        state: link
+    - name: Link opencode superpowers js
+      ansible.builtin.file:
+        src: '{{ ansible_env.HOME }}/repos/obra-superpowers/.opencode/plugins/superpowers.js'
+        dest: '{{ ansible_env.HOME }}/.config/opencode/plugins/superpowers.js'
+        state: link
+    - name: Link opencode superpowers
+      ansible.builtin.file:
+        src: '{{ ansible_env.HOME }}/repos/obra-superpowers/skills'
+        dest: '{{ ansible_env.HOME }}/.config/opencode/skills/superpowers'
+        state: link
