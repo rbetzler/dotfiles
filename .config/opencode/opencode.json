@@ -1,9 +1,9 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "provider": {
-    "ollama": {
+    "ollama-desktop": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "Ollama (local)",
+      "name": "Ollama (desktop)",
       "options": {
         "baseURL": "http://desktop.local:11434/v1",
         "num_ctx": "65536"
@@ -17,9 +17,22 @@
         }
       }
     },
+    "ollama-local": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://localhost:11434/v1",
+        "num_ctx": "6536"
+      },
+      "models": {
+        "qwen3.5:0.8b": {
+          "name": "qwen3.5:0.8b"
+        }
+      }
+    },
     "n8n": {
       "npm": "@ai-sdk/openai-compatible",
-      "name": "n8n (local)",
+      "name": "n8n (desktop)",
       "options": {
         "baseURL": "http://desktop.local:3333/v1",
         "headers": {
