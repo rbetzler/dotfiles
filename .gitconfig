@@ -111,6 +111,7 @@
     cmmn = "commit --no-verify -m"
     cmm-reuse = "commit --reuse-message=ORIG_HEAD"
     cmm-no-verify = "commit -n -m"
+    cn = "commit --no-verify"
 
     # Cherry pick
     chy = "cherry-pick"
