@@ -36,3 +36,4 @@ vim.keymap.set("n", "<leader><S-l>", resize(0, 18, "right"), opts)
 
 -- Random
 vim.keymap.set("n", "<F9>", ":setlocal spell! spelllang=en_us<CR>", opts)
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], {noremap = true, silent = true})
