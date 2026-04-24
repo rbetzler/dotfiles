@@ -138,6 +138,8 @@
       git diff ..\"$1\" > /tmp/my.patch ; \
       git apply /tmp/my.patch ; \
     }; f"
+    dfn = "diff --name-only"
+    dfcn = "diff --cached --name-only"
     dfv = "-c delta.side-by-side=false diff"
     dfcv = "-c delta.side-by-side=false diff --cached"
     edit-files-st = "!f() { \
