@@ -97,82 +97,82 @@ return {
         end,
     },
     "vim-airline/vim-airline-themes",
-    {
-      "yetone/avante.nvim",
-      build = "make",
-      event = "VeryLazy",
-      version = false,
-      ---@module 'avante'
-      ---@type avante.Config
-      opts = {
-        -- instructions_file = "avante.md",
-        provider = "ollama",
-        mode = "legacy",
-        -- disable_tools = true,
-        providers = {
-          ollama = {
-            endpoint = "http://desktop.local:11434",
-            model = "qwen3.5:4b",
-            is_env_set = true,
-            timeout = 3000,
-            mode = "legacy",
-            disable_tools = true,
-            extra_request_body = {
-              temperature = 0.15,
-              max_tokens = 204,
-            },
-          },
-          -- ollama_embed = {
-          --   __inherited_from = "ollama",
-          --   endpoint = "http://desktop.local:11434",
-          --   model = "qwen3-embedding:4b",
-          --   is_env_set = true,
-          --   timeout = 3000,
-          --   mode = "legacy",
-          --   disable_tools = true,
-          --   extra_request_body = {
-          --     temperature = 0.15,
-          --     max_tokens = 204,
-          --   },
-          -- },
-        },
-        -- rag_service = {
-        --   enabled = true,
-        --   host_mount = "~/repos/dbt-common",
-        --   runner = "docker",
-        --   llm = {
-        --     provider = "ollama_qwen",
-        --     endpoint = "http://desktop.local:11434",
-        --     api_key = "",
-        --     model = "qwen3.5:4b",
-        --   },
-        --   embed = {
-        --     provider = "ollama_embed",
-        --     endpoint = "http://desktop.local:11434",
-        --     api_key = "",
-        --     model = "qwen3-embedding:4b",
-        --   },
-        -- },
-      },
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "MunifTanjim/nui.nvim",
-        "nvim-mini/mini.pick",
-        "nvim-telescope/telescope.nvim",
-        "hrsh7th/nvim-cmp",
-        "ibhagwan/fzf-lua",
-        "stevearc/dressing.nvim",
-        "folke/snacks.nvim",
-        "nvim-tree/nvim-web-devicons",
-        -- {
-        --   "MeanderingProgrammer/render-markdown.nvim",
-        --   opts = {
-        --     file_types = { "markdown", "Avante" },
-        --   },
-        --   ft = { "markdown", "Avante" },
-        -- },
-      },
-    },
+    -- {
+    --   "yetone/avante.nvim",
+    --   build = "make",
+    --   event = "VeryLazy",
+    --   version = false,
+    --   ---@module 'avante'
+    --   ---@type avante.Config
+    --   opts = {
+    --     -- instructions_file = "avante.md",
+    --     provider = "ollama",
+    --     mode = "legacy",
+    --     -- disable_tools = true,
+    --     providers = {
+    --       ollama = {
+    --         endpoint = "http://desktop.local:11434",
+    --         model = "qwen3.5:4b",
+    --         is_env_set = true,
+    --         timeout = 3000,
+    --         mode = "legacy",
+    --         disable_tools = true,
+    --         extra_request_body = {
+    --           temperature = 0.15,
+    --           max_tokens = 204,
+    --         },
+    --       },
+    --       -- ollama_embed = {
+    --       --   __inherited_from = "ollama",
+    --       --   endpoint = "http://desktop.local:11434",
+    --       --   model = "qwen3-embedding:4b",
+    --       --   is_env_set = true,
+    --       --   timeout = 3000,
+    --       --   mode = "legacy",
+    --       --   disable_tools = true,
+    --       --   extra_request_body = {
+    --       --     temperature = 0.15,
+    --       --     max_tokens = 204,
+    --       --   },
+    --       -- },
+    --     },
+    --     -- rag_service = {
+    --     --   enabled = true,
+    --     --   host_mount = "~/repos/dbt-common",
+    --     --   runner = "docker",
+    --     --   llm = {
+    --     --     provider = "ollama_qwen",
+    --     --     endpoint = "http://desktop.local:11434",
+    --     --     api_key = "",
+    --     --     model = "qwen3.5:4b",
+    --     --   },
+    --     --   embed = {
+    --     --     provider = "ollama_embed",
+    --     --     endpoint = "http://desktop.local:11434",
+    --     --     api_key = "",
+    --     --     model = "qwen3-embedding:4b",
+    --     --   },
+    --     -- },
+    --   },
+    --   dependencies = {
+    --     "nvim-lua/plenary.nvim",
+    --     "MunifTanjim/nui.nvim",
+    --     "nvim-mini/mini.pick",
+    --     "nvim-telescope/telescope.nvim",
+    --     "hrsh7th/nvim-cmp",
+    --     "ibhagwan/fzf-lua",
+    --     "stevearc/dressing.nvim",
+    --     "folke/snacks.nvim",
+    --     "nvim-tree/nvim-web-devicons",
+    --     -- {
+    --     --   "MeanderingProgrammer/render-markdown.nvim",
+    --     --   opts = {
+    --     --     file_types = { "markdown", "Avante" },
+    --     --   },
+    --     --   ft = { "markdown", "Avante" },
+    --     -- },
+    --   },
+    -- },
     {
       "nickjvandyke/opencode.nvim",
       version = "*", -- Latest stable release
