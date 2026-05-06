@@ -256,6 +256,8 @@
     rb = rebase
     rba = "rebase --abort"
     rbc = "rebase --continue"
+    rbs = "rebase --skip"
+
     rbi = "rebase -i"
     rbi-mine-main = !bash ~/.git_aliases/rebase_my_commits origin/main
     rbi-mine-staging = !bash ~/.git_aliases/rebase_my_commits origin/staging
