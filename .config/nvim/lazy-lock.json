@@ -1,7 +1,7 @@
 {
   "ale": { "branch": "master", "commit": "c59c0d1a573a7b2fe491f78af4f2033bde454753" },
-  "coc-pyright": { "branch": "master", "commit": "114e44fc855a0047657c8d14ccc162d5a024cd10" },
-  "coc.nvim": { "branch": "release", "commit": "e682a2e0cef815b49b3bb79a0c6d0a430c8116c8" },
+  "coc-pyright": { "branch": "master", "commit": "216460fbdc21be485c6554a3d2c3815a2f05d9b3" },
+  "coc.nvim": { "branch": "release", "commit": "269f4465f304f7f2412b9cc46fbdc98667b84546" },
   "csv.vim": { "branch": "master", "commit": "ab776a6266593e9e0d8643cdb7e577f81c0eab7d" },
   "dracula": { "branch": "master", "commit": "e7b91facff94bdf3a248df9b683119b84672256a" },
   "fzy-lua-native": { "branch": "master", "commit": "9d720745d5c2fb563c0d86c17d77612a3519c506" },
@@ -22,5 +22,5 @@
   "vim-visual-multi": { "branch": "master", "commit": "a6975e7c1ee157615bbc80fc25e4392f71c344d4" },
   "wilder.nvim": { "branch": "master", "commit": "679f348dc90d80ff9ba0e7c470c40a4d038dcecf" },
   "winresize.nvim": { "branch": "main", "commit": "df7ac44154565b0bb91a8894ffe57c5a93689f10" },
-  "yazi.nvim": { "branch": "main", "commit": "aada50881aca7d13422e02a6681b8f0a0ec9a75c" }
+  "yazi.nvim": { "branch": "main", "commit": "25f370e6e84ca7ebca5927ec66cd93e2fa16fd3d" }
 }
