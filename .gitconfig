@@ -325,6 +325,7 @@
     shhash = "rev-parse HEAD"
     sh-head-commit-title = "show -s --format='%s'"
     sh-head-commit-body = "show -s --format='%b'"
+    shno = "show --name-only"
     shv = "-c delta.side-by-side=false show"
 
     st = status
