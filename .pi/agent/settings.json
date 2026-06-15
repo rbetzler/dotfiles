@@ -1,0 +1,13 @@
+{
+  "lastChangelogVersion": "0.79.4",
+  "theme": "dracula",
+  "defaultProvider": "ollama",
+  "defaultModel": "gemma4:e2b",
+  "packages": [
+    "npm:pi-web-access",
+    "npm:context-mode",
+    "npm:pi-markdown-preview",
+    "npm:pi-subagents"
+  ],
+  "defaultThinkingLevel": "medium"
+}

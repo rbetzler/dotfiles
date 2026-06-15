@@ -1,7 +1,21 @@
+# TODO Add pi package installs
+# pi install npm:context-mode
+# pi install npm:pi-markdown-preview
+# pi install npm:pi-subagents
+# pi install npm:pi-web-access
 ---
 - hosts: localhost
   connection: local
   tasks:
+    - name: Create global agent dir
+      ansible.builtin.file:
+        state: directory
+        path: "{{ ansible_env.HOME }}/.agents/skills/"
+    - name: Link superpowers globally
+      ansible.builtin.file:
+        src: '{{ ansible_env.HOME }}/repos/obra-superpowers/skills'
+        dest: '{{ ansible_env.HOME }}/.agents/skills/superpowers'
+        state: link
     - name: Create opencode dirs
       ansible.builtin.file:
         state: directory
@@ -23,4 +37,20 @@
       ansible.builtin.file:
         src: '{{ ansible_env.HOME }}/repos/obra-superpowers/skills'
         dest: '{{ ansible_env.HOME }}/.config/opencode/skills/superpowers'
+        state: link
+    - name: Install pi coding agent
+      community.general.npm:
+        name: '@earendil-works/pi-coding-agent'
+        executable: /usr/bin/npm
+        global: true
+    - name: Create pi dirs
+      ansible.builtin.file:
+        state: directory
+        path: "{{ ansible_env.HOME }}/.pi/agent/{{ item }}/"
+      loop:
+        - themes
+    - name: Link pi theme
+      ansible.builtin.file:
+        src: '{{ ansible_env.HOME }}/repos/pi-coding-agent/dracula.json'
+        dest: '{{ ansible_env.HOME }}/.pi/agent/themes/dracula.json'
         state: link

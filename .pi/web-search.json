@@ -1,0 +1,14 @@
+{
+  "summaryModel": "anthropic/claude-haiku-4-5",
+  "workflow": "summary-review",
+  "curatorTimeoutSeconds": 20,
+  "githubClone": {
+    "enabled": false
+  },
+  "youtube": {
+    "enabled": false
+  },
+  "video": {
+    "enabled": false
+  }
+}

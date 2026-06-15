@@ -66,3 +66,7 @@
 [submodule "repos/obra-superpowers"]
     path = repos/obra-superpowers
     url = https://github.com/obra/superpowers.git
+
+[submodule "repos/pi-coding-agent"]
+    path = repos/pi-coding-agent
+    url = https://github.com/dracula/pi-coding-agent.git
