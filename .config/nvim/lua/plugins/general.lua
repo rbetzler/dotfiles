@@ -23,6 +23,9 @@ return {
     "https://github.com/tpope/vim-repeat",
     "https://github.com/tpope/vim-surround",
     {
+        "junegunn/limelight.vim",
+    },
+    {
         "junegunn/goyo.vim",
         init = function()
             vim.g.goyo_width = "100%"
