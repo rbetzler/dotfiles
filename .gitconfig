@@ -70,6 +70,9 @@
     }; f"
     blm-fzf = !bash ~/.git_aliases/fzf_blame $1
 
+    # Clean
+    clean-untracked = "clean -f -x -d"
+
     # Checkout
     co = checkout
     cob = !bash ~/.git_aliases/checkout_off_primary $(git b-current)
