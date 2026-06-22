@@ -152,6 +152,7 @@ alias dkrmf="docker rm -f"
 alias dkrmi="docker rmi"
 alias dkrmif="docker rmi -f"
 alias dkstp="docker stop"
+alias dkclean="docker builder prune"
 
 alias mk="minikube"
 alias k="kubectl"
