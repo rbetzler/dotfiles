@@ -173,6 +173,8 @@
     }; f"
     lp = "log -p"
     lp-mine = "log -p --author=rbetzler"
+    lpr = "log -p --reverse"
+    lpr-base-main = "log -p --reverse ...origin/main"
     lpv = "-c delta.side-by-side=false log -p"
     l-feat-commits = !bash ~/.git_aliases/log_feature_commits
     l-feat-hashs = !bash ~/.git_aliases/log_feature_commits 0
