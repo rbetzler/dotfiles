@@ -9,6 +9,7 @@ variable "HOME" {
 target "pi" {
   context = "${HOME}/.builds/pi/"
   contexts = {
+    dracula = "${HOME}/repos/pi-coding-agent/"
     pi = "${HOME}/.pi/"
     superpowers = "${HOME}/repos/obra-superpowers/"
   }
