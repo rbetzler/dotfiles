@@ -12,7 +12,7 @@ plugins=(
   fzf-tab
   gcloud
   kubectl
-  minikube
+  # minikube
   mise
   nix-zsh-completions
   pulumi
