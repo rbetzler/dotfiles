@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+#
+# Wrapper for pi coding agent docker image
 
 set -exo pipefail
 

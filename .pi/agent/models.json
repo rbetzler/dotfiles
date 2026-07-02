@@ -6,6 +6,9 @@
       "apiKey": "ollama",
       "models": [
         {
+          "id": "gemma4:12b"
+        },
+        {
           "id": "gemma4:e2b"
         },
         {
