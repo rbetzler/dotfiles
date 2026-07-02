@@ -32,8 +32,8 @@ if [[ "${MOUNT_AUTH_DIR}" == true ]]; then
 fi
 
 if [[ "${MOUNT_PI_DIR}" == true ]]; then
-  # Add another mount to avoid overwriting actual dracula files on host
-  VOLUME_PI="--volume $HOME/.pi/:/root/.pi/ --volume dracula:/root/.pi/agent/themes/"
+  # Add mounts to avoid overwriting directories already in the image
+  VOLUME_PI="--volume $HOME/.pi/:/root/.pi/ --volume dracula:/root/.pi/agent/themes/ --volume superpowers:/root/.pi/agent/skills/superpowers/"
 fi
 
 docker run \
