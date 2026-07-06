@@ -30,6 +30,21 @@ return {
         init = function()
             vim.g.goyo_width = "100%"
             vim.g.goyo_height = "100%"
+            vim.api.nvim_create_autocmd("User", {
+              pattern = "GoyoEnter",
+              callback = function()
+                vim.api.nvim_set_hl(0, "WinSeparator", {
+                  fg = bg,
+                  bg = bg,
+                })
+              end,
+            })
+            vim.api.nvim_create_autocmd("User", {
+              pattern = "GoyoLeave",
+              callback = function()
+                vim.cmd.colorscheme(vim.g.colors_name)
+              end,
+            })
         end,
     },
     "mg979/vim-visual-multi",
