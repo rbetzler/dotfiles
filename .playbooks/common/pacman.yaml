@@ -117,7 +117,7 @@
           - sops
           - tk
           - tree
-          - usage
+          # - usage
           - uv
           - whois
           - xclip
