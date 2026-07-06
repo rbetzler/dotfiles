@@ -222,3 +222,48 @@ function y() {
 gawkheadchy(){
   awk '{print $2}' | head -n 1 | git cherry-pick --stdin
 }
+
+dkpi() {
+  local mount_current_dir=false
+  local mount_auth_dir=false
+  local mount_pi_dir=false
+
+  local -a docker_args
+  docker_args=(--rm -it)
+
+  local opt
+  OPTIND=1
+  while getopts "par" opt; do
+    case "$opt" in
+      p) mount_current_dir=true ;;
+      a) mount_auth_dir=true ;;
+      r) mount_pi_dir=true ;;
+      *)
+        print "Usage: dkpi [-p] [-a] [-r] [COMMAND]"
+        print "  -p  Mount the present working directory"
+        print "  -a  Mount auth credentials"
+        print "  -r  Mount the root pi config directory"
+        return 1
+        ;;
+    esac
+  done
+
+  shift $((OPTIND - 1))
+
+  [[ $mount_current_dir == true ]] && \
+    docker_args+=(--volume "$PWD:/workspace")
+
+  [[ $mount_auth_dir == true ]] && \
+    docker_args+=(--volume "$HOME/.pi/agent/auth.json:/root/.pi/agent/auth.json")
+
+  [[ $mount_pi_dir == true ]] && docker_args+=(
+    --volume "$HOME/.pi:/root/.pi"
+    --volume "dracula:/root/.pi/agent/themes"
+    --volume "superpowers:/root/.pi/agent/skills/superpowers"
+  )
+
+  docker run \
+    "${docker_args[@]}" \
+    pi:latest \
+    "$@"
+}
