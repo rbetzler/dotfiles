@@ -239,14 +239,14 @@ return {
     --     -- vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
     --   end,
     -- },
-    -- {
-    --   "pablopunk/pi.nvim",
-    --   opts = {
-    --       thinking = "medium",
-    --   },
-    --   config = function()
-    --     vim.keymap.set("n", "<leader>ai", ":PiAsk<CR>", { desc = "Ask pi" })
-    --     vim.keymap.set("v", "<leader>ai", ":PiAskSelection<CR>", { desc = "Ask pi (selection)" })
-    --   end,
-    -- }
+    {
+      "pablopunk/pi.nvim",
+      opts = {
+          thinking = "medium",
+      },
+      config = function()
+        vim.keymap.set("n", "<leader>ai", ":PiAsk<CR>", { desc = "Ask pi" })
+        vim.keymap.set("v", "<leader>ai", ":PiAskSelection<CR>", { desc = "Ask pi (selection)" })
+      end,
+    }
 }
