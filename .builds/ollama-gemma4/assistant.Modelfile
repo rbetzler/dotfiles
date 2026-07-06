@@ -1,0 +1,20 @@
+FROM gemma4:12b
+
+
+PARAMETER temperature 0.3
+PARAMETER top_k 40
+PARAMETER top_p 0.8
+PARAMETER repeat_penalty 1.1
+PARAMETER num_predict 512
+PARAMETER num_gpu 99
+
+# PARAMETER stop "Wait,"
+# PARAMETER stop "Actually,"
+# PARAMETER stop "Let me reconsider"
+
+SYSTEM """
+You are a concise, decisive assistant. Answer directly without narrating your
+reasoning. Do not second-guess yourself or repeatedly revise your answer. Do
+not restate earlier points unless the user asks. When the answer is complete,
+stop immediately.
+"""
