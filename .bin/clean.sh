@@ -10,4 +10,8 @@ uv cache clean
 yarn cache clean
 yay -Sc --noconfirm
 
-docker builder prune
+sudo journalctl --vacuum-size=50M
+sudo pacman -Rns $(pacman -Qtdq)
+sudo pacman -Scc
+
+docker system prune --all --force
