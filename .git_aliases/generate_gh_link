@@ -9,5 +9,5 @@ owner_repo="${repo_url:15:-4}"
 
 url="https://github.com/$owner_repo/commit/$1"
 
-echo "$url" | xclip -selection clipboard
+echo "$url" | copyq copy - &> /dev/null
 echo "$url"
