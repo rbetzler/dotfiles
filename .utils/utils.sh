@@ -262,8 +262,10 @@ dkpi() {
     --volume "superpowers:/root/.pi/agent/skills/superpowers"
   )
 
+  set -x
   docker run \
     "${docker_args[@]}" \
     pi:latest \
     "$@"
+  set +x
 }

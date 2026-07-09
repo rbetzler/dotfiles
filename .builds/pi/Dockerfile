@@ -11,11 +11,10 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 RUN npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
-RUN pi install npm:pi-intercom
-RUN pi install npm:pi-markdown-preview
-RUN pi install npm:pi-prompt-template-model
-RUN pi install npm:pi-subagents
-# RUN pi install npm:pi-web-access
+RUN pi install npm:pi-intercom && \
+  pi install npm:pi-markdown-preview && \
+  pi install npm:pi-prompt-template-model && \
+  pi install npm:pi-subagents
 
 # To get around `fatal: detected dubious ownership in repository`
 RUN git config --global --add safe.directory '*'
