@@ -1,0 +1,4 @@
+# Source os specific shell configs
+if grep --quiet Ubuntu /etc/os-release; then
+  source ~/.config/zsh/ubuntu.zsh
+fi
