@@ -75,6 +75,14 @@
       community.general.pacman:
         state: present
         name: xorg-server
+    - name: Install shells and shell tools
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: true
+      community.general.pacman:
+        state: present
+        name:
+          - fish
+          - starship
     - name: Install other apps
       when: ansible_facts["distribution"] == "Archlinux"
       become: true
