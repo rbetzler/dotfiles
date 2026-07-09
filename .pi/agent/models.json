@@ -6,6 +6,9 @@
       "apiKey": "ollama",
       "models": [
         {
+          "id": "ornith:9b"
+        },
+        {
           "id": "gemma4-assistant"
         },
         {
