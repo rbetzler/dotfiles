@@ -83,11 +83,6 @@ export DELTA_FEATURES=+side-by-side
 # https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
-# Source os specific shell configs
-if grep --quiet Ubuntu /etc/os-release; then
-  source ~/.zsh_profiles/ubuntu.zsh
-fi
-
 # Go paths
 export PATH="$HOME/go/bin:$PATH"
 
