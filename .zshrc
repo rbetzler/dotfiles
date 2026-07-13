@@ -4,8 +4,8 @@ export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
 
 source $HOME/repos/antidote/antidote.zsh
-# Generate antidote plugin
-# antidote load $HOME/.config/antidote/zsh_plugins.txt
+# Generate antidote plugin cache if it does not exist
+[[ -f "$HOME/.config/antidote/zsh_plugins.zsh" ]] || antidote-load "$HOME/.config/antidote/zsh_plugins.txt"
 source $HOME/.config/antidote/zsh_plugins.zsh
 
 # Initialize vi mode early
@@ -29,8 +29,7 @@ done
 # ipython env
 export IPYTHONDIR="${HOME}/.ipython"
 
-# Use ipdb when python comes across breakpoint()
-# in a file
+# Use ipdb when python comes across `breakpoint()` in a file
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 # Zsh vi mode cursor configs
@@ -56,6 +55,13 @@ __git_files () {
 # https://stackoverflow.com/questions/12508595/ignore-orig-head-in-zsh-git-autocomplete
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 
+# Dracula colors for zsh tab autocomplete dropdowns
+zstyle ':fzf-tab:*' fzf-flags \
+  --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 \
+  --color=fg+:#f8f8f2,bg+:#44475a,hl+:#ff79c6 \
+  --color=info:#8be9fd,prompt:#50fa7b,pointer:#ff79c6 \
+  --color=marker:#f1fa8c,spinner:#bd93f9,header:#6272a4
+
 # Use bat/batcat when running `man <package>`
 export MANPAGER="sh -c 'bat -l man -p'"
 
@@ -65,61 +71,17 @@ setopt no_auto_remove_slash
 
 # Set dracula colors for fzf default, since not everything used this scheme
 export FZF_DEFAULT_OPTS='
-  --color fg:255,hl:84,fg+:255,bg+:236,hl+:215
-  --color info:141,prompt:84,spinner:212,pointer:212,marker:212
+  --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
+  --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
+  --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
+  --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
 '
 
 # Cannot toggle delta configs if they are in ~/.gitconfig
 export DELTA_FEATURES=+side-by-side
 
-# Suppress direnv startup noise
-# export DIRENV_LOG_FORMAT=
-
 # https://stackoverflow.com/questions/3160909/how-do-i-deal-with-certificates-using-curl-while-trying-to-access-an-https-url
 export CURL_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
-
-# Setting this for consistency
-export NIX_SSL_CERT_FILE=$CURL_CA_BUNDLE
-
-# Most aliases
-alias awk1="awk '{print \$1}'"
-alias awk2="awk '{print \$2}'"
-alias awk3="awk '{print \$3}'"
-alias awk4="awk '{print \$4}'"
-alias awk5="awk '{print \$5}'"
-alias awk6="awk '{print \$6}'"
-alias awk7="awk '{print \$7}'"
-alias awk8="awk '{print \$8}'"
-alias awk9="awk '{print \$9}'"
-alias b="bat --theme Dracula"
-alias c="bat --theme Dracula"
-alias ch="clickhouse-client --vertical"
-alias cpcstdin="copyq copy - &> /dev/null"
-alias cpc-stdin="copyq copy - &> /dev/null"
-alias dk="docker"
-alias direnva="direnv allow ~/.envrc && exec zsh"
-alias direnvd="direnv disallow ~/.envrc && exec zsh"
-alias g="git"
-alias ggrep="git grep"
-alias head1="head -n 1"
-alias head2="head -n 2"
-alias head3="head -n 3"
-alias head4="head -n 4"
-alias l="exa"
-alias la="exa -a"
-alias ll="exa -l"
-alias lla="exa -al"
-alias ipy="ipython"
-alias jc="python -m jc"
-alias nm="neomutt"
-alias open="xdg-open"
-alias pg="pgcli"
-alias pu="pulumi"
-alias sortu="sort -u"
-alias sqlit="sqlit --theme dracula"
-alias t="pwd && tre -e"
-alias v="nvim"
-alias vp="nvim -p"
 
 # Source os specific shell configs
 if grep --quiet Ubuntu /etc/os-release; then
@@ -138,19 +100,12 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$HOME/.local/bin:$PATH"
 eval "$(pyenv init --path)"
 
-# Activate home python venv after nix
+# Activate home python venv last
 source ${HOME}/venv/bin/activate
-
-# Disable pythonpath (since nix messes with it)
-# export PYTHONPATH=''
 
 # Mise
 eval "$(mise activate zsh)"
 eval "$(fnox activate zsh)"
 
-# Zsh history
-export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=100000
-export SAVEHIST=100000
-setopt APPEND_HISTORY
-setopt SHARE_HISTORY
+source $HOME/.config/zsh/aliases.sh
+source $HOME/.config/zsh/history.sh
