@@ -6,12 +6,19 @@ disabled = true
 
 [directory]
 truncation_length = 1
+style = 'bold purple'
 
 [gcloud]
 disabled = true
 
 [git_branch]
 format = '[\($branch(:$remote_branch)\)]($style)'
+only_attached = true
+style = 'bold cyan'
+
+[git_commit]
+format = '[\($hash$tag\)]($style)'
+style = 'bold cyan'
 
 [git_status]
 ahead = ''
