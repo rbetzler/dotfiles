@@ -70,3 +70,7 @@
 [submodule "repos/pi-coding-agent"]
     path = repos/pi-coding-agent
     url = https://github.com/dracula/pi-coding-agent.git
+
+[submodule "repos/antidote"]
+    path = repos/antidote
+    url = https://github.com/mattmc3/antidote.git

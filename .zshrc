@@ -1,38 +1,18 @@
 
-export ZSH="${HOME}/.oh-my-zsh"
+export STARSHIP_CACHE=~/.cache/starship/logs/zsh
+export STARSHIP_CONFIG=~/.config/starship/config.toml
+eval "$(starship init zsh)"
 
-ZSH_THEME="dracula"
-# DRACULA_DISPLAY_CONTEXT=1  # print username too
-
-plugins=(
-  aws
-  direnv
-  docker
-  docker-compose
-  fzf-tab
-  gcloud
-  kubectl
-  # minikube
-  mise
-  nix-zsh-completions
-  pulumi
-  # pyenv
-  zsh-autosuggestions
-  zsh-interactive-cd
-  zsh-syntax-highlighting
-  zsh-system-clipboard
-  zsh-vi-mode
-)
+source $HOME/repos/antidote/antidote.zsh
+# Generate antidote plugin
+# antidote load $HOME/.config/antidote/zsh_plugins.txt
+source $HOME/.config/antidote/zsh_plugins.zsh
 
 # Initialize vi mode early
 ZVM_INIT_MODE=sourcing
 
 # Set neovim as default editor
 export EDITOR="nvim"
-
-source "${ZSH}/oh-my-zsh.sh"
-
-source "${HOME}/repos/oh-my-zsh-extensions/themes/zsh-syntax/zsh-syntax-highlighting.sh"
 
 source "${HOME}/.local/share/autojump/autojump.zsh"
 
@@ -91,12 +71,6 @@ export FZF_DEFAULT_OPTS='
 
 # Cannot toggle delta configs if they are in ~/.gitconfig
 export DELTA_FEATURES=+side-by-side
-
-# Show if in nix shell
-prompt_nix_shell_setup
-
-# Activate nix zsh shim
-source $ZSH_CUSTOM/plugins/zsh-nix-shell/nix-shell.plugin.zsh
 
 # Suppress direnv startup noise
 # export DIRENV_LOG_FORMAT=
@@ -173,3 +147,10 @@ source ${HOME}/venv/bin/activate
 # Mise
 eval "$(mise activate zsh)"
 eval "$(fnox activate zsh)"
+
+# Zsh history
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=100000
+export SAVEHIST=100000
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
