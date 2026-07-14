@@ -11,6 +11,9 @@ source $HOME/.config/antidote/zsh_plugins.zsh
 # Initialize vi mode early
 ZVM_INIT_MODE=sourcing
 
+# Support `..` to back up a directory
+setopt AUTO_CD
+
 # Set neovim as default editor
 export EDITOR="nvim"
 
