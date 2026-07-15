@@ -17,6 +17,9 @@ setopt AUTO_CD
 # Set neovim as default editor
 export EDITOR="nvim"
 
+# Set neovim as zsh vi mode editor
+export ZVM_VI_EDITOR='nvim'
+
 source "${HOME}/.local/share/autojump/autojump.zsh"
 
 # source all shell files
