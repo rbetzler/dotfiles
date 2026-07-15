@@ -12,7 +12,7 @@ style = 'bold purple'
 disabled = true
 
 [git_branch]
-format = '[\($branch(:$remote_branch)\)]($style)'
+format = '[\($branch\)]($style)'
 only_attached = true
 style = 'bold cyan'
 
@@ -22,6 +22,7 @@ style = 'bold cyan'
 
 [git_status]
 ahead = ''
+behind = ''
 deleted = '✘'
 diverged = ''
 modified = '✘'
