@@ -179,3 +179,11 @@
         enabled: true
         scope: user
         state: started
+    - name: Install browsers
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: true
+      community.general.pacman:
+        state: present
+        name:
+          - chromium
+          - firefox

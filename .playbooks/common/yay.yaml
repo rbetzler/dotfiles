@@ -93,8 +93,9 @@
         use: yay
         name:
           - kanata-bin
-    # - name: Install oh my zsh
-    #   kewlfft.aur.aur:
-    #     use: yay
-    #     name:
-    #       - oh-my-zsh-git
+    - name: Install brave browser
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - brave-bin
