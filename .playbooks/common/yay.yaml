@@ -67,12 +67,6 @@
           - clickhouse
           - tre-command
           - vgrep
-    - name: Install zen
-      when: ansible_facts["distribution"] == "Archlinux"
-      kewlfft.aur.aur:
-        use: yay
-        name:
-          - zen-browser-bin
     - name: Install ventoy
       when: ansible_facts["distribution"] == "Archlinux"
       kewlfft.aur.aur:

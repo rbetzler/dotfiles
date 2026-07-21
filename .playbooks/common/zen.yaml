@@ -2,6 +2,12 @@
 - hosts: localhost
   connection: local
   tasks:
+    - name: Install zen
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - zen-browser-bin
     - name: List all zen profiles
       register: zen_profiles
       ansible.builtin.find:
