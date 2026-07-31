@@ -27,6 +27,7 @@
         state: present
         name:
           - blueman
+          - brightnessctl
           - cava
           - hyprland
           - hyprlock
