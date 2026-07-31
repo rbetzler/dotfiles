@@ -1,6 +1,9 @@
 add_newline = false
 palette = "dracula"
 
+[aws]
+disabled = true
+
 [cmd_duration]
 disabled = true
 
