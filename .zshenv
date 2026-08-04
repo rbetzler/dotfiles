@@ -1,1 +1,1 @@
-/home/rlb/.config/zsh/zshenv
+.config/zsh/zshenv

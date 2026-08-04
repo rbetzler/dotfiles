@@ -1,1 +1,1 @@
-/home/rlb/.config/bash/bashrc
+.config/bash/bashrc
