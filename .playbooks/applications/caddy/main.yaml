@@ -50,6 +50,7 @@
               restart: unless-stopped
               volumes:
                 - ~/apps/caddy/Caddyfile:/etc/caddy/Caddyfile
+                - ~/apps/caddy/data:/data
                 - /var/run/tailscale/tailscaled.sock:/var/run/tailscale/tailscaled.sock
               cap_add:
                 - NET_ADMIN
