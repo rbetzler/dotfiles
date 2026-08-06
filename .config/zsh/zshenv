@@ -1,4 +1,6 @@
 # Source os specific shell configs
-if grep --quiet Ubuntu /etc/os-release; then
+if grep --quiet Arch /etc/os-release; then
+  source ~/.config/zsh/arch.zsh
+elif grep --quiet Ubuntu /etc/os-release; then
   source ~/.config/zsh/ubuntu.zsh
 fi
