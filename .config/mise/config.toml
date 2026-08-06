@@ -3,7 +3,24 @@ idiomatic_version_file_enable_tools = ["python"]
 experimental = true
 
 [env]
-FNOX_AGE_KEY_FILE="~/.config/sops/age/keys.txt"
+SOPS_AGE_KEY_FILE = "~/.config/sops/age/keys.txt"
+FNOX_AGE_KEY_FILE = "~/.config/sops/age/keys.txt"
+
+CHHOST = "localhost"
+CHPORT = "9000"
+CHUSER = "default"
+CHPASSWORD = "password"
+CLICKHOUSE_USER = "default"
+CLICKHOUSE_PASSWORD = "password"
+
+OLLAMA_HOST = "http://desktop.local:11434"
+OLLAMA_CONTEXT_LENGTH = "64000"
+
+PGHOST = "localhost"
+PGPORT = "5432"
+PGDATABASE = "postgres"
+PGUSER = "postgres"
+PGPASSWORD = "password"
 
 [tools]
 fnox = "latest"
