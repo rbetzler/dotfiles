@@ -44,5 +44,4 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     ```bash
     mise trust
     mise install
-    mise tasks run install
     ```
