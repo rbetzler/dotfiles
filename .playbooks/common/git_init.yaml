@@ -12,6 +12,7 @@
         chdir: '{{ ansible_env.HOME }}'
       ansible.builtin.shell: |
         git init
+        git config core.symlinks true
         git remote add https https://github.com/rbetzler/dotfiles.git
         git fetch --all
         rm "$HOME/.bashrc"
