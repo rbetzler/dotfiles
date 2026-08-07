@@ -64,3 +64,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 -- Enable filetype plugins and indentation
 vim.cmd("filetype plugin indent on")
+
+-- Disable zsh linting
+-- Because of false positives on security scanning
+vim.g.ale_pattern_options = {
+  [".*/\\.zsh_history$"] = {
+    ale_enabled = 0,
+  },
+}
