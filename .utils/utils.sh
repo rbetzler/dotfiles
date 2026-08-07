@@ -57,9 +57,16 @@ vfgrep() {
   fi
 }
 
+# https://stackoverflow.com/questions/40049546/fix-mismatch-between-data-and-local-in-awk-command
 hist(){
-  # https://stackoverflow.com/questions/40049546/fix-mismatch-between-data-and-local-in-awk-command
-  cmd="$(LC_ALL=C awk --field-separator=';' '{if (substr($1, 1, 1) ~ ":") {print substr($0, index($0, ";")+1)}}' $HOME/.zsh_history | fzf --tiebreak=index)"
+  cmd="$(LC_ALL=C awk -F';' '
+    {
+      if ($1 ~ /^: [0-9]+:[0-9]+$/)
+        print substr($0, index($0, ";") + 1)
+      else
+        print $0
+    }
+  ' "$HOME/.zsh_history" | fzf --tiebreak=index)"
   print -z "$cmd"
 }
 
