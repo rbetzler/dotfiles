@@ -1,3 +1,7 @@
+# Source os specific shell configs
+if grep --quiet Ubuntu /etc/os-release; then
+  source ~/.config/bash/ubuntu.bash
+fi
 
 export STARSHIP_CACHE=~/.cache/starship/logs/bash
 export STARSHIP_CONFIG=~/.config/starship/config.toml
