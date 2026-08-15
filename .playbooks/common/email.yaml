@@ -2,6 +2,21 @@
 - hosts: localhost
   connection: local
   tasks:
+    - name: Install email
+      when: ansible_facts["distribution"] == "Archlinux"
+      become: true
+      community.general.pacman:
+        state: present
+        name:
+          - isync
+          - neomutt
+    - name: Install email
+      when: ansible_facts["distribution"] == "Archlinux"
+      kewlfft.aur.aur:
+        use: yay
+        name:
+          - cyrus-sasl-xoauth2-git
+          - oama-bin
     - name: Configure email utils
       ansible.builtin.copy:
         content: "{{ lookup('community.sops.sops', item.src_file, rstrip=false) }}"
