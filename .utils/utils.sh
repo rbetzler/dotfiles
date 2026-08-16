@@ -109,6 +109,10 @@ killzoom(){
   kill $(ps aux | grep '[z]oom' | awk '{print $2}')
 }
 
+killncspot(){
+  kill -9 $(ps aux | grep '[n]cspot' | awk '{print $2}')
+}
+
 # Fuzzy find a dir
 cdf(){
   file="$(fzf -m --height 60%)"
