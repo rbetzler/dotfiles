@@ -1,3 +1,9 @@
+# GTK icons might need a refresh, per error `Gtk:ERROR:../gtk/gtk/gtkiconhelper.c:495:ensure_surface_for_gicon: assertion failed (error == NULL): Failed to load /usr/share/ico...`
+# To fix, run the following
+# `sudo gdk-pixbuf-query-loaders --update-cache`
+# `sudo update-mime-database /usr/share/mime`
+#
+# On arch, `virt-manager` may also need `gtk4`, `python-gobject`
 ---
 - hosts: localhost
   connection: local
@@ -15,6 +21,7 @@
           - iptables-nft
           - libvirt
           - qemu
+          - virt-manager
           - virtualbox
     - name: Add host user to libvirt group
       become: true

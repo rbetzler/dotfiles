@@ -49,4 +49,36 @@
         /home/linuxbrew/.linuxbrew/bin/mise use -g python uv
     - name: Setup venv
       ansible.builtin.shell: |
-        /home/linuxbrew/.linuxbrew/bin/mise exec uv -- uv venv --seed
+        /home/linuxbrew/.linuxbrew/bin/mise exec uv -- uv venv --seed --clear
+    # - name: Install gui
+    #   become: true
+    #   ansible.builtin.apt:
+    #     state: present
+    #     update_cache: true
+    #     install_recommends: false
+    #     name:
+    #       - lubuntu-desktop
+    # - name: Install gui
+    #   become: true
+    #   ansible.builtin.apt:
+    #     state: present
+    #     update_cache: true
+    #     install_recommends: false
+    #     name:
+    #       - lubuntu-desktop
+    # - name: Install gui
+    #   become: true
+    #   ansible.builtin.apt:
+    #     state: present
+    #     name:
+    #       - xfce4
+    #       - xfce4-goodies
+    #       - lightdm
+    #   environment:
+    #     DEBIAN_FRONTEND: noninteractive
+    # - name: Enable, start lightdm
+    #   become: true
+    #   ansible.builtin.systemd_service:
+    #     name: lightdm
+    #     enabled: true
+    #     state: started
