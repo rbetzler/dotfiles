@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   tasks:
-    - name: Sync pi cert
+    - name: Sync certs
       when: ansible_facts["distribution"] == "Archlinux"
       become: true
       ansible.builtin.copy:
@@ -11,6 +11,8 @@
       with_items:
         - src_file: ~/.encrypted/pi.local.crt.enc
           dest_file: /etc/ca-certificates/trust-source/anchors/pi.local.crt
+        - src_file: ~/.encrypted/desktop.local.crt.enc
+          dest_file: /etc/ca-certificates/trust-source/anchors/desktop.local.crt
       notify: Update CA Trust
   handlers:
     - name: Update CA Trust
