@@ -2,14 +2,9 @@ access_key: ENC[AES256_GCM,data:TbPrDmKUh0N45d3obbc3tIW3seQ=,iv:kGVPlMQ/lunWiKed
 secret_key: ENC[AES256_GCM,data:uLhV4T9h/1ZiniHhJfskJf/velkQoUB10+NlcORAZba9y9PKLa/0bw==,iv:h3myEI9+7fUH2ovgirU1BTNJ8yesCq7N8PqEz60PfLA=,tag:07HE1Uwn8NHDYb7ojIK93A==,type:str]
 vpn:
     server_address: ENC[AES256_GCM,data:m0uozveVVEdEQd3JIWDEhZfM03UO9QkQwQ==,iv:Gji/aJ8YOjeJZpz29CxKqAr7fo8GFak0ftDmBnt5Ky0=,tag:F933QbgEPgS0DL3KfAxvLg==,type:str]
-repos:
-    private:
-        origin: ENC[AES256_GCM,data:jWWCOS3qXQ==,iv:wAUDQAZi25LmaPvLUQe3QFtomIbjtgiDTtKGeXzTfcM=,tag:w6LKOG566giiX9mKnInmIw==,type:str]
-        repo: ENC[AES256_GCM,data:rJ1vgZuYEGqKULJ8b+trRe9XAP9br35mdBRWRZS84bwT2Fg2bgAAlg==,iv:Rjc0BPoLwzKfPUgslBkSHHlYV3QKImsldN1aL9KMzhA=,tag:wGs0FBbShzajleyjW4vIuw==,type:str]
 sops:
     age:
-        - recipient: age14nalzzwh75keltwhx4gtaqyhqsena2806kn6mc27cxtyqaja25gsnyjpln
-          enc: |
+        - enc: |
             -----BEGIN AGE ENCRYPTED FILE-----
             YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBuNFlrNDlNYzUwMnRPbnBG
             Z1JHclRXMlVrOEY2Rm5EZTljWEsxL1BITFVZCk0yRVlxNEJjUDE2WiszYWhYUFQ1
@@ -17,7 +12,8 @@ sops:
             WE55ZXFmSS9tbTRQTTBWN1lrcTdBNm8KIWONzoq3A4LEOQI8PMWt3UOUhz4AFmqr
             c+gkT4K8qvbp0XO4Th+5rJaKOxJF7ZoAr2hVAuKeD7oV1Ljd4pBhjg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2025-09-10T14:37:31Z"
-    mac: ENC[AES256_GCM,data:bdN1oncklyTmrlxC7FYTZgDSIko5YJc8qZh4HGh6w6pvjlDHEMU7aDgks8p0caSpiRb60xH5/K56VxpKr0sR7JSd6kzJYIInQFW22+aNoWhbp7Sek9OPSj6BNgq7YOGU80z0EQ3wA2j36K8wvskduduM1BDX+HLDgtP7q3esdbk=,iv:UjbkPGYSQ58eBQBsDtuAu+1q5LCxDf608enw6shrsY0=,tag:KEf+kvkduO4AJtFf6E5+jA==,type:str]
+          recipient: age14nalzzwh75keltwhx4gtaqyhqsena2806kn6mc27cxtyqaja25gsnyjpln
+    lastmodified: "2026-08-17T21:12:57Z"
+    mac: ENC[AES256_GCM,data:05+o9gPOjBNRZyOriKjpkFrmwcPgBuiQuwHuDqrFWezMEi1WwEllPRu6FwrH4htsa2t+hldN2c6EtIovmroPtf6JE0nkI5RCZV304OGyGMGz38O0pNmkSXu50FlxSpYWd0yVuaNj06umSIFOv4mdHBgURk4/TJJnKqvhQ54+jXs=,iv:siw47qY/RrvWLXfy8lMSnJUnPzp6YQvwjITvFdGobjs=,tag:tvLcqSaHtk+RcnB8ZUCv2Q==,type:str]
     unencrypted_suffix: _unencrypted
-    version: 3.10.2
+    version: 3.13.3

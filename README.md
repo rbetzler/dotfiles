@@ -4,7 +4,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
 
 #### Install
 
-1. Run main installs on new machine
+1. Run main installs on new machine.
     ```bash
     sudo -i exit
     # Install git and ansible, clone dotfiles
@@ -12,7 +12,12 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     # Install via playbooks
     ansible-playbook ~/.playbooks/machines/laptop.yaml --ask-become-pass --limit localhost -i ~/.playbooks/inventory.yaml
     ```
-2. Configure browser plugins. TODO Move into dotfiles.
+2. Install mise tools.
+    ```bash
+    mise trust
+    mise install
+    ```
+3. Configure browser plugins. TODO Move into dotfiles.
     * Authenticator
     * Bitwarden
     * [Firefox](https://addons.mozilla.org/en-US/firefox/addon/dracula-dark-colorscheme/)
@@ -25,23 +30,8 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
         map K previousTab
         map J nextTab
         ```
-3. Update ssh key on Github
-4. Update git remote on new machine
+4. Update ssh key on Github.
+5. Install optional extras.
     ```bash
-    git remote add origin git@github.com:rbetzler/dotfiles.git
-    git pull origin master
-    ```
-5. Clone private repos
-    ```bash
-    export BW_PASSWORD='[PASSWORD]'
-    bw config server http[s]://[URL]:[PORT]
-    bw login '[USERNAME]'
-    export BW_SESSION="$(bw unlock --passwordenv BW_PASSWORD --raw)"
-    export FNOX_PROFILE=installer
-    fnox exec -- ansible-playbook ~/.playbooks/common/git_private.yaml --ask-become-pass --limit localhost -i ~/.playbooks/inventory.yaml
-    ```
-6. Install mise tools
-    ```bash
-    mise trust
-    mise install
+    sops ~/.encrypted/install_post.sh.enc
     ```
