@@ -7,5 +7,22 @@ recipients = [
 [providers.bitwarden]
 type = "bitwarden"
 
+[secrets]
+CHHOST = { default = "localhost" }
+CHPORT = { default = "9000" }
+CHUSER = { default = "default" }
+CHPASSWORD = { default = "password" }
+CLICKHOUSE_USER = { default = "default" }
+CLICKHOUSE_PASSWORD = { default = "password" }
+
+OLLAMA_HOST = { default = "http://desktop.local:11434" }
+OLLAMA_CONTEXT_LENGTH = { default = "64000" }
+
+PGHOST = { default = "localhost" }
+PGPORT = { default = "5432" }
+PGDATABASE = { default = "postgres" }
+PGUSER = { default = "postgres" }
+PGPASSWORD = { default = "password" }
+
 [profiles.installer.secrets]
 ANSIBLE_SOPS_AGE_KEY = { provider = "bitwarden", value = "sops_age_common_0/notes" }
