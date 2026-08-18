@@ -3,6 +3,7 @@ idiomatic_version_file_enable_tools = ["python"]
 experimental = true
 
 [env]
+_.python.venv = { path = ".venv", create = true, uv_create_args = ['--seed'] }
 SOPS_AGE_KEY_FILE = "~/.config/sops/age/keys.txt"
 FNOX_AGE_KEY_FILE = "~/.config/sops/age/keys.txt"
 
@@ -11,4 +12,11 @@ FNOX_SHELL_OUTPUT = "none"
 
 [tools]
 fnox = "latest"
+python = "3.13"
 usage = "latest"
+uv = "0.11"
+
+[tasks."python:install"]
+run = [
+  "uv sync",
+]

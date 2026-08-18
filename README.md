@@ -16,6 +16,7 @@ Borrowed extensively and shamelessly from https://github.com/stpierre/dotfiles (
     ```bash
     mise trust
     mise install
+    mise task run install
     ```
 3. Configure browser plugins. TODO Move into dotfiles.
     * Authenticator

@@ -1,2 +1,2 @@
 ---
-ansible_python_interpreter: "{{ lookup('ansible.builtin.env', 'HOME') }}/venv/bin/python3"
+ansible_python_interpreter: "{{ lookup('ansible.builtin.env', 'HOME') }}/.venv/bin/python3"

@@ -1,4 +1,4 @@
-vim.g.python3_host_prog = "~/venv/bin/python"
+vim.g.python3_host_prog = "~/.venv/bin/python"
 
 -- Syntax highlighting
 vim.g.python_highlight_all = 1

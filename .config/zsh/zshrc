@@ -101,9 +101,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$HOME/.local/bin:$PATH"
 eval "$(pyenv init --path)"
 
-# Activate home python venv last
-source ${HOME}/venv/bin/activate
-
 # Mise
 eval "$(mise activate zsh)"
 eval "$(fnox activate zsh)"

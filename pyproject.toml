@@ -1,3 +1,53 @@
+[project]
+name = "dotfiles"
+version = "0.0.0"
+description = "Global python dependencies"
+readme = "README.md"
+# requires-python = ">=3.13"
+dependencies = [
+  "black",
+  "boto3",
+  "botocore",
+  "build",
+  "bump2version",
+  "cookiecutter",
+  "coverage",
+  "cron-descriptor",
+  "dbt-bigquery",
+  "dbt-clickhouse",
+  "dbt-core>=1",
+  "dbt-postgres",
+  "doq",
+  "duckdb",
+  "flake8",
+  "graphviz",
+  "grip",
+  "ipdb",
+  "ipython>=8.10",
+  "jc",
+  "jedi",
+  "jinja2-cli",
+  "keyring",
+  "libcst",
+  "pandas",
+  "pre-commit",
+  "pudb",
+  "pulumi",
+  "pymysql",
+  "pynvim",
+  "pytest",
+  "shellcheck-py",
+  "sqlalchemy",
+  "sqlfluff",
+  "sqlit-tui",
+  "sqlfmt",
+  "twine",
+  "wheel",
+  "yamllint",
+  "yapf",
+  "yq",
+]
+
 [tool.yamlfix]
 line_length = 180
 sequence_style = "block_style"
