@@ -16,6 +16,7 @@
           - python
           - python-pip
           - python-virtualenv
+          - rust
           - terminator
           - wget
           - zsh
