@@ -1,0 +1,16 @@
+# May need to follow up with dbt specific tags
+# `go install -tags 'clickhouse' github.com/xo/usql@main`
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Install golang
+      become: true
+      community.general.pacman:
+        state: present
+        name:
+          - go
+    - name: Install packages
+      community.general.golang_package:
+        name:
+          - github.com/xo/usql@latest
