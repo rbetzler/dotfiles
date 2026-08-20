@@ -17,7 +17,7 @@
           - python-pip
           - python-virtualenv
           - rust
-          - terminator
+          # - terminator
           - wget
           - zsh
     - name: Install hyprland, etc
@@ -51,22 +51,22 @@
       community.general.pacman:
         state: present
         name:
-          - bat
+          # - bat
           - dysk
-          - eza
-          - fd
-          - fzf
+          # - eza
+          # - fd
+          # - fzf
           - gawk
-          - git-delta
-          - glow
+          # - git-delta
+          # - glow
+          # - go-yq
           - graphviz
           - htop
-          - jq
+          # - jq
           - pwgen
-          - sd
+          # - sd
           - unzip
-          - yazi
-          - go-yq
+          # - yazi
     - name: Install xorg (for zoom mainly)
       become: true
       community.general.pacman:
@@ -84,24 +84,24 @@
       community.general.pacman:
         state: present
         name:
-          - act
-          - age
-          - argocd
-          - aws-cli
-          - bc
+          # - act
+          # - age
+          # - argocd
+          # - aws-cli
+          # - bc
           - bind
-          - bitwarden-cli
+          # - bitwarden-cli
           - copyq
           - dbeaver
           - direnv
           - dpkg
-          - github-cli
+          # - github-cli
           - gparted
-          - helm
-          - kubectl
+          # - helm
+          # - kubectl
           - libreoffice-still
           # Extra req for uv
-          - libxcrypt-compat
+          # - libxcrypt-compat
           - minikube
           - mise
           # - mysql
@@ -109,22 +109,22 @@
           - networkmanager-openvpn
           # - nodejs
           - nvm
-          - obsidian
+          # - obsidian
           - ollama
           - openvpn
-          - pandoc-cli
+          # - pandoc-cli
           - pgcli
-          - pulumi
+          # - pulumi
           - pyenv
           - rpi-imager
-          - sops
+          # - sops
           - tk
           - tree
           # - usage
-          - uv
+          # - uv
           - whois
           - xclip
-          - yarn
+          # - yarn
           # - ydotool
     - name: Install audio
       become: true
@@ -196,14 +196,14 @@
           - slack-desktop
           - spotify
           - zoom
-    - name: Install work cli tooling
-      kewlfft.aur.aur:
-        use: yay
-        name:
-          - google-cloud-cli
-          - google-cloud-cli-gke-gcloud-auth-plugin
-          # - jira-cli
-          # - opencode-bin
+    # - name: Install work cli tooling
+    #   kewlfft.aur.aur:
+    #     use: yay
+    #     name:
+    #       - google-cloud-cli
+    #       - google-cloud-cli-gke-gcloud-auth-plugin
+    #       - jira-cli
+    #       - opencode-bin
     - name: Install dracula aesthetics
       kewlfft.aur.aur:
         use: yay
@@ -219,7 +219,7 @@
       kewlfft.aur.aur:
         use: yay
         name:
-          - argo-bin
+          # - argo-bin
           - autojump-rs
           - clickhouse
           - tre-command
