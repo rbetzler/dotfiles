@@ -3,6 +3,7 @@
 #    ```
 #    sudo apt install --yes curl
 #    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+#    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> ~/.bashrc
 #    ```
 # 2. Optional. Install, start ssh server
 #    ```
@@ -63,6 +64,7 @@
         state: present
         update_homebrew: yes
         name:
+          # - age
           # - argo
           # - argocd
           - autojump
