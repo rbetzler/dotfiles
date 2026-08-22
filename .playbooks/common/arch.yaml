@@ -108,7 +108,7 @@
           - ncspot
           - networkmanager-openvpn
           # - nodejs
-          - nvm
+          # - nvm
           # - obsidian
           - ollama
           - openvpn

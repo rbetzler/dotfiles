@@ -41,7 +41,7 @@
     - name: Install pi coding agent
       community.general.npm:
         name: '@earendil-works/pi-coding-agent'
-        executable: /usr/bin/npm
+        # executable: /usr/bin/npm
         global: true
     - name: Create pi dirs
       ansible.builtin.file:
