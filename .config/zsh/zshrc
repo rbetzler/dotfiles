@@ -3,6 +3,10 @@ export STARSHIP_CACHE=~/.cache/starship/logs/zsh
 export STARSHIP_CONFIG=~/.config/starship/config.toml
 eval "$(starship init zsh)"
 
+# Mise
+eval "$(mise activate zsh)"
+eval "$(fnox activate zsh)"
+
 source $HOME/repos/antidote/antidote.zsh
 # Generate antidote plugin cache if it does not exist
 [[ -f "$HOME/.config/antidote/zsh_plugins.zsh" ]] || antidote-load "$HOME/.config/antidote/zsh_plugins.txt"
@@ -103,10 +107,6 @@ eval "$(pyenv init --path)"
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# Mise
-eval "$(mise activate zsh)"
-eval "$(fnox activate zsh)"
 
 source $HOME/.config/zsh/aliases.sh
 source $HOME/.config/zsh/history.sh
