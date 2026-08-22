@@ -1,7 +1,7 @@
 {
   "providers": {
     "ollama": {
-      "baseUrl": "http://desktop.local:11434/v1",
+      "baseUrl": "https://desktop.local:8088/v1",
       "api": "openai-completions",
       "apiKey": "ollama",
       "models": [

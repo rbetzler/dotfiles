@@ -1,5 +1,8 @@
 FROM node:24-bookworm-slim
 
+COPY --from=certs ./desktop.local.crt /usr/local/share/ca-certificates/
+ENV NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/desktop.local.crt
+
 RUN apt-get update && \
   apt-get install -y --no-install-recommends bash ca-certificates git ripgrep fd-find && \
   rm -rf /var/lib/apt/lists/*
@@ -13,6 +16,8 @@ RUN git clone https://github.com/dracula/pi-coding-agent.git /opt/pi-coding-agen
 RUN mkdir -p /root/.pi/agent/themes/ /root/.pi/agent/skills/
 RUN cp /opt/pi-coding-agent/dracula.json /root/.pi/agent/themes/dracula.json
 RUN cp -r /opt/superpowers/skills/ /root/.pi/agent/skills/superpowers/
+
+RUN update-ca-certificates
 
 RUN npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 RUN pi install npm:pi-intercom && \

@@ -15,7 +15,7 @@ CHPASSWORD = { default = "password" }
 CLICKHOUSE_USER = { default = "default" }
 CLICKHOUSE_PASSWORD = { default = "password" }
 
-OLLAMA_HOST = { default = "http://desktop.local:11434" }
+OLLAMA_HOST = { default = "https://desktop.local:8088" }
 OLLAMA_CONTEXT_LENGTH = { default = "64000" }
 
 PGHOST = { default = "localhost" }
