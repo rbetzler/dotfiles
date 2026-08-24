@@ -6,10 +6,3 @@ localhost:
 pi:
   hosts:
     pi:
-ubuntu:
-  hosts:
-    ubuntu:
-servers:
-  hosts:
-    pi:
-    ubuntu:

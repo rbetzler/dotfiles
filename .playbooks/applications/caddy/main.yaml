@@ -30,9 +30,6 @@
               tls internal
           }
           {{ item.server_address }} {
-              handle_path /nextcloud/* {
-                  reverse_proxy http://192.168.1.170:9002
-              }
               handle_path /vault/* {
                   reverse_proxy http://192.168.1.170:8080
               }

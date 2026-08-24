@@ -1,15 +1,6 @@
 ---
-- hosts: servers
+- hosts: pi
   tasks:
-    - name: Mount disk
-      when: inventory_hostname in groups['ubuntu']
-      become: true
-      ansible.posix.mount:
-        path: /media/
-        src: /dev/sda3
-        fstype: ext4
-        state: mounted
-        opts: defaults
     - name: Create minio dir
       ansible.builtin.file:
         path: "{{ item }}"
@@ -23,11 +14,11 @@
           ---
           services:
             minio:
-              image: minio/minio
+              image: pgsty/minio
               command: server /data --console-address ":9001"
               restart: unless-stopped
               volumes:
-                - {{ '/media/storage0/' if inventory_hostname in groups['ubuntu'] else '~/apps/minio/data/' }}:/data
+                - ~/apps/minio/data/:/data
               # File is manually written to host
               # https://hub.docker.com/r/bitnami/minio
               env_file: ~/apps/minio/defaults.env
