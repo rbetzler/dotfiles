@@ -6,6 +6,9 @@
       "apiKey": "ollama",
       "models": [
         {
+          "id": "ornith-1.5:9b"
+        },
+        {
           "id": "north-mini-code-1.0:q4_K_M"
         },
         {

@@ -1,5 +1,5 @@
 {
   "theme": "dracula",
   "defaultProvider": "ollama",
-  "defaultModel": "gemma4:12b"
+  "defaultModel": "ornith-1.5:9b"
 }
