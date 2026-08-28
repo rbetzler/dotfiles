@@ -38,11 +38,11 @@
     #     src: '{{ ansible_env.HOME }}/repos/obra-superpowers/skills'
     #     dest: '{{ ansible_env.HOME }}/.config/opencode/skills/superpowers'
     #     state: link
-    - name: Install pi coding agent
-      community.general.npm:
-        name: '@earendil-works/pi-coding-agent'
-        # executable: /usr/bin/npm
-        global: true
+    # - name: Install pi coding agent
+    #   community.general.npm:
+    #     name: '@earendil-works/pi-coding-agent'
+    #     executable: /usr/bin/npm
+    #     global: true
     - name: Create pi dirs
       ansible.builtin.file:
         state: directory
