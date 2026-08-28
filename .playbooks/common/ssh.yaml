@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
   tasks:
     - name: Sync ssh server config
       become: true
@@ -20,3 +20,9 @@
         name: sshd.service
         enabled: false
         state: restarted
+    - name: Generate git signature keypair
+      community.crypto.openssh_keypair:
+        path: ~/.ssh/signature
+        type: ed25519
+        private_key_format: auto
+        regenerate: fail
