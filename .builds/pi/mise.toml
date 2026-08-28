@@ -1,0 +1,38 @@
+
+[env]
+_.python.venv = { path = ".venv", create = true, uv_create_args = ['--seed'] }
+
+[tools]
+age = "latest"
+aws = "latest"
+fd = "latest"
+fzf = "latest"
+gcloud = "latest"
+gh = "latest"
+jq = "latest"
+kubectl = "latest"
+helm = "latest"
+node = "latest"
+npm = "latest"
+pi = "latest"
+pulumi = "latest"
+python = "3.13"
+rust = "latest"
+sd = "latest"
+sops = "latest"
+usage = "latest"
+uv = "0.11"
+yq = "latest"
+
+[tasks."pi:install"]
+run = [
+  "pi install npm:pi-intercom",
+  "pi install npm:pi-markdown-preview",
+  "pi install npm:pi-prompt-template-model",
+  "pi install npm:pi-subagents",
+]
+
+[tasks."python:install"]
+run = [
+  "uv sync",
+]

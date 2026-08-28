@@ -1,0 +1,24 @@
+[project]
+name = "dotfiles"
+version = "0.0.0"
+description = "Global python dependencies"
+readme = "README.md"
+dependencies = [
+  "boto3",
+  "build",
+  "dbt-bigquery",
+  "dbt-clickhouse",
+  "dbt-core",
+  "dbt-postgres",
+  "duckdb",
+  "graphviz",
+  "grip",
+  "ipdb",
+  "ipython",
+  "jinja2-cli",
+  "keyring",
+  "pandas",
+  "pulumi",
+  "pytest",
+  "sqlalchemy",
+]
