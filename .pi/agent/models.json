@@ -6,6 +6,9 @@
       "apiKey": "ollama",
       "models": [
         {
+          "id": "mistral-small3.2:latest"
+        },
+        {
           "id": "ornith-1.5:9b"
         },
         {
