@@ -28,6 +28,7 @@ dependencies = [
   "jedi",
   "jinja2-cli",
   "keyring",
+  "keyrings-google-artifactregistry-auth",
   "libcst",
   "pandas",
   "pre-commit",
