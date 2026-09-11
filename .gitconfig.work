@@ -1,0 +1,9 @@
+
+[user]
+    signingkey = ~/.ssh/signature.pub
+
+[commit]
+    gpgsign = true
+
+[gpg]
+    format = ssh

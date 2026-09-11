@@ -1,14 +1,12 @@
 [user]
     name = rbetzler
     email = rbetzler94@gmail.com
-    signingkey = ~/.ssh/signature.pub
 
 [core]
     excludesfile = ~/.gitignore.global
     pager = delta
 
 [commit]
-    gpgsign = true
     template = ~/.gitcommit.template
 
 [color]
@@ -27,9 +25,6 @@
 
 [diff]
     renameLimit = 10000
-
-[gpg]
-    format = ssh
 
 [interactive]
     diffFilter = delta --color-only
@@ -366,3 +361,6 @@
 
 [advice]
     detachedHead = false
+
+[includeIf "gitdir:~/repos/work/"]
+    path = ~/.gitconfig.work
