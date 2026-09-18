@@ -56,7 +56,7 @@ keybind = alt+page_down=scroll_page_lines:10
 keybind = alt+i=scroll_page_lines:-10
 keybind = alt+u=scroll_page_lines:10
 
-keybind = alt++=increase_font_size:1
+keybind = alt+shift+==increase_font_size:1
 keybind = alt+==increase_font_size:1
 keybind = alt+-=decrease_font_size:1
 keybind = alt+_=decrease_font_size:1
