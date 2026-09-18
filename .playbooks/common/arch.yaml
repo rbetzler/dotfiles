@@ -64,6 +64,7 @@
           - htop
           - informant
           # - jq
+          - presenterm
           - pwgen
           # - sd
           - unzip
