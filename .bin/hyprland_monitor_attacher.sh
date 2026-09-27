@@ -11,8 +11,8 @@ monitors=$(hyprctl monitors -j | jq -r '.[]."name"')
 if echo "$monitors" | grep --quiet --basic-regexp '^DP-1'; then
 if echo "$monitors" | grep --quiet --basic-regexp '^DP-3'; then
   hyprctl keyword monitor "eDP-1, disable"
-  hyprctl keyword monitor "DP-1, 1920x1080, 1920x0, 1"
-  hyprctl keyword monitor "DP-3, 2560x1440, 3840x0, 1"
+  hyprctl keyword monitor "DP-1, 1920x1080, 1920x0, 1, transform, 3"
+  hyprctl keyword monitor "DP-3, 2560x1440, 3000x0, 1"
   hyprctl dispatch moveworkspacetomonitor  1 DP-1
   hyprctl dispatch moveworkspacetomonitor  2 DP-1
   hyprctl dispatch moveworkspacetomonitor  3 DP-1
@@ -26,8 +26,8 @@ if echo "$monitors" | grep --quiet --basic-regexp '^DP-3'; then
   restart_waybar
 elif echo "$monitors" | grep --quiet --basic-regexp '^HDMI-A-1'; then
   hyprctl keyword monitor "eDP-1, disable"
-  hyprctl keyword monitor "DP-1, 1920x1080, 1920x0, 1"
-  hyprctl keyword monitor "HDMI-A-1, 2560x1440, 3840x0, 1"
+  hyprctl keyword monitor "DP-1, 1920x1080, 1920x0, 1, transform, 3"
+  hyprctl keyword monitor "HDMI-A-1, 2560x1440, 3000x0, 1"
   hyprctl dispatch moveworkspacetomonitor  1 DP-1
   hyprctl dispatch moveworkspacetomonitor  2 DP-1
   hyprctl dispatch moveworkspacetomonitor  3 DP-1
@@ -41,7 +41,7 @@ elif echo "$monitors" | grep --quiet --basic-regexp '^HDMI-A-1'; then
   restart_waybar
 else
   hyprctl keyword monitor "eDP-1, disable"
-  hyprctl keyword monitor "DP-1, 1920x1080, 1920x0, 1"
+  hyprctl keyword monitor "DP-1, 1920x1080, 1920x0, 1, transform, 3"
   hyprctl dispatch moveworkspacetomonitor  1 DP-1
   hyprctl dispatch moveworkspacetomonitor  2 DP-1
   hyprctl dispatch moveworkspacetomonitor  3 DP-1
