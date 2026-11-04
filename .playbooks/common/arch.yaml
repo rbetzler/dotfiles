@@ -36,7 +36,7 @@
           - pavucontrol
           - rofi
           - swaync
-          - waybar
+          # - waybar
           - xdg-desktop-portal-hyprland
     - name: Install aesthetic helpers
       become: true
@@ -197,6 +197,8 @@
         name:
           - slack-desktop
           - spotify
+          # Patch bug about clickable buttons post-lua migration
+          - waybar-git
           - zoom
     # - name: Install work cli tooling
     #   kewlfft.aur.aur:

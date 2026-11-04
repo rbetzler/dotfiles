@@ -21,7 +21,9 @@
   "hyprland/workspaces": {
     "format": "{name}",
     "sort-by-number": true,
+    "all-outputs": true,
     "active-only": false,
+    "persistent-only": false,
   },
   "clock": {
     "format": "{:%Y-%m-%d %I:%M}",
