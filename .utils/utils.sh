@@ -289,3 +289,57 @@ dkpi() {
     "$@"
   set +x
 }
+
+dkomp() {
+  local mount_current_dir=false
+  local mount_auth_dir=false
+  local mount_omp_dir=false
+  local name=""
+
+  local -a docker_args
+  docker_args=(-it)
+
+  local opt
+  OPTIND=1
+  while getopts "parn:" opt; do
+    case "$opt" in
+      p) mount_current_dir=true ;;
+      a) mount_auth_dir=true ;;
+      r) mount_omp_dir=true ;;
+      n) container_name="$OPTARG" ;;
+      *)
+        print "Usage: dkomp [-n NAME] [-p] [-a] [-r] [COMMAND]"
+        print "  -p  Mount the present working directory"
+        print "  -a  Mount auth credentials"
+        print "  -r  Mount the root omp config directory"
+        print "  -n  Set Docker container name NAME"
+        return 1
+        ;;
+    esac
+  done
+
+  shift $((OPTIND - 1))
+
+  [[ $mount_current_dir == true ]] && \
+    docker_args+=(--volume "$PWD:/workspace")
+
+  # [[ $mount_auth_dir == true ]] && \
+  #   docker_args+=(--volume "$HOME/.omp/agent/auth.json:/root/.omp/agent/auth.json")
+
+  [[ $mount_omp_dir == true ]] && docker_args+=(
+    --volume "$HOME/.omp:/root/.omp"
+  )
+
+  if [[ -n $container_name ]]; then
+    docker_args+=(--name "$container_name")
+  else
+    docker_args+=(--rm)
+  fi
+
+  set -x
+  docker run \
+    "${docker_args[@]}" \
+    omp:latest \
+    "$@"
+  set +x
+}

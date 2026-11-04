@@ -1,0 +1,20 @@
+setupVersion: 2
+theme:
+  dark: dark-dracula
+modelRoles:
+  default: ollama/nemotron-3.5-bolt:e4b:high
+  speech: local/kokoro
+  dictation: local/parakeet-tdt-0.6b-v3
+startup:
+  quiet: true
+browser:
+  relay: true
+web_search:
+  enabled: false
+stt:
+  enabled: true
+  submitTrigger: never
+speechgen:
+  enabled: false
+speech:
+  enabled: false
