@@ -4,7 +4,7 @@ theme:
 modelRoles:
   default: ollama/nemotron-3.5-bolt:e4b:high
   speech: local/kokoro
-  dictation: local/parakeet-tdt-0.6b-v3
+  dictation: local/whisper-small
 startup:
   quiet: true
 browser:

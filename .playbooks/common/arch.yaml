@@ -195,6 +195,7 @@
       kewlfft.aur.aur:
         use: yay
         name:
+          - openwhispr-bin
           - slack-desktop
           - spotify
           # Patch bug about clickable buttons post-lua migration

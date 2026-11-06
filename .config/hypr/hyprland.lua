@@ -216,4 +216,3 @@ hl.config({
         inactive_timeout = 5,
     },
 })
-

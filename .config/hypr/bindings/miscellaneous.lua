@@ -49,3 +49,5 @@ hl.window_rule({
     no_focus = true,
 })
 
+-- Openwhispr
+hl.bind("ALT + S", hl.dsp.exec_cmd("dbus-send --session --type=method_call --dest=com.openwhispr.App /com/openwhispr/App com.openwhispr.App.Toggle"))
