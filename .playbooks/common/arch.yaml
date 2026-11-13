@@ -46,6 +46,7 @@
           - nerd-fonts
           - gnome-themes-extra
           - gnome-tweaks
+          - wtype
     - name: Install cli tooling
       become: true
       community.general.pacman:
