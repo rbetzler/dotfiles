@@ -34,6 +34,25 @@
           - docker
           - docker-buildx
           - docker-compose
+    - name: Download, install nvidia gpg key
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.get_url:
+        url: https://github.io
+        dest: /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+        mode: '0644'
+    - name: Install nvidia container toolkit
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.apt:
+        state: present
+        update_cache: true
+        name:
+          - nvidia-container-toolkit
+    - name: Configure nvidia container toolkit runtime
+      when: ansible_facts["distribution"] == "Ubuntu"
+      become: true
+      ansible.builtin.command: nvidia-ctk runtime configure --runtime=docker
     - name: Enable, start docker service
       become: true
       ansible.builtin.systemd_service:
