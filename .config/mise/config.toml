@@ -11,6 +11,7 @@ BUILDX_BAKE_ENTITLEMENTS_FS = "0"
 FNOX_SHELL_OUTPUT = "none"
 
 [tools]
+7z = "latest"
 age = "latest"
 argo = "latest"
 argocd = "latest"
