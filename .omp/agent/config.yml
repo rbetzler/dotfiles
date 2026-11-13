@@ -1,4 +1,4 @@
-setupVersion: 2
+setupVersion: 3
 theme:
   dark: dark-dracula
 modelRoles:
@@ -18,3 +18,5 @@ speechgen:
   enabled: false
 speech:
   enabled: false
+update:
+  auto: false
