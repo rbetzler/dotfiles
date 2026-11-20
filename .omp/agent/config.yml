@@ -10,7 +10,7 @@ startup:
 browser:
   relay: true
 web_search:
-  enabled: false
+  enabled: true
 stt:
   enabled: true
   submitTrigger: never
